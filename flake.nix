@@ -66,7 +66,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs-master";
     # };
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    ghostty.url = "github:ghostty-org/ghostty";
+    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    # ghostty.url = "github:ghostty-org/ghostty";
   };
 }

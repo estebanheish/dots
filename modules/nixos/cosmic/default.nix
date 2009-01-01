@@ -1,11 +1,11 @@
 {
-  inputs,
+  # inputs,
   user,
   pkgs,
   ...
 }: {
   imports = [
-    inputs.nixos-cosmic.nixosModules.default
+    # inputs.nixos-cosmic.nixosModules.default
   ];
   environment.localBinInPath = true;
   services.desktopManager.cosmic.enable = true;
@@ -30,10 +30,10 @@
       recursive = true;
       executable = true;
     };
-    services.cliphist.enable = true;
-    home.packages = with pkgs; [
-      kooha
-      wl-clipboard
-    ];
+    # services.cliphist.enable = true;
+    # home.packages = with pkgs; [
+    #   kooha
+    #   wl-clipboard
+    # ];
   };
 }

@@ -1,9 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  home.packages = with pkgs; [inputs.ghostty.packages.${pkgs.system}.default monaspace];
+{pkgs, ...}: {
+  home.packages = with pkgs; [ghostty monaspace];
   xdg.configFile."ghostty/config".text = ''
     font-family = Monaspace Xenon
     font-size = 14

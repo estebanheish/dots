@@ -13,7 +13,7 @@
     # ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
     ../../modules/nixos/corne-udev
-    ../../modules/nixos/hyprland
+    ../../modules/nixos/cosmic
   ];
 
   home-manager.users.${user} = {
@@ -29,6 +29,7 @@
       # helvum
       # easyeffects
       # obs-studio
+      qbittorrent
 
       tdesktop
       # vesktop
@@ -55,7 +56,7 @@
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nyx";
 
   # services
