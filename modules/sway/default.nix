@@ -27,7 +27,7 @@ in {
         bemenu
         wev
         bashmount
-        autotilling
+        autotiling
         libnotify
         waypipe
         wl-clipboard
