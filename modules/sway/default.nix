@@ -10,8 +10,35 @@ in {
   };
 
   config = mkIf cfg.enable {
+
     programs.xwayland.enable = true;
-    programs.sway.enable = true;
+    programs.sway = {
+      enable = true;
+      extraPackages = with pkgs; [
+        mako
+        #waybar
+        zathura
+        qutebrowser
+        neovim
+        mpv
+        mpd
+        swaylock
+        swayidle
+        bemenu
+        wev
+        bashmount
+        autotilling
+        libnotify
+        waypipe
+        wl-clipboard
+        clipman
+        grim slurp wf-recorder swappy
+        pulsemixer pamixer
+        material-design-icons font-awesome
+        imv mpc_cli
+        pass-wayland
+      ];
+    };
     
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
     
@@ -39,8 +66,14 @@ in {
     hm.xdg.configFile = {
       "sway" = {
         source = ./../../config/sway;
-	recursive = true;
+	    recursive = true;
       };
+      "foot" = {
+        source = ./../../config/foot;
+        recursive = true;
+      };
+      "mako" = {
+        source = ./../../config/mako;
+        recursive = true;
     };
-  };
 }

@@ -38,5 +38,13 @@ in {
       extraOptions = "experimental-features = nix-command flakes";
     };
 
+    security = {
+      doas = {
+        enable = true;
+        extraConfig = "permit nopass :wheel";
+      };
+      sudo.enable = false;
+    };
+
   };
 }
