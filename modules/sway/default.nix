@@ -77,5 +77,5 @@ in {
         recursive = true;
       };
     };
-  }
+  };
 }
