@@ -75,5 +75,6 @@ in {
       "mako" = {
         source = ./../../config/mako;
         recursive = true;
+      };
     };
 }
