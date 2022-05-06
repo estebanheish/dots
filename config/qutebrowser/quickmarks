@@ -1,1 +1,14 @@
-/nix/store/cgp3rv9rkm2zwcl1mlwr81fz3qxxrxiy-home-manager-files/.config/qutebrowser/quickmarks
+amazon https://www.amazon.es
+docs https://docs.google.com/document
+drive https://drive.google.com/drive/my-drive
+github https://github.com
+gmail https://mail.google.com/mail
+icloud https://www.icloud.com
+lichess = https://lichess.org
+notion https://www.notion.so
+primevideo = https://www.primevideo.com
+reddit https://www.reddit.com
+streamable https://streamable.com
+traductor https://translate.google.com
+twitch https://www.twitch.tv
+twitter https://twitter.com
