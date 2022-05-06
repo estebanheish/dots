@@ -14,7 +14,7 @@ in {
     programs.xwayland.enable = true;
     modules.zathura.enable = true;
     modules.qutebrowser.enable = true;
-    #modules.mpv.enable = true;
+    modules.mpv.enable = true;
     programs.sway = {
       enable = true;
       extraPackages = with pkgs; [
