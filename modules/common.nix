@@ -22,6 +22,7 @@ in {
 
     modules = {
       core.packages.enable = true;
+      zsh.enable = true;
       lf.enable = true;
       broot.enable = true;
     };
