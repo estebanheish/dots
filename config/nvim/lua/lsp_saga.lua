@@ -1,1 +1,2 @@
-/nix/store/cgp3rv9rkm2zwcl1mlwr81fz3qxxrxiy-home-manager-files/.config/nvim/lua/lsp_saga.lua
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
