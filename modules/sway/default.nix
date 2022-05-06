@@ -14,6 +14,7 @@ in {
     programs.xwayland.enable = true;
     modules.zathura.enable = true;
     modules.qutebrowser.enable = true;
+    modules.neovim.enable = true;
     modules.mpv.enable = true;
     programs.sway = {
       enable = true;
@@ -23,7 +24,7 @@ in {
         foot
         zathura
         #qutebrowser
-        neovim
+        #neovim
         #mpv
         mpd
         swaylock

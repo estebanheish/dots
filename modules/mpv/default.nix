@@ -10,8 +10,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm.home.packages = [ pkgs.mpv; ];
-    hm.xdg.configFile."mpv/scripts" = { source = "./../../config/mpv/scripts"; recursive = true; };
+    hm.home.packages = [ pkgs.mpv ];
+    hm.xdg.configFile."mpv/scripts" = { source = ./../../config/mpv/scripts; recursive = true; };
   };
 
 }

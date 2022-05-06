@@ -6,8 +6,10 @@
     ./lf
     ./zsh
     ./xdg.nix
+    ./neovim
     ./sway
     ./zathura
     ./qutebrowser
+    ./mpv
   ];
 }

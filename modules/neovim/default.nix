@@ -1,4 +1,4 @@
-{ config, lib, pkgks, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let 
   cfg = config.modules.neovim;
@@ -13,7 +13,7 @@ in
     hm.programs.neovim = {
       enable = true;
 
-      plugins = with pkgs.vimPlugin; [
+      plugins = with pkgs.vimPlugins; [
         # basic
         vim-surround
         vim-commentary
@@ -55,7 +55,7 @@ in
         crates-nvim
       ];
 
-      extraPackages = 
+      extraPackages = [
       ];
 
     };
