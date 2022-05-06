@@ -17,9 +17,6 @@ in
       # downloads
       wget yt-dlp
 
-      # xdg
-      # xdg_utils xdg-user-dirs
-
       # audio
       alsaUtils
 

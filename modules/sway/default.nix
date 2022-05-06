@@ -12,6 +12,9 @@ in {
   config = mkIf cfg.enable {
 
     programs.xwayland.enable = true;
+    modules.zathura.enable = true;
+    modules.qutebrowser.enable = true;
+    modules.mpv.enable = true;
     programs.sway = {
       enable = true;
       extraPackages = with pkgs; [
@@ -19,9 +22,9 @@ in {
         #waybar
         foot
         zathura
-        qutebrowser
+        #qutebrowser
         neovim
-        mpv
+        #mpv
         mpd
         swaylock
         swayidle

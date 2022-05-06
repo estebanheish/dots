@@ -7,5 +7,7 @@
     ./zsh
     ./xdg.nix
     ./sway
+    ./zathura
+    ./qutebrowser
   ];
 }
