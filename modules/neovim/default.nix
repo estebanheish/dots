@@ -45,7 +45,7 @@ in
         # ...
         lspsaga-nvim
         #which-key-nvim
-        #neorg
+        neorg
         #plenary-nvim
 
 
@@ -81,7 +81,8 @@ in
         EOF
       '';
 
-      extraPackages = [
+      extraPackages = with pkgs; [
+        gcc
       ];
 
     };
