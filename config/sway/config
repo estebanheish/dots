@@ -18,7 +18,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run -i -p 'heis' \
+set $menu bemenu-run -i -p 'heis' -H 19 \
      --fn 'Ubuntu bold 11' \
      --tb '#EEFFFFff' \
      --tf '#212121ff' \
@@ -29,8 +29,7 @@ set $menu bemenu-run -i -p 'heis' \
      --hb '#EEFFFFff' \
      --hf '#212121ff' \
      --sb '#212121ff' \
-     --sf '#EEFFFFff' \ 
-     -H 19
+     --sf '#EEFFFFff' 
 
 ### Idle configuration
 #

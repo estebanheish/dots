@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.broot ];
-    hm.configFile."broot/conf.toml".source = ./../../config/broot/conf.toml;
+    hm.xdg.configFile."broot/conf.toml".source = ./../../config/broot/conf.toml;
   };
 
 }
