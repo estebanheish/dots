@@ -20,11 +20,18 @@ in {
 
     user.name = name;
 
+    modules = {
+      core.packages.enable = true;
+      lf.enable = true;
+      broot.enable = true;
+    };
+
     users.users.${config.user.name} = {
       isNormalUser = true;
       createHome = true;
       initialPassword = "hola";
-      extraGroups = [ "wheel" ];
+      shell = pkgs.zsh;
+      extraGroups = [ "wheel" "audio" "video" "networkmanager" "libvirt" ];
     };
 
     time.timeZone = "Europe/Madrid";
@@ -32,12 +39,14 @@ in {
     i18n.defaultLocale = "en_US.UTF-8";
     console.keyMap = "colemak";
 
+    nixpkgs.config.allowUnfree = true;
     nix = {
       settings.allowed-users = [ "@wheel" "heis" ];
       gc.automatic = true;
       extraOptions = "experimental-features = nix-command flakes";
     };
 
+    # doas instead of sudo
     security = {
       doas = {
         enable = true;

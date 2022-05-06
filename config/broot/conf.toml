@@ -1,0 +1,140 @@
+modal = false
+
+[[verbs]]
+execution = "$EDITOR +{line} {file}"
+invocation = "edit"
+shortcut = "e"
+
+[[verbs]]
+execution = "$EDITOR {directory}/{subpath}"
+invocation = "create {subpath}"
+
+[[verbs]]
+execution = "less {file}"
+invocation = "view"
+
+[[verbs]]
+execution = ":line_down"
+key = "ctrl-n"
+
+[[verbs]]
+execution = ":line_up"
+key = "ctrl-e"
+
+[[verbs]]
+execution = ":root_up"
+key = "ctrl-h"
+
+[[verbs]]
+apply_to = "file"
+execution = ":open_preview"
+key = "ctrl-i"
+
+[[verbs]]
+apply_to = "directory"
+execution = ":root_down"
+key = "ctrl-i"
+
+[[verbs]]
+execution = ":toggle_preview"
+key = "ctrl-p"
+
+[[verbs]]
+execution = ":panel_left"
+key = "alt-h"
+
+[[verbs]]
+execution = ":panel_right"
+key = "alt-i"
+
+[[verbs]]
+execution = ":next_match"
+key = "alt-n"
+
+[[verbs]]
+execution = ":previous_match"
+key = "alt-e"
+
+[[verbs]]
+execution = ":refresh"
+key = "ctrl-r"
+
+[[verbs]]
+execution = ":start_end_panel"
+key = "ctrl-o"
+
+[[verbs]]
+apply_to = "directory"
+execution = ":cd"
+key = "ctrl-w"
+
+[[verbs]]
+apply_to = "file"
+execution = ":open_leave"
+key = "ctrl-w"
+
+[[verbs]]
+apply_to = "file"
+execution = ":toggle_stage"
+key = "ctrl-space"
+
+[[verbs]]
+execution = ":quit"
+key = "alt-enter"
+
+[[verbs]]
+execution = ":cd"
+key = "ctrl-q"
+
+[[verbs]]
+execution = ":focus /etc/nixos"
+invocation = "gonix"
+shortcut = "gn"
+
+[[verbs]]
+execution = ":focus ~"
+invocation = "gohome"
+shortcut = "gh"
+
+[[verbs]]
+execution = ":focus /run/media"
+invocation = "gomedia"
+shortcut = "gm"
+
+[[verbs]]
+execution = ":focus ~/Downloads"
+invocation = "godownloads"
+shortcut = "gd"
+
+[[verbs]]
+execution = ":focus ~/Documents"
+invocation = "godocuments"
+shortcut = "gD"
+
+[[verbs]]
+execution = ":focus ~/Documents/Libros"
+invocation = "golibros"
+shortcut = "gl"
+
+[[verbs]]
+execution = ":focus ~/dev"
+invocation = "godev"
+shortcut = "gv"
+
+[[verbs]]
+execution = ":focus ~/Pictures"
+invocation = "gopictures"
+shortcut = "gP"
+
+[[verbs]]
+execution = ":focus ~/Videos"
+invocation = "govideos"
+shortcut = "gV"
+
+[[verbs]]
+execution = ":focus ~/Music"
+invocation = "gomusic"
+shortcut = "gM"
+
+[skin]
+default = "none none"
