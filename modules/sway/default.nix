@@ -17,6 +17,7 @@ in {
       extraPackages = with pkgs; [
         mako
         #waybar
+        foot
         zathura
         qutebrowser
         neovim
