@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.zathura ];
-    hm.configFile."zathura/zathurarc".source = ./../../config/zathura/zathurarc;
+    hm.xdg.configFile."zathura/zathurarc".source = ./../../config/zathura/zathurarc;
   };
 
 }

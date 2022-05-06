@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.placeholder ];
-    hm.configFile."placeholder".source = ./../../config/placeholder;
+    hm.xdg.configFile."placeholder".source = ./../../config/placeholder;
   };
 
 }
