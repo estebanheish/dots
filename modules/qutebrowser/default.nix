@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     hm.home.packages = [ pkgs.qutebrowser ];
-    hm.configFile."qutebrowser" = { source = ./../../config/qutebrowser; recursive = true; };
+    hm.xdg.configFile."qutebrowser" = { source = ./../../config/qutebrowser; recursive = true; };
   };
 
 }
