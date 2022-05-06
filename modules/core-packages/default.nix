@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+with lib;
 let
   cfg = config.modules.core.packages;
 in
@@ -12,7 +13,7 @@ in
 
     environment.systemPackages = with pkgs; [
       # editors
-      nvim 
+      neovim 
 
       # downloads
       wget yt-dlp

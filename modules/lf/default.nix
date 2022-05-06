@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.lf ];
     environment.etc."lf/lfrc".source = ./../../config/lf/lfrc; # root
-    hm.configFile."lf/lfrc".source = ./../../config/lf/lfrc;
+    hm.xdg.configFile."lf/lfrc".source = ./../../config/lf/lfrc;
   };
 
 }
