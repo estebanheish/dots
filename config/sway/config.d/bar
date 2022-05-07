@@ -14,9 +14,9 @@ bar {
         background #212121
         separator #303030
         focused_workspace  #EEFFFF #82AAFF #212121
-        active_worspace    #EEFFFF #4A4A4A #212121
+        active_workspace    #EEFFFF #4A4A4A #212121
         inactive_workspace #4A4A4A #303030 #EEFFFF
-        urgent_worskspace  #F07178 #F07178 #212121
+        urgent_workspace  #F07178 #F07178 #212121
         binding_mode       #212121 #FFCB6B #212121
     }
 }
