@@ -1,0 +1,63 @@
+# sway
+bindsym $mod+Shift+g border toggle
+bindsym $mod+q exec makoctl dismiss --all
+
+# quick resize 
+bindsym $mod+u resize grow width 40px
+bindsym $mod+y resize shrink width 40px
+bindsym $mod+Shift+u resize grow height 40px
+bindsym $mod+Shift+y resize shrink height 40px
+
+# quick gaps 
+bindsym $mod+plus gaps inner all plus 1
+bindsym $mod+minus gaps inner all minus 1
+
+# browsers
+bindsym $mod+w exec qutebrowser
+bindsym $mod+Shift+w exec firefox
+
+bindsym $mod+x exec btm
+bindsym $mod+Shift+x exec nautilus
+
+bindsym $mod+Shift+s exec xdg-open "$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)"
+
+# Audio
+bindsym XF86AudioRaiseVolume exec pamixer -ui 2
+bindsym XF86AudioLowerVolume exec pamixer -ud 2 
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioMute+Shift exec pamixer --default-source -t
+bindsym $mod+backslash exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+a exec $term pulsemixer
+bindsym $mod+Shift+a exec $term alsamixer
+
+# mpd
+bindsym $mod+m exec $term ncmpcpp
+bindsym XF86AudioNext exec mpc next 
+bindsym XF86AudioPlay exec mpc toggle 
+bindsym XF86AudioPrev exec mpc prev 
+bindsym XF86AudioRaiseVolume+Shift exec mpc volume +2 
+bindsym XF86AudioLowerVolume+Shift exec mpc volume -2
+
+# power 
+bindsym $mod+Shift+F12 exec systemctl -i poweroff
+bindsym $mod+Shift+F11 exec systemctl -i reboot
+bindsym $mod+Shift+F10 exec swaylock -f -c 000000
+bindsym Menu exec swaylock -f -c 000000
+bindsym XF86ScreenSaver exec swaylock -f -c 000000
+bindsym $mod+Shift+Menu exec systemctl -i reboot
+bindsym $mod+Shift+Menu exec systemctl -i reboot
+
+# screenshots
+bindsym print exec grim -g "$(slurp)" - | wl-copy
+bindsym Shift+print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+bindsym Mod1+Tab exec swapy
+
+# screencast 
+# todo
+
+# backlight
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# yt-dlp
+# todo

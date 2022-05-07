@@ -1,5 +1,3 @@
-default_border pixel 2
-
 client.background #FFFFFF
 client.focused          #EEFFFF #82AAFF #212121 #82AAFF #82AAFF
 client.focused_inactive #303030 #303030 #EEFFFF #4A4A4A #303030
