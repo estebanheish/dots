@@ -12,10 +12,15 @@ in {
   config = mkIf cfg.enable {
 
     programs.xwayland.enable = true;
-    modules.zathura.enable = true;
-    modules.qutebrowser.enable = true;
-    modules.neovim.enable = true;
-    modules.mpv.enable = true;
+
+    modules = {
+      zathura.enable = true;
+      qutebrowser.enable = true;
+      neovim.enable = true;
+      mpv.enable = true;
+      i3-status-rust = true;
+    };
+
     programs.sway = {
       enable = true;
       extraPackages = with pkgs; [

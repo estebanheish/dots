@@ -1,0 +1,26 @@
+theme = "native"
+icons = "material"
+
+[[block]]
+block = "cpu"
+
+[[block]]
+block = "disk_space"
+
+[[block]]
+block = "sound"
+format = "ON"
+device_kind = "source"
+driver = "pulseaudio"
+
+[[block]]
+block = "sound"
+format = "{volume}"
+driver = "pulseaudio"
+
+[[block]]
+block = "time"
+format = "%a %d/%m %R"
+timezone = "Europe/Madrid"
+interval = 5
+locale = "en_US"

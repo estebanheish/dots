@@ -11,5 +11,6 @@
     ./zathura
     ./qutebrowser
     ./mpv
+    ./i3-status-rust
   ];
 }
