@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     hm.home.packages = [ pkgs.i3status-rust ];
-    hm.xdg.configFile."i3-status-rust".source = ./../../config/i3-status-rust/config.toml;
+    hm.xdg.configFile."i3status-rust/config.toml".source = ./../../config/i3status-rust/config.toml;
   };
 
 }

@@ -1,25 +1,25 @@
 bar {
 
-    font pango:Ubuntu, Bold 10.0
+    font Ubuntu Bold 10.0
     position top
 
-    height 17
+    height 19
     status_padding 0
 
-    status_command i3-status-rs ~/.config/i3-status-rust/config.toml
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
     colors {
         statusline #B2CCD6
         background #212121
         separator #303030
         focused_workspace  #EEFFFF #82AAFF #212121
-        active_workspace    #EEFFFF #4A4A4A #212121
+        active_workspace   #EEFFFF #4A4A4A #212121
         inactive_workspace #4A4A4A #303030 #EEFFFF
-        urgent_workspace  #F07178 #F07178 #212121
+        urgent_workspace   #F07178 #F07178 #212121
         binding_mode       #212121 #FFCB6B #212121
     }
 }
