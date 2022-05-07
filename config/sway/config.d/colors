@@ -1,0 +1,8 @@
+default_border pixel 2
+
+client.background #FFFFFF
+client.focused          #EEFFFF #82AAFF #212121 #82AAFF #82AAFF
+client.focused_inactive #303030 #303030 #EEFFFF #4A4A4A #303030
+client.unfocused        #303030 #212121 #EEFFFF #303030 #303030
+client.urgent           #F07178 #F07178 #212121 #F07178 #F07178
+client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c

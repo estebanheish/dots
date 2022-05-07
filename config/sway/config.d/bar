@@ -1,6 +1,6 @@
 bar {
 
-    font Ubuntu Bold 10.0
+    font pango:Ubuntu Bold 10.0
     position top
 
     height 19
