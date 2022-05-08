@@ -19,9 +19,13 @@ in {
   config = {
 
     user.name = name;
+    time.timeZone = "Europe/Madrid";
+    i18n.defaultLocale = "en_US.UTF-8";
+    console.keyMap = "colemak";
+    system.stateVersion = "21.11";
 
     modules = {
-      core.packages.enable = true;
+      packages.core.enable = true;
       zsh.enable = true;
       lf.enable = true;
       broot.enable = true;
@@ -35,15 +39,11 @@ in {
       extraGroups = [ "wheel" "audio" "video" "networkmanager" "libvirt" ];
     };
 
-    time.timeZone = "Europe/Madrid";
-    system.stateVersion = "21.11";
-    i18n.defaultLocale = "en_US.UTF-8";
-    console.keyMap = "colemak";
-
     nixpkgs.config.allowUnfree = true;
     nix = {
       settings.allowed-users = [ "@wheel" "heis" ];
       gc.automatic = true;
+      optimise.automatic = true;
       extraOptions = "experimental-features = nix-command flakes";
     };
 

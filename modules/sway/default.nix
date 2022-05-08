@@ -14,6 +14,7 @@ in {
     programs.xwayland.enable = true;
 
     modules = {
+      pipewire.enable = true;
       zathura.enable = true;
       qutebrowser.enable = true;
       neovim.enable = true;
@@ -25,12 +26,13 @@ in {
       enable = true;
       extraPackages = with pkgs; [
         mako
-        #waybar
         foot
-        zathura
+        #waybar
+        #zathura
         #qutebrowser
         #neovim
         #mpv
+        #i3status-rust
         mpd
         swaylock
         swayidle

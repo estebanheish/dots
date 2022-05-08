@@ -1,7 +1,9 @@
 { 
   imports = [
     ./common.nix
-    ./core-packages
+    ./package-lists
+    ./silent-boot
+    ./pipewire
     ./broot
     ./lf
     ./zsh

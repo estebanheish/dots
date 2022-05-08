@@ -12,15 +12,14 @@
   modules.sway.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    killall
-    neovim
-    lf 
-    broot
-    firefox
   ];
+  
+  hardware.bluetooth.enable = true;
+  networking.wireless.enbale = true;
+  networking.networkmanager.enable = true;
+
+  # services
+  services.openssh.enable = true;
 
   # boot
   boot.loader.grub.enable = true;

@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.core.packages;
+  cfg = config.modules.packages.core;
 in
 {
 
   options = {
-    modules.core.packages.enable = mkEnableOption "core packages";
+    modules.packages.core.enable = mkEnableOption "core packages";
   };
 
   config = mkIf cfg.enable {
