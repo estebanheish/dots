@@ -18,7 +18,7 @@
   
   # networking 
   hardware.bluetooth.enable = true;
-  networking.wireless.iwd.enbale = true;
+  networking.iwd.enbale = true;
   systemd.network.enable = true;
 
   # services
