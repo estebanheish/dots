@@ -14,7 +14,7 @@ in {
     programs.xwayland.enable = true;
 
     modules = {
-      pipewire.enable = true;
+      sound-pipewire.enable = true;
       zathura.enable = true;
       qutebrowser.enable = true;
       neovim.enable = true;

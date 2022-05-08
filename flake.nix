@@ -24,7 +24,7 @@
       modules = modules ++ [ ./hosts/nyx ];
     };
 
-    nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.qemu = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = modules ++ [ ./hosts/qemu-vm ];
     };

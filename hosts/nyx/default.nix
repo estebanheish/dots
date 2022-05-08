@@ -9,20 +9,22 @@
 
   networking.hostName = "nyx";
 
-  modules.sway.enable = true;
+  modules = {
+    sway.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
   ];
   
+  # networking 
   hardware.bluetooth.enable = true;
-  networking.wireless.enbale = true;
-  networking.networkmanager.enable = true;
+  networking.wireless.iwd.enbale = true;
+  systemd.network.enable = true;
 
   # services
   services.openssh.enable = true;
 
   # boot
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/vda";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 }

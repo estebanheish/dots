@@ -14,5 +14,6 @@
     ./qutebrowser
     ./mpv
     ./i3status-rust
+    ./virtalization
   ];
 }

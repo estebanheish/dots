@@ -36,7 +36,7 @@ in {
       createHome = true;
       initialPassword = "hola";
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "audio" "video" "networkmanager" "libvirt" ];
+      extraGroups = [ "wheel" "audio" "video" ];
     };
 
     nixpkgs.config.allowUnfree = true;

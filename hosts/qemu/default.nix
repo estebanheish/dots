@@ -5,12 +5,13 @@
       (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  networking.hostName = "qemu-vm";
+  networking.hostName = "qemu";
 
-  modules.sway.enable = true;
-  modules.silent-boot.enable = true;
+  modules = {
+    sway.enable = true;
+    silent-boot.enable = true;
+  };
 
-  environment.systemPackages = with pkgs; [
-  ];
+  systemd.network.enable = true;
 
 }
