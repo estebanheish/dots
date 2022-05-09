@@ -11,6 +11,7 @@
 
   modules = {
     sway.enable = true;
+    packages.social.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -18,8 +19,9 @@
   
   # networking 
   hardware.bluetooth.enable = true;
-  networking.wireless.iwd.enable = true;
-  systemd.network.enable = true;
+  #networking.wireless.iwd.enable = true;
+  #systemd.network.enable = true;
+  networking.networkmanager.enable = true;
 
   # services
   services.openssh.enable = true;

@@ -5,17 +5,24 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/9cce70b0-bb99-44c0-b5be-b2b14bf6bc82";
+    { device = "/dev/disk/by-uuid/742c2426-aaf6-4bcc-98e8-e3d1584b072d";
       fsType = "ext4";
+    };
+
+  boot.initrd.luks.devices."heis".device = "/dev/disk/by-uuid/bb8ef29e-3ff3-4132-98a6-a42fe6b7d8e8";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/CBB6-C033";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];
@@ -24,7 +31,9 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = lib.mkDefault false;
-  networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
 
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
