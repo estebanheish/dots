@@ -33,7 +33,7 @@ in {
         #neovim
         #mpv
         #i3status-rust
-	firefox
+	    firefox-wayland
         mpd
         swaylock
         swayidle

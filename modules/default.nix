@@ -6,6 +6,7 @@
     ./pipewire
     ./broot
     ./lf
+    ./git
     ./zsh
     ./xdg.nix
     ./neovim

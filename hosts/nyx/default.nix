@@ -10,6 +10,7 @@
   networking.hostName = "nyx";
 
   modules = {
+    silent-boot.enable = true;
     sway.enable = true;
     packages.social.enable = true;
   };
