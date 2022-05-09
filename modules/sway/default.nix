@@ -33,7 +33,7 @@ in {
         #neovim
         #mpv
         #i3status-rust
-	    firefox-wayland
+        firefox-wayland
         mpd
         swaylock
         swayidle
@@ -79,7 +79,7 @@ in {
     hm.xdg.configFile = {
       "sway" = {
         source = ./../../config/sway;
-	    recursive = true;
+        recursive = true;
       };
       "foot" = {
         source = ./../../config/foot;
