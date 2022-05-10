@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# junta todos los videos en esta carpeta con ffmpeg.
+
+lista() {
+    echo -n "concat:"
+    for i in *; do
+        if [ "$i" != "ffjunta" ]; then
+        echo -n "$i|"
+        fi
+    done | sed 's/.$//'
+}
+
+ffmpeg -i "$(lista)" -c copy $1

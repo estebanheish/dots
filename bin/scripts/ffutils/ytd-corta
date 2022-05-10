@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+#
+filename=$(youtube-dl -f best --get-filename "$1" | sed -e 's/ /_/g')
+ffmpeg -i $(youtube-dl -f best --get-url "$1") -ss "$2" -to "$3" "$HOME/Videos/$filename"

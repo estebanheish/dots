@@ -1,0 +1,7 @@
+#!/bin/sh
+mkdir -p ~/.ghome
+ln -s ~/Documents ~/.ghome/Documents
+ln -s ~/Videos ~/.ghome/Videos
+ln -s ~/Pictures ~/.ghome/Pictures
+ln -s ~/Music ~/.ghome/Music
+ln -s ~/org ~/.ghome/org
