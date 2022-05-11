@@ -8,7 +8,7 @@
     ./lf
     ./git
     ./zsh
-    ./xdg.nix
+    ./xdg
     ./neovim
     ./sway
     ./zathura

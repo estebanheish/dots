@@ -3,6 +3,7 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+font pango:Ubuntu Bold 10.0
 smart_borders on
 default_border pixel 2
 ### Variables

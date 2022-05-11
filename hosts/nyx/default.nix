@@ -10,24 +10,29 @@
   networking.hostName = "nyx";
 
   modules = {
+    virtualization.enable = true;
     silent-boot.enable = true;
     sway.enable = true;
     packages.social.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
+    qbittorrent
   ];
   
   # networking 
   hardware.bluetooth.enable = true;
   #networking.wireless.iwd.enable = true;
-  #systemd.network.enable = true;
-  networking.networkmanager.enable = true;
+  networking.useNetworkd = true;
+  systemd.network.enable = true;
+  systemd.network.wait-online.anyInterface = true;
+  #systemd.network.wait-online.timeout = 5;
 
   # services
   services.openssh.enable = true;
 
   # boot
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 }

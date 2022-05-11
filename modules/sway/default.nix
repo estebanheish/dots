@@ -14,6 +14,7 @@ in {
     programs.xwayland.enable = true;
 
     modules = {
+      xdg.enable = true;
       pipewire.enable = true;
       zathura.enable = true;
       qutebrowser.enable = true;
@@ -24,6 +25,7 @@ in {
 
     programs.sway = {
       enable = true;
+      wrapperFeatures.gtk = false;
       extraPackages = with pkgs; [
         mako
         foot
@@ -34,21 +36,21 @@ in {
         #mpv
         #i3status-rust
         firefox-wayland
-        mpd
+        #mpd
         swaylock
         swayidle
         bemenu
         wev
         bashmount
-        autotiling
         libnotify
-        waypipe
+        #waypipe
         wl-clipboard
         clipman
         grim slurp wf-recorder swappy
         pulsemixer pamixer
         material-design-icons font-awesome
         imv mpc_cli
+        xdg-utils
         pass-wayland
       ];
     };
@@ -58,9 +60,12 @@ in {
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      gtkUsePortal = false;
+      gtkUsePortal = false; # otherwise the file chooser don't show up
     };
-    
+
+    ### greeter
+    users.users.greeter.group = "greeter";
+    users.groups.greeter = {};
     services.greetd = {
       enable = true;
       package = "greetd.tuigreet";
@@ -72,9 +77,27 @@ in {
         };
       };
     };
+    ###
 
-    users.users.greeter.group = "greeter";
-    users.groups.greeter = {};
+    ### themes
+    hm.gtk = {
+      enable = true;
+      iconTheme = {
+        name = "ePapirus";
+        package = pkgs.papirus-icon-theme;
+      };
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
+    hm.qt = {
+      enable = true;
+      platformTheme = "gtk";
+      style.name = "Adwaita-dark";
+      style.package = pkgs.adwaita-qt;
+    };
+    ###
 
     hm.xdg.configFile = {
       "sway" = {
