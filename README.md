@@ -1,4 +1,4 @@
-* sway screencast binds & script
+* sway screencast binds & script o kooha
 * waybar
 * mpd
 * scripts

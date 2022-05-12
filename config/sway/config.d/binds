@@ -19,7 +19,7 @@ bindsym $mod+Shift+w exec firefox
 bindsym $mod+x exec btm
 bindsym $mod+Shift+x exec nautilus
 
-bindsym $mod+Shift+s exec xdg-open "$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)"
+bindsym $mod+Shift+s exec xdg-open "$(fd --search-path ~ --search-path /run/media -tf | bemenu $menu -l 20)"
 
 # Audio
 bindsym XF86AudioRaiseVolume exec pamixer -ui 2
