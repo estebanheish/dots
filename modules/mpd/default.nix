@@ -12,7 +12,7 @@ in
   config = mkIf cfg.enable {
     hm.services.mpd = {
       enable = true;
-      musicDirectory = "$HOME/Music";
+      musicDirectory = "/home/${config.user.name}/Music";
       extraConfig = ''
         audio_output {
           type "pipewire"
@@ -20,6 +20,7 @@ in
         }
       '';
     };
+    hm.home.packages = [ pkgs.ncmpcpp ];
   };
 
 }

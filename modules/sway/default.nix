@@ -22,6 +22,7 @@ in {
       mpv.enable = true;
       i3-status-rust.enable = false;
       waybar.enable = true;
+      mpd.enable = true;
     };
 
     services.dbus.enable = true;
