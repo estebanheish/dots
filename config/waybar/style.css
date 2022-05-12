@@ -1,0 +1,64 @@
+* {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: #212121;     /* background */
+    color: #FFFFFF;          /* foreground */
+}
+
+#mode {
+  color: #FFCB6B;            /* amarillo */
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+/* WORKSPACES */
+#workspaces button {
+  color: #FFFFFF;            /* foreground */
+  padding: 1 1;
+}
+
+#workspaces button.focused {
+  background: #82AAFF;       /* focus */
+  color: #212121;            /* background */
+}
+
+#workspaces button.urgent {
+  background: #F07178;       /* rojo */
+}
+
+/* NETWORK */
+#network.disconnected {
+  color: #F07178;            /* rojo */
+}
+
+#network.linked {
+  color: #FFCB6B;            /* amarillo */
+}
+
+/* BATTERY */
+#battery.good {
+  color: #C3E88D;            /* verde */ 
+}
+
+#battery.warning {
+  color: #FFCB6B;            /* amarillo */
+}
+
+#battery.critical {
+  color: #F07178;            /* rojo */
+}

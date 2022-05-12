@@ -1,0 +1,95 @@
+{
+    "layer": "bottom",
+    "height": 19,
+    "spacing": 8,
+    "modules-left": [ "idle_inhibitor", "sway/workspaces", "sway/mode"],
+    "modules-center": ["mpd"],
+    "modules-right": ["tray", "battery", "network", "pulseaudio", "clock"],
+
+    "sway/window": {
+        "max-length": 50
+    },
+
+    "sway/mode": {
+      "format": {},
+    },
+
+    "sway/workspaces": {
+      "format": "{name}",
+    },
+
+    "mpd": {
+      "format": "{stateIcon} {artist} - {title}",
+      "format-paused": "",
+      "format-disconnected": "",
+      "format-stopped": "",
+      "unknown-tag": "",
+      "interval": 2,
+      "state-icons": {
+        "paused" : "󰏤",
+        "playing" : "󰎇",
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)",
+    },
+
+    "tray": {
+      "spacing": 6,
+    },
+
+    "clock": {
+      "interval": 1,
+      "format": "{:%a %d %R}",
+      "max-length": 50,
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%a %d %b %m %Y, %r}",
+    },
+
+    "pulseaudio": {
+      "format": "{format_source} {icon} {volume}%",
+      "format-muted": "{format_source} 󰖁",
+      "format-source": "󰍬",
+      // "format-source-muted": "󰍭",
+      "format-source-muted": "",
+      "format-icons": {
+        "default": [ "", "", "", "", "", "", "", "", "", "" ],
+      },
+      "on-click": "foot -e pulsemixer",
+    },
+
+    "battery": {
+      "bat": "BAT",
+      "interval": 60,
+      "states": {
+        "good": 60,
+        "warning": 30,
+        "critical": 15,
+      },
+      "format": "{icon}",
+      "format-charging": "󰂄 {capacity}% ",
+      "format-plugged": "󱃌 {capacity}%",
+      "format-alt": "{icon} {capacity}% {time}",
+      "format-icons": [ "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹",],
+    },
+
+    "network": {
+      // "interface": "*",
+      "format": "{ifname}",
+      "format-wifi": "{icon}", // {signalStrength}%",
+      "format-ethernet": "",
+      "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+      "format-linked": "linked",
+      "format-disconnected": "󱍢",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+      "tooltip-format-wifi": "{essid} {signalStrength}% - {ipaddr} - {gwaddr}",
+      "tooltip-format-ethernet": "{ifname} - {ipaddr} - {gwaddr}",
+    },
+
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "󰈈",
+        "deactivated": "󰌽",
+      },
+    },
+}

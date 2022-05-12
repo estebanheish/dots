@@ -20,44 +20,46 @@ in {
       qutebrowser.enable = true;
       neovim.enable = true;
       mpv.enable = true;
-      i3-status-rust.enable = true;
+      i3-status-rust.enable = false;
+      waybar.enable = true;
     };
 
     services.dbus.enable = true;
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = false;
-      extraPackages = with pkgs; [
-        mako
-        foot
-        #waybar
-        #zathura
-        #qutebrowser
-        #neovim
-        #mpv
-        #i3status-rust
-        firefox-wayland
-        #mpd
-        swaylock
-        swayidle
-        bemenu
-        wev
-        bashmount
-        libnotify
-        #waypipe
-        wl-clipboard
-        clipman
-        grim slurp wf-recorder swappy
-        pulsemixer pamixer
-        material-design-icons font-awesome
-        imv mpc_cli
-        xdg-utils
-        pass-wayland
-      ];
     };
     
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
-    
+
+    hm.home.packages = with pkgs; [
+      mako
+      foot
+      #waybar
+      #zathura
+      #qutebrowser
+      #neovim
+      #mpv
+      #i3status-rust
+      firefox-wayland
+      #mpd
+      swaylock
+      swayidle
+      bemenu
+      wev
+      bashmount
+      libnotify
+      #waypipe
+      wl-clipboard
+      clipman
+      grim slurp wf-recorder swappy
+      material-design-icons font-awesome
+      pulsemixer pamixer
+      imv mpc_cli
+      xdg-utils
+      pass-wayland
+    ];
+
     xdg.portal = {
       enable = true;
       wlr.enable = true;

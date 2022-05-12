@@ -6,6 +6,7 @@
     ./pipewire
     ./broot
     ./lf
+    ./mpd
     ./git
     ./zsh
     ./xdg
@@ -15,6 +16,7 @@
     ./qutebrowser
     ./mpv
     ./i3status-rust
+    ./waybar
     ./virtalization
   ];
 }
