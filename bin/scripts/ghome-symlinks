@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/urs/bin/env bash
 mkdir -p ~/.ghome
 ln -s ~/Documents ~/.ghome/Documents
 ln -s ~/Videos ~/.ghome/Videos

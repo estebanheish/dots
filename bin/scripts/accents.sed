@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Sed script for replacing accents for the equivalent groff-ms escaped characters.
 {
 s/á/\\*[\']a/g

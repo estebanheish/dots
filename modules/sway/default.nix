@@ -23,6 +23,7 @@ in {
       i3-status-rust.enable = true;
     };
 
+    services.dbus.enable = true;
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = false;
@@ -98,6 +99,13 @@ in {
       style.package = pkgs.adwaita-qt;
     };
     ###
+
+    ### scripts
+    environment.localBinInPath = true;
+    hm.home.file.".local/bin" = {
+      source = ./../../bin/scripts;
+      recursive = true;
+    };
 
     hm.xdg.configFile = {
       "sway" = {
