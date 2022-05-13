@@ -50,7 +50,7 @@ bindsym $mod+Shift+Menu exec systemctl -i reboot
 # screenshots
 bindsym print exec grim -g "$(slurp)" - | wl-copy
 bindsym Shift+print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
-bindsym Mod1+Tab exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)" - | swappy -f -
+bindsym Mod1+Tab exec swappy.sh
 
 # screencast 
 # todo
