@@ -24,7 +24,6 @@
     nodejs
     rustup
     python
-    nodejs
     gnumake
     gcc
 
@@ -32,8 +31,7 @@
     rust-analyzer
     sumneko-lua-language-server
 
-    #python
-    black
+    black # python formater
 
     qbittorrent
   ];
