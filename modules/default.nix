@@ -18,5 +18,6 @@
     ./i3status-rust
     ./waybar
     ./virtalization
+    ./languages/haskell
   ];
 }

@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 
-with lib; 
+with lib;
 let
   cfg = config.modules.sway;
-in { 
+in
+{
 
   options = {
     modules.sway.enable = mkEnableOption "swaywm configuration";
@@ -18,7 +19,7 @@ in {
       pipewire.enable = true;
       zathura.enable = true;
       qutebrowser.enable = true;
-      neovim.enable = true;
+      #neovim.enable = true;
       mpv.enable = true;
       i3-status-rust.enable = false;
       waybar.enable = true;
@@ -30,7 +31,7 @@ in {
       enable = true;
       wrapperFeatures.gtk = false;
     };
-    
+
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
 
     hm.home.packages = with pkgs; [
@@ -53,10 +54,17 @@ in {
       #waypipe
       wl-clipboard
       clipman
-      grim slurp wf-recorder swappy
-      material-design-icons font-awesome
-      pulsemixer pamixer
-      imv mpc_cli
+      grim
+      slurp
+      wf-recorder
+      swappy
+      material-design-icons
+      font-awesome
+      #nerdfonts
+      pulsemixer
+      pamixer
+      imv
+      mpc_cli
       xdg-utils
       pass-wayland
     ];
@@ -69,15 +77,15 @@ in {
 
     ### greeter
     users.users.greeter.group = "greeter";
-    users.groups.greeter = {};
+    users.groups.greeter = { };
     services.greetd = {
       enable = true;
       package = "greetd.tuigreet";
       restart = true;
       settings = {
         default_session = {
-            command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd sway";
-            user = "greeter";
+          command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd sway";
+          user = "greeter";
         };
       };
     };

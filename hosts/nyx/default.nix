@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -14,12 +15,29 @@
     silent-boot.enable = true;
     sway.enable = true;
     packages.social.enable = true;
+    languages.haskell.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
+
+    # lunarvim
+    nodejs
+    rustup
+    python
+    nodejs
+    gnumake
+    gcc
+
+    # lsps
+    rust-analyzer
+    sumneko-lua-language-server
+
+    #python
+    black
+
     qbittorrent
   ];
-  
+
   # networking 
   hardware.bluetooth.enable = true;
   #networking.wireless.iwd.enable = true;

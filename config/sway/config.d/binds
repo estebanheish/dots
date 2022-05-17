@@ -16,7 +16,7 @@ bindsym $mod+minus gaps inner all minus 1
 bindsym $mod+w exec qutebrowser
 bindsym $mod+Shift+w exec firefox
 
-bindsym $mod+x exec btm
+bindsym $mod+x exec foot btm
 bindsym $mod+Shift+x exec nautilus
 
 bindsym $mod+Shift+s exec xdg-open "$(fd --search-path ~ --search-path /run/media -tf | bemenu $menu -l 20)"
