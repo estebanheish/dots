@@ -16,23 +16,11 @@
     sway.enable = true;
     packages.social.enable = true;
     languages.haskell.enable = true;
+    lvim.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-
-    # lunarvim
-    nodejs
     rustup
-    python
-    gnumake
-    gcc
-
-    # lsps
-    rust-analyzer
-    sumneko-lua-language-server
-
-    black # python formater
-
     qbittorrent
   ];
 

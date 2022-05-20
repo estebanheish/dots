@@ -11,6 +11,7 @@
     ./zsh
     ./xdg
     ./neovim
+    ./lvim
     ./sway
     ./zathura
     ./qutebrowser

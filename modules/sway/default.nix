@@ -19,7 +19,6 @@ in
       pipewire.enable = true;
       zathura.enable = true;
       qutebrowser.enable = true;
-      #neovim.enable = true;
       mpv.enable = true;
       i3-status-rust.enable = false;
       waybar.enable = true;

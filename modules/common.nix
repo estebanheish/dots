@@ -29,6 +29,7 @@ in {
       zsh.enable = true;
       lf.enable = true;
       broot.enable = true;
+      neovim.enable = true;
       git.enable = true;
     };
 
