@@ -3,18 +3,16 @@
 
   imports = [
     ./hw.nix
-    nixos-hardware.nixosModules.raspberry-pi-4
   ];
 
   networking.hostName = "grape";
   hardware.bluetooth.enable = true;
   networking.wireless.iwd.enable = true;
   networking.useNetworkd = true;
-  systemd.networkd.enable = true;
-  systemd.network.wait-online.anyInferface = true;
+  systemd.network.enable = true;
+  systemd.network.wait-online.anyInterface = true;
 
-  # service 
-  service.openssh.enable = true;
-
+  # services
+  services.openssh.enable = true;
 }
 
