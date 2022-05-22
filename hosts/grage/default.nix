@@ -16,10 +16,5 @@
   # service 
   service.openssh.enable = true;
 
-  boot.loader.rasbberryPi = {
-    enable = true;
-    version = 4;
-  };
-
 }
 
