@@ -31,7 +31,7 @@
     };
 
     nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = "aarch64-linux";
       modules = modules ++ [ 
          nixos-hardware.nixosModules.raspberry-pi-4
         ./hosts/grape
