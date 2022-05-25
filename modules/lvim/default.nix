@@ -25,6 +25,7 @@ in
       black # python formater
     ];
 
+    environment.localBinInPath = true; # lvim binary
     hm.xdg.configFile."lvim/config.lua" = {
       source = ./../../config/lvim/config.lua;
     };

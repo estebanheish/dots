@@ -13,6 +13,7 @@
     ./neovim
     ./lvim
     ./sway
+    ./xmonad
     ./zathura
     ./qutebrowser
     ./mpv

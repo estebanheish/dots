@@ -13,13 +13,15 @@
   modules = {
     virtualization.enable = true;
     silent-boot.enable = true;
-    sway.enable = true;
-    packages.social.enable = true;
+    xmonad.enable = true;
     languages.haskell.enable = true;
     lvim.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
+    tdesktop
+    discord 
+
     rustup
     qbittorrent
   ];
