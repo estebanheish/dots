@@ -10,7 +10,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    modules.pipewire.enable = true;
+    modules = {
+      pipewire.enable = true;
+      alacritty.enable = true;
+      dunst.enable = true;
+    };
     hardware.opengl.enable = true;
     services.xserver = {
       enable = true;
@@ -36,20 +40,22 @@ in
       feh # wallpaper
       imv # or sxiv
       cmus # music player
-      betterlockscreen 
-      xclip 
+      betterlockscreen
+      xclip
       maim
       firefox
-      alacritty
       pulsemixer
-      mpv 
+      mpv
       zathura
       bashmount
     ];
 
+    hm.home.packages = [ pkgs.ubuntu_font_family ];
+
     hm.xdg.configFile."xmonad/xmonad.hs".source = ./../../config/xmonad/xmonad.hs;
     hm.xdg.configFile."xmobar/xmobarrc".source = ./../../config/xmobar/xmobarrc;
-    # wallpaper todo
+    # wallpaper 
+    hm.xdg.configFile."wall".source = ./../../bin/pix/naturaleza/christina-deravedisian-planta-azul.jpg;
 
   };
 

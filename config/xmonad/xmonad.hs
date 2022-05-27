@@ -29,14 +29,28 @@ main = xmonad
 
 -- vars
 myTerminal = "alacritty"
-myMenu = "bemenu-run"
-focusColor = "#383B84"
+myBrowser = "qutebrowser"
+myBrowser' = "firefox"
+myMenu = "bemenu-run -H 19 --fn 'Ubuntu Bold 11' -p ''"
+
+-- TODO: fix
+myBemenu = "bemenu-run -H 19 --fn 'Ubuntu Bold 11' -p ''" 
+      ++ " --tb #000000"
+      ++ " --hb #000000"
+      ++ " --fb #000000"
+      ++ " --sb #000000"
+      ++ " --nb #000000"
+      ++ " --scb #000000"
+      ++ " --hf " ++ focusColor
+
+focusColor = "#6f64fc"
 normalColor = "#1C1B1A"
 -- 
 
 -- Startup hook
 myStartupHook = do 
   spawnOnce "~/.fehbg &"
+  spawnOnce "dusnt &"
 -- 
 
 -- layouts
@@ -80,6 +94,8 @@ myConfig = def
   `additionalKeysP`
   [ 
     ("M-s", spawn myMenu)
+  , ("M-w", spawn myBrowser)
+  , ("M-S-w", spawn myBrowser')
   , ("M-S-q", kill)
   , ("M-S-c", io (exitWith ExitSuccess)) -- %! Quit xmonad
   , ("M-c", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
@@ -120,9 +136,5 @@ myConfig = def
   , ("<XF86AudioPlay>", spawn "cmus-remote -u")
   , ("S-<XF86AudioRaiseVolume>", spawn "cmus-remote -v +2%")
   , ("S-<XF86AudioLowerVolume>", spawn "cmus-remote -v -2%")
-
-  -- browsers
-  , ("M-w", spawn "qutebrowser")
-  , ("M-S-w", spawn "firefox")
   ] 
 

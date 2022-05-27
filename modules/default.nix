@@ -1,4 +1,4 @@
-{ 
+{
   imports = [
     ./common.nix
     ./package-lists
@@ -6,6 +6,7 @@
     ./pipewire
     ./broot
     ./lf
+    ./alacritty
     ./mpd
     ./git
     ./zsh
@@ -18,6 +19,7 @@
     ./qutebrowser
     ./mpv
     ./i3status-rust
+    ./dunst
     ./waybar
     ./virtalization
     ./languages/haskell
