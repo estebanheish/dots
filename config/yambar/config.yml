@@ -2,8 +2,8 @@ bar:
   font: "Ubuntu:style=Bold"
   height: 19
   location: top
-  background: 4b0e66ff
-  foreground: 00ff00ff
+  background: 14213Dff
+  foreground: E5E5E5ff
   margin: 5
 
   right:
@@ -19,7 +19,7 @@ bar:
                 false: { empty: {}}
                 true: 
                   string:
-                    margin: 3
+                    margin: 5
                     text: "{id}"
         content:
           map:
@@ -29,8 +29,8 @@ bar:
                 string:
                   text: "{id}"
                   margin: 5
-                  foreground: 4b0e66ff
-                  deco: { background: { color: 00ff00ff }}
+                  foreground: 14213Dff
+                  deco: { background: { color: FCA311ff }}
               unfocused:
                 map:
                   <<: *river_base

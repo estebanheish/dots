@@ -159,15 +159,19 @@ riverctl csd-filter-add app-id "gedit"
 # SETTINGS
 riverctl set-cursor-warp on-output-change
 riverctl focus-follows-cursor normal
-riverctl border-color-focused 0x00ff00
+riverctl border-color-focused 0xfca311
+riverctl border-color-unfocused 0x14213D
+riverctl background-color 0x14213D
 
 # START
 kanshi &
 yambar &
+mako &
 
 # BINDS
 # basics 
 riverctl map normal Super S spawn bemenu-run
+riverctl map normal Super X spawn btm
 
 # browsers 
 riverctl map normal Super W spawn qutebrowser
@@ -180,6 +184,10 @@ riverctl map normal None XF86AudioLowerVolume spawn 'pulsemixer --change-volume 
 riverctl map normal None XF86AudioMute spawn 'pulsemixer --toggle-mute'
 riverctl map normal Shift XF86AudioMute spawn 'amixer set Capture toggle'
 done
+
+# screenshots
+riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy'
+
 ######
 ######
 

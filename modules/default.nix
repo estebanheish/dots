@@ -22,6 +22,7 @@
     ./zathura
     ./qutebrowser
     ./mpv
+    ./mako
     ./i3status-rust
     ./dunst
     ./waybar

@@ -16,6 +16,7 @@ in
       foot.enable = true;
       yambar.enable = true;
       qutebrowser.enable = true;
+      mako.enable = true;
     };
     environment.systemPackages = with pkgs; [
       river
@@ -28,6 +29,7 @@ in
       grim
       slurp
       playerctl
+      wl-clipboard
     ];
 
     environment.sessionVariables = {
