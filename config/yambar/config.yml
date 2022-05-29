@@ -19,7 +19,7 @@ bar:
                 false: { empty: {}}
                 true: 
                   string:
-                    margin: 3
+                    margin: 4
                     text: "{id}"
         content:
           map:

@@ -31,7 +31,10 @@ in
       XKB_DEFAULT_LAYOUT = "us(colemak)";
     };
 
-    hm.xdg.configFile."river/init".source = ./../../config/river/init;
+    hm.xdg.configFile."river" = { 
+      source = ./../../config/river;
+      recursive = true;
+    };
 
     services.greetd = {
       enable = true;

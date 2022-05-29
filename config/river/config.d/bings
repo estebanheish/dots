@@ -1,0 +1,9 @@
+#!/bin/sh 
+
+# basics 
+riverctl map normal Super S spawn bemenu-run
+
+# browsers 
+riverctl map normal Super W spawn qutebrowser
+riverctl map normal Super+Shift W spawn firefox
+

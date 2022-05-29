@@ -7,17 +7,14 @@
 #
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
+for file in config.d/*; do
+    source $file
+done
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
-kanshi &
-yambar &
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
 riverctl map normal Super+Shift Return spawn foot
-riverctl map normal Super S spawn bemenu-run
-riverctl map normal Super W spawn qutebrowser
-riverctl map normal Super+Shift W spawn firefox
-riverctl focus-follows-cursor normal
 
 # Super+Q to close the focused view
 riverctl map normal Super+Shift Q close
@@ -147,7 +144,7 @@ done
 
 # Set background and border color
 riverctl background-color 0x002b36
-riverctl border-color-focused 0x25f904
+riverctl border-color-focused 0x93a1a1
 riverctl border-color-unfocused 0x586e75
 
 # Set keyboard repeat rate

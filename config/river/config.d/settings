@@ -1,0 +1,4 @@
+#!/bin/sh
+
+riverctl set-cursor-warp on-output-change
+riverctl focus-follows-cursor normal
