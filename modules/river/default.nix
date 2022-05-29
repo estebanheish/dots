@@ -14,6 +14,7 @@ in
       pipewire.enable = true;
       kanshi.enable = true;
       foot.enable = true;
+      yambar.enable = true;
       qutebrowser.enable = true;
     };
     environment.systemPackages = with pkgs; [
@@ -24,12 +25,13 @@ in
       firefox
       mpv
       kanshi
-      yambar
     ];
 
     environment.sessionVariables = {
       XKB_DEFAULT_LAYOUT = "us(colemak)";
     };
+
+    hm.xdg.configFile."river/init".source = ./../../config/river/init;
 
     services.greetd = {
       enable = true;

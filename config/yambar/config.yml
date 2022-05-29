@@ -1,0 +1,44 @@
+bar: 
+  font: "Ubuntu:style=Bold"
+  height: 19
+  location: top
+  background: 4b0e66ff
+  foreground: 00ff00ff
+  margin: 5
+
+  right:
+    - clock:
+        content: { string: { text: "{date} {time}"}}
+
+  left:
+    - river:
+        anchors:
+          - base: &river_base
+              tag: occupied
+              values:
+                false: { empty: {}}
+                true: 
+                  string:
+                    margin: 3
+                    text: "{id}"
+        content:
+          map:
+            tag: state
+            values: 
+              focused: 
+                string:
+                  text: "{id}"
+                  margin: 3
+                  foreground: 4b0e66ff
+                  deco: { background: { color: 00ff00ff }}
+              unfocused:
+                map:
+                  <<: *river_base
+              visible:
+                map:
+                  <<: *river_base
+              invisible:
+                map:
+                  <<: *river_base
+
+

@@ -16,6 +16,7 @@
     ./lvim
     ./sway
     ./river
+    ./yambar
     ./kanshi
     ./xmonad
     ./zathura
