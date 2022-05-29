@@ -5,14 +5,14 @@ layer=top
 anchor=top-right
 
 font=UbuntuMono R
-background-color=#285577FF
-text-color=#FFFFFFFF
+background-color=#14213D
+text-color=#E5E5E5
 width=300
 height=100
 margin=10
 padding=5
 border-size=1
-border-color=#4C7899FF
+border-color=#FCA311
 border-radius=0
 progress-color=over #5588AAFF
 icons=true
@@ -24,18 +24,3 @@ format=<b>%s</b>\n%b
 default-timeout=3500
 ignore-timeout=false
 group-by=category
-
-background-color=#212121
-text-color=#EEFFFF
-border-color=#82AAFF
-
-[urgency=low]
-background-color=#212121
-text-color=#FFCB6B
-border-color=#82AAFF
-
-[urgency=high]
-background-color=#212121
-text-color=#F07178
-border-color=#82AAFF
-

@@ -172,6 +172,7 @@ mako &
 # basics 
 riverctl map normal Super S spawn bemenu-run
 riverctl map normal Super X spawn btm
+riverctl map normal Super Q spawm 'makoctl dismiss --all'
 
 # browsers 
 riverctl map normal Super W spawn qutebrowser
