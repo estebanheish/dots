@@ -31,17 +31,16 @@ main = xmonad
 myTerminal = "alacritty"
 myBrowser = "qutebrowser"
 myBrowser' = "firefox"
-myMenu = "bemenu-run -H 19 --fn 'Ubuntu Bold 11' -p ''"
 
--- TODO: fix
-myBemenu = "bemenu-run -H 19 --fn 'Ubuntu Bold 11' -p ''" 
-      ++ " --tb #000000"
-      ++ " --hb #000000"
-      ++ " --fb #000000"
-      ++ " --sb #000000"
-      ++ " --nb #000000"
-      ++ " --scb #000000"
-      ++ " --hf " ++ focusColor
+myMenu = "bemenu-run -H 19 --fn 'Ubuntu Bold 11'"
+      ++ " --tb '#000000'"
+      ++ " --hb '#000000'"
+      ++ " --fb '#000000'"
+      ++ " --sb '#000000'"
+      ++ " --nb '#000000'"
+      ++ " --scb '#000000'"
+      ++ " --hf '" ++ focusColor ++ "'"
+      ++ " -p ''"
 
 focusColor = "#6f64fc"
 normalColor = "#1C1B1A"
@@ -49,6 +48,7 @@ normalColor = "#1C1B1A"
 
 -- Startup hook
 myStartupHook = do 
+  spawnOnce "xrandr --output DP-2 --primary --mode 1920x1080 --rate 239.76 --right-of DP-0"
   spawnOnce "~/.fehbg &"
   spawnOnce "dusnt &"
 -- 

@@ -14,6 +14,7 @@ in
       pipewire.enable = true;
       alacritty.enable = true;
       dunst.enable = true;
+      xdg.enable = true;
     };
     hardware.opengl.enable = true;
     services.xserver = {
@@ -26,7 +27,7 @@ in
         #config = builtins.readFile ./../../config/xmonad/xmonad.hs;
       };
       displayManager.defaultSession = "none+xmonad";
-      displayManager.lightdm.enable = true;
+      displayManager.sddm.enable = true;
       layout = "us";
       xkbVariant = "colemak";
       xkbOptions = "grp:win_space_toggle";
@@ -56,7 +57,6 @@ in
     hm.xdg.configFile."xmobar/xmobarrc".source = ./../../config/xmobar/xmobarrc;
     # wallpaper 
     hm.xdg.configFile."wall".source = ./../../bin/pix/naturaleza/christina-deravedisian-planta-azul.jpg;
-
   };
 
 }

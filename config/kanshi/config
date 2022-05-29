@@ -1,0 +1,4 @@
+profile nyx {
+  output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" mode 1920x1080@239.759995Hz position 2560,0
+  output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" position 0,0
+}

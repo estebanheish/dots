@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let 
+let
   cfg = config.modules.pipewire;
 in
 {
@@ -22,6 +22,7 @@ in
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    environment.systemPackages = [ pkgs.pulsemixer ];
   };
 
 }

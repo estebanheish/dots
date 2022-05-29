@@ -1,5 +1,5 @@
 Config { font = "xft:Ubuntu:style=bold:antialias=true:size=13"
-       , position = OnScreen 1 (TopH 19)
+       , position = TopH 19
        , allDesktops = True
        , commands = [ Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run XMonadLog

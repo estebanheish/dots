@@ -7,6 +7,7 @@
     ./broot
     ./lf
     ./alacritty
+    ./foot
     ./mpd
     ./git
     ./zsh
@@ -14,6 +15,8 @@
     ./neovim
     ./lvim
     ./sway
+    ./river
+    ./kanshi
     ./xmonad
     ./zathura
     ./qutebrowser
