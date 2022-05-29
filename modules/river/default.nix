@@ -25,13 +25,16 @@ in
       firefox
       mpv
       kanshi
+      grim
+      slurp
+      playerctl
     ];
 
     environment.sessionVariables = {
       XKB_DEFAULT_LAYOUT = "us(colemak)";
     };
 
-    hm.xdg.configFile."river" = { 
+    hm.xdg.configFile."river" = {
       source = ./../../config/river;
       recursive = true;
     };

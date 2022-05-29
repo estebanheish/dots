@@ -7,9 +7,6 @@
 #
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
-for file in config.d/*; do
-    source $file
-done
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
@@ -124,12 +121,12 @@ riverctl map passthrough Super F11 enter-mode normal
 for mode in normal locked
 do
     # Eject the optical drive (well if you still have one that is)
-    riverctl map $mode None XF86Eject spawn 'eject -T'
+    # riverctl map $mode None XF86Eject spawn 'eject -T'
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
-    riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
+    # riverctl map $mode None XF86AudioRaiseVolume  spawn 'pamixer -i 5'
+    # riverctl map $mode None XF86AudioLowerVolume  spawn 'pamixer -d 5'
+    # riverctl map $mode None XF86AudioMute         spawn 'pamixer --toggle-mute'
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -156,6 +153,35 @@ riverctl float-filter-add title "popup title with spaces"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
+
+######
+######
+# SETTINGS
+riverctl set-cursor-warp on-output-change
+riverctl focus-follows-cursor normal
+riverctl border-color-focused 0x00ff00
+
+# START
+kanshi &
+yambar &
+
+# BINDS
+# basics 
+riverctl map normal Super S spawn bemenu-run
+
+# browsers 
+riverctl map normal Super W spawn qutebrowser
+riverctl map normal Super+Shift W spawn firefox
+
+# audio 
+for mode in normal locked; do
+riverctl map normal None XF86AudioRaiseVolume spawn 'pulsemixer --change-volume +2'
+riverctl map normal None XF86AudioLowerVolume spawn 'pulsemixer --change-volume -2'
+riverctl map normal None XF86AudioMute spawn 'pulsemixer --toggle-mute'
+riverctl map normal Shift XF86AudioMute spawn 'amixer set Capture toggle'
+done
+######
+######
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
