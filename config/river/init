@@ -156,6 +156,24 @@ riverctl csd-filter-add app-id "gedit"
 
 ######
 ######
+
+# VARS 
+bg="#14213Dff"
+fg="#E5E5E5ff"
+ff="#FCA311ff"
+bemenu="-i -p '' -H 19 \
+     --fn 'Ubuntu bold 11' \
+     --tb '${bg}' \
+     --tf '${fg}' \
+     --fb '${bg}' \
+     --ff '${fg}' \
+     --nb '${bg}' \
+     --nf '${fg}' \
+     --hb '${ff}' \
+     --hf '${bg}' \
+     --sb '${bg}' \
+     --sf '${fg}'"
+
 # SETTINGS
 riverctl set-cursor-warp on-output-change
 riverctl focus-follows-cursor normal
@@ -167,10 +185,12 @@ riverctl background-color 0x14213D
 kanshi &
 yambar &
 mako &
+swaybg -i ~/.config/wall -m fill & 
 
 # BINDS
 # basics 
-riverctl map normal Super S spawn bemenu-run
+riverctl map normal Super S spawn "bemenu-run ${bemenu}"
+riverctl map normal Super+Shift S spawn "xdg-open \$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)"
 riverctl map normal Super X spawn btm
 riverctl map normal Super Q spawm 'makoctl dismiss --all'
 

@@ -17,28 +17,35 @@ in
       yambar.enable = true;
       qutebrowser.enable = true;
       mako.enable = true;
+      mpv.enable = true;
     };
+
     environment.systemPackages = with pkgs; [
       river
       foot
       bemenu
       wlr-randr
       firefox
-      mpv
       kanshi
       grim
       slurp
       playerctl
       wl-clipboard
+      imv
+      swaybg
+      xdg-utils
     ];
 
     environment.sessionVariables = {
       XKB_DEFAULT_LAYOUT = "us(colemak)";
     };
 
-    hm.xdg.configFile."river" = {
-      source = ./../../config/river;
-      recursive = true;
+    hm.xdg.configFile = {
+      "river" = {
+        source = ./../../config/river;
+        recursive = true;
+      };
+      "wall".source = ./../../bin/pix/naturaleza/christina-deravedisian-planta-rosa.jpg;
     };
 
     services.greetd = {
