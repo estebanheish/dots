@@ -12,7 +12,7 @@ in
 
     hardware.opengl.enable = true;
     security.polkit.enable = true;
-    security.pam.services.swaylock = {};
+    security.pam.services.swaylock = { };
     # programs.dconf.enable = true;
     # programs.xwayland.enable = true;
 
@@ -34,6 +34,7 @@ in
 
     environment.systemPackages = with pkgs; [
       river
+      rivercarro
       foot
       bemenu
       wlr-randr
@@ -59,7 +60,7 @@ in
         source = ./../../config/river;
         recursive = true;
       };
-      "wall".source = ./../../bin/pix/naturaleza/christina-deravedisian-planta-rosa.jpg;
+      "wall".source = ./../../bin/pix/paisaje_naranja.jpg;
     };
 
     services.greetd = {

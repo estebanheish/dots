@@ -40,12 +40,12 @@ riverctl map normal Super+Shift Comma send-to-output previous
 riverctl map normal Super Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super I send-layout-cmd rivertile "main-ratio +0.05"
+# riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+# riverctl map normal Super I send-layout-cmd rivertile "main-ratio +0.05"
 
 # Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift I send-layout-cmd rivertile "main-count -1"
+# riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
+# riverctl map normal Super+Shift I send-layout-cmd rivertile "main-count -1"
 
 # Super+Alt+{H,J,K,L} to move views
 riverctl map normal Super+Alt H move left 100
@@ -101,10 +101,10 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+# riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+# riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
+# riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
+# riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
@@ -225,5 +225,36 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-exec rivertile -view-padding 6 -outer-padding 6
+# riverctl default-layout rivertile
+# exec rivertile -view-padding 6 -outer-padding 6
+
+## FROM: https://git.sr.ht/~novakane/rivercarro
+# Mod+H and Mod+L to decrease/increase the main ratio of rivercarro
+riverctl map normal Super H send-layout-cmd rivercarro "main-ratio -0.05"
+riverctl map normal Super I send-layout-cmd rivercarro "main-ratio +0.05"
+
+# Mod+Shift+H and Mod+Shift+L to increment/decrement the main count of rivercarro
+riverctl map normal Super+Shift H send-layout-cmd rivercarro "main-count +1"
+riverctl map normal Super+Shift I send-layout-cmd rivercarro "main-count -1"
+
+# Mod+{Up,Right,Down,Left} to change layout orientation
+riverctl map normal Super Up    send-layout-cmd rivercarro "main-location top"
+riverctl map normal Super Right send-layout-cmd rivercarro "main-location right"
+riverctl map normal Super Down  send-layout-cmd rivercarro "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd rivercarro "main-location left"
+# And for monocle
+riverctl map normal Super+Shift F send-layout-cmd rivercarro "main-location monocle"
+
+# Add others rivercarrro's commands the same way with the keybinds you'd like.
+# e.g.
+riverctl map normal Super+Shift Left  send-layout-cmd rivercarro "inner-gaps -1"
+riverctl map normal Super+Shift Right send-layout-cmd rivercarro "inner-gaps +1"
+riverctl map normal Super+Shift Down  send-layout-cmd rivercarro "outer-gaps -1"
+riverctl map normal Super+Shift Up    send-layout-cmd rivercarro "outer-gaps +1"
+riverctl map normal Super U           send-layout-cmd rivercarro "main-ratio -0.01"
+riverctl map normal Super Y           send-layout-cmd rivercarro "main-ratio +0.01"
+
+# Set and exec into the default layout generator, rivercarro.
+# River will send the process group of the init executable SIGTERM on exit.
+riverctl default-layout rivercarro
+exec rivercarro
