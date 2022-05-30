@@ -11,7 +11,7 @@
   networking.hostName = "nyx";
 
   modules = {
-    virtualization.enable = false;
+    virtualization.enable = true;
     river.enable = true;
     silent-boot.enable = true;
     languages.haskell.enable = true;

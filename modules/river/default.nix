@@ -9,7 +9,18 @@ in
   };
 
   config = {
+
     hardware.opengl.enable = true;
+    security.polkit.enable = true;
+    security.pam.services.swaylock = {};
+    # programs.dconf.enable = true;
+    # programs.xwayland.enable = true;
+
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+    };
+
     modules = {
       pipewire.enable = true;
       kanshi.enable = true;
@@ -26,7 +37,7 @@ in
       foot
       bemenu
       wlr-randr
-      firefox
+      firefox-wayland
       kanshi
       grim
       slurp
@@ -35,6 +46,8 @@ in
       imv
       swaybg
       xdg-utils
+      swayidle
+      swaylock
     ];
 
     environment.sessionVariables = {

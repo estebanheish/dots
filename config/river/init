@@ -181,18 +181,14 @@ riverctl border-color-focused 0x$ff
 riverctl border-color-unfocused 0x$bg
 riverctl background-color 0x$bg
 
-# START
-kanshi &
-yambar &
-mako &
-swaybg -i ~/.config/wall -m fill & 
-
 # BINDS
 # basics 
 riverctl map normal Super S spawn "bemenu-run ${bemenu}"
 riverctl map normal Super+Shift S spawn "xdg-open \$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)"
-riverctl map normal Super X spawn btm
+riverctl map normal Super X spawn 'foot btm'
 riverctl map normal Super Q spawm 'makoctl dismiss --all'
+riverctl map normal Super+Shift A spawn 'foot alsamixer'
+riverctl map normal Super A spawn 'foot pulsemixer'
 
 # browsers 
 riverctl map normal Super W spawn qutebrowser
@@ -208,6 +204,19 @@ done
 
 # screenshots
 riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy'
+
+# power
+riverctl map normal Super F12 spawn 'systemctl -i poweroff'
+riverctl map normal Super F11 spawn 'systemctl -i reboot'
+riverctl map normal Super F10 spawn 'swaylock -c 000000'
+riverctl map normal None XF86ScreenSaver spawn 'swaylock -c 000000'
+
+# START
+kanshi &
+yambar &
+mako &
+swaybg -i ~/.config/wall -m fill &  
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river &
 
 ######
 ######
