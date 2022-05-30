@@ -18,6 +18,7 @@ in
       qutebrowser.enable = true;
       mako.enable = true;
       mpv.enable = true;
+      xdg.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
