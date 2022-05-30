@@ -151,4 +151,4 @@ map gv cd ~/Videos
 map gM cd ~/Music
 map gd cd ~/Downloads
 map gcc cd ~/.config
-map gn cd /etc/nixos
+map gn cd ~/.nyx

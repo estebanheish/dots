@@ -28,7 +28,7 @@ mpw = "mpv \"$(wl-paste)\"";
 #bat = "cat /sys/class/power_supply/BAT?/capacity";
 
 # NixOS
-nu = "doas nixos-rebuild switch";
+nu = "doas nixos-rebuild switch --flake ~/.nyx";
 ngc = "nix-collect-garbage -d";
 
 # RCLONE SHORTCUTS

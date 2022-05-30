@@ -87,7 +87,7 @@ execution = ":cd"
 key = "ctrl-q"
 
 [[verbs]]
-execution = ":focus /etc/nixos"
+execution = ":focus ~/.nyx"
 invocation = "gonix"
 shortcut = "gn"
 
