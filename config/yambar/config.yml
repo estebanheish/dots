@@ -1,9 +1,13 @@
+background: &background 1d2021ff
+foreground: &foreground d5c4a1ff
+focus: &focus fb4934ff
+
 bar: 
   font: "Ubuntu:style=Bold"
   height: 19
   location: top
-  background: 14213Dff
-  foreground: E5E5E5ff
+  background: *background
+  foreground: *foreground
   margin: 5
 
   right:
@@ -29,8 +33,8 @@ bar:
                 string:
                   text: "{id}"
                   margin: 5
-                  foreground: 14213Dff
-                  deco: { background: { color: FCA311ff }}
+                  foreground: *background
+                  deco: { background: { color: *focus }}
               unfocused:
                 map:
                   <<: *river_base

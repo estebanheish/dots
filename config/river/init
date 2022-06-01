@@ -158,28 +158,29 @@ riverctl csd-filter-add app-id "gedit"
 ######
 
 # VARS 
-bg="14213Dff"
-fg="E5E5E5ff"
-ff="FCA311ff"
+background=1d2021
+foreground=d5c4a1
+focus=fb4934
+
 bemenu="-i -p '' -H 19 \
      --fn 'Ubuntu bold 11' \
-     --tb '#${bg}' \
-     --tf '#${fg}' \
-     --fb '#${bg}' \
-     --ff '#${fg}' \
-     --nb '#${bg}' \
-     --nf '#${fg}' \
-     --hb '#${ff}' \
-     --hf '#${bg}' \
-     --sb '#${bg}' \
-     --sf '#${fg}'"
+     --tb '#${background}' \
+     --tf '#${foreground}' \
+     --fb '#${background}' \
+     --ff '#${foreground}' \
+     --nb '#${background}' \
+     --nf '#${foreground}' \
+     --hb '#${focus}' \
+     --hf '#${background}' \
+     --sb '#${background}' \
+     --sf '#${foreground}'"
 
 # SETTINGS
 riverctl set-cursor-warp on-output-change
 riverctl focus-follows-cursor normal
-riverctl border-color-focused 0x$ff
-riverctl border-color-unfocused 0x$bg
-riverctl background-color 0x$bg
+riverctl border-color-focused 0x$focus
+riverctl border-color-unfocused 0x$background
+riverctl background-color 0x$background
 
 # BINDS
 # basics 

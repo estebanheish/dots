@@ -30,6 +30,7 @@ in
       mako.enable = true;
       mpv.enable = true;
       xdg.enable = true;
+      zathura.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -49,6 +50,7 @@ in
       xdg-utils
       swayidle
       swaylock
+      bashmount
     ];
 
     environment.sessionVariables = {
@@ -60,7 +62,7 @@ in
         source = ./../../config/river;
         recursive = true;
       };
-      "wall".source = ./../../bin/pix/paisaje_naranja.jpg;
+      "wall".source = ./../../bin/pix/linux_gruvbox.png;
     };
 
     services.greetd = {
