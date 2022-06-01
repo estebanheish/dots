@@ -34,9 +34,9 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      ubuntu_font_family
       river
       rivercarro
-      foot
       bemenu
       wlr-randr
       firefox-wayland

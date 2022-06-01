@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.zathura ];
+    environment.systemPackages = [ pkgs.zathura pkgs.ubuntu_font_family ];
     hm.xdg.configFile."zathura/zathurarc".source = ./../../config/zathura/zathurarc;
   };
 

@@ -11,6 +11,8 @@ in
 
   config = mkIf cfg.enable {
     hm.home.packages = with pkgs; [
+      ubuntu_font_family
+
       python # python39Packages.pip
       gnumake # for the installer
       gcc # for treesitter

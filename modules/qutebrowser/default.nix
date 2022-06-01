@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm.home.packages = [ pkgs.qutebrowser ];
+    hm.home.packages = [ pkgs.qutebrowser pkgs.ubuntu_font_family ];
     hm.xdg.configFile."qutebrowser/config.py".source = ./../../config/qutebrowser/config.py;
     hm.xdg.configFile."qutebrowser/quickmarks".source = ./../../config/qutebrowser/quickmarks;
   };

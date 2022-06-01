@@ -3,16 +3,32 @@ foreground: &foreground d5c4a1ff
 focus: &focus fb4934ff
 
 bar: 
-  font: "Ubuntu:style=Bold"
-  height: 19
+  font: "Ubuntu:style=Bold:size=12"
   location: top
+  height: 19
+  margin: 5
+  spacing: 4
   background: *background
   foreground: *foreground
-  margin: 5
 
   right:
+    - alsa: 
+        card: default
+        mixer: Capture
+        content: 
+          map:
+            tag: muted
+            values:
+              false:
+                string:
+                  font: "Material:size=13"
+                  text: "󰍬" 
+                  foreground: *focus
+
     - clock:
-        content: { string: { text: "{date} {time}"}}
+        time-format: "%R"
+        date-format: "%a %d %b"
+        content: { string: { text: "{date}. {time}"}}
 
   left:
     - river:

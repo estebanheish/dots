@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm.home.packages = [ pkgs.yambar ];
+    hm.home.packages = with pkgs; [ yambar ubuntu_font_family material-design-icons ];
     hm.xdg.configFile."yambar/config.yml".source = ./../../config/yambar/config.yml;
   };
 }
