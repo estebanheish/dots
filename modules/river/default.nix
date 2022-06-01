@@ -62,7 +62,7 @@ in
         source = ./../../config/river;
         recursive = true;
       };
-      "wall".source = ./../../bin/pix/linux_gruvbox.png;
+      "wall".source = ./../../bin/pix/houseonthesideofalake.jpg;
     };
 
     services.greetd = {
