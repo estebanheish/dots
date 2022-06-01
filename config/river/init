@@ -185,7 +185,7 @@ riverctl background-color 0x$background
 # BINDS
 # basics 
 riverctl map normal Super S spawn "bemenu-run ${bemenu}"
-riverctl map normal Super+Shift S spawn "xdg-open \$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)"
+riverctl map normal Super+Shift S spawn "xdg-open \"\$(fd --search-path ~ --search-path /run/media -tf | bemenu ${bemenu} -l 20)\""
 riverctl map normal Super X spawn 'foot btm'
 riverctl map normal Super Q spawm 'makoctl dismiss --all'
 riverctl map normal Super+Shift A spawn 'foot alsamixer'
