@@ -9,6 +9,7 @@ o.smartcase = true
 o.mouse = 'a'
 -- o.number = true
 o.relativenumber = true
+o.number = true
 o.splitbelow = true
 o.splitright = true
 o.scrolloff = 5
