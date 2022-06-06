@@ -216,9 +216,9 @@ riverctl map normal None XF86ScreenSaver spawn 'swaylock -c 000000'
 
 # START
 kanshi &
-yambar &
 mako &
 swaybg -i ~/.config/wall -m fill &  
+yambar & # https://codeberg.org/dnkl/yambar/issues/148
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river &
 
 ######

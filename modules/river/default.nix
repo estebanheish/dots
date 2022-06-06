@@ -38,9 +38,8 @@ in
       river
       rivercarro
       bemenu
-      wlr-randr
       firefox-wayland
-      kanshi
+      wlr-randr
       grim
       slurp
       playerctl

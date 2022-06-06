@@ -10,11 +10,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm.services.kanshi = {
-      enable = true;
-      extraConfig = builtins.readFile ./../../config/kanshi/config;
-      systemdTarget = "graphical.target";
-    };
+    hm.home.packages = [ pkgs.kanshi ];
+    hm.xdg.configFile."kanshi/config".source = ./../../config/kanshi/config;
   };
 
 }
