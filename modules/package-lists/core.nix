@@ -25,13 +25,14 @@ in
       unzip unrar gnutar
 
       # File Sync
-      rsync rclone
+      rsync 
 
       # Video/Audio processing
       ffmpeg imagemagick
 
       # basic utils
       pciutils usbutils
+      parted
       killall 
       bc
       git
