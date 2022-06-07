@@ -39,6 +39,7 @@
     enable = true;
     passwordAuthentication = false;
   };
+  programs.ssh.startAgent = true;
 
   # boot
   boot.supportedFilesystems = [ "ntfs" ];
