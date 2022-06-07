@@ -13,6 +13,10 @@
   systemd.network.wait-online.anyInterface = true;
 
   # services
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = true;
+  };
+
 }
 

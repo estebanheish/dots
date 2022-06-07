@@ -20,7 +20,7 @@
 
   environment.systemPackages = with pkgs; [
     tdesktop
-    discord 
+    discord
 
     rustup
     qbittorrent
@@ -35,7 +35,10 @@
   #systemd.network.wait-online.timeout = 5;
 
   # services
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
 
   # boot
   boot.supportedFilesystems = [ "ntfs" ];
