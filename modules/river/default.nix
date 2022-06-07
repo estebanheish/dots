@@ -8,7 +8,7 @@ in
     modules.river.enable = mkEnableOption "river";
   };
 
-  config = {
+  config = mkIf cfg.enable {
 
     hardware.opengl.enable = true;
     security.polkit.enable = true;
