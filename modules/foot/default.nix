@@ -9,7 +9,7 @@ in
     modules.foot.enable = mkEnableOption "foot";
   };
 
-  config = {
+  config = mkIf cfg.enable {
     hm.xdg.configFile."foot/foot.ini".source = ./../../config/foot/foot.ini;
     hm.home.packages = [ pkgs.foot pkgs.ubuntu_font_family ];
   };
