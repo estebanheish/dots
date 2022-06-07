@@ -23,10 +23,10 @@ in
       wireplumber.enable = true;
     };
 
-    environment.systemPackages = with pkps; [ 
-      pulsemixer 
+    environment.systemPackages = with pkgs; [
+      pulsemixer
       alsaUtils
-      ];
+    ];
 
   };
 
