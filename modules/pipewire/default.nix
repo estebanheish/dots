@@ -22,7 +22,12 @@ in
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    environment.systemPackages = [ pkgs.pulsemixer ];
+
+    environment.systemPackages = with pkps; [ 
+      pulsemixer 
+      alsaUtils
+      ];
+
   };
 
 }

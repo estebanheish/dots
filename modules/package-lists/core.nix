@@ -18,9 +18,6 @@ in
       # downloads
       wget yt-dlp
 
-      # audio
-      alsaUtils
-
       # Archives
       unzip unrar gnutar
 
