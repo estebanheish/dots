@@ -2,7 +2,7 @@
   description = "Personal NixOS config";
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs;
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixgkgs.follows = "nixpkgs";
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
