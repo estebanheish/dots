@@ -71,10 +71,9 @@ in
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd river";
           user = "greeter";
         };
-
         initial_session = {
           command = "river";
-          user = "heis";
+          user = config.user.name;
         };
       };
     };
