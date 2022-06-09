@@ -26,6 +26,7 @@
     ./i3status-rust
     ./dunst
     ./waybar
+    ./syncthing
     ./virtalization
     ./languages/haskell
   ];

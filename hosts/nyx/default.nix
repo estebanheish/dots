@@ -17,6 +17,7 @@
     silent-boot.enable = true;
     languages.haskell.enable = true;
     lvim.enable = true;
+    syncthing.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
