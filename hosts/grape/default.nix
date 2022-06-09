@@ -5,6 +5,10 @@
     ./hw.nix
   ];
 
+  modules = { 
+    syncthing.enable = true;
+  };
+
   networking.hostName = "grape";
   hardware.bluetooth.enable = true;
   networking.wireless.iwd.enable = true;
@@ -22,14 +26,6 @@
   services.openssh = {
     enable = true;
     passwordAuthentication = true;
-  };
-
-  services = {
-    syncthing = {
-      enable = true;
-      user = "heis";
-      dataDir = "/home/${config.user.name}/data";    # Default folder for new synced folders
-    };
   };
 
 }
