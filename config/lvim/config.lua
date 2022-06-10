@@ -52,6 +52,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.automatic_servers_installation = false
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 -- ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))` vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" }) local opts = {} -- check the lspconfig documentation for a list of all possible options
@@ -129,6 +130,33 @@ lvim.plugins = {
       })
     end,
   },
+  {
+    "simrat39/rust-tools.nvim",
+    config = function()
+      local lsp_installer_servers = require "nvim-lsp-installer.servers"
+      local _, requested_server = lsp_installer_servers.get_server "rust_analyzer"
+      require("rust-tools").setup({
+        tools = {
+          autoSetHints = true,
+          hover_with_actions = true,
+          runnables = {
+            use_telescope = true,
+          },
+        },
+        server = {
+          cmd_env = requested_server._default_options.cmd_env,
+          on_attach = require("lvim.lsp").common_on_attach,
+          on_init = require("lvim.lsp").common_on_init,
+        },
+      })
+    end,
+    ft = { "rust", "rs" },
+  },
+  { "shaunsingh/moonlight.nvim" },
+  { "kvrohit/substrata.nvim" },
+  { "tiagovla/tokyodark.nvim" },
+  { "rockerBOO/boo-colorscheme-nvim" },
+  { "Mofiqul/vscode.nvim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
