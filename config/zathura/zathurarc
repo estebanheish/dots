@@ -4,38 +4,38 @@ set render-loading "true"
 set statusbar-home-tilde "true"
 set selection-clipboard	"clipboard"
 
-set highlight-active-color "#83a598"
-set highlight-color "#fabd2f"
+set highlight-active-color "#82AAFF"
+set highlight-color "#FFCB6B"
 
-set completion-bg "#3c3836"
-set completion-fg "#83a598"
+set completion-bg "#303030"
+set completion-fg "#82AAFF"
 
-set completion-highlight-bg "#83a598"
-set completion-highlight-fg "#fbf1c7"
+set completion-highlight-bg "#82AAFF"
+set completion-highlight-fg "#FFFFFF"
 
-set default-bg "#3c3836"
-set default-fg "#1d2021"
+set default-bg "#303030"
+set default-fg "#212121"
 
-set index-active-bg "#fb4934"
-set index-active-fg "#1d2021"
+set index-active-bg "#FEFCFE"
+set index-active-fg "#151515"
 
-set index-bg "#1d2021"
-set index-fg "#fbf1c7"
+set index-bg "#212121"
+set index-fg "#FFFFFF"
 
-set inputbar-bg "#1d2021"
-set inputbar-fg "#fbf1c7"
+set inputbar-bg "#212121"
+set inputbar-fg "#FFFFFF"
 
-set notification-fg "#fbf1c7"
-set notification-bg "#1d2021"
+set notification-fg "#FFFFFF"
+set notification-bg "#212121"
 
-set notification-error-bg "#1d2021"
-set notification-error-fg "#fb4934"
+set notification-error-bg "#212121"
+set notification-error-fg "#F07178"
 
-set notification-warning-bg "#1d2021"
-set notification-warning-fg "#fb4934"
+set notification-warning-bg "#212121"
+set notification-warning-fg "#F07178"
 
-set recolor-darkcolor "#ebdbb2"
-set recolor-lightcolor "#1d2021"
+set recolor-darkcolor "#EEFFFF"
+set recolor-lightcolor "#212121"
 
 set render-loading-bg "#"
 set render-loading-fg "#"

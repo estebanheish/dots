@@ -61,7 +61,7 @@ in
         source = ./../../config/river;
         recursive = true;
       };
-      "wall".source = ./../../bin/pix/houseonthesideofalake.jpg;
+      "wall".source = ./../../bin/pix/moon.jpg;
     };
 
     services.greetd = {
