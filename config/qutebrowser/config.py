@@ -34,7 +34,7 @@ base0C = "#89DDFF"
 base0D = "#82AAFF"
 base0E = "#C792EA"
 base0F = "#FF5370"
-focus = "#FEFCFE"
+focus = "#C3E88D"
 
 c.colors.completion.category.bg = focus
 c.colors.completion.category.border.bottom = base00

@@ -16,11 +16,11 @@ set completion-highlight-fg "#FFFFFF"
 set default-bg "#303030"
 set default-fg "#212121"
 
-set index-active-bg "#FEFCFE"
-set index-active-fg "#151515"
+set index-active-bg "#C3E88D"
+set index-active-fg "#212121"
 
 set index-bg "#212121"
-set index-fg "#FFFFFF"
+set index-fg "#EEFFFF"
 
 set inputbar-bg "#212121"
 set inputbar-fg "#FFFFFF"
@@ -37,8 +37,8 @@ set notification-warning-fg "#F07178"
 set recolor-darkcolor "#EEFFFF"
 set recolor-lightcolor "#212121"
 
-set render-loading-bg "#"
-set render-loading-fg "#"
+set render-loading-bg "#212121"
+set render-loading-fg "#EEFFFF"
 
-set statusbar-bg "#"
-set statusbar-fg "#"
+set statusbar-bg "#353535"
+set statusbar-fg "#B2CCD6"

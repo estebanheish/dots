@@ -21,6 +21,7 @@ o.completeopt = 'menu,menuone,noselect'
 -- o.termguicolors = true
 o.cmdheight = 1
 o.updatetime = 300
+o.laststatus = 3
 
 -- leader
 map('n', '<Space>', '', {})

@@ -13,8 +13,8 @@
 /^set index-active-fg/ { $0 = "set index-active-fg \"#" background "\"" }
 /^set index-active-bg/ { $0 = "set index-active-bg \"#" focus "\"" }
 
-/^set index-fg/ { $0 = "set index-fg \"#" base07 "\"" }
-/^set index-bg/ { $0 = "set index-bg \"#" base00 "\"" }
+/^set index-fg/ { $0 = "set index-fg \"#" foreground "\"" }
+/^set index-bg/ { $0 = "set index-bg \"#" background "\"" }
 
 /^set inputbar-fg/ { $0 = "set inputbar-fg \"#" base07 "\"" }
 /^set inputbar-bg/ { $0 = "set inputbar-bg \"#" base00 "\"" }
@@ -31,10 +31,10 @@
 /^set recolor-darkcolor/ { $0 = "set recolor-darkcolor \"#" base06 "\"" }
 /^set recolor-lightcolor/ { $0 = "set recolor-lightcolor \"#" base00 "\"" } 
 
-/^set render-loading-fg/ { $0 = "set render-loading-fg \"#" color7 "\"" }
-/^set render-loading-bg/ { $0 = "set render-loading-bg \"#" color0 "\"" }
+/^set render-loading-fg/ { $0 = "set render-loading-fg \"#" foreground "\"" }
+/^set render-loading-bg/ { $0 = "set render-loading-bg \"#" background "\"" }
 
-/^set statusbar-fg/ { $0 = "set statusbar-fg \"#" color7 "\"" }
-/^set statusbar-bg/ { $0 = "set statusbar-bg \"#" color0 "\"" }
+/^set statusbar-fg/ { $0 = "set statusbar-fg \"#" base04 "\"" }
+/^set statusbar-bg/ { $0 = "set statusbar-bg \"#" base02 "\"" }
 
 { print }

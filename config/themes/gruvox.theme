@@ -17,4 +17,3 @@ base0F="d65d0e" # brown
 foreground=$base05
 background=$base00
 focus=$base08
-
