@@ -30,6 +30,11 @@
       modules = modules ++ [ ./hosts/qemu-vm ];
     };
 
+    nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = modules ++ [ ./hosts/lemon ];
+    };
+
     nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = modules ++ [ 
