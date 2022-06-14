@@ -181,6 +181,8 @@ riverctl focus-follows-cursor normal
 riverctl border-color-focused 0x$focus
 riverctl border-color-unfocused 0x$background
 riverctl background-color 0x$background
+riverctl input "2:14:ETPS/2_Elantech_Touchpad" tap enabled
+riverctl input "2:14:ETPS/2_Elantech_Touchpad" natural-scroll enabled
 
 # BINDS
 # basics 
