@@ -18,6 +18,7 @@
     languages.haskell.enable = true;
     lvim.enable = true;
     syncthing.enable = true;
+    gpg.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

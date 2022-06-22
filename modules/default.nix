@@ -29,5 +29,6 @@
     ./syncthing
     ./virtalization
     ./languages/haskell
+    ./gpg
   ];
 }

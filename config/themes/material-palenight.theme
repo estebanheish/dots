@@ -16,4 +16,4 @@ base0E="C792EA"
 base0F="FF5370"
 foreground=$base05
 background=$base00
-focus=$base0E
+focus=$base0F
