@@ -20,6 +20,7 @@ in
             QuickCheck
             regex-pcre
             matrix
+            split
             #http-conduit
             #scalpel
             #cursor
