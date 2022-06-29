@@ -23,6 +23,7 @@ in {
     i18n.defaultLocale = "en_US.UTF-8";
     console.keyMap = "colemak";
     system.stateVersion = "21.11";
+    hm.home.stateVersion = "21.11";
 
     modules = {
       packages.core.enable = true;
