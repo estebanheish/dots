@@ -158,9 +158,9 @@ riverctl csd-filter-add app-id "gedit"
 ######
 
 # VARS 
-background=212121
-foreground=EEFFFF
-focus=FF5370
+background=1A1B26
+foreground=A9B1D6
+focus=BB9AF7
 
 bemenu="-i -p '' -H 19 \
      --fn 'Ubuntu bold 11' \
