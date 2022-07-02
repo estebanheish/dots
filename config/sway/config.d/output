@@ -1,7 +1,7 @@
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.wall.png fill
 output Virtual-1 res 1920x1080
 output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" pos 2560 0 mode 1920x1080@239.759995Hz
 output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" pos 0 0 mode 2560x1080@60.000000Hz

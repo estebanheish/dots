@@ -23,6 +23,8 @@ in
       i3-status-rust.enable = false;
       waybar.enable = true;
       mpd.enable = true;
+      foot.enable = true;
+      mako.enable = true;
     };
 
     services.dbus.enable = true;
@@ -34,8 +36,8 @@ in
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
 
     hm.home.packages = with pkgs; [
-      mako
-      foot
+      #mako
+      #foot
       #waybar
       #zathura
       #qutebrowser
@@ -126,15 +128,9 @@ in
         source = ./../../config/sway;
         recursive = true;
       };
-      "foot" = {
-        source = ./../../config/foot;
-        recursive = true;
-      };
-      "mako" = {
-        source = ./../../config/mako;
-        recursive = true;
-      };
     };
+
+    hm.home.file.".wall.png".source = ./../../bin/pix/palm_tree.jpg;
 
   };
 
