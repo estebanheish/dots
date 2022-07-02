@@ -20,18 +20,18 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu -i -p 'heis' -H 19 \
+set $menu -i -p '' -H 19 \
      --fn 'Ubuntu bold 11' \
-     --tb '#EEFFFFff' \
-     --tf '#212121ff' \
-     --fb '#212121ff' \
-     --ff '#EEFFFFff' \
-     --nb '#212121ff' \
-     --nf '#EEFFFFff' \
-     --hb '#EEFFFFff' \
-     --hf '#212121ff' \
-     --sb '#212121ff' \
-     --sf '#EEFFFFff' 
+     --tb '$backgroundff' \
+     --tf '$backgroundff' \
+     --fb '$backgroundff' \
+     --ff '$foregroundff' \
+     --nb '$backgroundff' \
+     --nf '$foregroundff' \
+     --hb '$focusff' \
+     --hf '$backgroundff' \
+     --sb '$backgroundff' \
+     --sf '$foregroundff' 
 
 ### Idle configuration
 #

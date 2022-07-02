@@ -92,5 +92,7 @@ change_colors ./../../config/mako/mako.awk ./../../config/mako/config
 change_colors ./../../config/foot/foot.awk ./../../config/foot/foot.ini
 change_colors ./../../config/zathura/zathura.awk ./../../config/zathura/zathurarc
 change_colors ./../../config/qutebrowser/qutebrowser.awk ./../../config/qutebrowser/config.py
+change_colors ./../../config/waybar/style.awk ./../../config/waybar/style.css
+change_colors ./../../config/sway/colors.awk ./../../config/sway/config.d/colors
 
 echo "done"

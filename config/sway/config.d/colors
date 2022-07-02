@@ -1,6 +1,32 @@
-client.background #FFFFFF
-client.focused          #EEFFFF #82AAFF #212121 #82AAFF #82AAFF
-client.focused_inactive #303030 #303030 #EEFFFF #4A4A4A #303030
-client.unfocused        #303030 #212121 #EEFFFF #303030 #303030
-client.urgent           #F07178 #F07178 #212121 #F07178 #F07178
-client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+set $base00 #212121
+set $base01 #303030
+set $base02 #353535
+set $base03 #4A4A4A
+set $base04 #B2CCD6
+set $base05 #EEFFFF
+set $base06 #EEFFFF
+set $base07 #FFFFFF
+set $base08 #F07178
+set $base09 #F78C6C
+set $base0A #FFCB6B
+set $base0B #C3E88D
+set $base0C #89DDFF
+set $base0D #82AAFF
+set $base0E #C792EA
+set $base0F #FF5370
+set $foreground #EEFFFF
+set $background #212121
+set $focus #FF5370
+
+#client.background #FFFFFF
+#client.focused          #EEFFFF #82AAFF #212121 #82AAFF #82AAFF
+#client.focused_inactive #303030 #303030 #EEFFFF #4A4A4A #303030
+#client.unfocused        #303030 #212121 #EEFFFF #303030 #303030
+#client.urgent           #F07178 #F07178 #212121 #F07178 #F07178
+#client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
+
+#                       Border  BG      Text    Ind     Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
