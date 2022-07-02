@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let 
+let
   cfg = config.modules.broot;
 in
 {
@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.broot ];
-    hm.xdg.configFile."broot/conf.toml".source = ./../../config/broot/conf.toml;
+    hm.xdg.configFile."broot/conf.hjson".source = ./../../config/broot/conf.hjson;
   };
 
 }

@@ -86,6 +86,10 @@ in
           command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd sway";
           user = "greeter";
         };
+        initial_session = {
+          command = "sway";
+          user = config.user.name;
+        };
       };
     };
     ###
