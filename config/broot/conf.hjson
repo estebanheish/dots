@@ -1,0 +1,116 @@
+{
+    # default_flags:
+    # date_time_format: %Y/%m/%d %R
+    # modal: true
+    show_selection_mark: true
+    quit_on_last_cancel: true
+
+    # cols_order: [
+    #     mark
+    #     git
+    #     size
+    #     permission
+    #     date
+    #     count
+    #     branch
+    #     name
+    # ]
+
+    # true_colors: false
+    # icon_theme: vscode
+
+    # special_paths: {
+    #     "/media/slow-backup-disk"    : no-enter
+    #     "/home/dys/useless"    : hide
+    #     "/home/dys/my-link-I-want-to-explore"    : enter
+    # }
+
+    # Verbs and shortcuts
+    verbs: [
+      # Example 2: creating a new file without leaving broot
+      {
+          name: touch
+          invocation: touch {new_file}
+          execution: "touch {directory}/{new_file}"
+          shortcut: t
+          leave_broot: false
+      }
+
+      {
+          invocation: edit
+          shortcut: e
+          execution: "$EDITOR +{line} {file}"
+          leave_broot: false
+      }
+
+      {
+          invocation: create {subpath}
+          execution: "$EDITOR {directory}/{subpath}"
+          leave_broot: false
+      }
+
+      {
+          invocation: git_diff
+          shortcut: gd
+          leave_broot: false
+          execution: "git difftool -y {file}"
+      }
+
+      {
+          key: ctrl-g
+          execution: ":toggle_git_status"
+      }
+
+      # On ctrl-b, propose the creation of a copy of the selection.
+      {
+          invocation: "backup {version}"
+          key: ctrl-b
+          leave_broot: false
+          auto_exec: false
+          execution: "cp -r {file} {parent}/{file-stem}-{version}{file-dot-extension}"
+      }
+
+      # This verb lets you launch a terminal on ctrl-T
+      {
+          invocation: terminal
+          key: ctrl-t
+          execution: "$SHELL"
+          set_working_dir: true
+          leave_broot: false
+      }
+
+      # A popular set of shortcuts for going up and down:
+      { key: "ctrl-e", execution: ":line_up" }
+      { key: "ctrl-n", execution: ":line_down" }
+      { key: "ctrl-u", execution: ":page_up" }
+      { key: "ctrl-d", execution: ":page_down" }
+
+      # MY BINDS
+      { invocation: "lvim", shortcut: "le", execution: "lvim +{line} {file}", leave_broot: false }
+      { execution: ":root_up", key: "ctrl-h" }
+      { execution: ":toggle_stage", key: "ctrl-x" }
+
+      # movement
+      { invocation: "gohome",      shortcut: "gh", execution: ":focus ~" key: "ctrl-home", }
+      { invocation: "gonix",       shortcut: "gn", execution: ":focus ~/.nyx" }
+      { invocation: "gomedia",     shortcut: "gm", execution: ":focus /run/media" }
+      { invocation: "godownloads", shortcut: "gd", execution: ":focus ~/Downloads" }
+      { invocation: "godocuments", shortcut: "gD", execution: ":focus ~/Documents" }
+      { invocation: "golibros",    shortcut: "gl", execution: ":focus ~/Documents/libros" }
+      { invocation: "goprojects",  shortcut: "gp", execution: ":focus ~/projects" }
+      { invocation: "gopictures",  shortcut: "gP", execution: ":focus ~/Pictures" }
+      { invocation: "govideos",    shortcut: "gv", execution: ":focus ~/Videos" }
+      { invocation: "gomusic",     shortcut: "gM", execution: ":focus ~/Music" }
+    ]
+
+    skin: {
+        default: none none
+    }
+
+    # File Extension Colors
+    ext_colors: {
+        png: rgb(255, 128, 75)
+        rs: rgb(185,71,0)
+        hs: rgb(94, 81, 132)
+    }
+}
