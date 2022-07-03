@@ -12,8 +12,6 @@ in
 
   config = mkIf cfg.enable {
 
-    programs.xwayland.enable = true;
-
     modules = {
       xdg.enable = true;
       pipewire.enable = true;
@@ -28,6 +26,7 @@ in
     };
 
     services.dbus.enable = true;
+
     programs.sway = {
       enable = true;
       wrapperFeatures.gtk = false;
@@ -36,16 +35,7 @@ in
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
 
     hm.home.packages = with pkgs; [
-      #mako
-      #foot
-      #waybar
-      #zathura
-      #qutebrowser
-      #neovim
-      #mpv
-      #i3status-rust
       firefox-wayland
-      #mpd
       swaylock
       swayidle
       bemenu
@@ -59,9 +49,6 @@ in
       slurp
       wf-recorder
       swappy
-      material-design-icons
-      font-awesome
-      #nerdfonts
       pulsemixer
       pamixer
       imv
@@ -73,7 +60,7 @@ in
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      gtkUsePortal = false; # otherwise the file chooser don't show up
+      gtkUsePortal = false;
     };
 
     ### greeter
@@ -97,23 +84,23 @@ in
     ###
 
     ### themes
-    hm.gtk = {
-      enable = true;
-      iconTheme = {
-        name = "ePapirus";
-        package = pkgs.papirus-icon-theme;
-      };
-      theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome-themes-extra;
-      };
-    };
-    hm.qt = {
-      enable = true;
-      platformTheme = "gtk";
-      style.name = "Adwaita-dark";
-      style.package = pkgs.adwaita-qt;
-    };
+    #hm.gtk = {
+    #  enable = true;
+    #  iconTheme = {
+    #    name = "ePapirus";
+    #    package = pkgs.papirus-icon-theme;
+    #  };
+    #  theme = {
+    #    name = "Adwaita-dark";
+    #    package = pkgs.gnome-themes-extra;
+    #  };
+    #};
+    #hm.qt = {
+    #  enable = true;
+    #  platformTheme = "gtk";
+    #  style.name = "Adwaita-dark";
+    #  style.package = pkgs.adwaita-qt;
+    #};
     ###
 
     ### scripts
