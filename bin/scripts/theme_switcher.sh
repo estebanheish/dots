@@ -94,5 +94,6 @@ change_colors ./../../config/zathura/zathura.awk ./../../config/zathura/zathurar
 change_colors ./../../config/qutebrowser/qutebrowser.awk ./../../config/qutebrowser/config.py
 change_colors ./../../config/waybar/style.awk ./../../config/waybar/style.css
 change_colors ./../../config/sway/colors.awk ./../../config/sway/config.d/colors
+change_colors ./../../config/swaylock/config.awk ./../../config/swaylock/config
 
 echo "done"

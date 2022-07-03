@@ -111,10 +111,12 @@ in
     };
 
     hm.xdg.configFile = {
-      "sway" = {
-        source = ./../../config/sway;
+      "sway/config".source = ./../../config/sway/config;
+      "sway/config.d" = {
+        source = ./../../config/sway/config.d;
         recursive = true;
       };
+      "swaylock/config".source = ./../../config/swaylock/config;
     };
 
     hm.home.file.".wall.png".source = ./../../bin/pix/palm_tree.jpg;

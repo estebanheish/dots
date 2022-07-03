@@ -41,9 +41,9 @@ bindsym XF86AudioLowerVolume+Shift exec mpc volume -2
 # power 
 bindsym $mod+Shift+F12 exec systemctl -i poweroff
 bindsym $mod+Shift+F11 exec systemctl -i reboot
-bindsym $mod+Shift+F10 exec swaylock -f -c 000000
-bindsym Menu exec swaylock -f -c 000000
-bindsym XF86ScreenSaver exec swaylock -f -c 000000
+bindsym $mod+Shift+F10 exec swaylock -f
+bindsym Menu exec swaylock -f
+bindsym XF86ScreenSaver exec swaylock -f
 bindsym Shift+Menu exec systemctl -i poweroff
 bindsym $mod+Shift+Menu exec systemctl -i reboot
 
