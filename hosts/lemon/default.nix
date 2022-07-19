@@ -21,7 +21,7 @@
     # discord
 
     # rustup
-    # qbittorrent
+    # transmission
   ];
 
   # networking 
