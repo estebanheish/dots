@@ -34,7 +34,7 @@ in
           file = "lf";
           img = "imv";
           pdf = "org.pwmt.zathura";
-          torrent = "qbittorrent";
+          torrent = "transmission";
           browser = "org.qutebrowser.qutebrowser";
         in
         {

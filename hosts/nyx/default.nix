@@ -21,12 +21,20 @@
     gpg.enable = true;
   };
 
+  # for vscode (for copilot)
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  ##
+
   environment.systemPackages = with pkgs; [
     tdesktop
     discord
+    element-desktop
+
+    gimp
 
     rustup
-    qbittorrent
+    bitwarden
   ];
 
   # networking 

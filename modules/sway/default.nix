@@ -84,21 +84,21 @@ in
     ###
 
     ### themes
-    #hm.gtk = {
-    #  enable = true;
-    #  iconTheme = {
-    #    name = "ePapirus";
-    #    package = pkgs.papirus-icon-theme;
-    #  };
-    #  theme = {
-    #    name = "Adwaita-dark";
-    #    package = pkgs.gnome-themes-extra;
-    #  };
-    #};
+    hm.gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+      };
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
     #hm.qt = {
     #  enable = true;
     #  platformTheme = "gtk";
-    #  style.name = "Adwaita-dark";
+    #  style.name = "adwaita-dark";
     #  style.package = pkgs.adwaita-qt;
     #};
     ###
@@ -119,7 +119,7 @@ in
       "swaylock/config".source = ./../../config/swaylock/config;
     };
 
-    hm.home.file.".wall.png".source = ./../../bin/pix/palm_tree.jpg;
+    hm.home.file.".wall.png".source = ./../../bin/pix/bosque_night.jpg;
 
   };
 

@@ -1,4 +1,4 @@
-* sway screencast binds & script o kooha
 * iso
 * xgd-open abre audio en qutebrowser
-* qt tema oscuro
+* qt y gtk temas
+* grabar pantalla
