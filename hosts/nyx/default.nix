@@ -29,9 +29,12 @@
   environment.systemPackages = with pkgs; [
     tdesktop
     discord
+    element-desktop
+
+    gimp
 
     rustup
-    transmission
+    bitwarden
   ];
 
   # networking 

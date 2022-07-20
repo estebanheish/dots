@@ -13,47 +13,54 @@ in
 
     environment.systemPackages = with pkgs; [
       # editors
-      neovim 
+      neovim
 
       # downloads
-      wget yt-dlp
+      wget
+      yt-dlp
+      transmission
 
       # Archives
-      unzip unrar gnutar
+      unzip
+      unrar
+      gnutar
 
       # File Sync
-      rsync 
+      rsync
+      sshfs
 
       # Video/Audio processing
-      ffmpeg imagemagick
+      ffmpeg
+      imagemagick
 
       # basic utils
-      pciutils usbutils
+      pciutils
+      usbutils
       parted
-      killall 
+      killall
       bc
       git
       fzf
       tree
-      file 
+      file
       tmate
 
       # Modern UNIX utitlities
-      bat            # cat
-      delta          # syntax-highlighting pager for git, diff and grep output
-      duf            # df
-      fd             # find
-      ripgrep        # grep
-      procs          # ps
-      choose         # cut / awk
-      bottom         # htop / top
-      hyperfine      # time
-      xh             # curl
-      dog            # dig
-      sd             # sed
-      jq             # sed for json data
+      bat # cat
+      delta # syntax-highlighting pager for git, diff and grep output
+      duf # df
+      fd # find
+      ripgrep # grep
+      procs # ps
+      choose # cut / awk
+      bottom # htop / top
+      hyperfine # time
+      xh # curl
+      dog # dig
+      sd # sed
+      jq # sed for json data
     ];
-    
+
   };
 
 }
