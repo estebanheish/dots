@@ -3,10 +3,8 @@ input "*" {
   xkb_variant colemak
   repeat_delay 300
   repeat_rate 50
-}
-input "2:14:SynPS/2_Synaptics_TouchPad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
+  dwt enabled
+  tap enabled
+  natural_scroll enabled
+  middle_emulation enabled
 }

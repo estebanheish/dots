@@ -11,7 +11,7 @@
   networking.hostName = "lemon";
 
   modules = {
-    river.enable = true;
+    sway.enable = true;
     silent-boot.enable = true;
     lvim.enable = true;
   };
