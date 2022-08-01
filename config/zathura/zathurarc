@@ -4,23 +4,23 @@ set render-loading "true"
 set statusbar-home-tilde "true"
 set selection-clipboard	"clipboard"
 
-set highlight-active-color "#0e5a94"
-set highlight-color "#f8ca12"
+set highlight-active-color "#6182B8"
+set highlight-color "#FFB62C"
 
 set completion-bg "#202020"
-set completion-fg "#0e5a94"
+set completion-fg "#6182B8"
 
-set completion-highlight-bg "#0e5a94"
+set completion-highlight-bg "#6182B8"
 set completion-highlight-fg "#ffffff"
 
 set default-bg "#202020"
 set default-fg "#000000"
 
-set index-active-bg "#f8ca12"
+set index-active-bg "#fb0120"
 set index-active-fg "#000000"
 
 set index-bg "#000000"
-set index-fg "#d0d0d0"
+set index-fg "#ffffff"
 
 set inputbar-bg "#000000"
 set inputbar-fg "#ffffff"
@@ -29,16 +29,16 @@ set notification-fg "#ffffff"
 set notification-bg "#000000"
 
 set notification-error-bg "#000000"
-set notification-error-fg "#eb008a"
+set notification-error-fg "#FF5370"
 
 set notification-warning-bg "#000000"
-set notification-warning-fg "#eb008a"
+set notification-warning-fg "#FF5370"
 
-set recolor-darkcolor "#e0e0e0"
+set recolor-darkcolor "#F0F0F0"
 set recolor-lightcolor "#000000"
 
 set render-loading-bg "#000000"
-set render-loading-fg "#d0d0d0"
+set render-loading-fg "#ffffff"
 
-set statusbar-bg "#303030"
-set statusbar-fg "#b0b0b0"
+set statusbar-bg "#404040"
+set statusbar-fg "#C0C0C0"

@@ -43,6 +43,7 @@ in
       bashmount
       libnotify
       #waypipe
+      ydotool
       wl-clipboard
       clipman
       grim
@@ -119,7 +120,7 @@ in
       "swaylock/config".source = ./../../config/swaylock/config;
     };
 
-    hm.home.file.".wall.png".source = ./../../bin/pix/bosque_night.jpg;
+    hm.home.file.".wall.png".source = ./../../bin/pix/red_moon.jpg;
 
   };
 
