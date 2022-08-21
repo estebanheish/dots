@@ -1,3 +1,4 @@
+* meter vulkan en sway
 * iso
 * xgd-open abre audio en qutebrowser
 * qt y gtk temas

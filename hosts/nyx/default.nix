@@ -31,7 +31,7 @@
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   # hardware.opengl.enable = true;
   # hardware.nvidia.modesetting.enable = true;
-  # hardware.nvidia.nvidiaSettings= true;
+  # hardware.nvidia.nvidiaSettings = true;
   # hardware.opengl.driSupport = true;
   ##
 
@@ -40,8 +40,8 @@
   ##
 
   environment.systemPackages = with pkgs; [
-    #vulkan-validation-layers # for sway vulkan
-    #vulkan-tools
+    # vulkan-validation-layers # for sway vulkan
+    # vulkan-tools
 
     tdesktop
     discord

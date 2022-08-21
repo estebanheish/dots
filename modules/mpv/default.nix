@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let 
+let
   cfg = config.modules.mpv;
 in
 {
@@ -12,6 +12,7 @@ in
   config = mkIf cfg.enable {
     hm.home.packages = [ pkgs.mpv ];
     hm.xdg.configFile."mpv/scripts" = { source = ./../../config/mpv/scripts; recursive = true; };
+    hm.xdg.configFile."mpv/mpv.conf".source = ./../../config/mpv/mpv.conf;
   };
 
 }

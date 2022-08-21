@@ -30,5 +30,8 @@
     ./virtalization
     ./languages/haskell
     ./gpg
+    ./gnome
+    ./nvidia
+    ./vulkan
   ];
 }
