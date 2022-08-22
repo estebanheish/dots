@@ -11,7 +11,7 @@
 /regular6=/ { $0 = "regular6=" base0C } # cyan 
 /regular7=/ { $0 = "regular7=" base05 } # white
 
-/bright0=/ { $0 = "bright0=" base00 }
+/bright0=/ { $0 = "bright0=" base02 }
 /bright1=/ { $0 = "bright1=" base08 }
 /bright2=/ { $0 = "bright2=" base0B }
 /bright3=/ { $0 = "bright3=" base0A }
