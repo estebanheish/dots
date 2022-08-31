@@ -20,7 +20,7 @@ in
         }
       '';
     };
-    hm.home.packages = [ pkgs.ncmpcpp ];
+    hm.home.packages = with pkgs; [ ncmpcpp mpc_cli ];
   };
 
 }

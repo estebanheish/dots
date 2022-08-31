@@ -53,7 +53,6 @@ in
       pulsemixer
       pamixer
       imv
-      mpc_cli
       xdg-utils
       pass-wayland
     ];

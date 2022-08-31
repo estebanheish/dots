@@ -31,6 +31,7 @@ in
       mpv.enable = true;
       xdg.enable = true;
       zathura.enable = true;
+      mpd.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -38,6 +39,7 @@ in
       river
       rivercarro
       bemenu
+      wev
       firefox-wayland
       wlr-randr
       grim
@@ -62,6 +64,7 @@ in
         recursive = true;
       };
       "wall".source = ./../../bin/pix/moon.jpg;
+      "swaylock/config".source = ./../../config/swaylock/config;
     };
 
     services.greetd = {

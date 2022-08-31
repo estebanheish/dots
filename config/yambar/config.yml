@@ -3,10 +3,10 @@ foreground: &foreground ffffffff
 focus: &focus fb0120ff
 
 bar: 
-  font: "Ubuntu:style=Bold:size=12"
+  font: "Ubuntu:style=Bold:size=17" # 12
   location: top
-  height: 19
-  margin: 5
+  height: 23 # 19
+  margin: 10
   spacing: 4
   background: *background
   foreground: *foreground
@@ -21,7 +21,7 @@ bar:
             values:
               false:
                 string:
-                  font: "Material:size=13"
+                  font: "Material:size=18"
                   text: "󰍬" 
                   foreground: *focus
 
@@ -29,6 +29,17 @@ bar:
         time-format: "%R"
         date-format: "%a %d %b"
         content: { string: { text: "{date}. {time}"}}
+
+  center:
+    - mpd: 
+        host: localhost
+        port: 6600
+        content:
+          map:
+            tag: state
+            values:
+              playing:
+                string: { text: "{artist} - {title}" }
 
   left:
     - river:
@@ -60,5 +71,3 @@ bar:
               invisible:
                 map:
                   <<: *river_base
-
-

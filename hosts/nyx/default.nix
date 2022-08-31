@@ -13,7 +13,8 @@
 
   modules = {
     virtualization.enable = true;
-    sway.enable = true;
+    # sway.enable = true;
+    river.enable = true;
     silent-boot.enable = true;
     languages.haskell.enable = true;
     lvim.enable = true;

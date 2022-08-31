@@ -162,8 +162,10 @@ background=000000
 foreground=ffffff
 focus=fb0120
 
-bemenu="-i -p '' -H 19 \
-     --fn 'Ubuntu bold 11' \
+# 19
+# 11
+bemenu="-i -p '' \
+     --fn 'Ubuntu bold 15' \
      --tb '#${background}' \
      --tf '#${foreground}' \
      --fb '#${background}' \
@@ -183,6 +185,9 @@ riverctl border-color-unfocused 0x$background
 riverctl background-color 0x$background
 riverctl input "2:14:ETPS/2_Elantech_Touchpad" tap enabled
 riverctl input "2:14:ETPS/2_Elantech_Touchpad" natural-scroll enabled
+riverctl input "2:14:ETPS/2_Elantech_Touchpad" natural-scroll enabled
+riverctl input "6899:1:Kingsis_Peripherals_ZOWIE_Gaming_mouse" natural-scroll enabled
+riverctl xcursor-theme "capitan-yellow" 48
 
 # BINDS
 # basics 
@@ -213,8 +218,8 @@ riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy'
 # power
 riverctl map normal Super F12 spawn 'systemctl -i poweroff'
 riverctl map normal Super F11 spawn 'systemctl -i reboot'
-riverctl map normal Super F10 spawn 'swaylock -c 000000'
-riverctl map normal None XF86ScreenSaver spawn 'swaylock -c 000000'
+riverctl map normal Super F10 spawn 'swaylock -f'
+riverctl map normal None XF86ScreenSaver spawn 'swaylock -f'
 
 # START
 kanshi &
