@@ -9,39 +9,42 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware }:
-  let 
-    modules = [ 
-      (import ./modules)
-      home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-      }
-      #(import ./overlays)
+    let
+      modules = [
+        (import ./modules)
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+        }
+        # overlay
+        ({ config, pkgs, ... }: { nixpkgs.overlays = [ (import ./overlays/default.nix) ]; })
       ];
-  in {
+    in
+    {
 
-    nixosConfigurations.nyx = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = modules ++ [ ./hosts/nyx ];
+      nixosConfigurations.nyx = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = modules ++ [ ./hosts/nyx ];
+      };
+
+      nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = modules ++ [ ./hosts/qemu-vm ];
+      };
+
+      nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = modules ++ [ ./hosts/lemon ];
+      };
+
+      nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = modules ++ [
+          nixos-hardware.nixosModules.raspberry-pi-4
+          ./hosts/grape
+        ];
+      };
+
     };
-
-    nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = modules ++ [ ./hosts/qemu-vm ];
-    };
-
-    nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = modules ++ [ ./hosts/lemon ];
-    };
-
-    nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = modules ++ [ 
-         nixos-hardware.nixosModules.raspberry-pi-4
-        ./hosts/grape
-      ];
-    };
-
-  };
 }

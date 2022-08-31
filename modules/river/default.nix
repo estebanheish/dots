@@ -34,8 +34,9 @@ in
       mpd.enable = true;
     };
 
+    fonts.fonts = with pkgs; [ ubuntu_font_family ];
+
     environment.systemPackages = with pkgs; [
-      ubuntu_font_family
       river
       rivercarro
       bemenu
@@ -52,7 +53,22 @@ in
       swayidle
       swaylock
       bashmount
+      ydotool
+      capitaine-cursors-yellow
     ];
+
+    # themes
+    hm.gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+      };
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
 
     environment.sessionVariables = {
       XKB_DEFAULT_LAYOUT = "us(colemak)";
