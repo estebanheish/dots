@@ -1,0 +1,20 @@
+base00="2E3440"
+base01="3B4252"
+base02="434C5E"
+base03="4C566A"
+base04="D8DEE9"
+base05="E5E9F0"
+base06="ECEFF4"
+base07="EEF0F5"
+
+base08="FF5258"    # red * 
+base09="FF7500"    # orange *
+base0A="FFFF70"    # yellow *
+base0B="00FB90"    # green *
+base0C="C4FFFF"    # cyan * 
+base0D="029BEB"    # blue * 
+base0E="B6ACFF"    # purplue * 
+base0F="FF49FD"    # magenta * 
+foreground=$base05
+background=$base00
+focus=$base07

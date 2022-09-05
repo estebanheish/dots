@@ -10,7 +10,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm.programs.waybar.enable = true;
+    hm.programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
     hm.home.packages = with pkgs; [ material-design-icons ];
     hm.xdg.configFile."waybar" = { source = ./../../config/waybar; recursive = true; };
   };

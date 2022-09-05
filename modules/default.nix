@@ -33,5 +33,6 @@
     ./gnome
     ./nvidia
     ./vulkan
+    ./swhkd
   ];
 }

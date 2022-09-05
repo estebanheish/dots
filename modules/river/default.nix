@@ -13,7 +13,7 @@ in
     hardware.opengl.enable = true;
     security.polkit.enable = true;
     security.pam.services.swaylock = { };
-    # programs.dconf.enable = true;
+    programs.dconf.enable = true;
     # programs.xwayland.enable = true;
 
     xdg.portal = {
@@ -26,12 +26,14 @@ in
       kanshi.enable = true;
       foot.enable = true;
       yambar.enable = true;
+      waybar.enable = true;
       qutebrowser.enable = true;
       mako.enable = true;
       mpv.enable = true;
       xdg.enable = true;
       zathura.enable = true;
       mpd.enable = true;
+      swhkd.enable = true;
     };
 
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
@@ -55,6 +57,8 @@ in
       bashmount
       ydotool
       capitaine-cursors-yellow
+      ncmpcpp
+      # swhkd
     ];
 
     # themes
@@ -79,7 +83,7 @@ in
         source = ./../../config/river;
         recursive = true;
       };
-      "wall".source = ./../../bin/pix/moon.jpg;
+      "wall".source = ./../../bin/pix/houseonthesideofalake.jpg;
       "swaylock/config".source = ./../../config/swaylock/config;
     };
 
@@ -93,6 +97,21 @@ in
         initial_session = {
           command = "river";
           user = config.user.name;
+        };
+      };
+    };
+
+    hm.systemd.user.services = {
+      river = {
+        Unit = {
+          Description = "river window manager";
+          BindsTo = "graphical-session.target";
+          After = "graphical-session.target";
+        };
+        Service = {
+          Type = "simple";
+          ExecStart = "${pkgs.river}/bin/river";
+          Restart = "on-failure";
         };
       };
     };

@@ -158,13 +158,14 @@ riverctl csd-filter-add app-id "gedit"
 ######
 
 # VARS 
-background=000000
-foreground=ffffff
-focus=fb0120
+background=2E3440
+foreground=E5E9F0
+foregroundalt=D8DEE9
+focus=EEF0F5
 
 # 19
 # 11
-bemenu="-i -p '' \
+bemenu="-i -p '' -H 25 \
      --fn 'Ubuntu bold 15' \
      --tb '#${background}' \
      --tf '#${foreground}' \
@@ -175,7 +176,9 @@ bemenu="-i -p '' \
      --hb '#${focus}' \
      --hf '#${background}' \
      --sb '#${background}' \
-     --sf '#${foreground}'"
+     --sf '#${foreground}' \
+     --af '#${foregroundalt}' \
+     --ab '#${background}'" 
 
 # SETTINGS
 riverctl set-cursor-warp on-output-change
@@ -197,6 +200,7 @@ riverctl map normal Super X spawn 'foot btm'
 riverctl map normal Super Q spawm 'makoctl dismiss --all'
 riverctl map normal Super+Shift A spawn 'foot alsamixer'
 riverctl map normal Super A spawn 'foot pulsemixer'
+riverctl map normal Super m spawn 'foot ncmpcpp'
 
 # browsers 
 riverctl map normal Super W spawn qutebrowser
@@ -214,6 +218,8 @@ done
 
 # screenshots
 riverctl map normal None Print spawn 'grim -g "$(slurp)" - | wl-copy'
+riverctl map normal Shift Print spawn "grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy"
+riverctl man normal Super Tab spawn 'swappy.sh'
 
 # power
 riverctl map normal Super F12 spawn 'systemctl -i poweroff'
@@ -221,11 +227,16 @@ riverctl map normal Super F11 spawn 'systemctl -i reboot'
 riverctl map normal Super F10 spawn 'swaylock -f'
 riverctl map normal None XF86ScreenSaver spawn 'swaylock -f'
 
+# yt-dl
+riverctl map normal None XF86HomePage spawn 'yt-dlp -x "$(wl-paste)" -P ~/Music/yt-dlp'
+riverctl map normal None XF86HomePage spawn 'yt-dlp "$(wl-paste)" -P ~/Videos'
+
 # START
 kanshi &
 mako &
-swaybg -i ~/.config/wall -m fill &  
-yambar & # https://codeberg.org/dnkl/yambar/issues/148
+# swaybg -i ~/.config/wall -m fill &  
+# yambar & # https://codeberg.org/dnkl/yambar/issues/148
+waybar & # https://codeberg.org/dnkl/yambar/issues/148
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river &
 
 ######

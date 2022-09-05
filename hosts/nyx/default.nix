@@ -36,10 +36,6 @@
   # hardware.opengl.driSupport = true;
   ##
 
-  # steam
-  programs.steam.enable = true;
-  ##
-
   environment.systemPackages = with pkgs; [
     # vulkan-validation-layers # for sway vulkan
     # vulkan-tools

@@ -1,22 +1,22 @@
-@define-color base00 #000000;
-@define-color base01 #202020;
-@define-color base02 #404040;
-@define-color base03 #808008;
-@define-color base04 #C0C0C0;
-@define-color base05 #E0E0E0;
-@define-color base06 #F0F0F0;
-@define-color base07 #ffffff;
-@define-color base08 #FF5370;
-@define-color base09 #F76D47;
-@define-color base0A #FFB62C;
-@define-color base0B #91B859;
-@define-color base0C #39ADB5;
-@define-color base0D #6182B8;
-@define-color base0E #7C4DFF;
-@define-color base0F #E53935;
-@define-color foreground #ffffff;
-@define-color background #000000;
-@define-color focus #fb0120;
+@define-color base00 #2E3440;
+@define-color base01 #3B4252;
+@define-color base02 #434C5E;
+@define-color base03 #4C566A;
+@define-color base04 #D8DEE9;
+@define-color base05 #E5E9F0;
+@define-color base06 #ECEFF4;
+@define-color base07 #EEF0F5;
+@define-color base08 #FF5258;
+@define-color base09 #FF7500;
+@define-color base0A #FFFF70;
+@define-color base0B #00FB90;
+@define-color base0C #C4FFFF;
+@define-color base0D #029BEB;
+@define-color base0E #B6ACFF;
+@define-color base0F #FF49FD;
+@define-color foreground #E5E9F0;
+@define-color background #2E3440;
+@define-color focus #EEF0F5;
 
 * {
     border: none;
@@ -52,6 +52,7 @@ window#waybar {
     padding: 1px 4px;
 }
 
+
 #workspaces button.focused {
     background: @focus; /* focus */
     color: @background; /* background */
@@ -59,6 +60,27 @@ window#waybar {
 
 #workspaces button.urgent {
     color: @base08; /* rojo */
+}
+
+#tags button {
+    color: @background; /* foreground */
+    padding: 1px 4px;
+}
+
+#tags button.occupied {
+    color: @foreground; /* foreground */
+    padding: 1px 4px;
+}
+
+#tags button.focused {
+    background: @focus; /* focus */
+    color: @background; /* background */
+    padding: 1px 4px;
+}
+
+#tags button.urgent {
+    color: @base08; /* rojo */
+    padding: 1px 4px;
 }
 
 /* NETWORK */

@@ -1,7 +1,7 @@
 font=Ubuntu Bold 
-background-color=#000000
-text-color=#ffffff
-border-color=#fb0120
+background-color=#2E3440
+text-color=#E5E9F0
+border-color=#EEF0F5
 
 default-timeout=3500
 group-by=category

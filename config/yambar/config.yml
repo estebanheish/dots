@@ -1,6 +1,6 @@
-background: &background 000000ff
-foreground: &foreground ffffffff
-focus: &focus fb0120ff
+background: &background 2E3440ff
+foreground: &foreground E5E9F0ff
+focus: &focus EEF0F5ff
 
 bar: 
   font: "Ubuntu:style=Bold:size=17" # 12

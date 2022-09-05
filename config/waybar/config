@@ -3,7 +3,7 @@
     "height": 22,
     "spacing": 10,
     "output": ["HDMI-A-1"],
-    "modules-left": [ "idle_inhibitor", "sway/workspaces", "sway/mode"],
+    "modules-left": [ "idle_inhibitor", "river/tags", "river/mode", "sway/workspaces", "sway/mode"],
     "modules-center": ["mpd"],
     "modules-right": ["tray", "battery", "network", "pulseaudio", "clock"],
 
@@ -16,6 +16,10 @@
     },
 
     "sway/workspaces": {
+      "format": "{name}",
+    },
+    
+    "river/tags": {
       "format": "{name}",
     },
 
