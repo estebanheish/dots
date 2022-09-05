@@ -33,7 +33,6 @@ in
       xdg.enable = true;
       zathura.enable = true;
       mpd.enable = true;
-      swhkd.enable = true;
     };
 
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
@@ -58,7 +57,6 @@ in
       ydotool
       capitaine-cursors-yellow
       ncmpcpp
-      # swhkd
     ];
 
     # themes
