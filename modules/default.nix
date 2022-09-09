@@ -36,5 +36,6 @@
     ./hyprland
     ./bemenu
     ./scripts
+    ./eww
   ];
 }

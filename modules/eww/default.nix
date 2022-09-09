@@ -5,11 +5,11 @@ let
 in
 {
 
-  config = {
+  options = {
     modules.eww.enable = mkEnableOption "eww";
   };
 
-  options = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.eww ];
     hm.xdg.configFile."eww" = {
       source = ./../../config/eww;
