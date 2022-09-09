@@ -30,7 +30,7 @@
 }
 
 window#waybar {
-    background: @background; /* background */
+    background: rgba(46, 52, 64, 0.8); /* background */
     color: @foreground; /* foreground */
 }
 

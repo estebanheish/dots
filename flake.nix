@@ -6,9 +6,17 @@
     home-manager.url = github:nix-community/home-manager;
     home-manager.inputs.nixgkgs.follows = "nixpkgs";
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    # eww.url = "github:elkowar/eww";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       modules = [
         (import ./modules)
@@ -17,16 +25,23 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
         }
+        inputs.hyprland.nixosModules.default
+        # { programs.hyprland.enable = true; }
         # overlay
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ (import ./overlays/default.nix) ]; })
       ];
     in
     {
 
-      nixosConfigurations.nyx = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = modules ++ [ ./hosts/nyx ];
-      };
+      nixosConfigurations.nyx = let system = "x86_64-linux"; in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = modules ++ [ ./hosts/nyx ];
+          specialArgs = {
+            inherit system;
+            inputs = inputs;
+          };
+        };
 
       nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -41,7 +56,7 @@
       nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = modules ++ [
-          nixos-hardware.nixosModules.raspberry-pi-4
+          inputs.nixos-hardware.nixosModules.raspberry-pi-4
           ./hosts/grape
         ];
       };

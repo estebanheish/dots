@@ -196,6 +196,7 @@ lvim.plugins = {
   { "tiagovla/tokyodark.nvim" },
   { "rockerBOO/boo-colorscheme-nvim" },
   { "Mofiqul/vscode.nvim" },
+  { "elkowar/yuck.vim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

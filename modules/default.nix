@@ -33,5 +33,8 @@
     ./gnome
     ./nvidia
     ./vulkan
+    ./hyprland
+    ./bemenu
+    ./scripts
   ];
 }

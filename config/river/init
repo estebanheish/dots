@@ -214,6 +214,7 @@ riverctl map normal None XF86AudioMute spawn 'pulsemixer --toggle-mute'
 riverctl map normal Shift XF86AudioMute spawn 'amixer set Capture toggle'
 # riverctl map normal Shift XF86AudioRaiseVolume spawn 'playerctl volume +2'
 # riverctl map normal Shift XF86AudioLowerVolume spawn 'playerctl volume -2'
+
 # mpd
 riverctl map normal Shift XF86AudioRaiseVolume spawn 'mpc volume +2'
 riverctl map normal Shift XF86AudioLowerVolume spawn 'mpc volume -2'

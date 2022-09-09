@@ -1,0 +1,25 @@
+* { 
+    all: unset;
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.bar { 
+    // background: #2E3440;
+    background: rgba(46, 52, 64, 0.8);
+}
+
+.todo {
+  color: #E5E0F0;
+  padding: 0 20px;
+}
+
+.workspace { 
+  padding: 0 0.3em;
+}
+
+.workspace.focused { 
+    color: #2E3440;
+    background: #EEF0F5;
+}
