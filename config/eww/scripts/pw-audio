@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+pw-audio() {
+  sink=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+  mic=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
+
+  sink_volume=${sink:8:4}
+  if [[ ${sink:14:5} == "MUTED" ]]; then
+    echo "{ \"sink\": \"MUTED\", \"source\": \"${mic:14:5}\" }"
+  elif ((sink_volume>0.50)); then
+    echo "{ \"sink\": \"HIGH\", \"source\": \"${mic:14:5}\" }"
+  elif ((sink_volume>0.25)); then
+    echo "{ \"sink\": \"MEDIUM\", \"source\": \"${mic:14:5}\" }"
+  else
+    echo "{ \"sink\": \"LOW\", \"source\": \"${mic:14:5}\" }"
+  fi
+}
+
+
+((NOW=SECONDS-1))
+pw-mon | \
+  while read line; do
+    if ((SECONDS != NOW)); then
+      pw-audio
+      NOW=$SECONDS
+    fi
+  done

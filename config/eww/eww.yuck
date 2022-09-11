@@ -14,9 +14,13 @@
 (deflisten workspaces :initial "[]"
   'scripts/workspaces')
 
+(deflisten pw-audio :initial '{ "sink": "HIGH", "source": "ON" }'
+  'scripts/pw-audio')
+
 (defpoll time :interval "60s"
   'date +"%a %d. %R"')
   ;'date +"%a %d. %I:%M %p"')
+
 
 (defvar layout "master")
 
@@ -50,6 +54,8 @@
        :halign "end"
        :spacing 8
        :space-evenly false
+    (audio-in)
+    (audio-out)
     (time)
     (layout)
     ))
@@ -71,9 +77,28 @@
     ))
 
 
+(defwidget audio-in []
+  (image :class "audio-in icon"
+         :image-width 17
+         :path { pw-audio.source == "MUTED" ? "images/audio/MIC-MUTED.png" : "images/audio/MIC-ON.png" }
+         :valign "center"
+    )
+  )
+
+
+(defwidget audio-out []
+  (image :class "audio-out icon"
+         :path "images/audio/SINK-${pw-audio.sink}.png"
+         :valign "center"
+         :image-width 18
+    )
+  )
+
+
 (defwidget time []
     (label 
       :halign "end"
+      :class "time"
       :text time))
 
 (defwidget layout []
