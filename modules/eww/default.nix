@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.eww ];
+    environment.systemPackages = [ pkgs.eww-wayland ];
     hm.xdg.configFile."eww" = {
       source = ./../../config/eww;
       recursive = true;

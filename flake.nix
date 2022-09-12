@@ -48,9 +48,14 @@
         modules = modules ++ [ ./hosts/qemu-vm ];
       };
 
-      nixosConfigurations.lemon = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = modules ++ [ ./hosts/lemon ];
+      nixosConfigurations.lemon = let system = "x86_64-linux"; in
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = modules ++ [ ./hosts/lemon ];
+          specialArgs = {
+            inherit system;
+            inputs = inputs;
+          };
       };
 
       nixosConfigurations.grape = nixpkgs.lib.nixosSystem {

@@ -27,6 +27,7 @@ in
       mpd.enable = true;
       bemenu.enable = true;
       scripts.enable = true;
+      eww.enable = true;
     };
 
     fonts.fonts = with pkgs; [ ubuntu_font_family ];
@@ -47,7 +48,7 @@ in
       bashmount
       ydotool
       ncmpcpp
-      eww-wayland
+      # eww-wayland
       # inputs.eww.packages.${system}.eww
       inputs.hyprpaper.packages.${system}.hyprpaper
       inputs.hyprpicker.packages.${system}.hyprpicker
