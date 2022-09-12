@@ -15,24 +15,16 @@
     virtualization.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
-    languages.haskell.enable = true;
+    languages.haskell.enable = false;
     lvim.enable = true;
     syncthing.enable = true;
     gpg.enable = true;
+    nvidia.enable = true;
   };
 
   # for vscode (for copilot)
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  ##
-
-  # sway with nvidia and vulkan renderer
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # hardware.opengl.enable = true;
-  # hardware.nvidia.modesetting.enable = true;
-  # hardware.nvidia.nvidiaSettings = true;
-  # hardware.opengl.driSupport = true;
   ##
 
   environment.systemPackages = with pkgs; [

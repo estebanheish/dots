@@ -39,6 +39,7 @@ in
       slurp
       playerctl
       wl-clipboard
+      wf-recorder
       imv
       xdg-utils
       swayidle
@@ -68,7 +69,7 @@ in
     # };
 
     hm.xdg.configFile = {
-      "wall.jpg".source = ./../../bin/pix/houseonthesideofalake.jpg;
+      "wall.jpg".source = ./../../bin/pix/13klgg.jpg;
       "swaylock/config".source = ./../../config/swaylock/config;
       "hypr" = {
         source = ./../../config/hypr;
