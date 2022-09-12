@@ -56,7 +56,7 @@
             inherit system;
             inputs = inputs;
           };
-      };
+        };
 
       nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";

@@ -82,7 +82,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd WLR_NO_HARDWARE_CURSORS=1 Hyprland";
           user = "greeter";
         };
         initial_session = {
