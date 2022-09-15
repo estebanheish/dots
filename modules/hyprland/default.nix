@@ -54,6 +54,10 @@ in
       inputs.hyprpicker.packages.${system}.hyprpicker
       socat
       # capitaine-cursors-yellow
+
+      # for when used with nvidia 
+      libva
+      nvidia-vaapi-driver
     ];
 
     # themes
@@ -80,6 +84,10 @@ in
 
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
+      LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };
 
     services.greetd = {

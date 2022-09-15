@@ -10,3 +10,7 @@
 - grabar pantalla
 - qt y gtk temas
 - xgd-open abre audio en qutebrowser
+- cursor
+
+# random 
+- colores qutebrowser
