@@ -57,17 +57,17 @@ in
     ];
 
     # themes
-    # hm.gtk = {
-    #   enable = true;
-    #   iconTheme = {
-    #     name = "Adwaita";
-    #     package = pkgs.gnome.adwaita-icon-theme;
-    #   };
-    #   theme = {
-    #     name = "Adwaita-dark";
-    #     package = pkgs.gnome-themes-extra;
-    #   };
-    # };
+    hm.gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+      };
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
+      };
+    };
 
     hm.xdg.configFile = {
       "wall.jpg".source = ./../../bin/pix/13klgg.jpg;
@@ -78,15 +78,19 @@ in
       };
     };
 
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
+
     services.greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd WLR_NO_HARDWARE_CURSORS=1 Hyprland";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
           user = "greeter";
         };
         initial_session = {
-          command = "river";
+          command = "Hyprland";
           user = config.user.name;
         };
       };

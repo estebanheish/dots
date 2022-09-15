@@ -3,13 +3,13 @@ with lib;
 let
   cfg = config.modules.bemenu;
 
-  background = "#2E3440";
-  foreground = "#E5E9F0";
-  foregroundalt = "#D8DEE9";
-  focus = "#EEF0F5";
+  background = "#2E2E30";
+  foreground = "#FDFDFD";
+  foregroundalt = "#A8A8A8";
+  focus = "#007AFF";
 
 
-  bargs = ''-i -p ''' - H 25 \
+  bargs = ''-i -p ''' -H 25 \
      --fn 'Ubuntu bold 15' \
      --tb '${background}' \
      --tf '${foreground}' \
@@ -18,7 +18,7 @@ let
      --nb '${background}' \
      --nf '${foreground}' \
      --hb '${focus}' \
-     --hf '${background}' \
+     --hf '${foreground}' \
      --sb '${background}' \
      --sf '${foreground}' \
      --af '${foregroundalt}' \
