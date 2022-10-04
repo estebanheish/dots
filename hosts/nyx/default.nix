@@ -27,9 +27,17 @@
   services.gnome.gnome-keyring.enable = true;
   ##
 
+  # steam 
+  programs.steam.enable = true;
+  environment.sessionVariables = rec {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
+  };
+  ##
+
   environment.systemPackages = with pkgs; [
     # vulkan-validation-layers # for sway vulkan
     # vulkan-tools
+    gamescope
 
     tdesktop
     discord

@@ -87,6 +87,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "css",
   "yaml",
+  "html",
+  "css",
 }
 
 lvim.builtin.treesitter.ignore_install = {}
@@ -103,6 +105,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
 require("lspconfig")["hls"].setup({})
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "html" })
+local opts = {
+  filetypes = { "html", "htmldjango" }
+}
+require("lvim.lsp.manager").setup("html", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
 -- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype

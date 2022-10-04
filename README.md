@@ -14,3 +14,4 @@
 
 # random 
 - colores qutebrowser
+- git alias

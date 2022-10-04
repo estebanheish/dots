@@ -40,7 +40,7 @@
   (box :class "left"
        :spacing 8
        :space-evenly false
-    (logo)
+    ;(logo)
     (workspaces)))
 
 
@@ -62,7 +62,7 @@
 
 
 (defwidget logo []
-  (image :path "images/snowflake.png"
+  (image :path "images/rust-gear.png"
          :image-width 22))
 
 

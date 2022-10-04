@@ -25,7 +25,7 @@ in
 
     environment.systemPackages = with pkgs; [
       pulsemixer
-      alsaUtils
+      alsa-utils
     ];
 
   };
