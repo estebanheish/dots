@@ -11,15 +11,29 @@ in
   config = mkIf cfg.enable {
 
     security.pam.services.swaylock = { };
-    programs.hyprland.enable = true;
     # programs.xwayland.enable = true;
+    # programs.hyprland.enable = true;
+
+    programs.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages."x86_64-linux".hyprland.override {
+        wlroots = inputs.hyprland.packages."x86_64-linux".wlroots-hyprland.overrideAttrs (old: {
+          nvidiaPatches = true;
+          patches =
+            (old.patches or [ ])
+            ++ [
+              ./preferred_format.diff
+            ];
+        });
+      };
+    };
 
     modules = {
       pipewire.enable = true;
       kanshi.enable = true;
       foot.enable = true;
       waybar.enable = true;
-      qutebrowser.enable = true;
+      # qutebrowser.enable = true;
       mako.enable = true;
       mpv.enable = true;
       xdg.enable = true;
@@ -83,9 +97,9 @@ in
     };
 
     environment.sessionVariables = {
+      XDG_SESSION_TYPE = "wayland";
       WLR_NO_HARDWARE_CURSORS = "1";
       LIBVA_DRIVER_NAME = "nvidia";
-      XDG_SESSION_TYPE = "wayland";
       GBM_BACKEND = "nvidia-drm";
       GLX_VENDOR_LIBRARY_NAME = "nvidia";
     };

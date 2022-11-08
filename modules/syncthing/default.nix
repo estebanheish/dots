@@ -14,6 +14,8 @@ in
         enable = true;
         user = config.user.name;
         dataDir = "/home/${config.user.name}";
+        declarative.overrideDevices = false;
+        # declarative.overrideFolders = false;
         folders = {
           "Documents" = {
             label = "Documents";

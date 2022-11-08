@@ -32,12 +32,11 @@
   environment.sessionVariables = rec {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
   };
-  ##
 
   environment.systemPackages = with pkgs; [
     # vulkan-validation-layers # for sway vulkan
     # vulkan-tools
-    gamescope
+    # gamescope
 
     tdesktop
     discord
@@ -56,6 +55,9 @@
   systemd.network.enable = true;
   systemd.network.wait-online.anyInterface = true;
   #systemd.network.wait-online.timeout = 5;
+  networking.firewall = {
+    allowedTCPPorts = [ 8000 ];
+  };
 
   # services
   services.openssh = {
