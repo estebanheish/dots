@@ -15,7 +15,7 @@
     virtualization.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
-    languages.haskell.enable = false;
+    languages.haskell.enable = true;
     lvim.enable = true;
     syncthing.enable = true;
     gpg.enable = true;
@@ -28,10 +28,10 @@
   ##
 
   # steam 
-  programs.steam.enable = true;
-  environment.sessionVariables = rec {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
-  };
+  # programs.steam.enable = true;
+  # environment.sessionVariables = rec {
+  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
+  # };
 
   environment.systemPackages = with pkgs; [
     # vulkan-validation-layers # for sway vulkan

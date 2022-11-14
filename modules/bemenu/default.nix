@@ -8,6 +8,9 @@ let
   foregroundalt = "#A8A8A8";
   focus = "#007AFF";
 
+  bemenu = "${pkgs.bemenu}/bin/bemenu";
+  cliphist = "${pkgs.cliphist}/bin/cliphist";
+  wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
 
   bargs = ''-i -p ''' -H 25 \
      --fn 'Ubuntu bold 15' \
@@ -22,11 +25,12 @@ let
      --sb '${background}' \
      --sf '${foreground}' \
      --af '${foregroundalt}' \
-     --ab '${background}'
-  '';
+     --ab '${background}' \
+     '';
 
   bmenu = pkgs.writeScriptBin "bmenu" "${pkgs.bemenu}/bin/bemenu-run ${bargs}";
   bfiles = pkgs.writeScriptBin "bfiles" ''${pkgs.xdg-utils}/bin/xdg-open "$(${pkgs.fd}/bin/fd --search-path ~ --search-path /run/media -tf | ${pkgs.bemenu}/bin/bemenu -l 20 ${bargs})"'';
+  bclip = pkgs.writeScriptBin "bclip" "${cliphist} list | ${bemenu} -l 20 ${bargs} | ${cliphist} decode | ${wl-copy}";
 in
 {
 
@@ -35,7 +39,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ bmenu bfiles ];
+    environment.systemPackages = [ bmenu bfiles bclip ];
   };
 
 }

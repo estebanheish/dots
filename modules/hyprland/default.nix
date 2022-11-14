@@ -54,6 +54,7 @@ in
       slurp
       playerctl
       wl-clipboard
+      cliphist
       wf-recorder
       imv
       xdg-utils
