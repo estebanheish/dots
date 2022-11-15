@@ -37,5 +37,7 @@
     ./bemenu
     ./scripts
     ./eww
+    ./flutter
+    ./helix
   ];
 }

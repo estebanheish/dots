@@ -87,6 +87,7 @@
 
       # MY BINDS
       { invocation: "lvim", shortcut: "le", execution: "lvim +{line} {file}", leave_broot: false }
+      { invocation: "helix", shortcut: "hx", execution: "hx {file}", leave_broot: false }
       { execution: ":root_up", key: "ctrl-h" }
       { execution: ":toggle_stage", key: "ctrl-x" }
 

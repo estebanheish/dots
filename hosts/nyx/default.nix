@@ -17,9 +17,11 @@
     silent-boot.enable = true;
     languages.haskell.enable = true;
     lvim.enable = true;
+    helix.enable = true;
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
+    flutter.enable = true;
   };
 
   # for vscode (for copilot)
