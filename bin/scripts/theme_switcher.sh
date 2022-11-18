@@ -95,5 +95,7 @@ change_colors ./../../config/qutebrowser/qutebrowser.awk ./../../config/qutebrow
 change_colors ./../../config/waybar/style.awk ./../../config/waybar/style.css
 change_colors ./../../config/sway/colors.awk ./../../config/sway/config.d/colors
 change_colors ./../../config/swaylock/config.awk ./../../config/swaylock/config
+change_colors ./../../config/hypr/hyprland.awk ./../../config/hypr/hyprland.conf
+change_colors ./../../config/eww/eww.awk ./../../config/eww/eww.scss
 
 echo "done"
