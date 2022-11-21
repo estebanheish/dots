@@ -97,5 +97,14 @@ change_colors ./../../config/sway/colors.awk ./../../config/sway/config.d/colors
 change_colors ./../../config/swaylock/config.awk ./../../config/swaylock/config
 change_colors ./../../config/hypr/hyprland.awk ./../../config/hypr/hyprland.conf
 change_colors ./../../config/eww/eww.awk ./../../config/eww/eww.scss
+change_colors ./../../modules/bemenu/bemenu.awk ./../../modules/bemenu/default.nix
+
+./../../config/eww/images/gen_img.sh $foreground
+
+fd -e svg '' ./../../config/eww/images/ | while read file; do 
+  rm ${file%.*}.png
+  inkscape -w 512 -h 512 <(sed "s/iconcolor/${foreground}/g" $file) -o ${file%.*}.png  
+done
+
 
 echo "done"
