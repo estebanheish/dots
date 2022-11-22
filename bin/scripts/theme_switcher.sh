@@ -6,6 +6,7 @@ loadwal () {
       focus=${cursor#\#}
       foreground=${foreground#\#}
       background=${background#\#}
+      backgroundrgba=${background#\#}
       base00=${color0#\#}
       base01=${color1#\#}
       base02=${color2#\#}
@@ -46,6 +47,7 @@ test_missing() {
     -z $base0F -o \
     -z $foreground -o \
     -z $background -o \
+    -z $backgroundrgba -o \
     -z $focus ]
 }
 
@@ -54,6 +56,7 @@ change_colors() {
     -i inplace \
     -v focus=$focus \
     -v background=$background \
+    -v backgroundrgba=$backgroundrgba \
     -v foreground=$foreground \
     -v cursor=$focus \
     -v base00=$base00 \
@@ -98,8 +101,6 @@ change_colors ./../../config/swaylock/config.awk ./../../config/swaylock/config
 change_colors ./../../config/hypr/hyprland.awk ./../../config/hypr/hyprland.conf
 change_colors ./../../config/eww/eww.awk ./../../config/eww/eww.scss
 change_colors ./../../modules/bemenu/bemenu.awk ./../../modules/bemenu/default.nix
-
-./../../config/eww/images/gen_img.sh $foreground
 
 fd -e svg '' ./../../config/eww/images/ | while read file; do 
   rm ${file%.*}.png
