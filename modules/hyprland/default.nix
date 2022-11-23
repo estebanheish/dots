@@ -67,8 +67,8 @@ in
       # inputs.eww.packages.${system}.eww
       inputs.hyprpaper.packages.${system}.hyprpaper
       inputs.hyprpicker.packages.${system}.hyprpicker
+      capitaine-cursors
       socat
-      # capitaine-cursors-yellow
 
       # for when used with nvidia 
       libva
@@ -98,11 +98,35 @@ in
     };
 
     environment.sessionVariables = {
+      # theming 
+      # GTK_THEME = "";
+      # XCURSOR_THEME = "capitaine-cursors-white";
+      # XCURSOR_SIZE = "42";
+
+      # xdg
       XDG_SESSION_TYPE = "wayland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+
+      # wlroots
       WLR_NO_HARDWARE_CURSORS = "1";
+
+      # nvidia 
       LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
-      GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+
+      # qt 
+      QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+      QT_QPA_PLATFORM = "wayland;xcb";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
+
+      # toolkit backend variables
+      SDL_VIDEODRIVER = "wayland";
+      # _JAVA_AWT_WM_NONEREPARENTING = 1;
+      CLUTTER_BACKEND = "wayland";
+      # GDK_BACKEND = "wayland";
     };
 
     services.greetd = {
