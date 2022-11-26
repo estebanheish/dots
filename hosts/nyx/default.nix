@@ -21,7 +21,7 @@
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
-    flutter.enable = true;
+    flutter.enable = false;
   };
 
   # for vscode (for copilot)

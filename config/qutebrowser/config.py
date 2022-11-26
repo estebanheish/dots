@@ -9,14 +9,17 @@ c.fonts.tabs.unselected = "bold"
 c.fonts.web.family.standard = "Ubuntu"
 c.tabs.favicons.scale = 1
 c.tabs.indicator.width = 1
+c.zoom.default = 150
 
-c.url.searchengines['amazon'] = "https://www.amazon.es/s?k={}"
-c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
-c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
-c.url.searchengines['np'] = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&query={}"
-c.url.searchengines['nw'] = "https://nixos.wiki/?search={}"
-c.url.searchengines['w'] = "https://en.wikipedia.org/wiki/?search={}"
-c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
+c.url.searchengines["amazon"] = "https://www.amazon.es/s?k={}"
+c.url.searchengines["aw"] = "https://wiki.archlinux.org/?search={}"
+c.url.searchengines["g"] = "https://www.google.com/search?hl=en&q={}"
+c.url.searchengines[
+    "np"
+] = "https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&query={}"
+c.url.searchengines["nw"] = "https://nixos.wiki/?search={}"
+c.url.searchengines["w"] = "https://en.wikipedia.org/wiki/?search={}"
+c.url.searchengines["y"] = "https://www.youtube.com/results?search_query={}"
 
 base00 = "#002635"
 base01 = "#3A565F"

@@ -33,7 +33,7 @@ in
       kanshi.enable = true;
       foot.enable = true;
       waybar.enable = true;
-      # qutebrowser.enable = true;
+      qutebrowser.enable = true;
       mako.enable = true;
       mpv.enable = true;
       xdg.enable = true;
@@ -71,7 +71,6 @@ in
       socat
 
       # for when used with nvidia 
-      libva
       nvidia-vaapi-driver
     ];
 
@@ -112,7 +111,7 @@ in
       WLR_NO_HARDWARE_CURSORS = "1";
 
       # nvidia 
-      LIBVA_DRIVER_NAME = "nvidia";
+      # LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
@@ -127,6 +126,12 @@ in
       # _JAVA_AWT_WM_NONEREPARENTING = 1;
       CLUTTER_BACKEND = "wayland";
       # GDK_BACKEND = "wayland";
+
+      # firefox vaapi
+      LIBVA_DRIVER_NAME = "nvidia";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      EGL_PLATFORM = "wayland";
     };
 
     services.greetd = {
