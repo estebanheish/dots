@@ -12,7 +12,8 @@
   networking.hostName = "nyx";
 
   modules = {
-    virtualization.enable = true;
+    # virtualization.enable = true;
+    qemu.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
     languages.haskell.enable = true;
@@ -44,10 +45,27 @@
     discord
     element-desktop
 
+    bitwarden
+    qbittorrent
+    libreoffice
     gimp
+    inkscape
+
+    helix
+    vscode
+
+    gnuplot
+    tor-browser-bundle-bin
 
     rustup
-    bitwarden
+    python3
+    bun
+
+    chromium
+    railway
+    gettext
+    postgresql
+    sqlite
   ];
 
   # networking 
@@ -58,7 +76,9 @@
   systemd.network.wait-online.anyInterface = true;
   #systemd.network.wait-online.timeout = 5;
   networking.firewall = {
-    allowedTCPPorts = [ 8000 ];
+    allowedTCPPorts = [
+      8000
+    ];
   };
 
   # services

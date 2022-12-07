@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 with lib;
-let 
+let
   cfg = config.modules.virtualization;
 in
 {

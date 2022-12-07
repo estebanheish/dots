@@ -19,6 +19,7 @@ in
       wget
       yt-dlp
       transmission
+      gallery-dl
 
       # Archives
       unzip
@@ -34,6 +35,7 @@ in
       imagemagick
 
       # basic utils
+      tmux
       pciutils
       usbutils
       parted
@@ -44,6 +46,8 @@ in
       tree
       file
       tmate
+      mediainfo
+      efibootmgr
 
       # Modern UNIX utitlities
       bat # cat

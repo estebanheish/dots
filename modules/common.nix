@@ -1,10 +1,11 @@
 { config, pkgs, lib, ... }:
 with lib;
-let 
+let
   user = builtins.getEnv "USER";
   name = if builtins.elem user [ "" "root" ] then "heis" else user;
-in {
-  imports = [  
+in
+{
+  imports = [
     (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" name ])
   ];
 
@@ -22,8 +23,8 @@ in {
     time.timeZone = "Europe/Madrid";
     i18n.defaultLocale = "en_US.UTF-8";
     console.keyMap = "colemak";
-    system.stateVersion = "21.11";
-    hm.home.stateVersion = "21.11";
+    system.stateVersion = "23.05";
+    hm.home.stateVersion = "23.05";
 
     modules = {
       packages.core.enable = true;

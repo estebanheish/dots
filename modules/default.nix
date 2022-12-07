@@ -38,6 +38,7 @@
     ./scripts
     ./eww
     ./flutter
+    ./qemu
     ./helix
   ];
 }

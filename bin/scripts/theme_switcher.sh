@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if ! which inkscape &>/dev/null; then
+  echo "install inkscape"; exit 1
+fi
+
 loadwal () {
   if [ -e ~/.cache/wal/colors.sh ]; then
       . ~/.cache/wal/colors.sh

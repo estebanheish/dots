@@ -21,7 +21,7 @@ in
       gtk3
 
       # android toolchain
-      android-tools
+      # android-tools
       android-studio
 
       # web 
