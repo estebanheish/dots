@@ -4,7 +4,7 @@ set render-loading "true"
 set statusbar-home-tilde "true"
 set selection-clipboard	"clipboard"
 
-set default-bg "#3A565F"
+set default-bg "#252A30"
 
-set recolor-darkcolor "#E8E8DF"
-set recolor-lightcolor "#002635"
+set recolor-darkcolor "#BDC4CF"
+set recolor-lightcolor "#101419"
