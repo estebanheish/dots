@@ -49,3 +49,51 @@ map('n', '<C-l>', '<C-w>l', options)
 
 -- remove ex mode
 map('n', 'Q', '<Nop>', {})
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- packer
+require('plugins')
+
+require('treesitter')
+
+require('gitsigns').setup()
+
+require('neogit').setup()
+
+-- lsp lines
+require("lsp_lines").setup()
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})
+vim.keymap.set(
+  "",
+  "<Leader>l",
+  require("lsp_lines").toggle,
+  { desc = "Toggle lsp_lines" }
+)
+
+-- lsp zero
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.setup()
+
+-- COLORSCHEME
+local present, decay = pcall(require, 'decay')
+
+if not present then
+  error('Can\'t import decay, make sure u installed it! :v')
+end
+
+decay.setup({
+  style = 'normal',
+  nvim_tree = {
+    contrast = true,
+  },
+})
