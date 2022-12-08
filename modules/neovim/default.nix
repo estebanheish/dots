@@ -11,9 +11,17 @@ in
 
   config = mkIf cfg.enable {
 
-    hm.home.packages = [ pkgs.neovim ];
+    # hm.home.packages = with pkgs; [ neovim vimPlugins.packer-nvim ];
+    hm.programs.neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        packer-nvim
+      ];
+    };
 
-    hm.xdg.configFile."nvim" = { source = ./../../config/nvim; recursive = true; };
+    # hm.xdg.configFile."nvim" = { source = ./../../config/nvim; recursive = true; };
 
   };
 
