@@ -11,7 +11,7 @@ in
 
   config = mkIf cfg.enable {
 
-    # hm.home.packages = with pkgs; [ neovim vimPlugins.packer-nvim ];
+    hm.home.packages = with pkgs; [ nerdfonts ];
     hm.programs.neovim = {
       enable = true;
       viAlias = true;
