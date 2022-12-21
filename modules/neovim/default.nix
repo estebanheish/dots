@@ -21,7 +21,7 @@ in
       ];
     };
 
-    # hm.xdg.configFile."nvim" = { source = ./../../config/nvim; recursive = true; };
+    hm.xdg.configFile."nvim" = { source = ./../../config/nvim; recursive = true; };
 
   };
 

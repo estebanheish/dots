@@ -1,3 +1,6 @@
+vim.keymap.set('n', '<leader>pS', '<Cmd>PackerSync<CR>')
+vim.keymap.set('n', '<leader>ps', '<Cmd>PackerStatus<CR>')
+
 return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
@@ -7,6 +10,8 @@ return require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'
   use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   use 'j-hui/fidget.nvim'
+  use 'p00f/nvim-ts-rainbow'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
@@ -20,6 +25,8 @@ return require('packer').startup(function(use)
   use 'kdheepak/monochrome.nvim'
   use 'fenetikm/falcon'
   use 'glepnir/zephyr-nvim'
+  use 'nyoom-engineering/oxocarbon.nvim'
+  use 'luisiacc/gruvbox-baby'
 
   -- use 'sainnhe/edge'
   -- use 'kvrohit/mellow.nvim'
@@ -89,6 +96,4 @@ return require('packer').startup(function(use)
       requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-
 end)
-

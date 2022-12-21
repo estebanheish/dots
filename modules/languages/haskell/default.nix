@@ -31,7 +31,7 @@ in
       )
       stack
       haskell-language-server
-      #haskellPackages.ghcup
+      # haskellPackages.ghcup
     ];
     services.hoogle.enable = true;
   };

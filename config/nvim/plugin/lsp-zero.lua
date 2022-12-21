@@ -13,6 +13,10 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
+lsp.configure('hls', {
+  force_setup = true
+})
+
 lsp.setup()
 
 vim.opt.signcolumn = 'yes'
