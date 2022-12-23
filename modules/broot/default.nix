@@ -11,7 +11,10 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.broot ];
-    hm.xdg.configFile."broot/conf.hjson".source = ./../../config/broot/conf.hjson;
+    hm.xdg.configFile."broot" = {
+      source = ./../../config/broot;
+      recursive = true;
+    };
   };
 
 }
