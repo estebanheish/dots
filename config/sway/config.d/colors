@@ -1,22 +1,22 @@
-set $base00 #101419
-set $base01 #252A30
-set $base02 #3A3F46
-set $base03 #636972
-set $base04 #8D949E
-set $base05 #b6beca
-set $base06 #BDC4CF
-set $base07 #C3C9D3
-set $base08 #e05f65
-set $base09 #f08e48
-set $base0A #f1cf8a
-set $base0B #78dba9
-set $base0C #74bee9
-set $base0D #70a5eb
-set $base0E #c68aee
-set $base0F #1c252c
-set $foreground #b6beca
-set $background #101419
-set $focus #78dba9
+set $base00 #190134
+set $base01 #392551
+set $base02 #5A496E
+set $base03 #7B6D8B
+set $base04 #9C92A8
+set $base05 #BDB6C5
+set $base06 #DEDAE2
+set $base07 #FEFFFF
+set $base08 #F80059
+set $base09 #BD0152
+set $base0A #8F6C97
+set $base0B #5BA2B6
+set $base0C #27D9D5
+set $base0D #C33678
+set $base0E #82034C
+set $base0F #470546
+set $foreground #FEFFFF
+set $background #190134
+set $focus #DEDAE2
 
 #client.background #FFFFFF
 #client.focused          #EEFFFF #82AAFF #212121 #82AAFF #82AAFF
