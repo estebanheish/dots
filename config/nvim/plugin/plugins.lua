@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
   use 'j-hui/fidget.nvim'
   use 'p00f/nvim-ts-rainbow'
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'NvChad/nvim-colorizer.lua'
 
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
@@ -27,11 +28,15 @@ return require('packer').startup(function(use)
   use 'glepnir/zephyr-nvim'
   use 'nyoom-engineering/oxocarbon.nvim'
   use 'luisiacc/gruvbox-baby'
+  use 'atelierbram/Base2Tone-nvim'
 
+  use 'olivercederborg/poimandres.nvim'
+  -- use 'JoosepAlviste/palenightfall.nvim'
+  -- use 'rockerBOO/boo-colorscheme-nvim'
   -- use 'sainnhe/edge'
   -- use 'kvrohit/mellow.nvim'
   -- use 'olimorris/onedarkpro.nvim'
-  -- use 'folke/tokyonight.nvim'
+  use 'folke/tokyonight.nvim'
   -- use 'tiagovla/tokyodark.nvim'
   -- use 'kvrohit/substrata.nvim'
   -- use 'olivercederborg/poimandres.nvim'
@@ -50,7 +55,6 @@ return require('packer').startup(function(use)
   -- use 'shaunsingh/moonlight.nvim'
   -- use 'andersevenrud/nordic.nvim'
   -- use 'shaunsingh/nord.nvim'
-  -- use 'rockerBOO/boo-colorscheme-nvim'
   -- use 'bkegley/gloombuddy'
   -- use 'mhartington/oceanic-next'
   -- use 'ramojus/meliora.nvim'

@@ -158,10 +158,10 @@ riverctl csd-filter-add app-id "gedit"
 ######
 
 # VARS 
-background=190134
-foreground=FEFFFF
-foregroundalt=9C92A8
-focus=DEDAE2
+background=0f0f0f
+foreground=dcdfe0
+foregroundalt=d5d8da
+focus=00bfff
 
 # 19
 # 11

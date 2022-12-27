@@ -88,7 +88,7 @@ in
     };
 
     hm.xdg.configFile = {
-      "wall.jpg".source = ./../../bin/pix/shyam.jpg;
+      "wall.jpg".source = ./../../bin/pix/tolga-ahmetler.jpg;
       "swaylock/config".source = ./../../config/swaylock/config;
       "hypr" = {
         source = ./../../config/hypr;
