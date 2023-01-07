@@ -29,6 +29,7 @@ in
     modules = {
       packages.core.enable = true;
       zsh.enable = true;
+      nushell.enable = true;
       lf.enable = true;
       broot.enable = true;
       neovim.enable = true;
@@ -39,7 +40,7 @@ in
       isNormalUser = true;
       createHome = true;
       initialPassword = "hola";
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
       extraGroups = [ "wheel" "audio" "video" ];
     };
 

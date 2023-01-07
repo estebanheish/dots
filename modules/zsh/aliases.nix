@@ -28,8 +28,8 @@ mpw = "mpv \"$(wl-paste)\"";
 #bat = "cat /sys/class/power_supply/BAT?/capacity";
 
 # NixOS
-nu = "doas nixos-rebuild switch --flake ~/.nyx";
-ngc = "nix-collect-garbage -d";
+rebuild = "doas nixos-rebuild switch --flake ~/.nyx";
+garbage = "nix-collect-garbage -d";
 
 # RCLONE SHORTCUTS
 cloudsync = "rclone sync ~/.ghome ghome:HOME -L -P && notify-send 'GHOME' 'Cloud synced'";

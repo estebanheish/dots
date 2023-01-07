@@ -11,6 +11,7 @@
     ./mpd
     ./git
     ./zsh
+    ./nushell
     ./xdg
     ./neovim
     ./lvim

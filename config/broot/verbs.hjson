@@ -66,10 +66,15 @@
         {
             key: "enter"
             apply_to: file
-            cmd: ":focus {file};:back;:select_first"
+            cmd: ":focus;:select_first;:input_clear"
+        }
+        {
+            key: "alt-enter"
+            apply_to: file
+            cmd: ":focus;:select_first;:cd"
         }
         
-        { key: "ctrl-u", internal: ":clear_stage" }
+        # { key: "ctrl-u", internal: ":clear_stage" }
         { 
             invocation: move_from_staging
             key: "ctrl-p"

@@ -3,10 +3,10 @@ with lib;
 let
   cfg = config.modules.bemenu;
 
-background = "#0f0f0f";
-foreground = "#dcdfe0";
-foregroundalt = "#d5d8da";
-focus = "#00bfff";
+background = "#1C2B38";
+foreground = "#FCFCFC";
+foregroundalt = "#888888";
+focus = "#92AAEE";
 
   bemenu = "${pkgs.bemenu}/bin/bemenu";
   cliphist = "${pkgs.cliphist}/bin/cliphist";
