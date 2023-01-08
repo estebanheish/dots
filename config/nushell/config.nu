@@ -656,7 +656,7 @@ let-env config = {
       mode: [emacs, vi_normal, vi_insert]
       event: { 
         send: ExecuteHostCommand
-        cmd: 'cd (_br_cmd)'
+        cmd: 'let p = _br_cmd; cd $p'
       }
     }
     {
@@ -666,7 +666,7 @@ let-env config = {
       mode: [emacs, vi_normal, vi_insert]
       event: { 
         send: ExecuteHostCommand
-        cmd: 'cd (_lfcd_cmd)'
+        cmd: 'let p = _lfcd_cmd; cd $p'
       }
     }
   ]
@@ -705,6 +705,9 @@ alias v = ^$env.EDITOR
 alias z = ^$env.READER
 alias o = ^$env.OPENER
 alias b = ^$env.BROWSER
+alias l = ls
+alias la = ls -a
+alias ll = ls -l
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
