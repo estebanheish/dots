@@ -51,3 +51,6 @@ map('n', '<C-l>', '<C-w>l', options)
 
 -- remove ex mode
 map('n', 'Q', '<Nop>', {})
+
+-- highlight yanked text momentarily
+vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank()")
