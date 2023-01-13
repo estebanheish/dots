@@ -56,7 +56,7 @@
     tor-browser-bundle-bin
 
     rustup
-    python3
+    python311
     bun
 
     chromium

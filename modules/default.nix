@@ -6,6 +6,7 @@
     ./pipewire
     ./broot
     ./lf
+    ./jellyfin
     ./alacritty
     ./foot
     ./mpd

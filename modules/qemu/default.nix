@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ qemu OVMF ];
+    environment.systemPackages = with pkgs; [ qemu quickemu ];
   };
 
 }
