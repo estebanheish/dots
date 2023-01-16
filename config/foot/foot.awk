@@ -2,7 +2,7 @@
 /^background=/ { $0 = "background=" background }
 /^foreground=/ { $0 = "foreground=" foreground }
 
-/regular0=/ { $0 = "regular0=" base00 } # black
+/regular0=/ { $0 = "regular0=" base01 } # black
 /regular1=/ { $0 = "regular1=" base08 } # red
 /regular2=/ { $0 = "regular2=" base0B } # green
 /regular3=/ { $0 = "regular3=" base0A } # yellow

@@ -26,7 +26,7 @@
           home-manager.useUserPackages = true;
         }
         inputs.hyprland.nixosModules.default
-        # { programs.hyprland.enable = true; }
+
         # overlay
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ (import ./overlays/default.nix) ]; })
       ];

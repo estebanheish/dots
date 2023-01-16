@@ -3,10 +3,10 @@ with lib;
 let
   cfg = config.modules.bemenu;
 
-background = "#1C2B38";
-foreground = "#FCFCFC";
-foregroundalt = "#888888";
-focus = "#92AAEE";
+background = "#1C1C1C";
+foreground = "#FFFFFF";
+foregroundalt = "#e5e5e5";
+focus = "#5e5086";
 
   bemenu = "${pkgs.bemenu}/bin/bemenu";
   cliphist = "${pkgs.cliphist}/bin/cliphist";
@@ -21,7 +21,7 @@ focus = "#92AAEE";
      --nb '${background}' \
      --nf '${foreground}' \
      --hb '${focus}' \
-     --hf '${background}' \
+     --hf '${foreground}' \
      --sb '${background}' \
      --sf '${foreground}' \
      --af '${foregroundalt}' \
@@ -29,7 +29,7 @@ focus = "#92AAEE";
      '';
 
   bmenu = pkgs.writeScriptBin "bmenu" "${pkgs.bemenu}/bin/bemenu-run ${bargs}";
-  bfiles = pkgs.writeScriptBin "bfiles" ''${pkgs.xdg-utils}/bin/xdg-open "$(${pkgs.fd}/bin/fd --search-path ~ --search-path /run/media -tf | ${pkgs.bemenu}/bin/bemenu -l 20 ${bargs})"'';
+  bfiles = pkgs.writeScriptBin "bfiles" ''${pkgs.xdg-utils}/bin/xdg-open "$(${pkgs.fd}/bin/fd --search-path ~/Documents --search-path ~/Downloads --search-path ~/Videos --search-path ~/media --search-path /run/media -tf | ${pkgs.bemenu}/bin/bemenu -l 20 ${bargs})"'';
   bclip = pkgs.writeScriptBin "bclip" "${cliphist} list | ${bemenu} -l 20 ${bargs} | ${cliphist} decode | ${wl-copy}";
 in
 {

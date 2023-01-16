@@ -33,7 +33,7 @@ in
       kanshi.enable = true;
       foot.enable = true;
       waybar.enable = true;
-      qutebrowser.enable = true;
+      qutebrowser.enable = false;
       mako.enable = true;
       mpv.enable = true;
       xdg.enable = true;
@@ -65,7 +65,8 @@ in
       ncmpcpp
       # eww-wayland
       # inputs.eww.packages.${system}.eww
-      inputs.hyprpaper.packages.${system}.hyprpaper
+      # inputs.hyprpaper.packages.${system}.hyprpaper
+      swaybg
       inputs.hyprpicker.packages.${system}.hyprpicker
       capitaine-cursors
       socat
@@ -88,7 +89,7 @@ in
     };
 
     hm.xdg.configFile = {
-      "wall.jpg".source = ./../../bin/pix/netherlands.jpg;
+      # "wall.jpg".source = ./../../bin/pix/himachal.jpg;
       "swaylock/config".source = ./../../config/swaylock/config;
       "hypr" = {
         source = ./../../config/hypr;
