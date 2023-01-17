@@ -36,27 +36,77 @@
       ];
     in
     {
-      nixosConfigurations.nyx = let system = "x86_64-linux"; in
+      nixosConfigurations.nyx =
+        let system = "x86_64-linux"; in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = modules ++ [ ./hosts/nyx ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; }) ];
+          modules = modules ++ [
+            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+            ./hosts/nyx
+          ];
           specialArgs = { inherit system inputs user; };
         };
 
-      nixosConfigurations.lemon = let system = "x86_64-linux"; in
+      nixosConfigurations.lemon =
+        let system = "x86_64-linux"; in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = modules ++ [ ./hosts/lemon ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; }) ];
+          modules = modules ++ [
+            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+            ./hosts/lemon
+          ];
           specialArgs = { inherit system inputs user; };
         };
 
-      nixosConfigurations.grape = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = modules ++ [
-          inputs.nixos-hardware.nixosModules.raspberry-pi-4
-          ./hosts/grape
-        ];
-      };
+      nixosConfigurations.grape =
+        let system = "aarch64-linux"; in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = modules ++ [
+            inputs.nixos-hardware.nixosModules.raspberry-pi-4
+            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+            ./hosts/grape
+          ];
+          specialArgs = { inherit system inputs user; };
+        };
+
+      homeConfigurations.shell =
+        let
+          system = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [
+            ./home
+            ({ ... }:
+              {
+                home = {
+                  username = user;
+                  homeDirectory = "/home/${user}";
+                  keyboard = {
+                    layout = "us";
+                    variant = "colemak";
+                  };
+                  sessionVariables = {
+                    EDITOR = "nvim";
+                  };
+                };
+                modules = {
+                  nushell.enable = true;
+                  neovim.enable = true;
+                  broot.enable = true;
+                  lf.enable = true;
+                  alacritty.enable = true;
+                };
+                programs.home-manager.enable = true;
+              }
+            )
+          ];
+
+          extraSpecialArgs = { inherit system inputs user; };
+        };
 
     };
 }

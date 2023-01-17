@@ -1,4 +1,4 @@
-{ 
+{
   imports = [
     ./alacritty
     ./bemenu
@@ -25,7 +25,6 @@
     ./xdg
     ./yambar
     ./zathura
-
   ];
   home.stateVersion = "23.05";
 }
