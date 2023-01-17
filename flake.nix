@@ -1,5 +1,5 @@
 {
-  description = "estebanheish nixos config";
+  description = "heis dots";
 
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/master;
@@ -16,46 +16,38 @@
     # eww.url = "github:elkowar/eww";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
+      userEnv = builtins.getEnv "USER";
+      user = if builtins.elem userEnv [ "" "root" ] then "heis" else userEnv;
       modules = [
-        (import ./modules)
+        (import ./nixos)
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${user} = import ./home;
+            extraSpecialArgs = { inherit inputs user; };
+          };
         }
         inputs.hyprland.nixosModules.default
-
-        # overlay
         ({ config, pkgs, ... }: { nixpkgs.overlays = [ (import ./overlays/default.nix) ]; })
       ];
     in
     {
-
       nixosConfigurations.nyx = let system = "x86_64-linux"; in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = modules ++ [ ./hosts/nyx ];
-          specialArgs = {
-            inherit system;
-            inputs = inputs;
-          };
+          modules = modules ++ [ ./hosts/nyx ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; }) ];
+          specialArgs = { inherit system inputs user; };
         };
-
-      nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = modules ++ [ ./hosts/qemu-vm ];
-      };
 
       nixosConfigurations.lemon = let system = "x86_64-linux"; in
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = modules ++ [ ./hosts/lemon ];
-          specialArgs = {
-            inherit system;
-            inputs = inputs;
-          };
+          inherit system;
+          modules = modules ++ [ ./hosts/lemon ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; }) ];
+          specialArgs = { inherit system inputs user; };
         };
 
       nixosConfigurations.grape = nixpkgs.lib.nixosSystem {

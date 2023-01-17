@@ -12,16 +12,13 @@
   networking.hostName = "nyx";
 
   modules = {
-    # virtualization.enable = true;
-    qemu.enable = true;
+    pipewire.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
-    languages.haskell.enable = true;
-    lvim.enable = true;
+    # languages.haskell.enable = true;
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
-    flutter.enable = false;
   };
 
   # for vscode (for copilot)
@@ -39,7 +36,6 @@
     # vulkan-validation-layers # for sway vulkan
     # vulkan-tools
     # gamescope
-
     tdesktop
     discord
     element-desktop
@@ -64,6 +60,9 @@
     gettext
     postgresql
     sqlite
+
+    qemu
+    quickemu
   ];
 
   # networking 
