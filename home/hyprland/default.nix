@@ -1,15 +1,19 @@
-{ config, lib, pkgs, inputs, user, ... }:
-with lib;
-let
-  cfg = config.modules.hyprland;
-in
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.hyprland;
+in {
   options = {
     modules.hyprland.enable = mkEnableOption "hyprland";
   };
 
   config = mkIf cfg.enable {
-
     modules = {
       kanshi.enable = true;
       foot.enable = true;
@@ -46,7 +50,7 @@ in
       inputs.hyprpicker.packages.${system}.hyprpicker
       capitaine-cursors
 
-      # for when used with nvidia 
+      # for when used with nvidia
       nvidia-vaapi-driver
     ];
 
@@ -71,8 +75,5 @@ in
         recursive = true;
       };
     };
-
   };
 }
-
-

@@ -1,16 +1,17 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.packages.core;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.packages.core;
+in {
   options = {
     modules.packages.core.enable = mkEnableOption "core packages";
   };
 
   config = mkIf cfg.enable {
-
     home.packages = with pkgs; [
       # editors
       # neovim
@@ -65,7 +66,5 @@ in
       sd # sed
       jq # sed for json data
     ];
-
   };
-
 }

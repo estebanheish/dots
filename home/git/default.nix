@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let 
-  cfg = config.modules.git;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.git;
+in {
   options = {
     modules.git.enable = mkEnableOption "git";
   };
@@ -16,6 +18,4 @@ in
       userEmail = "estebanheish@gmail.com";
     };
   };
-
 }
-

@@ -1,18 +1,19 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let 
-  cfg = config.modules.lf;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.lf;
+in {
   options = {
     modules.lf.enable = mkEnableOption "lf";
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ pkgs.lf ];
+    home.packages = [pkgs.lf];
     # environment.etc."lf/lfrc".source = ./../../config/lf/lfrc; # root
     xdg.configFile."lf/lfrc".source = ./../../config/lf/lfrc;
   };
-
 }

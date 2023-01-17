@@ -1,7 +1,11 @@
-{ config, pkgs, lib, user, ... }:
-with lib;
 {
-
+  config,
+  pkgs,
+  lib,
+  user,
+  ...
+}:
+with lib; {
   time.timeZone = "Europe/Madrid";
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "colemak";
@@ -25,12 +29,12 @@ with lib;
     createHome = true;
     initialPassword = "hola";
     shell = pkgs.nushell;
-    extraGroups = [ "wheel" "audio" "video" ];
+    extraGroups = ["wheel" "audio" "video"];
   };
 
   nixpkgs.config.allowUnfree = true;
   nix = {
-    settings.allowed-users = [ "@wheel" "${user}" ];
+    settings.allowed-users = ["@wheel" "${user}"];
     gc.automatic = true;
     optimise.automatic = true;
     extraOptions = "experimental-features = nix-command flakes";
@@ -45,5 +49,5 @@ with lib;
     sudo.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; [git];
 }

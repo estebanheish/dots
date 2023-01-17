@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   #boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -26,7 +28,7 @@
   services.gnome.gnome-keyring.enable = true;
   ##
 
-  # steam 
+  # steam
   # programs.steam.enable = true;
   # environment.sessionVariables = rec {
   #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
@@ -65,7 +67,7 @@
     quickemu
   ];
 
-  # networking 
+  # networking
   hardware.bluetooth.enable = true;
   #networking.wireless.iwd.enable = true;
   networking.useNetworkd = true;
@@ -86,7 +88,7 @@
   programs.ssh.startAgent = true;
 
   # boot
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 }

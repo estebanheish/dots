@@ -1,17 +1,18 @@
-{ config, lib, pkgs, user, ... }:
-
-with lib;
-let
-  cfg = config.modules.sway;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.sway;
+in {
   options = {
     modules.sway.enable = mkEnableOption "swaywm configuration";
   };
 
   config = mkIf cfg.enable {
-
     modules = {
       pipewire.enable = true;
     };
@@ -35,7 +36,7 @@ in
       wrapperFeatures.gtk = false;
     };
 
-    fonts.fonts = with pkgs; [ ubuntu_font_family ];
+    fonts.fonts = with pkgs; [ubuntu_font_family];
 
     home-manager.users.${user}.home.packages = with pkgs; [
       firefox-wayland
@@ -68,14 +69,14 @@ in
 
     ### greeter
     users.users.greeter.group = "greeter";
-    users.groups.greeter = { };
+    users.groups.greeter = {};
     services.greetd = {
       enable = true;
       package = "greetd.tuigreet";
       restart = true;
       settings = {
         default_session = {
-          command = "${lib.makeBinPath [pkgs.greetd.tuigreet] }/tuigreet --time --cmd sway";
+          command = "${lib.makeBinPath [pkgs.greetd.tuigreet]}/tuigreet --time --cmd sway";
           user = "greeter";
         };
         initial_session = {
@@ -123,7 +124,5 @@ in
     };
 
     home-manager.users.${user}.home.file.".wall.png".source = ./../../bin/pix/red_moon.jpg;
-
   };
-
 }

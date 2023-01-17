@@ -1,9 +1,12 @@
-{ pkgs, config, lib, ... }:
-with lib;
-let
-  cfg = config.modules.gnome;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.gnome;
+in {
   options = {
     modules.gnome.enable = mkEnableOption "gnome";
   };

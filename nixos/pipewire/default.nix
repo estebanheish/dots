@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.pipewire;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.pipewire;
+in {
   options = {
     modules.pipewire.enable = mkEnableOption "pipewire";
   };
@@ -27,7 +29,5 @@ in
       pulsemixer
       alsa-utils
     ];
-
   };
-
 }

@@ -1,10 +1,13 @@
-{ config, lib, pkgs, user, ... }:
-with lib;
-let
-  cfg = config.modules.xmonad;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.xmonad;
+in {
   options = {
     modules.xmonad.enable = mkEnableOption "xmonad";
   };
@@ -23,7 +26,7 @@ in
     hardware.opengl.enable = true;
     services.xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = ["nvidia"];
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
@@ -55,12 +58,11 @@ in
       bashmount
     ];
 
-    home-manager.users.${user}.home.packages = [ pkgs.ubuntu_font_family ];
+    home-manager.users.${user}.home.packages = [pkgs.ubuntu_font_family];
 
     home-manager.users.${user}.xdg.configFile."xmonad/xmonad.hs".source = ./../../config/xmonad/xmonad.hs;
     home-manager.users.${user}.xdg.configFile."xmobar/xmobarrc".source = ./../../config/xmobar/xmobarrc;
-    # wallpaper 
+    # wallpaper
     home-manager.users.${user}.xdg.configFile."wall".source = ./../../bin/pix/naturaleza/christina-deravedisian-planta-azul.jpg;
   };
-
 }

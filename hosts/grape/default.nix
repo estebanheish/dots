@@ -1,11 +1,14 @@
-{ config, pkgs, nixos-hardware, ... }:
 {
-
+  config,
+  pkgs,
+  nixos-hardware,
+  ...
+}: {
   imports = [
     ./hw.nix
   ];
 
-  modules = { 
+  modules = {
     syncthing.enable = true;
   };
 
@@ -17,7 +20,7 @@
   systemd.network.wait-online.anyInterface = true;
 
   # external drive
-  fileSystems."/home/${config.user.name}/data" = { 
+  fileSystems."/home/${config.user.name}/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
   };
@@ -27,6 +30,4 @@
     enable = true;
     passwordAuthentication = true;
   };
-
 }
-

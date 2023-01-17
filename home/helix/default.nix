@@ -1,18 +1,22 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.helix;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.helix;
+in {
   options = {
     modules.helix.enable = mkEnableOption "helix";
   };
 
   config = mkIf cfg.enable {
-
     programs.helix.enable = true;
-    xdg.configFile."helix" = { source = ./../../config/helix; recursive = true; };
+    xdg.configFile."helix" = {
+      source = ./../../config/helix;
+      recursive = true;
+    };
 
     home.packages = with pkgs; [
       rust-analyzer
@@ -25,7 +29,7 @@ in
       nodePackages.pyright
       # vls
       # not in nixpkgs
-      # awk-language-server 
+      # awk-language-server
     ];
   };
 }

@@ -1,10 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.modules.gpg;
-in
 {
-
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.gpg;
+in {
   options = {
     modules.gpg.enable = mkEnableOption "gpg";
   };
@@ -14,5 +15,4 @@ in
       enable = true;
     };
   };
-
 }

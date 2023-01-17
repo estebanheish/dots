@@ -16,97 +16,114 @@
     # eww.url = "github:elkowar/eww";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-    let
-      userEnv = builtins.getEnv "USER";
-      user = if builtins.elem userEnv [ "" "root" ] then "heis" else userEnv;
-      modules = [
-        (import ./nixos)
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.${user} = import ./home;
-            extraSpecialArgs = { inherit inputs user; };
-          };
-        }
-        inputs.hyprland.nixosModules.default
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [ (import ./overlays/default.nix) ]; })
-      ];
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
+    userEnv = builtins.getEnv "USER";
+    user =
+      if builtins.elem userEnv ["" "root"]
+      then "heis"
+      else userEnv;
+    modules = [
+      (import ./nixos)
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.${user} = import ./home;
+          extraSpecialArgs = {inherit inputs user;};
+        };
+      }
+      inputs.hyprland.nixosModules.default
+      ({
+        config,
+        pkgs,
+        ...
+      }: {nixpkgs.overlays = [(import ./overlays/default.nix)];})
+    ];
+  in {
+    nixosConfigurations.nyx = let
+      system = "x86_64-linux";
     in
-    {
-      nixosConfigurations.nyx =
-        let system = "x86_64-linux"; in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = modules ++ [
-            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          modules
+          ++ [
+            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
             ./hosts/nyx
           ];
-          specialArgs = { inherit system inputs user; };
-        };
+        specialArgs = {inherit system inputs user;};
+      };
 
-      nixosConfigurations.lemon =
-        let system = "x86_64-linux"; in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = modules ++ [
-            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+    nixosConfigurations.lemon = let
+      system = "x86_64-linux";
+    in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          modules
+          ++ [
+            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
             ./hosts/lemon
           ];
-          specialArgs = { inherit system inputs user; };
-        };
+        specialArgs = {inherit system inputs user;};
+      };
 
-      nixosConfigurations.grape =
-        let system = "aarch64-linux"; in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = modules ++ [
+    nixosConfigurations.grape = let
+      system = "aarch64-linux";
+    in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          modules
+          ++ [
             inputs.nixos-hardware.nixosModules.raspberry-pi-4
-            ({ ... }: { home-manager.extraSpecialArgs = { inherit system; }; })
+            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
             ./hosts/grape
           ];
-          specialArgs = { inherit system inputs user; };
-        };
+        specialArgs = {inherit system inputs user;};
+      };
 
-      homeConfigurations.shell =
-        let
-          system = "x86_64-linux";
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+    homeConfigurations.shell = let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+      home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          modules = [
-            ./home
-            ({ ... }:
-              {
-                home = {
-                  username = user;
-                  homeDirectory = "/home/${user}";
-                  keyboard = {
-                    layout = "us";
-                    variant = "colemak";
-                  };
-                  sessionVariables = {
-                    EDITOR = "nvim";
-                  };
+        modules = [
+          ./home
+          (
+            {...}: {
+              home = {
+                username = user;
+                homeDirectory = "/home/${user}";
+                keyboard = {
+                  layout = "us";
+                  variant = "colemak";
                 };
-                modules = {
-                  nushell.enable = true;
-                  neovim.enable = true;
-                  broot.enable = true;
-                  lf.enable = true;
-                  alacritty.enable = true;
+                sessionVariables = {
+                  EDITOR = "nvim";
                 };
-                programs.home-manager.enable = true;
-              }
-            )
-          ];
+              };
+              modules = {
+                nushell.enable = true;
+                neovim.enable = true;
+                broot.enable = true;
+                lf.enable = true;
+                alacritty.enable = true;
+              };
+              programs.home-manager.enable = true;
+            }
+          )
+        ];
 
-          extraSpecialArgs = { inherit system inputs user; };
-        };
-
-    };
+        extraSpecialArgs = {inherit system inputs user;};
+      };
+  };
 }

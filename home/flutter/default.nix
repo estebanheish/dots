@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }:
-with lib;
-let
-  cfg = config.modules.flutter;
-in
 {
-
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.flutter;
+in {
   options = {
     modules.flutter.enable = mkEnableOption "flutter";
   };
@@ -13,7 +15,7 @@ in
     home.packages = with pkgs; [
       flutter
 
-      # linux toolchain 
+      # linux toolchain
       cmake
       clang
       ninja
@@ -24,9 +26,8 @@ in
       # android-tools
       android-studio
 
-      # web 
+      # web
       google-chrome
     ];
   };
-
 }

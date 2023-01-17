@@ -1,9 +1,11 @@
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.modules.vulkan;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.modules.vulkan;
+in {
   options = {
     modules.vulkan.enable = mkEnableOption "vulkan";
   };
@@ -16,7 +18,5 @@ in
       vulkan-validation-layers # for sway
       vulkan-tools
     ];
-
   };
-
 }

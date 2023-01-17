@@ -1,10 +1,13 @@
-{ config, lib, pkgs, user, ... }:
-with lib;
-let
-  cfg = config.modules.mpd;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.mpd;
+in {
   options = {
     modules.mpd.enable = mkEnableOption "mdp";
   };
@@ -20,7 +23,6 @@ in
         }
       '';
     };
-    home.packages = with pkgs; [ ncmpcpp mpc_cli ];
+    home.packages = with pkgs; [ncmpcpp mpc_cli];
   };
-
 }

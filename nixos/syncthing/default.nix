@@ -1,9 +1,12 @@
-{ config, lib, user, ... }:
-with lib;
-let
-  cfg = config.modules.syncthing;
-in
 {
+  config,
+  lib,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.syncthing;
+in {
   options = {
     modules.syncthing.enable = mkEnableOption "syncthing";
   };
@@ -41,5 +44,4 @@ in
       };
     };
   };
-
 }

@@ -1,10 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let 
-  cfg = config.modules.silent-boot;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.silent-boot;
+in {
   options = {
     modules.silent-boot.enable = mkEnableOption "silent-boot";
   };
@@ -13,8 +15,7 @@ in
     boot = {
       initrd.verbose = false;
       consoleLogLevel = 0;
-      kernelParams = [ "quiet" "udev.log_priority=3" ];
+      kernelParams = ["quiet" "udev.log_priority=3"];
     };
   };
-
 }

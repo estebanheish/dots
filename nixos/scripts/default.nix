@@ -1,9 +1,13 @@
-{ pkgs, lib, config, user, ... }:
-with lib;
-let
-  cfg = config.modules.scripts;
-in
 {
+  pkgs,
+  lib,
+  config,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.scripts;
+in {
   options = {
     modules.scripts.enable = mkEnableOption "bin/scripts in path";
   };

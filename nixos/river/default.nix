@@ -1,18 +1,21 @@
-{ config, lib, pkgs, user, ... }:
-with lib;
-let
-  cfg = config.modules.river;
-in
 {
+  config,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.river;
+in {
   options = {
     modules.river.enable = mkEnableOption "river";
   };
 
   config = mkIf cfg.enable {
-
     hardware.opengl.enable = true;
     security.polkit.enable = true;
-    security.pam.services.swaylock = { };
+    security.pam.services.swaylock = {};
     programs.dconf.enable = true;
     # programs.xwayland.enable = true;
 
@@ -37,7 +40,7 @@ in
       mpd.enable = true;
     };
 
-    fonts.fonts = with pkgs; [ ubuntu_font_family ];
+    fonts.fonts = with pkgs; [ubuntu_font_family];
 
     environment.systemPackages = with pkgs; [
       river
@@ -115,8 +118,5 @@ in
         };
       };
     };
-
   };
 }
-
-

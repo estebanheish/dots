@@ -1,18 +1,18 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.neovim;
-in
 {
-
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.neovim;
+in {
   options = {
     modules.neovim.enable = mkEnableOption "neovim";
   };
 
   config = mkIf cfg.enable {
-
-    
-    home.packages = with pkgs; [ gcc nerdfonts ];
+    home.packages = with pkgs; [gcc nerdfonts];
     programs.neovim = {
       enable = true;
       viAlias = true;
@@ -22,8 +22,9 @@ in
       ];
     };
 
-    xdg.configFile."nvim" = { source = ./../../config/nvim; recursive = true; };
-
+    xdg.configFile."nvim" = {
+      source = ./../../config/nvim;
+      recursive = true;
+    };
   };
-
 }

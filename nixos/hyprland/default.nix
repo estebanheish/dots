@@ -1,16 +1,21 @@
-{ config, lib, pkgs, inputs, system, user, ... }:
-with lib;
-let
-  cfg = config.modules.hyprland;
-in
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  system,
+  user,
+  ...
+}:
+with lib; let
+  cfg = config.modules.hyprland;
+in {
   options = {
     modules.hyprland.enable = mkEnableOption "hyprland";
   };
 
   config = mkIf cfg.enable {
-
-    security.pam.services.swaylock = { };
+    security.pam.services.swaylock = {};
     # programs.xwayland.enable = true;
     programs.hyprland.enable = true;
     home-manager.users.${user}.modules.hyprland.enable = true;
@@ -34,7 +39,7 @@ in
     };
 
     environment.sessionVariables = {
-      # theming 
+      # theming
       # GTK_THEME = "";
       # XCURSOR_THEME = "capitaine-cursors-white";
       # XCURSOR_SIZE = "42";
@@ -47,12 +52,12 @@ in
       # wlroots
       WLR_NO_HARDWARE_CURSORS = "1";
 
-      # nvidia 
+      # nvidia
       # LIBVA_DRIVER_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
-      # qt 
+      # qt
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
@@ -69,8 +74,5 @@ in
       MOZ_ENABLE_WAYLAND = "1";
       EGL_PLATFORM = "wayland";
     };
-
   };
 }
-
-
