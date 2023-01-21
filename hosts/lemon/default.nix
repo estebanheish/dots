@@ -13,9 +13,9 @@
   networking.hostName = "lemon";
 
   modules = {
+    pipewire.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
-    lvim.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
