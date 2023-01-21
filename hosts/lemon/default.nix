@@ -37,7 +37,7 @@
   # services
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
+    settings.PasswordAuthentication = true;
   };
   programs.ssh.startAgent = true;
 
