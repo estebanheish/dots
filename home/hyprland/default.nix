@@ -36,6 +36,7 @@ in {
       wl-clipboard
       cliphist
       wf-recorder
+      kooha
       imv
       xdg-utils
       swayidle

@@ -18,7 +18,7 @@ in {
         user = user;
         dataDir = "/home/${user}";
         overrideDevices = false;
-        # overrideFolders = false;
+        overrideFolders = false;
         folders = {
           "Documents" = {
             label = "Documents";
