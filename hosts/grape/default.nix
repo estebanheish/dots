@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  user,
   nixos-hardware,
   ...
 }: {
@@ -20,7 +21,7 @@
   systemd.network.wait-online.anyInterface = true;
 
   # external drive
-  fileSystems."/home/${config.user.name}/data" = {
+  fileSystems."/home/${user}/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
   };
