@@ -8,7 +8,7 @@
 with lib; {
   time.timeZone = "Europe/Madrid";
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "colemak";
+  # console.keyMap = "us";
   system.stateVersion = "23.05";
 
   modules = {

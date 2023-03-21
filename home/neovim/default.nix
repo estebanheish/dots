@@ -12,7 +12,26 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [gcc nerdfonts];
+    home.packages = with pkgs; [
+    gcc 
+    nerdfonts
+
+    # rust
+    rust-analyzer
+
+    # python
+    black
+    python310Packages.flake8
+
+    # nix
+    deadnix
+    alejandra
+    
+    # shell
+    shellcheck
+
+    stylua # lua formater
+    ];
     programs.neovim = {
       enable = true;
       viAlias = true;

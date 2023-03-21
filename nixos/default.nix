@@ -16,5 +16,6 @@
     ./vulkan
     ./xmonad
     ./zsh
+    ./virtualbox
   ];
 }

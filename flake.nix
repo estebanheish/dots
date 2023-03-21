@@ -2,10 +2,10 @@
   description = "heis dots";
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/master;
-    home-manager.url = github:nix-community/home-manager;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-hardware.url = github:NixOS/nixos-hardware/master;
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";

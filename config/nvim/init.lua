@@ -5,6 +5,7 @@ local wo = vim.wo -- window-local
 local map = vim.api.nvim_set_keymap
 local bufmap = vim.api.nvim_buf_set_keymap
 
+o.ignorecase = true
 o.smartcase = true
 o.mouse = 'a'
 -- o.number = true

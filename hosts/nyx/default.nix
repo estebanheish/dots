@@ -18,22 +18,14 @@
     pipewire.enable = true;
     hyprland.enable = true;
     silent-boot.enable = true;
-    # languages.haskell.enable = true;
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
   };
 
-  # for vscode (for copilot)
-  programs.seahorse.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  ##
-
-  # steam
-  # programs.steam.enable = true;
-  # environment.sessionVariables = rec {
-  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/heis/.steam/root/compatibilitytools.d";
-  # };
+  home-manager.users.${user} = {
+    modules.languages.haskell.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     # vulkan-validation-layers # for sway vulkan
@@ -56,7 +48,7 @@
 
     rustup
     python311
-    bun
+    nodejs
 
     chromium
     railway
