@@ -1,4 +1,4 @@
-theme = "ayu_dark"
+# theme = "ayu_dark"
 
 [editor]
 line-number = "relative"
@@ -29,7 +29,7 @@ C-l = "select_next_sibling"
 G = "goto_file_end"
 "%" = "match_brackets"
 V = ["select_mode", "extend_to_line_bounds"]
-C = ["collapse_selection", "extend_to_line_end", "change_selection"]
+# C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
 S = "surround_add" # Would be nice to be able to do something after this but it isn't chainable
 C-e = "scroll_down"

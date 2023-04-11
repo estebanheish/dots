@@ -23,8 +23,9 @@
     nvidia.enable = true;
   };
 
-  home-manager.users.${user} = {
-    modules.languages.haskell.enable = true;
+  home-manager.users.${user}.modules = {
+    languages.haskell.enable = true;
+    helix.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

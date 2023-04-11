@@ -694,10 +694,16 @@ def _lfcd_cmd [] {
   $target_dir
 }
 
-alias lfcd = cd (_lfcd_cmd)
+let-env EDITOR = "hx"
+let-env TERMINAL = "foot"
+let-env FILE = "broot"
+let-env BROWSER = "qutebrowser"
+let-env READER = "zathura"
+let-env OPENER = "xdg-open"
 
 # aliases
 alias sudo = doas
+alias lfcd = cd (_lfcd_cmd)
 
 alias ka = killall
 alias e = ^$env.EDITOR
