@@ -1,4 +1,4 @@
-# theme = "ayu_dark"
+theme = "fleet_dark"
 
 [editor]
 line-number = "relative"
