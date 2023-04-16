@@ -14,7 +14,8 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # editors
-      # neovim
+      neovim
+      helix
 
       # downloads
       wget
