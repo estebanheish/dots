@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.packages.core;
+  cfg = config.modules.packages.corne;
 in {
   options = {
     modules.packages.corne.enable = mkEnableOption "corne packages";
