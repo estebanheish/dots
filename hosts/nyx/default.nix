@@ -21,12 +21,12 @@
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
-    neovim.enable = true;
   };
 
   home-manager.users.${user}.modules = {
     languages.haskell.enable = true;
-    helix.enable = true;
+    helix = { enable = true; withLsps = true; };
+    neovim.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
