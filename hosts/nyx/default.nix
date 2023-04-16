@@ -21,6 +21,7 @@
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
+    neovim.enable = true;
   };
 
   home-manager.users.${user}.modules = {

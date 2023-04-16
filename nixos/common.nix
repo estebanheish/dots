@@ -20,7 +20,7 @@ with lib; {
     nushell.enable = true;
     lf.enable = true;
     broot.enable = true;
-    neovim.enable = true;
+    neovim.enable = false;
     git.enable = true;
   };
 
