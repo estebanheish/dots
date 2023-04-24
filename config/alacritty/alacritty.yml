@@ -3,16 +3,16 @@ title: Alacritty
 
 font:
   normal: 
-    family: SauceCodePro Nerd Font Mono
+    family: Cascadia Code
     style: Medium
   bold:
-    family: SauceCodePro Nerd Font Mono
+    family: Cascadia Code
     style: Bold
   italic:
-    family: SauceCodePro Nerd Font Mono
+    family: Cascadia Code
     style: Italic
   bold_italic:
-    family: SauceCodePro Nerd Font Mono
+    family: Cascadia Code
     style: Bold Italic
   size: 18
 

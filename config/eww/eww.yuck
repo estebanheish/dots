@@ -10,19 +10,17 @@
         (todo))
 
 
-; [ { id: "", mon: "", focused: bool} ]
-(deflisten workspaces :initial "[]"
-  'scripts/workspaces')
+(deflisten hyprland :initial '{ "workspaces": [], "focused": 0, "screencast": false }'
+  'eww-hyprland')
 
-(deflisten pw-audio :initial '{ "sink": "HIGH", "source": "ON" }'
-  'scripts/pw-audio')
+(deflisten audio :initial '{ "vol": 100, "playback_mute": false, "capture_mute": false, "level": "high" }'
+  'eww-audio')
 
 (defpoll time :interval "60s"
   'date +"%a %d. %R"')
-  ;'date +"%a %d. %I:%M %p"')
-
 
 (defvar layout "master")
+(defvar showvol false)
 
 
 (defwidget todo []
@@ -32,15 +30,13 @@
     :valign "center"
     (left)
     (middle)
-    (right)
-    ))
+    (right)))
 
 
 (defwidget left []
   (box :class "left"
        :spacing 8
        :space-evenly false
-    ;(logo)
     (workspaces)))
 
 
@@ -52,63 +48,69 @@
 (defwidget right []
   (box :class "right"
        :halign "end"
-       :spacing 8
        :space-evenly false
-    (audio-in)
-    (audio-out)
+    (screencast)
+    (audio-capture)
+    (audio-playback)
     (time)
-    (layout)
-    ))
-
-
-(defwidget logo []
-  (image :path "images/rust-gear.png"
-         :image-width 22))
+    (layout)))
 
 
 (defwidget workspaces []
   (box :halign "start"
        :class "workspaces-area"
-       :spacing 0
-    (for w in workspaces
+    (for w in {hyprland.workspaces}
          (button :onclick "hyprctl dispatch workspace ${w.id}"
                  :class {w.focused ? "workspace focused" : "workspace"}
-                 {w.id}))
-    ))
+                 {w.id}))))
 
 
-(defwidget audio-in []
-  (image :class "audio-in icon"
-         :image-width 17
-         :path { pw-audio.source == "MUTED" ? "images/audio/MIC-MUTED.png" : "images/audio/MIC-ON.png" }
+(defwidget screencast []
+  (image 
+    :class "screencast item"
+    :path "images/screencast.png"
+    :image-width 24
+    :visible {hyprland.screencast}
+  )
+)
+
+
+(defwidget audio-playback []
+  (eventbox
+    :onclick 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'
+    :onhover "eww update showvol=true"
+    :onhoverlost "eww update showvol=false"
+    :onscroll '[ {} == "down" ] && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ || wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-'
+  (box
+    :space-evenly false
+    :class "playback item"
+  (image :image-width 19
+         :path "images/audio/sink-${ audio.playback_mute ? "muted" : audio.level }.png"
          :valign "center"
     )
-  )
+    (revealer 
+      :transition "slideright"
+      :reveal showvol
+      (label
+        :text "${audio.vol}%"
+        :class "vol")))))
 
 
-(defwidget audio-out []
-  (image :class "audio-out icon"
-         :path "images/audio/SINK-${pw-audio.sink}.png"
+(defwidget audio-capture []
+  (button
+    :class "capture item"
+    :onclick 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
+  (image :path "images/audio/mic-${ audio.capture_mute ? "muted" : "on" }.png"
          :valign "center"
-         :image-width 18
-    )
-  )
+         :image-width 17)))
 
 
 (defwidget time []
     (label 
-      :halign "end"
-      :class "time"
+      :class "time item"
+      :halign "center"
       :text time))
 
-(defwidget layout []
-  (button
-      :class "layout"
-      :onclick {layout == "master"
-                  ? 'hyprctl keyword general:layout "dwindle"; eww update layout="dwindle"'
-                  : 'hyprctl keyword general:layout "master"; eww update layout="master"'}
-      :style "background-image: url('images/${layout}')"
-    ))
 
 (defwidget layout []
   (button
@@ -116,6 +118,5 @@
       :onclick {layout == "master"
                   ? 'hyprctl keyword general:layout "dwindle"; eww update layout="dwindle"'
                   : 'hyprctl keyword general:layout "master"; eww update layout="master"'}
-    (image :class "layout-icon"
-           :path "images/${layout}-layout.png"
+    (image :path "images/${layout}-layout.png"
            :image-width 22)))

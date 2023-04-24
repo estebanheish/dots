@@ -22,8 +22,8 @@ in {
       programs.hyprland = {
         enable = true;
         xwayland = {
-          enable = true;
-          hidpi = true;
+          enable = false;
+          hidpi = false;
         };
         nvidiaPatches = true;
       };

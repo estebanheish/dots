@@ -548,19 +548,12 @@ let-env config = {
       mode: [emacs, vi_normal, vi_insert]
       event: { send: executeHostCommand cmd: br }
     }
-    # { 
-      # name: lf
-      # modifier: control
-      # keycode: char_y
-      # mode: [emacs, vi_normal, vi_insert]
-      # event: { send: executeHostCommand cmd: lfcd }
-    # }
     { 
-      name: nnn
+      name: lf
       modifier: control
       keycode: char_y
       mode: [emacs, vi_normal, vi_insert]
-      event: { send: executeHostCommand cmd: ncd }
+      event: { send: executeHostCommand cmd: lfcd }
     }
   ]
 }
@@ -568,4 +561,3 @@ let-env config = {
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/broot.nu
 source ~/.config/nushell/lf.nu
-source ~/.config/nushell/nnn.nu

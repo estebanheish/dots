@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -11,10 +12,18 @@ in {
   };
 
   config = mkIf cfg.enable {
-    hardware.opengl.enable = true;
-    hardware.opengl.driSupport = true;
+    hardware.opengl = { 
+      enable = true; 
+      driSupport = true;
+      extraPackages = with pkgs; [
+          intel-media-driver
+          vaapiIntel
+          nvidia-vaapi-driver
+        
+      ];
+    };
 
-    environment.systemPackages = [
+    environment.systemPackages = with pkgs; [
       vulkan-validation-layers # for sway
       vulkan-tools
     ];

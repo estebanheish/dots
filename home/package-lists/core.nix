@@ -38,7 +38,7 @@ in {
       imagemagick
 
       # basic utils
-      nnn
+      # nnn
       tmux
       pciutils
       usbutils

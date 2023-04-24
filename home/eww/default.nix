@@ -2,6 +2,8 @@
   config,
   pkgs,
   lib,
+  inputs,
+  system,
   ...
 }:
 with lib; let
@@ -18,11 +20,8 @@ in {
       configDir = ./../../config/eww;
     };
 
-    home.packages = [pkgs.socat];
-
-    # xdg.configFile."eww" = {
-    #   source = ./../../config/eww;
-    #   recursive = true;
-    # };
+    home.packages = [
+      inputs.eww-scripts.packages.${system}.default
+    ];
   };
 }

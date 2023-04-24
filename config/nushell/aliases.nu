@@ -17,3 +17,4 @@ alias mpw = mpv (wl-paste)
 # NixOS
 alias rebuild = doas nixos-rebuild switch --flake ~/.nyx
 alias garbage = nix-collect-garbage -d
+alias switch-to-config = doas /run/current-system/bin/switch-to-configuration boot

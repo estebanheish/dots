@@ -12,7 +12,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [pkgs.alacritty pkgs.ubuntu_font_family];
+    home.packages = [pkgs.alacritty pkgs.ubuntu_font_family pkgs.cascadia-code];
     xdg.configFile."alacritty/alacritty.yml".source = ./../../config/alacritty/alacritty.yml;
   };
 }

@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
     gcc 
-    nerdfonts
+    # nerdfonts
 
     # rust
     rust-analyzer

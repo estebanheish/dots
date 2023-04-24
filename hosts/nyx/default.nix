@@ -21,11 +21,15 @@
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
+    vulkan.enable = true;
   };
 
   home-manager.users.${user}.modules = {
     languages.haskell.enable = true;
-    helix = { enable = true; withLsps = true; };
+    helix = {
+      enable = true;
+      withLsps = true;
+    };
     neovim.enable = true;
   };
 
@@ -60,6 +64,12 @@
 
     qemu
     quickemu
+  ];
+
+  fonts.fonts = with pkgs; [
+    cascadia-code    
+    iosevka
+    fira-code
   ];
 
   # networking

@@ -3,7 +3,7 @@ let-env NNN_TMPFILE = $"($cfgHome)/nnn/.lastd"
 
 def-env ncd [...x] {
   # Launch nnn. Add desired flags after `^nnn`, ex: `^nnn -eda ($x | str join)`
-  ^nnn ($x | str join)
+  ^nnn -A ($x | str join)
   let newpath = (
     if ($env.NNN_TMPFILE | path exists) {
       let newpath = (open $env.NNN_TMPFILE | parse 'cd "{nnnpath}"').0.nnnpath

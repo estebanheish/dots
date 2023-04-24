@@ -27,7 +27,7 @@ C-l = "select_next_sibling"
 "$" = "goto_line_end"
 "^" = "goto_first_nonwhitespace"
 G = "goto_file_end"
-"%" = "match_brackets"
+# "%" = "match_brackets"
 V = ["select_mode", "extend_to_line_bounds"]
 # C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
@@ -48,7 +48,7 @@ Z = { Z = ":wq", Q = ":q!" }
 G = "goto_file_end"
 D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
 C = ["goto_line_start", "extend_to_line_bounds", "change_selection"]
-"%" = "match_brackets"
+# "%" = "match_brackets"
 S = "surround_add" # Basically 99% of what I use vim-surround for
 C-e = "scroll_down"
 C-y = "scroll_up"
