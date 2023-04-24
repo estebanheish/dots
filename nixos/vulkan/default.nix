@@ -12,14 +12,13 @@ in {
   };
 
   config = mkIf cfg.enable {
-    hardware.opengl = { 
-      enable = true; 
+    hardware.opengl = {
+      enable = true;
       driSupport = true;
       extraPackages = with pkgs; [
-          intel-media-driver
-          vaapiIntel
-          nvidia-vaapi-driver
-        
+        intel-media-driver
+        vaapiIntel
+        nvidia-vaapi-driver
       ];
     };
 

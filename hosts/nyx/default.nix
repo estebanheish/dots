@@ -67,7 +67,7 @@
   ];
 
   fonts.fonts = with pkgs; [
-    cascadia-code    
+    cascadia-code
     iosevka
     fira-code
   ];

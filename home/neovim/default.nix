@@ -13,24 +13,24 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-    gcc 
-    # nerdfonts
+      gcc
+      # nerdfonts
 
-    # rust
-    rust-analyzer
+      # rust
+      rust-analyzer
 
-    # python
-    black
-    python310Packages.flake8
+      # python
+      black
+      python310Packages.flake8
 
-    # nix
-    deadnix
-    alejandra
-    
-    # shell
-    shellcheck
+      # nix
+      deadnix
+      alejandra
 
-    stylua # lua formater
+      # shell
+      shellcheck
+
+      stylua # lua formater
     ];
     programs.neovim = {
       enable = true;

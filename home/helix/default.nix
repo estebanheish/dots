@@ -19,18 +19,19 @@ in {
       recursive = true;
     };
 
-    home.packages = with pkgs; mkIf cfg.withLsps [
-      rust-analyzer
-      nodePackages.bash-language-server
-      dart
-      haskell-language-server
-      rnix-lsp
-      taplo
-      nodePackages.typescript-language-server
-      nodePackages.pyright
-      # vls
-      # not in nixpkgs
-      # awk-language-server
-    ];
+    home.packages = with pkgs;
+      mkIf cfg.withLsps [
+        rust-analyzer
+        nodePackages.bash-language-server
+        dart
+        haskell-language-server
+        rnix-lsp
+        taplo
+        nodePackages.typescript-language-server
+        nodePackages.pyright
+        # vls
+        # not in nixpkgs
+        # awk-language-server
+      ];
   };
 }
