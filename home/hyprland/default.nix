@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     modules = {
-      kanshi.enable = true;
+      # kanshi.enable = true;
       foot.enable = true;
       mako.enable = true;
       mpv.enable = true;
@@ -41,7 +41,6 @@ in {
       xdg-utils
       swayidle
       swaylock
-      ydotool
       ncmpcpp
       pulsemixer
       # eww-wayland
@@ -50,9 +49,6 @@ in {
       swaybg
       inputs.hyprpicker.packages.${system}.hyprpicker
       capitaine-cursors
-
-      # for when used with nvidia
-      nvidia-vaapi-driver
     ];
 
     # themes

@@ -21,7 +21,6 @@
     syncthing.enable = true;
     gpg.enable = true;
     nvidia.enable = true;
-    vulkan.enable = true;
   };
 
   home-manager.users.${user}.modules = {
