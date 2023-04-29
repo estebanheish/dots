@@ -1,8 +1,0 @@
-for_window [title="Open With"] floating enable
-for_window [title="Open With"] resize set 800 600
-for_window [title="Open With"] move position center
-for_window [title="Telegram"] floating enable
-for_window [title="Telegram"] resize set 1400 850
-for_window [title="Telegram"] focus
-for_window [title="File Transfer*"] floating enable
-for_window [shell=".*"] title_format "%title :: %shell"

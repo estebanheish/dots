@@ -1,5 +1,4 @@
 {
-  config,
   user,
   pkgs,
   ...
@@ -7,68 +6,47 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    ../common.nix
+    ../../modules/nixos/pipewire
+    ../../modules/nixos/silent-boot
+    ../../modules/nixos/nvidia
+    ../../modules/nixos/syncthing
+    ../../modules/nixos/hyprland
   ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  home-manager.users.${user} = {
+    imports = [
+      ../../modules/home-manager/helix
+      ../../modules/home-manager/neovim
+      ../../modules/home-manager/pkgs-lists/core.nix
+    ];
+    home.packages = with pkgs; [
+      # tdesktop
+      # discord
+      # element-desktop
 
+      # bitwarden
+      bitwarden-cli
+      qbittorrent
+
+      # libreoffice
+      # gimp
+      # inkscape
+
+      # tor-browser-bundle-bin
+
+      rustup
+      quickemu
+    ];
+  };
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nyx";
-
-  modules = {
-    pipewire.enable = true;
-    hyprland.enable = true;
-    silent-boot.enable = true;
-    syncthing.enable = true;
-    gpg.enable = true;
-    nvidia.enable = true;
-  };
-
-  home-manager.users.${user}.modules = {
-    languages.haskell.enable = true;
-    helix = {
-      enable = true;
-      withLsps = true;
-    };
-    neovim.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    # vulkan-validation-layers # for sway vulkan
-    # vulkan-tools
-    # gamescope
-    tdesktop
-    discord
-    element-desktop
-
-    bitwarden
-    qbittorrent
-    libreoffice
-    gimp
-    inkscape
-
-    vscode
-
-    gnuplot
-    tor-browser-bundle-bin
-
-    rustup
-    python311
-    nodejs
-
-    chromium
-    railway
-    gettext
-    postgresql
-    sqlite
-
-    qemu
-    quickemu
-  ];
 
   fonts.fonts = with pkgs; [
     cascadia-code
-    iosevka
-    fira-code
   ];
 
   # networking
@@ -78,11 +56,11 @@
   systemd.network.enable = true;
   systemd.network.wait-online.anyInterface = true;
   #systemd.network.wait-online.timeout = 5;
-  networking.firewall = {
-    allowedTCPPorts = [
-      8000
-    ];
-  };
+  # networking.firewall = {
+  #   allowedTCPPorts = [
+  #     8000
+  #   ];
+  # };
 
   # services
   services.openssh = {
@@ -92,7 +70,8 @@
   programs.ssh.startAgent = true;
 
   # boot
-  boot.supportedFilesystems = ["ntfs"];
+  # boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  nixpkgs.hostPlatform.system = "x86_64-linux";
 }

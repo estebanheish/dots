@@ -1,140 +1,73 @@
 {
-  description = "heis dots";
+  description = "Heis dots";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpicker = {
-      url = "github:hyprwm/hyprpicker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    eww-scripts = {
-      url = "github:estebanheish/eww-scripts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # eww.url = "github:elkowar/eww";
-  };
-
-  outputs = inputs @ {
+  outputs = {
     self,
     nixpkgs,
     home-manager,
     ...
-  }: let
-    userEnv = builtins.getEnv "USER";
-    user =
-      if builtins.elem userEnv ["" "root"]
-      then "heis"
-      else userEnv;
-    modules = [
-      (import ./nixos)
-      home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.${user} = import ./home;
-          extraSpecialArgs = {inherit inputs user;};
-        };
-      }
-      inputs.hyprland.nixosModules.default
-      ({
-        config,
-        pkgs,
-        ...
-      }: {nixpkgs.overlays = [(import ./overlays/default.nix)];})
-    ];
-  in {
-    nixosConfigurations.nyx = let
-      system = "x86_64-linux";
-    in
+  } @ inputs: let
+    inherit (self) outputs;
+
+    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
+    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
+
+    mkNixos = user: modules:
       nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          modules
-          ++ [
-            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
-            ./hosts/nyx
-          ];
-        specialArgs = {inherit system inputs user;};
+        inherit modules;
+        specialArgs = {inherit inputs outputs user;};
       };
 
-    nixosConfigurations.lemon = let
-      system = "x86_64-linux";
-    in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          modules
-          ++ [
-            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
-            ./hosts/lemon
-          ];
-        specialArgs = {inherit system inputs user;};
-      };
-
-    nixosConfigurations.grape = let
-      system = "aarch64-linux";
-    in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          modules
-          ++ [
-            inputs.nixos-hardware.nixosModules.raspberry-pi-4
-            ({...}: {home-manager.extraSpecialArgs = {inherit system;};})
-            ./hosts/grape
-          ];
-        specialArgs = {inherit system inputs user;};
-      };
-
-    homeConfigurations.shell = let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
+    mkHome = user: modules: pkgs:
       home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        modules = [
-          ./home
-          (
-            {...}: {
-              home = {
-                username = user;
-                homeDirectory = "/home/${user}";
-                keyboard = {
-                  layout = "us";
-                  variant = "colemak";
-                };
-                sessionVariables = {
-                  EDITOR = "nvim";
-                };
-              };
-              modules = {
-                nushell.enable = true;
-                neovim.enable = true;
-                broot.enable = true;
-                lf.enable = true;
-                alacritty.enable = true;
-              };
-              programs.home-manager.enable = true;
-            }
-          )
-        ];
-
-        extraSpecialArgs = {inherit system inputs user;};
+        inherit modules pkgs;
+        extraSpecialArgs = {inherit inputs outputs user;};
       };
+  in {
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+    templates = import ./templates;
+    formatter = forEachPkgs (pkgs: pkgs.alejandra);
+
+    overlays = import ./overlays {inherit inputs outputs;};
+    packages = forEachPkgs (pkgs: (import ./pkgs {inherit pkgs;}));
+
+    nixosConfigurations = {
+      nyx = mkNixos "heis" [./hosts/nyx];
+    };
+
+    homeConfigurations = {
+      "heis@nyx" = mkHome "heis" [./modules/home-manager] nixpkgs.legacyPackages."x86_64-linux";
+    };
+  };
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    eww-scripts = {
+      url = "github:estebanheish/eww-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
