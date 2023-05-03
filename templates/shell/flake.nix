@@ -22,9 +22,9 @@
     devShells = forAllSystems ({pkgs}: {
       default = pkgs.mkShell {
         name = "nix";
-        # shellHook = ''''; Bash statements that are executed by nix-shell.
-        # packages = []; Add executable packages to the nix-shell environment.
-        # inputsFrom = []; Add build dependencies of the listed derivations to the nix-shell environment.
+        # shellHook = ''''; # Bash statements that are executed by nix-shell.
+        # packages = []; # Add executable packages to the nix-shell environment.
+        # inputsFrom = []; # Add build dependencies of the listed derivations to the nix-shell environment.
       };
     });
   };

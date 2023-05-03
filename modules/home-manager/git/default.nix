@@ -5,15 +5,12 @@
     userEmail = "estebanheish@gmail.com";
     delta = {
       enable = true;
-      options = {
-        side-by-side = true;
-      };
     };
     aliases = {
       s = "status";
       d = "diff";
+      ds = "diff --staged";
       A = "add -A";
-      df = "diff --staged";
     };
   };
 }

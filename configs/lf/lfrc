@@ -62,15 +62,6 @@ cmd extract ${{
     esac
 }}
 
-# new folder with selected items
-cmd newfold ${{
-    set -f
-    read newd
-    printf "Directory name: "
-    mkdir -- "$newd"
-    mv -- $fx "$newd"
-}}
-
 # share any file 256mib limit
 cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
@@ -85,6 +76,7 @@ map V push :!$EDITOR<space>
 map DD delete
 map <enter> shell
 map f $$EDITOR "$f"
+map a push %mkdir<space>
 map A push %mkdir<space>
 map S share
 map au unarchive

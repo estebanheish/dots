@@ -20,7 +20,7 @@
     imports = [
       ../../modules/home-manager/helix
       ../../modules/home-manager/neovim
-      # ../../modules/home-manager/alacritty
+      ../../modules/home-manager/direnv
       ../../modules/home-manager/pkgs-lists/core.nix
     ];
     home.packages = with pkgs; [
