@@ -2,7 +2,6 @@
   background = "1C1C1C";
   backgroundrgba = "rgba(28,28,28,1)";
   foreground = "FFFFFF";
-  foregroundalt = "E5E5E5";
   focus = "5e5086";
   wall_solid = "3a3152";
 

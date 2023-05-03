@@ -2,7 +2,6 @@ rec {
   background = "1f2430";
   backgroundrgba = "rgba(31,36,48,1)";
   foreground = "cccac2";
-  foregroundalt = "323843";
   focus = "ffad66";
   wall_solid = background;
   wall = "sies-kranen.jpg";

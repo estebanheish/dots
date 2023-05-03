@@ -24,7 +24,7 @@
       };
 
       cursor = {
-        color = "${colors.focus} ${colors.white}";
+        color = "${colors.background} ${colors.focus}";
       };
 
       colors = {
