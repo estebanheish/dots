@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
@@ -11,32 +12,34 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/742c2426-aaf6-4bcc-98e8-e3d1584b072d";
+    device = "/dev/disk/by-uuid/212df6cc-73ca-41a4-9abe-5517aff233b5";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."heis".device = "/dev/disk/by-uuid/bb8ef29e-3ff3-4132-98a6-a42fe6b7d8e8";
+  boot.initrd.luks.devices."nyx".device = "/dev/disk/by-uuid/76575895-8450-46f5-9f1a-929f1a5b1459";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/CBB6-C033";
+    device = "/dev/disk/by-uuid/EEA0-CE35";
     fsType = "vfat";
   };
 
   swapDevices = [];
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = lib.mkDefault false;
-  networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
-  networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

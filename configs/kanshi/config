@@ -1,13 +1,11 @@
-profile nyx3 {
+profile nyx {
   output "Goldstar Company Ltd LG HDR 4K 204NTGYHG007" position 2560,0 
-  output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" position 0,650
-  output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" disable
-  # output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" pos 6400 1080 mode 1920x1080@239.759995Hz
+  output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" position 0,540
+  # output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" disable
 }
 
-profile nyx2 {
-  output "Goldstar Company Ltd LG HDR 4K 204NTGYHG007" position 2560,0
-  output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" position 0,650
-
-  # output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" pos 6400 1080 mode 1920x1080@239.759995Hz
+profile nyx-gaminng {
+  output "Goldstar Company Ltd LG HDR 4K 204NTGYHG007" disable
+  output "Goldstar Company Ltd LG ULTRAWIDE 0x00009E0B" disable
+  output "BenQ Corporation ZOWIE XL LCD XBG00968SL0" mode 1920x1080@239.759995Hz
 }

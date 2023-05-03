@@ -9,15 +9,14 @@
   programs.hyprland = {
     enable = true;
     xwayland = {
-      enable = false;
+      enable = true;
       hidpi = false;
     };
     nvidiaPatches = true;
   };
 
-  home-manager.users.${user}.imports = [
-    ../../../modules/home-manager/hyprland
-  ];
+  imports = [../../../modules/nixos/firefox];
+  home-manager.users.${user}.imports = [../../../modules/home-manager/hyprland];
 
   services.greetd = {
     enable = true;

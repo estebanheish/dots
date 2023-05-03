@@ -11,14 +11,16 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
-    ../../modules/nixos/syncthing
+    # ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
+    ../../modules/nixos/corne-udev
   ];
 
   home-manager.users.${user} = {
     imports = [
       ../../modules/home-manager/helix
       ../../modules/home-manager/neovim
+      # ../../modules/home-manager/alacritty
       ../../modules/home-manager/pkgs-lists/core.nix
     ];
     home.packages = with pkgs; [
@@ -27,8 +29,8 @@
       # element-desktop
 
       # bitwarden
-      bitwarden-cli
-      qbittorrent
+      # bitwarden-cli
+      # qbittorrent
 
       # libreoffice
       # gimp
@@ -36,8 +38,8 @@
 
       # tor-browser-bundle-bin
 
-      rustup
-      quickemu
+      # rustup
+      # quickemu
     ];
   };
 

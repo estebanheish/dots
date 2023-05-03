@@ -3,6 +3,7 @@
   outputs,
   pkgs,
   user,
+  colors,
   ...
 }: {
   imports = [
@@ -11,6 +12,7 @@
 
   time.timeZone = "Europe/Madrid";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = ["en_US.UTF-8/UTF-8"];
   # console.keyMap = "us";
   system.stateVersion = "23.05";
 
@@ -24,11 +26,12 @@
         ../modules/home-manager/helix
         ../modules/home-manager/broot
         ../modules/home-manager/git
+        ../modules/home-manager/ssh
         ../modules/home-manager/pkgs-lists/core.nix
       ];
       home.stateVersion = "23.05";
     };
-    extraSpecialArgs = {inherit inputs outputs user;};
+    extraSpecialArgs = {inherit inputs outputs user colors;};
   };
 
   users.users.${user} = {

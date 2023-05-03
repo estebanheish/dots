@@ -4,14 +4,23 @@
   ...
 }: {
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiVdpau
-    nvidia-vaapi-driver
-  ];
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.nvidiaSettings = true;
+
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+  };
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      # nvidia-vaapi-driver
+      # libvdpau-va-gl
+    ];
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   environment.sessionVariables = {
     GBM_BACKEND = "nvidia-drm";

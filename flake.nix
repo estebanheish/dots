@@ -8,6 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    colors = import ./modules/home-manager/themes/ayu_mirage.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
@@ -15,13 +16,13 @@
     mkNixos = user: modules:
       nixpkgs.lib.nixosSystem {
         inherit modules;
-        specialArgs = {inherit inputs outputs user;};
+        specialArgs = {inherit inputs outputs user colors;};
       };
 
     mkHome = user: modules: pkgs:
       home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = {inherit inputs outputs user;};
+        extraSpecialArgs = {inherit inputs outputs user colors;};
       };
   in {
     nixosModules = import ./modules/nixos;

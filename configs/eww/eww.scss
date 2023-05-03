@@ -1,7 +1,4 @@
-$foreground: #FFFFFF;
-$background: #1C1C1C;
-$backgroundrgba: rgba(28,28,28,1);
-$focus: #5e5086;
+@import 'colors';
 
 * { 
     all: unset;
@@ -25,6 +22,7 @@ $focus: #5e5086;
 }
 
 .workspace.focused { 
+  color: $background;
   background: $focus;
 }
 

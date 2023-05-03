@@ -9,5 +9,11 @@
         side-by-side = true;
       };
     };
+    aliases = {
+      s = "status";
+      d = "diff";
+      A = "add -A";
+      df = "diff --staged";
+    };
   };
 }
