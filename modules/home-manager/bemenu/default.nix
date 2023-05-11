@@ -24,9 +24,10 @@
   '';
 
   bmenu = pkgs.writeScriptBin "bmenu" "${pkgs.bemenu}/bin/bemenu ${bargs}";
+  bmenul = pkgs.writeScriptBin "bmenul" "${pkgs.bemenu}/bin/bemenu -l 20 ${bargs}";
   bmenu-run = pkgs.writeScriptBin "bmenu-run" "${pkgs.bemenu}/bin/bemenu-run ${bargs}";
   bfiles = pkgs.writeScriptBin "bfiles" ''${pkgs.xdg-utils}/bin/xdg-open "$(${pkgs.fd}/bin/fd --search-path ~/Documents --search-path ~/Downloads --search-path ~/Videos --search-path ~/media --search-path /run/media -tf | ${pkgs.bemenu}/bin/bemenu -l 20 ${bargs})"'';
   bclip = pkgs.writeScriptBin "bclip" "${cliphist} list | ${bemenu} -l 20 ${bargs} | ${cliphist} decode | ${wl-copy}";
 in {
-  home.packages = [bmenu bmenu-run bfiles bclip];
+  home.packages = [bmenu bmenul bmenu-run bfiles bclip];
 }

@@ -1,5 +1,5 @@
 {
-  description = "simple devshell";
+  description = "simple python flake";
 
   inputs = {nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";};
 
@@ -21,9 +21,13 @@
     devShells = forAllSystems ({pkgs}: {
       default = pkgs.mkShell {
         name = "nix";
-        # shellHook = ''''; # Bash statements that are executed by nix-shell.
-        # packages = with pkgs; []; # Add executable packages to the nix-shell environment.
-        # inputsFrom = []; # Add build dependencies of the listed derivations to the nix-shell environment.
+        packages = with pkgs; [
+          nodePackages.pyright
+          black
+          (python311.withPackages (ps:
+            with ps; [
+            ]))
+        ];
       };
     });
   };

@@ -1,5 +1,5 @@
 {
-  description = "simple devshell";
+  description = "simple rust flake";
 
   inputs = {nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";};
 
@@ -21,9 +21,31 @@
     devShells = forAllSystems ({pkgs}: {
       default = pkgs.mkShell {
         name = "nix";
-        # shellHook = ''''; # Bash statements that are executed by nix-shell.
-        # packages = with pkgs; []; # Add executable packages to the nix-shell environment.
-        # inputsFrom = []; # Add build dependencies of the listed derivations to the nix-shell environment.
+        packages = with pkgs; [
+          rustc
+          cargo
+          rustfmt
+          rustPackages.clippy
+          rust-analyzer
+        ];
+      };
+    });
+
+    packages = forAllSystems ({pkgs}: {
+      default = pkgs.rustPlatform.buildRustPackage {
+        pname = "rust";
+        version = "0.0.1";
+
+        src = ./rust;
+
+        cargoLock = {
+          lockFile = ./rust/Cargo.lock;
+        };
+
+        # buildInputs = with pkgs; [];
+        # nativeBuildInputs = with pkgs; [
+        #   pkgs-config
+        # ];
       };
     });
   };

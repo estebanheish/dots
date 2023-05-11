@@ -11,7 +11,7 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
-    # ../../modules/nixos/syncthing
+    ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
     ../../modules/nixos/corne-udev
   ];
@@ -22,9 +22,11 @@
       ../../modules/home-manager/neovim
       ../../modules/home-manager/direnv
       ../../modules/home-manager/pkgs-lists/core.nix
+      ../../modules/home-manager/pkgs-lists/lsps.nix
     ];
+
     home.packages = with pkgs; [
-      # tdesktop
+      tdesktop
       # discord
       # element-desktop
 
