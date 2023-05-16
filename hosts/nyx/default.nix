@@ -14,6 +14,8 @@
     ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
     ../../modules/nixos/corne-udev
+    ../../modules/nixos/dlna
+    ../../modules/nixos/android
   ];
 
   home-manager.users.${user} = {

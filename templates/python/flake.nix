@@ -23,9 +23,9 @@
         name = "nix";
         packages = with pkgs; [
           nodePackages.pyright
-          black
           (python311.withPackages (ps:
             with ps; [
+              black
             ]))
         ];
       };

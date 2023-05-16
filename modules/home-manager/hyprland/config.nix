@@ -247,8 +247,8 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  exec-once = hyprpaper
-  #exec-once = swaybg -c '##${colors.wall_solid}'
+  # exec-once = hyprpaper
+  exec-once = swaybg -c '##${colors.wall_solid}'
   exec-once = hyprctl setcursor capitaine-cursors-white 42
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store

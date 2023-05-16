@@ -9,8 +9,7 @@
     };
   };
   users.users."minidlna" = {
-    extraGroups = [ "users" ]; # so minidlna can access the files.
+    extraGroups = ["users"]; # so minidlna can access the files.
   };
-  environment.systemPackages = [ pkgs.inotify-tools ];
+  environment.systemPackages = [pkgs.inotify-tools];
 }
-
