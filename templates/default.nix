@@ -7,4 +7,8 @@
     description = "python shell";
     path = ./python;
   };
+  rust = {
+    description = "rust shell";
+    path = ./rust;
+  };
 }
