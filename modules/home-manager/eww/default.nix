@@ -42,6 +42,7 @@ in {
       $background: #${colors.background};
       $backgroundrgba: ${colors.backgroundrgba};
       $focus: #${colors.focus};
+      $focus_background: #${colors.focus_background};
     '';
   };
 }

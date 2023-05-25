@@ -15,8 +15,8 @@
          --ff '#${colors.foreground}' \
          --nb '#${colors.background}' \
          --nf '#${colors.foreground}' \
-         --hb '#${colors.focus}' \
-         --hf '#${colors.background}' \
+         --hb '#${colors.focus_background}' \
+         --hf '#${colors.focus}' \
          --sb '#${colors.background}' \
          --sf '#${colors.foreground}' \
          --af '#${colors.white}' \

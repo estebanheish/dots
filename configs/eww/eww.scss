@@ -22,8 +22,8 @@
 }
 
 .workspace.focused { 
-  color: $background;
-  background: $focus;
+  color: $focus;
+  background: $focus_background;
 }
 
 .item {

@@ -2,9 +2,15 @@ rec {
   background = "1f2430";
   backgroundrgba = "rgba(31,36,48,1)";
   foreground = "cccac2";
-  focus = "ffad66";
+  focus = background;
+  focus_window = "ffad66";
+  focus_background = "ffad66";
   wall_solid = background;
   wall = "sies-kranen.jpg";
+
+  # terminal
+  cursor = focus_background;
+  terminal_background = background;
 
   black = "000000";
   red = "FF3B30";

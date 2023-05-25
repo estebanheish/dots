@@ -1,9 +1,15 @@
-{
+rec {
   background = "1C1C1C";
   backgroundrgba = "rgba(28,28,28,1)";
   foreground = "FFFFFF";
-  focus = "5e5086";
+  focus = foreground;
+  focus_window = focus_background;
+  focus_background = "5e5086";
   wall_solid = "3a3152";
+
+  # terminal
+  cursor = focus_background;
+  terminal_background = background;
 
   black = "000000";
   red = "FF3B30";

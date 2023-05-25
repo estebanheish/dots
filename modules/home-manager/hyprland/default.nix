@@ -32,8 +32,8 @@
     ncmpcpp
     pulsemixer
     # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    # hyprpaper
-    swaybg
+    hyprpaper
+    # swaybg
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     capitaine-cursors
   ];
@@ -52,12 +52,12 @@
   };
 
   xdg.configFile = {
-    # "wall.jpg".source = ../../../misc/walls/${colors.wall};
+    "wall.jpg".source = ../../../misc/walls/${colors.wall};
     "swaylock/config".source = ../../../configs/swaylock/config;
     "hypr/hyprland.conf".text = import ./config.nix {inherit colors;};
-    # "hypr/hyprpaper.conf".text = ''
-    #   preload = ~/.config/wall.jpg
-    #   wallpaper = ,~/.config/wall.jpg
-    # '';
+    "hypr/hyprpaper.conf".text = ''
+      preload = ~/.config/wall.jpg
+      wallpaper = ,~/.config/wall.jpg
+    '';
   };
 }

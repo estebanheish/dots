@@ -51,7 +51,7 @@ in ''
       border_size = 2
       no_border_on_floating = false
 
-      col.active_border = 0xFF${colors.focus}
+      col.active_border = 0xFF${colors.focus_window}
       col.inactive_border = 0xFF${colors.background}
       col.group_border = 0xFF${colors.foreground}
       col.group_border_active = 0xFF${colors.focus}
@@ -72,9 +72,9 @@ in ''
       blur_new_optimizations = 1
 
       drop_shadow = false
-      shadow_range = 30
-      shadow_render_power = 2
-      col.shadow = rgb(1c252c)
+      shadow_range = 80
+      shadow_render_power = 50
+      col.shadow = rgba(00000065)
       # col.shadow_inactive = rgb(1c252c)
   }
 
@@ -247,8 +247,8 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  # exec-once = hyprpaper
-  exec-once = swaybg -c '##${colors.wall_solid}'
+  exec-once = hyprpaper
+  # exec-once = swaybg -c '##${colors.wall_solid}'
   exec-once = hyprctl setcursor capitaine-cursors-white 42
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store

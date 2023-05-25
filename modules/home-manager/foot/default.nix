@@ -24,12 +24,12 @@
       };
 
       cursor = {
-        color = "${colors.background} ${colors.focus}";
+        color = "${colors.background} ${colors.cursor}";
       };
 
       colors = {
         alpha = "1";
-        background = colors.background;
+        background = colors.terminal_background;
         foreground = colors.foreground;
         # selection-background=444444
         # selection-foreground=
