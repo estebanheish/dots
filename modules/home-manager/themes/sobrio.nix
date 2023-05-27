@@ -3,7 +3,7 @@ rec {
   backgroundrgba = "rgba(28,28,28,1)";
   foreground = "FFFFFF";
   focus = foreground;
-  focus_window = focus_background;
+  focus_window = foreground;
   focus_background = "5e5086";
   wall_solid = "3a3152";
 

@@ -43,7 +43,7 @@
       # tor-browser-bundle-bin
 
       # rustup
-      # quickemu
+      quickemu
     ];
   };
 

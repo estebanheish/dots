@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    colors = import ./modules/home-manager/themes/boo_berry.nix;
+    colors = import ./modules/home-manager/themes/ayu_mirage.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
