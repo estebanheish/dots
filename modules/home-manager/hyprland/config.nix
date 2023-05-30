@@ -39,7 +39,7 @@ in ''
           natural_scroll = yes
       }
 
-      sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+      sensitivity = -0.75
   }
 
   bind = SUPERSHIFTCTRL, c, exec, hyprctl keyword input:kb_variant colemak,

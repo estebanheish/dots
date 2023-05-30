@@ -13,9 +13,10 @@
     ../../modules/nixos/nvidia
     ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
-    ../../modules/nixos/corne-udev
+    # ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna
-    ../../modules/nixos/android
+    ../../modules/nixos/superlight
+    # ../../modules/nixos/android
   ];
 
   home-manager.users.${user} = {
@@ -65,6 +66,10 @@
   # networking.firewall = {
   #   allowedTCPPorts = [
   #     8000
+  #     8080
+  #   ];
+  #   allowedUDPPorts = [
+  #     1900
   #   ];
   # };
 
