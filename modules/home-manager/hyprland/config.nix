@@ -53,8 +53,8 @@ in ''
 
       col.active_border = 0xFF${colors.focus_window}
       col.inactive_border = 0xFF${colors.background}
-      col.group_border = 0xFF${colors.foreground}
-      col.group_border_active = 0xFF${colors.focus}
+      col.group_border = 0xFF${colors.background}
+      col.group_border_active = 0xFF${colors.focus_window}
 
 
       apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)

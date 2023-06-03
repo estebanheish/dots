@@ -21,10 +21,7 @@
 
   home-manager.users.${user} = {
     imports = [
-      ../../modules/home-manager/helix
       ../../modules/home-manager/neovim
-      ../../modules/home-manager/direnv
-      ../../modules/home-manager/pkgs-lists/core.nix
       ../../modules/home-manager/pkgs-lists/lsps.nix
     ];
 

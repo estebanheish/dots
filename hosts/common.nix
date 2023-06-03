@@ -24,6 +24,7 @@
         ../modules/home-manager/lf
         ../modules/home-manager/nushell
         ../modules/home-manager/helix
+        ../modules/home-manager/direnv
         ../modules/home-manager/broot
         ../modules/home-manager/git
         ../modules/home-manager/ssh

@@ -10,6 +10,7 @@
     nodePackages.typescript-language-server
     nodePackages.pyright
     # vls
+
     # not in nixpkgs
     # awk-language-server
   ];

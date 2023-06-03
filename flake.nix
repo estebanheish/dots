@@ -35,6 +35,7 @@
 
     nixosConfigurations = {
       nyx = mkNixos "heis" [./hosts/nyx];
+      grape = mkNixos "heis" [./hosts/grape];
     };
 
     homeConfigurations = {
