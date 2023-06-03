@@ -1,6 +1,6 @@
 {colors, ...}: let
-  mainMonitor = "LG Electronics LG HDR 4K 204NTGYHG007";
-  secondMonitor = "LG Electronics LG ULTRAWIDE 0x00009E0B";
+  m1 = "HDMI-A-1"; # LG Electronics LG HDR 4K 204NTGYHG007";
+  m2 = "HDMI-A-2"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
 in ''
   # outputs
   monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, preferred, 2560x0, 1
@@ -12,18 +12,16 @@ in ''
   # monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, 1920x1080@240Hz, 0x0, 1
 
   # worskpace binds
-  wsbind = 1, desc:${mainMonitor}
-  wsbind = 2, desc:${mainMonitor}
-  wsbind = 3, desc:${mainMonitor}
-  wsbind = 4, desc:${mainMonitor}
-  wsbind = 5, desc:${mainMonitor}
-  wsbind = 6, desc:${mainMonitor}
-  workspace = desc:${mainMonitor}, 1
+  workspace = 1, monitor:${m1}, default:true
+  workspace = 2, monitor:${m1}
+  workspace = 3, monitor:${m1}
+  workspace = 4, monitor:${m1}
+  workspace = 5, monitor:${m1}
+  workspace = 6, monitor:${m1}
 
-  wsbind = 7, desc:${secondMonitor}
-  wsbind = 8, desc:${secondMonitor}
-  wsbind = 9, desc:${secondMonitor}
-  workspace = desc:${secondMonitor}, 9
+  workspace = 7, monitor:${m2}
+  workspace = 8, monitor:${m2}
+  workspace = 9, monitor:${m2}, default:true
 
   input {
       kb_layout = us, es

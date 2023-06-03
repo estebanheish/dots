@@ -2,11 +2,11 @@
   user,
   pkgs,
   lib,
-  nixos-hardware,
+  inputs,
   ...
 }: {
   imports = [
-    nixos-hardware.nixosModules.raspberry-pi-4
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ../common.nix
   ];
 
