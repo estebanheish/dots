@@ -8,6 +8,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ../common.nix
+    ../nginx-screencast
   ];
 
   home-manager.users.${user} = {

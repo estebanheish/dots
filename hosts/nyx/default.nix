@@ -13,7 +13,7 @@
     ../../modules/nixos/nvidia
     ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
-    # ../../modules/nixos/corne-udev
+    ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     # ../../modules/nixos/android
@@ -76,6 +76,11 @@
     settings.PasswordAuthentication = false;
   };
   programs.ssh.startAgent = true;
+
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+  };
 
   # boot
   # boot.supportedFilesystems = ["ntfs"];

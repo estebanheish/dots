@@ -62,6 +62,10 @@ cmd extract ${{
     esac
 }}
 
+cmd wl-copy &{{
+    cat $f | wl-copy
+}}
+
 # share any file 256mib limit
 cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
@@ -73,6 +77,7 @@ map i open
 map E extract
 map P pasteP
 map V push :!$EDITOR<space>
+map <c-c> wl-copy
 map DD delete
 map <enter> shell
 map f $$EDITOR "$f"
@@ -92,7 +97,7 @@ map O push :open-with<space>
 
 # Movement
 map ~ cd ~/
-map gm cd /run/media
+map gm cd /mnt/data/media
 map gr cd /run
 map gD cd ~/Documents
 map gl cd ~/Documents/Libros
