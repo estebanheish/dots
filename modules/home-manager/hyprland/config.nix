@@ -105,6 +105,9 @@ in ''
       enable_swallow = yes
       swallow_regex = ^(foot)$
       mouse_move_enables_dpms = true
+
+      groupbar_gradients = false
+      groupbar_titles_font_size = 12
   }
 
   blurls = gtk-layer-shell
