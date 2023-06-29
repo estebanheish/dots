@@ -19,11 +19,11 @@
         specialArgs = {inherit inputs outputs user colors;};
       };
 
-    mkHome = user: modules: pkgs:
-      home-manager.lib.homeManagerConfiguration {
-        inherit modules pkgs;
-        extraSpecialArgs = {inherit inputs outputs user colors;};
-      };
+    # mkHome = user: modules: pkgs:
+    #   home-manager.lib.homeManagerConfiguration {
+    #     inherit modules pkgs;
+    #     extraSpecialArgs = {inherit inputs outputs user colors;};
+    #   };
   in {
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
@@ -38,8 +38,29 @@
       grape = mkNixos "heis" [./hosts/grape];
     };
 
-    homeConfigurations = {
-      "heis@nyx" = mkHome "heis" [./modules/home-manager] nixpkgs.legacyPackages."x86_64-linux";
+    homeConfigurations = let 
+      user = builtins.getEnv "USER"; 
+      system = builtins.currentSystem;
+    in {
+      "${user}" =  home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."${system}";
+          modules = [
+            ({config, pkgs, user, ...}: {
+              home.username = user;
+              home.homeDirectory = "/home/${user}";
+              home.stateVersion = "23.05";
+              imports = [
+                ./modules/home-manager/lf
+                ./modules/home-manager/nushell
+                ./modules/home-manager/helix
+                ./modules/home-manager/direnv
+                ./modules/home-manager/broot
+              ];
+              programs.home-manager.enable = true;
+            })
+          ];
+          extraSpecialArgs = {inherit inputs outputs user colors;};
+        };
     };
   };
 
