@@ -3,11 +3,11 @@
     enable = true;
     matchBlocks = {
       "grape" = {
-        hostname = "192.168.0.116";
+        hostname = "192.168.18.2";
         user = "heis";
       };
       "nyx" = {
-        hostname = "192.168.0.176";
+        hostname = "192.168.18.10";
         user = "heis";
       };
     };
