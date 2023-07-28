@@ -16,6 +16,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "lemon";
+  console.keyMap = "colemak";
 
   environment.systemPackages = with pkgs; [
     # tdesktop
