@@ -39,6 +39,7 @@
     tmate
     mediainfo
     efibootmgr
+    pipe-rename
 
     # Modern UNIX utitlities
     bat # cat

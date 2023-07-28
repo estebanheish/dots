@@ -127,7 +127,7 @@ in ''
   # binds
   #
   # basic
-  bind = SUPER, d, killactive,
+  bind = SUPER, a, killactive,
   bind = SUPERSHIFT, Return, exec, $terminal
   bind = SUPER, r, exec, firefox
   bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | $dmenu); [ -n "$p" ] && firefox -P $p
@@ -222,7 +222,7 @@ in ''
   bind = SUPER, 3, exec, nautilus
 
   # audio
-  bind = SUPER, a, exec, $terminal pulsemixer
+  bind = SUPER, d, exec, $terminal pulsemixer
   bind = SUPERSHIFT, a, exec, $terminal alsamixer
   binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
   binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-

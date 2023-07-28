@@ -49,7 +49,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nyx";
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     cascadia-code
   ];
 
@@ -87,5 +87,6 @@
   # boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
   nixpkgs.hostPlatform.system = "x86_64-linux";
 }
