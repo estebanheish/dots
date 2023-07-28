@@ -4,7 +4,7 @@
     mimeApps = {
       enable = true;
       defaultApplications = let
-        text = "nvim";
+        text = "helix";
         file = "lf";
         img = "imv";
         pdf = "org.pwmt.zathura";
@@ -62,6 +62,12 @@
         # Torrents
         "x-scheme-handler/magnet" = ["${torrent}.desktop"];
         "application/x-bittorrent" = ["${torrent}.desktop"];
+      };
+    };
+    desktopEntries = {
+      helix = {
+        name = "helix";
+        exec = "foot hx %u";
       };
     };
   };

@@ -6,7 +6,7 @@
       dataDir = "/home/${user}";
       overrideDevices = false;
       overrideFolders = false;
-      folders = {
+      settings.folders = {
         "Documents" = {
           label = "Documents";
           path = "/home/${user}/Documents";

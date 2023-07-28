@@ -3,7 +3,7 @@
           :geometry (geometry :x "0%"
                               :y "0%"
                               :width "100%"
-                              :height "25px"
+                              :height "24px"
                               :anchor "top center")
           :stacking "fg"
           :exclusive "true"
@@ -66,11 +66,10 @@
 
 
 (defwidget screencast []
-  (image 
-    :class "screencast item"
-    :path "images/screencast.png"
-    :image-width 24
+  (button
+    :class "screencast item icon"
     :visible {hyprland.screencast}
+    "󰑊"
   )
 )
 
@@ -84,9 +83,12 @@
   (box
     :space-evenly false
     :class "playback item"
-  (image :image-width 19
-         :path "images/audio/sink-${ audio.playback_mute ? "muted" : audio.level }.png"
-         :valign "center"
+  (button :valign "center"
+          :class "icon"
+          { audio.playback_mute ? "󰖁"
+          : audio.level == "medium" ? "󰖀" 
+          : audio.level == "low" ? "󰕿"
+          : "󰕾"}
     )
     (revealer 
       :transition "slideright"
@@ -100,9 +102,9 @@
   (button
     :class "capture item"
     :onclick 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle'
-  (image :path "images/audio/mic-${ audio.capture_mute ? "muted" : "on" }.png"
-         :valign "center"
-         :image-width 17)))
+    :valign "center"
+    :visible {audio.capture_mute == false}
+    "󰍬"))
 
 
 (defwidget time []
@@ -118,5 +120,4 @@
       :onclick {layout == "master"
                   ? 'hyprctl keyword general:layout "dwindle"; eww update layout="dwindle"'
                   : 'hyprctl keyword general:layout "master"; eww update layout="master"'}
-    (image :path "images/${layout}-layout.png"
-           :image-width 22)))
+    (button {layout == "master" ? '' : '󰕰'})))

@@ -80,7 +80,7 @@
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
-    options = [ "defaults" "nofail" ];
+    options = ["defaults" "nofail"];
   };
 
   # boot

@@ -3,6 +3,7 @@
   user,
   ...
 }: {
+  environment.localBinInPath = true;
   security.pam.services.swaylock = {};
   # programs.xwayland.enable = true;
 

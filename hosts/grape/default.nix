@@ -33,11 +33,12 @@
     settings.PasswordAuthentication = true;
   };
   programs.ssh.startAgent = true;
-  
+
   # external drive
   fileSystems."/home/${user}/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "btrfs";
+    options = ["defaults" "nofail"];
   };
 
   # sd

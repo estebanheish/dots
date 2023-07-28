@@ -12,7 +12,7 @@
     ../xdg
     ../zathura
     ../mpd
-    ../bemenu
+    ../tofi
   ];
 
   home.packages = with pkgs; [
@@ -35,7 +35,6 @@
     # hyprpaper
     swaybg
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    capitaine-cursors
   ];
 
   # themes
@@ -49,6 +48,17 @@
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
     };
+    cursorTheme = {
+      name = "capitaine-cursors-white";
+      package = pkgs.capitaine-cursors;
+      size = 32;
+    };
+  };
+
+  home.file.abre = {
+    enable = true;
+    source = ../../../bin/abre.nu;
+    target = ".local/bin/abre";
   };
 
   xdg.configFile = {

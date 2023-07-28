@@ -4,12 +4,16 @@
     all: unset;
     font-family: Ubuntu;
     font-weight: bold;
-    font-size: 20px;
 }
 
 .bar { 
     background: $backgroundrgba;
     text-shadow: 0px 0px 1px black;
+    font-size: 18px;
+}
+
+.icon {
+  font-size: 20px;
 }
 
 .todo {
@@ -17,8 +21,12 @@
   padding: 0 1em;
 }
 
+.screencast {
+  color: $red;
+}
+
 .workspace { 
-  padding: 0 0.3em;
+  padding: 0 0.4em;
 }
 
 .workspace.focused { 
@@ -29,7 +37,6 @@
 .item {
   padding: 0 0.5em;
 }
-
 
 .time {
   padding-left: 0.7em;

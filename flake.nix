@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    colors = import ./modules/home-manager/themes/ayu_mirage.nix;
+    colors = import ./modules/home-manager/themes/monokai_pro.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
@@ -18,7 +18,6 @@
         inherit modules;
         specialArgs = {inherit inputs outputs user colors;};
       };
-
     # mkHome = user: modules: pkgs:
     #   home-manager.lib.homeManagerConfiguration {
     #     inherit modules pkgs;
@@ -38,34 +37,39 @@
       grape = mkNixos "heis" [./hosts/grape];
     };
 
-    homeConfigurations = let 
-      user = builtins.getEnv "USER"; 
+    homeConfigurations = let
+      user = builtins.getEnv "USER";
       system = builtins.currentSystem;
     in {
-      "${user}" =  home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."${system}";
-          modules = [
-            ({config, pkgs, user, ...}: {
-              home.username = user;
-              home.homeDirectory = "/home/${user}";
-              home.stateVersion = "23.05";
-              imports = [
-                ./modules/home-manager/lf
-                ./modules/home-manager/nushell
-                ./modules/home-manager/helix
-                ./modules/home-manager/direnv
-                ./modules/home-manager/broot
-              ];
-              programs.home-manager.enable = true;
-            })
-          ];
-          extraSpecialArgs = {inherit inputs outputs user colors;};
-        };
+      "${user}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."${system}";
+        modules = [
+          ({
+            config,
+            pkgs,
+            user,
+            ...
+          }: {
+            home.username = user;
+            home.homeDirectory = "/home/${user}";
+            home.stateVersion = "23.05";
+            imports = [
+              ./modules/home-manager/lf
+              ./modules/home-manager/nushell
+              ./modules/home-manager/helix
+              ./modules/home-manager/direnv
+              ./modules/home-manager/broot
+            ];
+            programs.home-manager.enable = true;
+          })
+        ];
+        extraSpecialArgs = {inherit inputs outputs user colors;};
+      };
     };
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
@@ -90,6 +94,11 @@
 
     eww-scripts = {
       url = "github:estebanheish/eww-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pipewire-screenaudio = {
+      url = "github:IceDBorn/pipewire-screenaudio";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

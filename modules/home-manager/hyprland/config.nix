@@ -3,7 +3,7 @@
   m2 = "HDMI-A-2"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
 in ''
   # outputs
-  monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, preferred, 2560x0, 1
+  monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, preferred, 2560x0, 1.5
   monitor = desc:LG Electronics LG ULTRAWIDE 0x00009E0B, preferred, 0x540, 1
   monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, disable
 
@@ -119,16 +119,21 @@ in ''
   # window rules
   windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
 
+  $terminal = XCURSOR_SIZE=24 foot
+  $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
+  $dmenu = tofi -c ~/.config/tofi/config_dmenu
+  $lmenu = tofi -c ~/.config/tofi/config_list
+
   # binds
   #
   # basic
   bind = SUPER, d, killactive,
-  bind = SUPERSHIFT, Return, exec, foot
+  bind = SUPERSHIFT, Return, exec, $terminal
   bind = SUPER, r, exec, firefox
-  bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | bmenu); [ -n "$p" ] && firefox -P $p
-  bind = SUPER, t, exec, bmenu-run
-  bind = SUPERSHIFT, t, exec, bfiles
-  bind = SUPER, v, exec, bclip
+  bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | $dmenu); [ -n "$p" ] && firefox -P $p
+  bind = SUPER, t, exec, $dmenu-run
+  bind = SUPERSHIFT, t, exec, abre "$(fd -tf --search-path ~/Documents --search-path ~/Downloads --search-path ~/Videos --search-path ~/Pictures --search-path /mnt/data/media --search-path ~/Music | $lmenu)"
+  bind = SUPER, v, exec, cliphist list | $lmenu | cliphist decode | wl-copy
   bind = SUPER, Tab, fullscreen, 0
   bind = SUPERSHIFT, Tab, togglefloating,
   bind = ALT, Tab, fakefullscreen
@@ -212,13 +217,13 @@ in ''
 
   # open stuff
   # bind=SUPER_SHIFT,w,exec,qutebrowser
-  bind = SUPER, 1, exec, foot btm
-  bind = SUPER, 2, exec, foot ncmpcpp
+  bind = SUPER, 1, exec, $terminal btm
+  bind = SUPER, 2, exec, $terminal ncmpcpp
   bind = SUPER, 3, exec, nautilus
 
   # audio
-  bind = SUPER, a, exec, foot pulsemixer
-  bind = SUPERSHIFT, a, exec, foot alsamixer
+  bind = SUPER, a, exec, $terminal pulsemixer
+  bind = SUPERSHIFT, a, exec, $terminal alsamixer
   binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
   binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
   bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -250,7 +255,7 @@ in ''
   # start
   # exec-once = hyprpaper
   exec-once = swaybg -c '##${colors.wall_solid}'
-  exec-once = hyprctl setcursor capitaine-cursors-white 42
+  exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store
   exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
@@ -263,12 +268,11 @@ in ''
   env = NIXOS_OZONE_WL,1
 
   env = GDK_BACKEND, wayland
-  env = QT_QPA_PLATFORM,wayland
   env = SDL_VIDEODRIVER,wayland
   env = CLUTTER_BACKEND,wayland
 
-  env = QT_AUTO_SCREEN_SCALE_FACTOR=1
-  env = QT_QPA_PLATFORM,wayland
+  env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+  env = QT_QPA_PLATFORM,wayland;xcb
   env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
   env = QT_QPA_PLATFORMTHEME,qt5ct
 ''

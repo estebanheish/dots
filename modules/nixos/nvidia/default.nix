@@ -24,9 +24,9 @@
 
   environment.sessionVariables = {
     GBM_BACKEND = "nvidia-drm";
-    GLX_VENDOR_LIBRARY_NAME = "nvidia";
     LIBVA_DRIVER_NAME = "nvidia";
-    GL_GSYNC_ALLOWED = "1";
     WLR_NO_HARDWARE_CURSORS = "1"; # hyprland
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    __GL_GSYNC_ALLOWED = "1";
   };
 }

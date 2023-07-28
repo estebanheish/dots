@@ -5,3 +5,9 @@ auto-format = true
 language-server = { command = "pyright-langserver", args = ["--stdio"] }
 roots = ["pyproject.toml"]
 config = {} # <- this is the important line
+
+[[language]]
+name = "haskell"
+formatter = { command = "stylish-haskell" }
+auto-format = true
+
