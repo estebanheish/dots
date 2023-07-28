@@ -7,7 +7,7 @@
   home.packages = [
     pkgs.eww-wayland
     inputs.eww-scripts.packages.${pkgs.system}.default
-    pkgs.nerdfonts
+    pkgs.inconsolata-nerdfont
   ];
 
   xdg.configFile = {
