@@ -25,7 +25,7 @@ in ''
 
   input {
       kb_layout = us, es
-      # kb_variant = colemak
+      kb_variant = colemak,
       kb_options = grp:ctrls_toggle
       follow_mouse = 1
       repeat_rate = 50
@@ -37,7 +37,7 @@ in ''
           natural_scroll = yes
       }
 
-      sensitivity = -0.75
+      # sensitivity = 0.0
   }
 
   bind = SUPERSHIFTCTRL, c, exec, hyprctl keyword input:kb_variant colemak,
@@ -260,6 +260,7 @@ in ''
   exec-once = wl-paste --watch cliphist store
   exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
   exec-once = eww open bar
+  exec-once = nu ~/.config/hypr/profile.nu
 
   # environment variables
   env = XDG_CURRENT_DESKTOP,Hyprland

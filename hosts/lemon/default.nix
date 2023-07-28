@@ -33,7 +33,7 @@
 
   # scanner
   hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.sane-airscan ];
+  hardware.sane.extraBackends = [pkgs.sane-airscan];
 
   # networking
   hardware.bluetooth.enable = true;
