@@ -8,7 +8,6 @@
   imports = [
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ../common.nix
-    ../nginx-screencast
   ];
 
   home-manager.users.${user} = {
@@ -18,8 +17,8 @@
 
   # networking
   networking.hostName = "grape";
-  hardware.bluetooth.enable = true;
-  networking.wireless.iwd.enable = true;
+  # hardware.bluetooth.enable = true;
+  # networking.wireless.iwd.enable = true;
   networking.useNetworkd = true;
   systemd.network.enable = true;
   systemd.network.wait-online.anyInterface = true;
@@ -35,11 +34,11 @@
   programs.ssh.startAgent = true;
 
   # external drive
-  fileSystems."/home/${user}/data" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "btrfs";
-    options = ["defaults" "nofail"];
-  };
+  # fileSystems."/home/${user}/data" = {
+  #   device = "/dev/disk/by-label/data";
+  #   fsType = "btrfs";
+  #   options = ["defaults" "nofail"];
+  # };
 
   # sd
   fileSystems."/" = {
