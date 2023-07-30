@@ -3,10 +3,10 @@ rec {
   backgroundrgba = "rgba(45,42,46,0.9)";
   foreground = "FCFCFA";
   focus = background;
-  focus_window = magenta;
-  focus_background = magenta;
+  focus_window = cyan;
+  focus_background = cyan;
   wall_solid = background;
-  wall = "space.jpg";
+  wall = "cmountain.jpg";
 
   # terminal
   cursor = focus_background;

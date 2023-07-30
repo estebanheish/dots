@@ -69,9 +69,9 @@ in ''
       blur_passes = 3 # minimum 1
       blur_new_optimizations = 1
 
-      drop_shadow = false
-      shadow_range = 80
-      shadow_render_power = 50
+      drop_shadow = true
+      shadow_range = 20
+      shadow_render_power = 15
       col.shadow = rgba(00000065)
       # col.shadow_inactive = rgb(1c252c)
   }
