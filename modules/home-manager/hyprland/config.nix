@@ -64,7 +64,7 @@ in ''
   decoration {
       rounding = 2
 
-      blur = false
+      blur = true
       blur_size = 20 # minimum 1
       blur_passes = 3 # minimum 1
       blur_new_optimizations = 1
@@ -78,10 +78,10 @@ in ''
 
   animations {
       enabled = 1
-      animation = windows, 0, 1, default, popin
+      animation = windows, 1, 1, default, popin
       animation = border, 1, 8, default
       animation = fade, 1, 5, default
-      animation = workspaces, 0, 1, default
+      animation = workspaces, 1, 2, default
   }
 
   dwindle {
@@ -114,10 +114,11 @@ in ''
   blurls = notifications
   blurls = lockscreen
   blurls = menu
-
+  blurls = launcher
 
   # window rules
   windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
+  windowrulev2 = center, class:^(firefox)$
 
   $terminal = XCURSOR_SIZE=24 foot
   $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
@@ -253,8 +254,8 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  # exec-once = hyprpaper
-  exec-once = swaybg -c '##${colors.wall_solid}'
+  exec-once = hyprpaper
+  # exec-once = swaybg -c '##${colors.wall_solid}'
   exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store

@@ -11,7 +11,7 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
-    ../../modules/nixos/syncthing
+    # ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
     ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna

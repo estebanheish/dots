@@ -14,6 +14,8 @@
     selection-color = ${colors.background}
     selection-background = ${colors.focus_background}
     selection-background-padding = 2
+    selection-background-padding = 0,6,0,6
+    selection-background-corner-radius = 5
 
     text-cursor = true
     text-cursor-style = bar
@@ -53,6 +55,8 @@
     selection-color = ${colors.background}
     selection-background = ${colors.focus_background}
     selection-background-padding = 2
+    selection-background-padding = 2,8,2,6
+    selection-background-corner-radius = 5
 
     text-cursor = true
     text-cursor-style = bar

@@ -31,9 +31,9 @@
     swaylock
     ncmpcpp
     pulsemixer
-    # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     # hyprpaper
-    swaybg
+    # swaybg
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
   ];
 
@@ -55,14 +55,21 @@
     };
   };
 
-  home.file.abre = {
-    enable = true;
-    source = ../../../bin/abre.nu;
-    target = ".local/bin/abre";
+  home.file = {
+    abre = {
+      enable = true;
+      source = ../../../bin/abre.nu;
+      target = ".local/bin/abre";
+    };
+    backup_home = {
+      enable = true;
+      source = ../../../bin/backup_home.sh;
+      target = ".local/bin/backup_home";
+    };
   };
 
   xdg.configFile = {
-    # "wall.jpg".source = ../../../misc/walls/${colors.wall};
+    "wall.jpg".source = ../../../misc/walls/${colors.wall};
     "swaylock/config".source = ../../../configs/swaylock/config;
     "hypr/hyprland.conf".text = import ./config.nix {inherit colors;};
     "hypr/profile.nu".text = ''
@@ -74,9 +81,9 @@
       	}
       }
     '';
-    # "hypr/hyprpaper.conf".text = ''
-    #   preload = ~/.config/wall.jpg
-    #   wallpaper = ,~/.config/wall.jpg
-    # '';
+    "hypr/hyprpaper.conf".text = ''
+      preload = ~/.config/wall.jpg
+      wallpaper = ,~/.config/wall.jpg
+    '';
   };
 }
