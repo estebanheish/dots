@@ -56,5 +56,7 @@
     dog # dig
     sd # sed
     jq # sed for json data
+    grex
+    tealdeer
   ];
 }

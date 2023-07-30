@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   colors,
+  profile,
   ...
 }: {
   imports = [
@@ -71,16 +72,7 @@
   xdg.configFile = {
     "wall.jpg".source = ../../../misc/walls/${colors.wall};
     "swaylock/config".source = ../../../configs/swaylock/config;
-    "hypr/hyprland.conf".text = import ./config.nix {inherit colors;};
-    "hypr/profile.nu".text = ''
-      def main [] {
-      	match (hostname) {
-      	  "nyx" => {
-      			hyprctl --batch "keyword input:sensitivity -1 ; keywords input:kb_variant ,"
-      		}
-      	}
-      }
-    '';
+    "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
     "hypr/hyprpaper.conf".text = ''
       preload = ~/.config/wall.jpg
       wallpaper = ,~/.config/wall.jpg

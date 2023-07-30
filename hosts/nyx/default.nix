@@ -30,13 +30,17 @@
       # discord
       # element-desktop
 
+      spotify
       # bitwarden
       # bitwarden-cli
-      # qbittorrent
+      qbittorrent
 
-      # libreoffice
-      # gimp
-      # inkscape
+      libreoffice
+      gimp
+      inkscape
+
+      obsidian
+      nautilus
 
       # tor-browser-bundle-bin
 
