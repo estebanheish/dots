@@ -80,15 +80,15 @@
     :onhover "eww update showvol=true"
     :onhoverlost "eww update showvol=false"
     :onscroll '[ {} == "down" ] && wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+ || wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-'
+    :visible {audio.playback_mute == false}
   (box
     :space-evenly false
     :class "playback item"
   (button :valign "center"
           :class "icon"
-          { audio.playback_mute ? "󰖁"
-          : audio.level == "medium" ? "󰖀" 
-          : audio.level == "low" ? "󰕿"
-          : "󰕾"}
+          { audio.level == "medium" ? ""
+            : audio.level == "low" ? ""
+            : ""}
     )
     (revealer 
       :transition "slideright"
