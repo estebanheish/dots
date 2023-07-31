@@ -1,4 +1,8 @@
-{colors, profile, ...}: let
+{
+  colors,
+  profile,
+  ...
+}: let
   m1 = "HDMI-A-1"; # LG Electronics LG HDR 4K 204NTGYHG007";
   m2 = "HDMI-A-2"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
 in ''
@@ -25,7 +29,11 @@ in ''
 
   input {
       kb_layout = us, es
-      ${ if profile == "nyx" then "kb_variant = ," else "kb_variant = colemak,"}
+      ${
+    if profile == "nyx"
+    then "kb_variant = ,"
+    else "kb_variant = colemak,"
+  }
       kb_options = grp:ctrls_toggle
       follow_mouse = 1
       repeat_rate = 50
@@ -37,7 +45,11 @@ in ''
           natural_scroll = yes
       }
 
-      ${ if profile == "nyx" then "sensitivity = -1" else ""}
+      ${
+    if profile == "nyx"
+    then "sensitivity = -1"
+    else ""
+  }
   }
 
   bind = SUPERSHIFTCTRL, c, exec, hyprctl keyword input:kb_variant colemak,

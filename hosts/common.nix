@@ -33,7 +33,10 @@
       ];
       home.stateVersion = "23.05";
     };
-    extraSpecialArgs = {inherit inputs outputs user colors; profile = config.system.name;};
+    extraSpecialArgs = {
+      inherit inputs outputs user colors;
+      profile = config.system.name;
+    };
   };
 
   users.users.${user} = {

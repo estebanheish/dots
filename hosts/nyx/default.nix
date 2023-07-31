@@ -40,7 +40,7 @@
       inkscape
 
       obsidian
-      nautilus
+      gnome.nautilus
 
       # tor-browser-bundle-bin
 
