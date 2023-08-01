@@ -55,7 +55,6 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nyx";
 
   fonts.packages = with pkgs; [
@@ -85,6 +84,7 @@
     settings.PasswordAuthentication = false;
   };
   programs.ssh.startAgent = true;
+  services.fstrim.enable = true;
 
   fileSystems."/mnt/data" = {
     device = "/dev/disk/by-label/data";
