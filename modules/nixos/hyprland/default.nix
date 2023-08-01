@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  config,
   ...
 }: {
   environment.localBinInPath = true;
@@ -13,7 +14,7 @@
       enable = true;
       hidpi = true;
     };
-    nvidiaPatches = true;
+    nvidiaPatches = config.system.name == "nyx";
   };
 
   imports = [../../../modules/nixos/firefox];
