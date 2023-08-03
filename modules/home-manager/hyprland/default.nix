@@ -56,6 +56,9 @@
     };
   };
 
+  # adwaita dark theme
+  dconf.settings."org/gnome/desktop/interface" = { "color-scheme" = "prefer-dark"; };
+
   home.file = {
     abre = {
       enable = true;
