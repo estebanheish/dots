@@ -10,4 +10,3 @@ config = {} # <- this is the important line
 name = "haskell"
 formatter = { command = "stylish-haskell" }
 auto-format = true
-

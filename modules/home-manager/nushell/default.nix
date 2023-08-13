@@ -1,7 +1,9 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    nushell
-  ];
+
+  programs.nushell = {
+    enable = true;
+    package = pkgs.nushellFull;
+  };
 
   xdg.configFile."nushell" = {
     source = ../../../configs/nushell;

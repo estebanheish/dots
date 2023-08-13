@@ -43,7 +43,7 @@
     isNormalUser = true;
     createHome = true;
     initialPassword = "hola";
-    shell = pkgs.nushell;
+    shell = pkgs.nushellFull;
     extraGroups = ["wheel" "audio" "video"];
   };
 
