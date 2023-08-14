@@ -28,7 +28,10 @@
       };
 
       colors = {
-        alpha = "0.9";
+        alpha =
+          if colors.flat
+          then "1"
+          else "0.9";
         background = colors.terminal_background;
         foreground = colors.foreground;
         # selection-background=444444

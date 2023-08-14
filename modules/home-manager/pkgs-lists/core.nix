@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # editors
     # neovim
-    helix
+    # helix
 
     # downloads
     wget
@@ -37,6 +37,7 @@
     tree
     file
     tmate
+    zoxide
     mediainfo
     efibootmgr
     pipe-rename

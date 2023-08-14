@@ -32,10 +32,9 @@
     swaylock
     ncmpcpp
     pulsemixer
-    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    # hyprpaper
+    hyprpaper
+    hyprpicker
     # swaybg
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
   ];
 
   # themes
@@ -57,7 +56,7 @@
   };
 
   # adwaita dark theme
-  dconf.settings."org/gnome/desktop/interface" = { "color-scheme" = "prefer-dark"; };
+  dconf.settings."org/gnome/desktop/interface" = {"color-scheme" = "prefer-dark";};
 
   home.file = {
     abre = {
@@ -73,12 +72,12 @@
   };
 
   xdg.configFile = {
-    "wall.jpg".source = ../../../misc/walls/${colors.wall};
+    "${colors.wall}".source = ../../../misc/walls/${colors.wall};
     "swaylock/config".source = ../../../configs/swaylock/config;
     "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
     "hypr/hyprpaper.conf".text = ''
-      preload = ~/.config/wall.jpg
-      wallpaper = ,~/.config/wall.jpg
+      preload = ~/.config/${colors.wall}
+      wallpaper = ,~/.config/${colors.wall}
     '';
   };
 }

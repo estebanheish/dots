@@ -7,6 +7,7 @@ rec {
   focus_background = cyan;
   wall_solid = background;
   wall = "cmountain.jpg";
+  flat = false;
 
   # terminal
   cursor = focus_background;

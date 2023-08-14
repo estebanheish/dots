@@ -836,3 +836,4 @@ $env.config = {
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/broot.nu
 source ~/.config/nushell/lf.nu
+source ~/.config/nushell/zoxide.nu

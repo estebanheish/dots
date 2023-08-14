@@ -1,4 +1,4 @@
-theme = "monokai_pro"
+theme = "nord"
 
 [editor]
 line-number = "relative"
@@ -29,6 +29,7 @@ A-x = "extend_line_above"
 H = "goto_window_top"
 M = "goto_window_center"
 L = "goto_window_bottom"
+G = "goto_file_end"
 Z = { Z = ":wq", Q = ":q!" }
 
 [keys.select]
@@ -45,4 +46,5 @@ C-y = "scroll_up"
 H = "goto_window_top"
 M = "goto_window_center"
 L = "goto_window_bottom"
+G = "goto_file_end"
 Z = { Z = ":wq", Q = ":q!" }

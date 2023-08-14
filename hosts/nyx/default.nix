@@ -49,11 +49,6 @@
     ];
   };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-
   boot.kernelPackages = pkgs.linuxPackages_zen;
   networking.hostName = "nyx";
 

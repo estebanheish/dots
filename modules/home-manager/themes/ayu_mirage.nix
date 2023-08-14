@@ -7,6 +7,7 @@ rec {
   focus_background = "ffad66";
   wall_solid = background;
   wall = "sies-kranen.jpg";
+  flat = true;
 
   # terminal
   cursor = focus_background;

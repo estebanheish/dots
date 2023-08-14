@@ -56,8 +56,16 @@ in ''
   bind = SUPERSHIFTCTRL, q, exec, hyprctl keyword input:kb_variant ,
 
   general {
-      gaps_in = 5
-      gaps_out = 10
+      gaps_in = ${
+    if colors.flat
+    then "0"
+    else "5"
+  }
+      gaps_out = ${
+    if colors.flat
+    then "0"
+    else "10"
+  }
       border_size = 2
       no_border_on_floating = false
 
@@ -74,14 +82,26 @@ in ''
   }
 
   decoration {
-      rounding = 2
+      rounding = ${
+    if colors.flat
+    then "0"
+    else "2"
+  }
 
-      blur = true
+      blur = ${
+    if colors.flat
+    then "false"
+    else "true"
+  }
       blur_size = 20 # minimum 1
       blur_passes = 3 # minimum 1
       blur_new_optimizations = 1
 
-      drop_shadow = true
+      drop_shadow = ${
+    if colors.flat
+    then "false"
+    else "true"
+  }
       shadow_range = 20
       shadow_render_power = 15
       col.shadow = rgba(00000065)
@@ -89,7 +109,11 @@ in ''
   }
 
   animations {
-      enabled = 1
+      enabled = ${
+    if colors.flat
+    then "false"
+    else "true"
+  }
       animation = windows, 1, 1, default, popin
       animation = border, 1, 8, default
       animation = fade, 1, 5, default
@@ -102,7 +126,7 @@ in ''
   }
 
   master {
-      no_gaps_when_only = yes
+      no_gaps_when_only = 1
       new_is_master = no
   }
 

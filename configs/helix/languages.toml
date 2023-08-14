@@ -2,9 +2,9 @@
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
+# language-server = { command = "pyright-langserver", args = ["--stdio"] }
 roots = ["pyproject.toml"]
-config = {} # <- this is the important line
+# config = {} # <- this is the important line
 
 [[language]]
 name = "haskell"
