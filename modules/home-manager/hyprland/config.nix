@@ -144,6 +144,8 @@ in ''
 
       groupbar_gradients = false
       groupbar_titles_font_size = 12
+
+      vrr = 2
   }
 
   blurls = gtk-layer-shell
@@ -260,7 +262,7 @@ in ''
 
   # audio
   bind = SUPER, d, exec, $terminal pulsemixer
-  bind = SUPERSHIFT, a, exec, $terminal alsamixer
+  bind = SUPERSHIFT, d, exec, $terminal alsamixer
   binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
   binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
   bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -278,6 +280,7 @@ in ''
 
   # screenshots
   bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
+  bind = ALT, Print, exec, grim -g "$(slurp)" - | swappy -f -
   bind = SHIFT, Print, exec, grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
   # power

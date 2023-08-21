@@ -34,6 +34,7 @@
     pulsemixer
     hyprpaper
     hyprpicker
+    swappy
     # swaybg
   ];
 
@@ -68,6 +69,11 @@
       enable = true;
       source = ../../../bin/backup_home.sh;
       target = ".local/bin/backup_home";
+    };
+    game_monitors = {
+      enable = true;
+      source = ../../../bin/game_monitors.nu;
+      target = ".local/bin/game_monitors";
     };
   };
 
