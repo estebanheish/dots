@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    colors = import ./modules/home-manager/themes/nord.nix;
+    colors = import ./modules/home-manager/themes/rose_pine.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
@@ -88,7 +88,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
+
   nixConfig = {
     extra-substituters = ["https://helix.cachix.org"];
     extra-trusted-public-keys = ["helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="];

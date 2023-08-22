@@ -88,16 +88,7 @@ in ''
     else "2"
   }
 
-      blur = ${
-    if colors.flat
-    then "false"
-    else "true"
-  }
-      blur_size = 20 # minimum 1
-      blur_passes = 3 # minimum 1
-      blur_new_optimizations = 1
-
-      drop_shadow = ${
+  drop_shadow = ${
     if colors.flat
     then "false"
     else "true"
@@ -106,6 +97,18 @@ in ''
       shadow_render_power = 15
       col.shadow = rgba(00000065)
       # col.shadow_inactive = rgb(1c252c)
+
+    blur {
+      enabled = ${
+    if colors.flat
+    then "false"
+    else "true"
+  }
+      size = 20 # minimum 1
+      passes = 3 # minimum 1
+      new_optimizations = 1
+    }
+
   }
 
   animations {
@@ -144,8 +147,8 @@ in ''
 
       groupbar_gradients = false
       groupbar_titles_font_size = 12
-
-      vrr = 2
+      # animate_manual_resizes = true
+      # animate_mouse_windowdragging = true
   }
 
   blurls = gtk-layer-shell
@@ -293,8 +296,8 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  exec-once = hyprpaper
-  # exec-once = swaybg -c '##${colors.wall_solid}'
+  # exec-once = hyprpaper
+  exec-once = swaybg -c '##${colors.wall_solid}'
   exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store

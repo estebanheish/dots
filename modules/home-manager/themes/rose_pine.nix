@@ -4,9 +4,9 @@ rec {
   foreground = "e0def4";
   focus = background;
   focus_window = focus_background;
-  focus_background = "f6c177";
+  focus_background = magenta;
   wall_solid = "26233A";
-  wall = "";
+  flat = false;
 
   # terminal
   cursor = focus_background;

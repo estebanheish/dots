@@ -7,6 +7,7 @@ rec {
   focus_background = foreground;
   wall_solid = "241b30";
   wall = "purple_desert.jpg";
+  flat = false;
 
   # terminal
   cursor = foreground;

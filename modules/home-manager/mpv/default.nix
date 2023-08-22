@@ -5,4 +5,5 @@
     recursive = true;
   };
   xdg.configFile."mpv/mpv.conf".source = ../../../configs/mpv/mpv.conf;
+  xdg.configFile."mpv/input.conf".source = ../../../configs/mpv/input.conf;
 }

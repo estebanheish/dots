@@ -10,11 +10,8 @@
 
   programs.hyprland = {
     enable = true;
-    xwayland = {
-      enable = true;
-      hidpi = true;
-    };
-    nvidiaPatches = config.system.name == "nyx";
+    xwayland.enable = true;
+    enableNvidiaPatches = config.system.name == "nyx";
   };
 
   imports = [../../../modules/nixos/firefox];
