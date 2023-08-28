@@ -6,6 +6,7 @@ rec {
   focus_window = focus_background;
   focus_background = magenta;
   wall_solid = "26233A";
+  wall = "purple_g.jpg";
   flat = false;
 
   # terminal

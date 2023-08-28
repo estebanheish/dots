@@ -41,6 +41,7 @@
     mediainfo
     efibootmgr
     pipe-rename
+    libqalculate
 
     # Modern UNIX utitlities
     bat # cat

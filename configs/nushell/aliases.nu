@@ -7,6 +7,7 @@ alias v = ^$env.EDITOR
 alias r = ^$env.READER
 alias o = ^$env.OPENER
 alias b = ^$env.BROWSER
+alias q = qalc
 alias l = ls
 alias la = ls -a
 alias ll = ls -l

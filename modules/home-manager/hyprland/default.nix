@@ -35,8 +35,8 @@
       pulsemixer
       hyprpicker
       swappy
-      # hyprpaper
-      swaybg
+      hyprpaper
+      # swaybg
     ];
 
   # themes
@@ -71,20 +71,20 @@
       source = ../../../bin/backup_home.sh;
       target = ".local/bin/backup_home";
     };
-    game_monitors = {
+    gamemode = {
       enable = true;
-      source = ../../../bin/game_monitors.nu;
-      target = ".local/bin/game_monitors";
+      source = ../../../bin/gamemode.nu;
+      target = ".local/bin/gamemode";
     };
   };
 
   xdg.configFile = {
-    # "${colors.wall}".source = ../../../misc/walls/${colors.wall};
+    "${colors.wall}".source = ../../../misc/walls/${colors.wall};
     "swaylock/config".source = ../../../configs/swaylock/config;
     "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
-    # "hypr/hyprpaper.conf".text = ''
-    #   preload = ~/.config/${colors.wall}
-    #   wallpaper = ,~/.config/${colors.wall}
-    # '';
+    "hypr/hyprpaper.conf".text = ''
+      preload = ~/.config/${colors.wall}
+      wallpaper = ,~/.config/${colors.wall}
+    '';
   };
 }

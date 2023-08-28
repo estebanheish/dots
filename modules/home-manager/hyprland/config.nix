@@ -169,7 +169,7 @@ in ''
   # binds
   #
   # basic
-  bind = SUPER, a, killactive,
+  bind = SUPER, Escape, killactive,
   bind = SUPERSHIFT, Return, exec, $terminal
   bind = SUPER, r, exec, firefox
   bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | $dmenu); [ -n "$p" ] && firefox -P $p
@@ -296,8 +296,8 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  # exec-once = hyprpaper
-  exec-once = swaybg -c '##${colors.wall_solid}'
+  exec-once = hyprpaper
+  # exec-once = swaybg -c '##${colors.wall_solid}'
   exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store
