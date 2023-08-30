@@ -93,6 +93,7 @@
         "hypr/hyprpaper.conf".text = ''
           preload = ~/.config/${colors.wall}
           wallpaper = ,~/.config/${colors.wall}
+          ipc = off
         '';
       }
       else {}
