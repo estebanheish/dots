@@ -27,6 +27,10 @@
     ];
 
     home.packages = with pkgs; [
+      helvum
+      easyeffects
+      obs-studio
+
       tdesktop
       # discord
       # element-desktop
@@ -42,6 +46,7 @@
 
       obsidian
       gnome.nautilus
+      # gnome.eog
 
       # tor-browser-bundle-bin
 
