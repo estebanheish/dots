@@ -143,6 +143,7 @@ in ''
       disable_autoreload = yes
       enable_swallow = yes
       swallow_regex = ^(foot)$
+      # swallow_exception_regex = ^(wev|Gnuplot)$
       mouse_move_enables_dpms = true
 
       groupbar_gradients = false
@@ -296,8 +297,11 @@ in ''
   # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
-  exec-once = hyprpaper
-  # exec-once = swaybg -c '##${colors.wall_solid}'
+  ${
+    if builtins.hasAttr "wall" colors
+    then "exec-once = hyprpaper"
+    else ""
+  }
   exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store

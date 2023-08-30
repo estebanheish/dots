@@ -41,7 +41,7 @@
     mediainfo
     efibootmgr
     pipe-rename
-    libqalculate
+    (libqalculate.override { gnuplot = gnuplot_qt; })
 
     # Modern UNIX utitlities
     bat # cat

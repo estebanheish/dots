@@ -35,9 +35,12 @@
       pulsemixer
       hyprpicker
       swappy
-      hyprpaper
-      # swaybg
-    ];
+    ]
+    ++ (
+      if builtins.hasAttr "wall" colors
+      then [hyprpaper]
+      else []
+    );
 
   # themes
   gtk = {
@@ -78,13 +81,20 @@
     };
   };
 
-  xdg.configFile = {
-    "${colors.wall}".source = ../../../misc/walls/${colors.wall};
-    "swaylock/config".source = ../../../configs/swaylock/config;
-    "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
-    "hypr/hyprpaper.conf".text = ''
-      preload = ~/.config/${colors.wall}
-      wallpaper = ,~/.config/${colors.wall}
-    '';
-  };
+  xdg.configFile =
+    {
+      "swaylock/config".source = ../../../configs/swaylock/config;
+      "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
+    }
+    // (
+      if builtins.hasAttr "wall" colors
+      then {
+        "${colors.wall}".source = ../../../misc/walls/${colors.wall};
+        "hypr/hyprpaper.conf".text = ''
+          preload = ~/.config/${colors.wall}
+          wallpaper = ,~/.config/${colors.wall}
+        '';
+      }
+      else {}
+    );
 }

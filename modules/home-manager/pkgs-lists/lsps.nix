@@ -1,14 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    rust-analyzer
+    # rust-analyzer
     nodePackages.bash-language-server
-    dart
     haskell-language-server
     # rnix-lsp
     nil
     taplo
-    nodePackages.typescript-language-server
-    nodePackages.pyright
+    # nodePackages.typescript-language-server
+    # nodePackages.pyright
     # vls
 
     # not in nixpkgs
