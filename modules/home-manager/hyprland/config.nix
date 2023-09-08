@@ -143,7 +143,7 @@ in ''
       disable_autoreload = yes
       enable_swallow = yes
       swallow_regex = ^(foot)$
-      swallow_exception_regex = ^(no)$
+      swallow_exception_regex = ^(noswallow)$
       mouse_move_enables_dpms = true
 
       groupbar_gradients = false

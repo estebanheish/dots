@@ -19,7 +19,7 @@ alias mpw = mpv (wl-paste)
 alias rebuild = doas nixos-rebuild switch --flake ~/.nyx
 alias garbage = nix-collect-garbage -d
 alias switch-to-config = doas /run/current-system/bin/switch-to-configuration boot
-alias noswallow = print $"(ansi title)no(ansi st)"
+alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
 def npl [] = { nix profile list --json | (from json).elements | select attrPath originalUrl | rename pkg flake | update pkg { str substring 28.. } | update flake { str substring 6.. } }
 def remove [...pkgs: string] {
   if ($pkgs | is-empty) {
