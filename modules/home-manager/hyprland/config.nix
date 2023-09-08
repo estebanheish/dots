@@ -143,13 +143,17 @@ in ''
       disable_autoreload = yes
       enable_swallow = yes
       swallow_regex = ^(foot)$
-      # swallow_exception_regex = ^(wev|Gnuplot)$
+      swallow_exception_regex = ^(no)$
       mouse_move_enables_dpms = true
 
       groupbar_gradients = false
       groupbar_titles_font_size = 12
       # animate_manual_resizes = true
       # animate_mouse_windowdragging = true
+  }
+
+  xwayland {
+    force_zero_scaling = true
   }
 
   blurls = gtk-layer-shell
