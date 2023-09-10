@@ -42,7 +42,7 @@
     efibootmgr
     pipe-rename
     pup
-    (libqalculate.override { gnuplot = gnuplot_qt; })
+    (libqalculate.override {gnuplot = gnuplot_qt;})
 
     # Modern UNIX utitlities
     bat # cat
