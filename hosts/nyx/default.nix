@@ -24,6 +24,7 @@
     imports = [
       ../../modules/home-manager/neovim
       ../../modules/home-manager/pkgs-lists/lsps.nix
+      ../../modules/home-manager/haskell
     ];
 
     home.packages = with pkgs; [
@@ -60,6 +61,8 @@
 
   fonts.packages = with pkgs; [
     cascadia-code
+    ubuntu_font_family
+    martian-mono
   ];
 
   # networking

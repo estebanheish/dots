@@ -6,7 +6,7 @@ rec {
   focus = background;
   focus_background = foreground;
   wall_solid = "241b30";
-  wall = "purple_desert.jpg";
+  wall = "";
   flat = false;
 
   # terminal

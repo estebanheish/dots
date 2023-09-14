@@ -12,10 +12,10 @@
     enable = true;
     settings = {
       main = {
-        font = "Cascadia Code:size=12:style=Semibold";
-        font-bold = "Cascadia Code:size=12:style=Bold";
-        font-italic = "Cascadia Code:size=12:style=Italic";
-        font-bold-italic = "Cascadia Code:size=12:style=BoldItalic";
+        font = "Martian Mono Std Md:size=12:style=Semibold";
+        font-bold = "Martian Mono Std Md:size=12:style=Bold";
+        font-italic = "Martian Mono Std Md:size=12:style=Italic";
+        font-bold-italic = "Martian Mono Std Md:size=12:style=BoldItalic";
         pad = "15x15";
       };
 

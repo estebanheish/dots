@@ -4,11 +4,12 @@
       let
         haskellPkgs = ps:
           with ps; [
-            brick
-            aeson
-            wreq
-            QuickCheck
-            regex-pcre
+            random
+            # brick
+            # aeson
+            # wreq
+            # QuickCheck
+            # regex-pcre
             matrix
             split
             #http-conduit
