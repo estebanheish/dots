@@ -11,13 +11,11 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
-    # ../../modules/nixos/syncthing
     ../../modules/nixos/hyprland
     ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     ../../modules/nixos/steam
-    # ../../modules/nixos/android
   ];
 
   home-manager.users.${user} = {
@@ -60,7 +58,7 @@
   networking.hostName = "nyx";
 
   fonts.packages = with pkgs; [
-    cascadia-code
+    # cascadia-code
     ubuntu_font_family
     martian-mono
   ];

@@ -5,8 +5,9 @@
 }: {
   home.packages = with pkgs; [
     foot
-    ubuntu_font_family
-    cascadia-code
+    # ubuntu_font_family
+    # cascadia-code
+    martian-mono
   ];
   programs.foot = {
     enable = true;
