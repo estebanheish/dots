@@ -12,6 +12,7 @@
     gallery-dl
 
     # archives
+    zip
     unzip
     unrar
     gnutar
