@@ -29,6 +29,7 @@
         ../modules/home-manager/broot
         ../modules/home-manager/git
         ../modules/home-manager/ssh
+        ../modules/home-manager/tmux
         ../modules/home-manager/pkgs-lists/core.nix
       ];
       home.stateVersion = "23.05";

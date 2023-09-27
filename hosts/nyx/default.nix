@@ -15,7 +15,7 @@
     ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna
     ../../modules/nixos/superlight
-    ../../modules/nixos/steam
+    # ../../modules/nixos/steam
   ];
 
   home-manager.users.${user} = {

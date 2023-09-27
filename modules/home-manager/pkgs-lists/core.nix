@@ -27,7 +27,7 @@
 
     # basic utils
     # nnn
-    tmux
+    # tmux
     pciutils
     usbutils
     parted

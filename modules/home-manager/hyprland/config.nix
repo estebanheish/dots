@@ -248,25 +248,29 @@ in ''
   bind = SUPERSHIFTALT, m, exec, hyprctl keyword general:layout master; eww update layout="master"
   bind = SUPER, m, layoutmsg, focusmaster
   bind = SUPERSHIFT, m, layoutmsg, swapwithmaster
-  bind = SUPERCTRL, k, layoutmsg, addmaster
-  bind = SUPERSHIFTCTRL, k, layoutmsg, removemaster
+  bind = SUPERCTRL, h, layoutmsg, addmaster
+  bind = SUPERCTRL, i, layoutmsg, removemaster
+  bind = SUPERCTRL, up, layoutmsg, orientationtop
+  bind = SUPERCTRL, down, layoutmsg, orientationbottom
+  bind = SUPERCTRL, left, layoutmsg, orientationleft
+  bind = SUPERCTRL, right, layoutmsg, orientationright
+
+  # grouped windows
+  bind = SUPER, k, togglegroup,
+  bind = SUPERCTRL, k, lockgroups, toggle
+  bind = SUPERCTRL, e, changegroupactive, b
+  bind = SUPERCTRL, n, changegroupactive, f
+  bind = SUPERCTRLSHIFT, e, movewindoworgroup, u
+  bind = SUPERCTRLSHIFT, n, movewindoworgroup, d
 
   # dwindle layout
   # bind = SUPERSHIFT, D, exec, hyprctl keyword general:layout dwindle; eww update layout="dwindle"
   # bind = SUPERSHIFT, k, togglesplit
 
-  # both layouts
-  bind = SUPER, k, togglegroup,
-  # bind = SUPER, F9, lockgroups, unlock
-  # bind = SUPER, F10, lockgroups, lock
-  bind = SUPERCTRL, e, changegroupactive, b
-  bind = SUPERCTRL, n, changegroupactive, f
-
   # open stuff
   # bind=SUPER_SHIFT,w,exec,qutebrowser
-  bind = SUPER, 1, exec, $terminal btm
-  bind = SUPER, 2, exec, $terminal ncmpcpp
-  bind = SUPER, 3, exec, nautilus
+  bind = SUPER, x, exec, $terminal btm
+  bind = SUPER, c, exec, $terminal ncmpcpp
 
   # audio
   bind = SUPER, d, exec, $terminal pulsemixer
