@@ -125,7 +125,7 @@ in ''
 
   dwindle {
       preserve_split = true
-      pseudotile = 0 # enable pseudotiling on dwindle
+      pseudotile = 0
   }
 
   master {
@@ -315,7 +315,6 @@ in ''
   exec-once = wl-paste --watch cliphist store
   exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
   exec-once = eww open bar
-  exec-once = nu ~/.config/hypr/profile.nu
 
   # environment variables
   env = XDG_CURRENT_DESKTOP,Hyprland
