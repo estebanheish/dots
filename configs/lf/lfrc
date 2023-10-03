@@ -3,6 +3,8 @@ set shell bash
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
+set sixel true
+set previewer ~/.config/lf/previewer
 %mkdir -p ~/.trash
 
 # paste with progress progress
