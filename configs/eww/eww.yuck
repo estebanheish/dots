@@ -37,7 +37,8 @@
   (box :class "left"
        :spacing 8
        :space-evenly false
-    (workspaces)))
+    (workspaces)
+    (special)))
 
 
 (defwidget middle []
@@ -63,6 +64,11 @@
          (button :onclick "hyprctl dispatch workspace ${w.id}"
                  :class {w.focused ? "workspace focused" : "workspace"}
                  {w.id}))))
+
+
+(defwidget special []
+  (button :class "workspace ${hyprland.special_focused ? 'focused' : ''}"
+    {hyprland.special_alive ? "*" : ""}))
 
 
 (defwidget screencast []

@@ -191,6 +191,7 @@ in ''
   bind = ALTSHIFT, Tab, pin, active
   bind = SUPER, o, exec, makoctl dismiss
   bind = SUPER, z, togglespecialworkspace,
+  bind = SUPERSHIFT, z, movetoworkspacesilent, special
   bind = SUPER, x, bringactivetotop,
 
   bind = SUPER, equal, exec, hyprctl --batch "keyword general:gaps_in 0 ; keyword general:gaps_out 0"
