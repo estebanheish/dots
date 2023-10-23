@@ -38,3 +38,7 @@ def install [--flake (-f): string = "nixpkgs", ...pkgs] {
   nix profile install ($pkgs | each {|pkg| $"($flake)#($pkg)"})
 }
 
+
+# yt-dlp
+alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s"
+alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
