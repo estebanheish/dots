@@ -23,6 +23,9 @@
       ../../modules/home-manager/neovim
       ../../modules/home-manager/pkgs-lists/lsps.nix
       ../../modules/home-manager/haskell
+      ../../modules/home-manager/pkgs-lists/downloads.nix
+      ../../modules/home-manager/pkgs-lists/fancy.nix
+      ../../modules/home-manager/pkgs-lists/archives.nix
     ];
 
     home.packages = with pkgs; [
