@@ -42,6 +42,7 @@
     anchor = top
 
     # matching-algorithm = fuzzy
+    ascii-input = true
     drun-launch = true
   '';
 
@@ -83,6 +84,7 @@
     anchor = top
 
     # matching-algorithm = fuzzy
+    ascii-input = true
     drun-launch = true
   '';
 }

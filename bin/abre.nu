@@ -1,7 +1,18 @@
 #!/usr/bin/env nu
 
-def main [file: path] {
+def main [] {
+
+  let file = (fd -tf 
+    --search-path ~/Documents 
+    --search-path ~/Downloads 
+    --search-path ~/Videos 
+    --search-path ~/Pictures 
+    --search-path /mnt/data/media 
+    --search-path ~/Music 
+    | tofi -c ~/.config/tofi/config_list)
+
   let type = ($file | path type)
+
   if $type != "file" {
     print --stderr 'not a file'
     exit 1

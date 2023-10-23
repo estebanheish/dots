@@ -179,7 +179,7 @@ in ''
   bind = SUPER, r, exec, firefox
   bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | $dmenu); [ -n "$p" ] && firefox -P $p
   bind = SUPER, t, exec, $dmenu-run
-  bind = SUPERSHIFT, t, exec, abre "$(fd -tf --search-path ~/Documents --search-path ~/Downloads --search-path ~/Videos --search-path ~/Pictures --search-path /mnt/data/media --search-path ~/Music | $lmenu)"
+  bind = SUPERSHIFT, t, exec, abre
   bind = SUPER, v, exec, cliphist list | $lmenu | cliphist decode | wl-copy
   bind = SUPER, Tab, fullscreen, 0
   bind = SUPERSHIFT, Tab, togglefloating,
