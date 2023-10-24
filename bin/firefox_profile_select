@@ -1,0 +1,13 @@
+#!/usr/bin/env nu
+
+def main [] {
+	open ~/.mozilla/firefox/profiles.ini 
+	| lines 
+	| find "Name="
+	| split column "=" 
+	| get column2 
+	| str join "\n" 
+	| tofi -c ~/.config/tofi/config_dmenu
+	| str trim
+	| firefox -P $in
+}

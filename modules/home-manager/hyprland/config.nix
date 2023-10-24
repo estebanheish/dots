@@ -177,7 +177,7 @@ in ''
   bind = SUPER, Escape, killactive,
   bind = SUPERSHIFT, Return, exec, $terminal
   bind = SUPER, r, exec, firefox
-  bind = SUPERSHIFT, r, exec, p=$(rg Name= ~/.mozilla/firefox/profiles.ini | choose -f '=' 1 | $dmenu); [ -n "$p" ] && firefox -P $p
+  bind = SUPERSHIFT, r, exec, firefox_profile_select
   bind = SUPER, t, exec, $dmenu-run
   bind = SUPERSHIFT, t, exec, abre
   bind = SUPER, v, exec, cliphist list | $lmenu | cliphist decode | wl-copy
