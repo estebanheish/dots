@@ -23,7 +23,6 @@
     # discord
 
     # rustup
-    # transmission
   ];
 
   # printing

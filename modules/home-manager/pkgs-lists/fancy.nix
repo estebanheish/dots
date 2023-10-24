@@ -33,8 +33,8 @@
     dog # dig
     sd # sed
     grex
+    lazygit
     # tealdeer
-
     jq
     pup
   ];

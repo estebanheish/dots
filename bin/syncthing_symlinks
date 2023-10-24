@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ln -s ~/data/org ~/org
 ln -s ~/data/Music ~/Music 
 ln -s ~/data/Videos ~/Videos 

@@ -37,10 +37,9 @@
       # discord
       # element-desktop
 
-      spotify
+      # spotify
       # bitwarden
       # bitwarden-cli
-      qbittorrent
 
       libreoffice
       gimp
@@ -54,6 +53,7 @@
 
       # rustup
       quickemu
+      typst
     ];
   };
 

@@ -17,7 +17,7 @@ alias mpw = mpv (wl-paste)
 
 # NixOS
 alias rebuild = doas nixos-rebuild switch --flake ~/.nyx
-alias garbage = nix-collect-garbage -d
+def garbage [] { nix-collect-garbage -d; doas nix-collect-garbage -d }
 alias switch-to-config = doas /run/current-system/bin/switch-to-configuration boot
 alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
 def npl [] = { nix profile list --json | (from json).elements | select attrPath originalUrl | rename pkg flake | update pkg { str substring 28.. } | update flake { str substring 6.. } }
@@ -42,3 +42,5 @@ def install [--flake (-f): string = "nixpkgs", ...pkgs] {
 # yt-dlp
 alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s"
 alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
+
+def transmission-remove [] { transmission-remote -l | detect columns | where Done == "100%" | get ID | transmission-remote -t $in -r }

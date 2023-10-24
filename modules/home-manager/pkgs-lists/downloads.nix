@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     yt-dlp
     ytmdl
-    transmission
+    transmission_4
     gallery-dl
   ];
 }

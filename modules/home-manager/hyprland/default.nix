@@ -62,22 +62,12 @@
   # adwaita dark theme
   dconf.settings."org/gnome/desktop/interface" = {"color-scheme" = "prefer-dark";};
 
-  home.file = {
-    abre = {
-      enable = true;
-      source = ../../../bin/abre.nu;
-      target = ".local/bin/abre";
-    };
-    backup_home = {
-      enable = true;
-      source = ../../../bin/backup_home.sh;
-      target = ".local/bin/backup_home";
-    };
-    gamemode = {
-      enable = true;
-      source = ../../../bin/gamemode.nu;
-      target = ".local/bin/gamemode";
-    };
+  home.file."bin" = {
+    enable = true;
+    source = ../../../bin;
+    target = ".local/bin";
+    recursive = true;
+    executable = true;
   };
 
   xdg.configFile =

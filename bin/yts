@@ -1,0 +1,18 @@
+#!/usr/bin/env nu
+
+def main [query: string] {
+
+  if (ps | find transmission-daemon | is-empty) {
+    transmission-daemon
+  }
+
+  http get $"https://yts.mx/api/v2/list_movies.json?query_term=($query)"
+    | get data.movies
+    | select title year rating torrents
+    | input list --fuzzy
+    | get torrents.url
+    | last
+    | transmission-remote -a $in
+
+  transmission-remote -l
+}
