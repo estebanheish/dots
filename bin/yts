@@ -12,7 +12,7 @@ def main [query: string] {
     | input list --fuzzy
     | get torrents.url
     | last
-    | transmission-remote -a $in
+    | transmission-remote -a $in -w /mnt/data/media/movies
 
   transmission-remote -l
 }

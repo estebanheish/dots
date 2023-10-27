@@ -10,6 +10,10 @@
         hostname = "192.168.18.2";
         user = "heis";
       };
+      "lemon" = {
+        hostname = "192.168.18.8";
+        user = "heis";
+      };
     };
   };
 }
