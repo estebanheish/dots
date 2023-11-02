@@ -34,11 +34,11 @@
   programs.ssh.startAgent = true;
 
   # external drive
-  # fileSystems."/home/${user}/data" = {
-  #   device = "/dev/disk/by-label/data";
-  #   fsType = "btrfs";
-  #   options = ["defaults" "nofail"];
-  # };
+  fileSystems."/mnt/media" = {
+    device = "/dev/disk/by-label/media";
+    fsType = "ext4";
+    options = ["defaults" "nofail"];
+  };
 
   # sd
   fileSystems."/" = {
