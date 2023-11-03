@@ -8,6 +8,8 @@
   imports = [
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ../common.nix
+    ../../modules/nixos/qbittorrent-service
+    ../../modules/nixos/jellyfin
   ];
 
   home-manager.users.${user} = {
