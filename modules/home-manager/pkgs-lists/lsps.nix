@@ -2,9 +2,9 @@
   home.packages = with pkgs; [
     # rust-analyzer
     nodePackages.bash-language-server
-    haskell-language-server
-    # rnix-lsp
+    # haskell-language-server
     nil
+    alejandra
     taplo
     # nodePackages.typescript-language-server
     # nodePackages.pyright

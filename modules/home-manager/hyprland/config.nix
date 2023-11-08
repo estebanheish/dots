@@ -71,8 +71,6 @@ in ''
 
       col.active_border = 0xFF${colors.focus_window}
       col.inactive_border = 0xFF${colors.background}
-      col.group_border = 0xFF${colors.background}
-      col.group_border_active = 0xFF${colors.focus_window}
 
 
       apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -146,10 +144,22 @@ in ''
       swallow_exception_regex = ^(noswallow)$
       mouse_move_enables_dpms = true
 
-      groupbar_gradients = false
-      groupbar_titles_font_size = 12
       # animate_manual_resizes = true
       # animate_mouse_windowdragging = true
+  }
+
+  group {
+    col.border_inactive = 0xFF${colors.background}
+    col.border_active = 0xFF${colors.focus_window}
+    groupbar {
+      render_titles = false
+      gradients = false
+      font_size = 12
+      col.active = 0xFF${colors.focus_window}
+      col.inactive = 0xFF${colors.background}
+      # col.locked_active = 0xFF
+      # col.locked_inactive = 0xFF
+    }
   }
 
   xwayland {
