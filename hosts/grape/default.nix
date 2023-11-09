@@ -8,8 +8,6 @@
   imports = [
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
     ../common.nix
-    # ../../modules/nixos/qbittorrent-service
-    # ../../modules/nixos/jellyfin
   ];
 
   home-manager.users.${user} = {
@@ -36,11 +34,11 @@
   programs.ssh.startAgent = true;
 
   # external drive
-  fileSystems."/mnt/media" = {
-    device = "/dev/disk/by-label/media";
-    fsType = "ext4";
-    options = ["defaults" "nofail"];
-  };
+  # fileSystems."/mnt/media" = {
+  #   device = "/dev/disk/by-label/media";
+  #   fsType = "ext4";
+  #   options = ["defaults" "nofail"];
+  # };
 
   # sd
   fileSystems."/" = {
