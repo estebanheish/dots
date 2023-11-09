@@ -44,7 +44,7 @@ def create_right_prompt [] {
 
 # Use nushell functions to define your right and left prompt
 $env.PROMPT_COMMAND = {|| create_left_prompt }
-# $env.PROMPT_COMMAND_RIGHT = {|| create_right_prompt }
+$env.PROMPT_COMMAND_RIGHT = {|| [$env.USER, "@", (sys | get host.hostname)] | str join }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt

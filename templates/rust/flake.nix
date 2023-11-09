@@ -44,7 +44,7 @@
 
         # buildInputs = with pkgs; [];
         # nativeBuildInputs = with pkgs; [
-        #   pkgs-config
+        #   pkg-config
         # ];
       };
     });
