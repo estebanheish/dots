@@ -143,6 +143,8 @@ in ''
       swallow_regex = ^(foot)$
       swallow_exception_regex = ^(noswallow)$
       mouse_move_enables_dpms = true
+      new_window_takes_over_fullscreen = 2
+      background_color = 0x${colors.wall_solid}
 
       # animate_manual_resizes = true
       # animate_mouse_windowdragging = true

@@ -6,7 +6,7 @@ rec {
   focus_window = blue;
   focus_background = blue;
   wall_solid = background;
-  wall = "night_desert.png";
+  # wall = "night_desert.png";
   flat = true;
 
   # terminal
