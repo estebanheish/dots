@@ -4,7 +4,7 @@
     settings = {
       simplified_ui = true;
       pane_frames = false;
-      theme = "solarized-dark";
+      theme = "nord";
       default_layout = "compact";
       copy_command = "Wl-copy";
     };
