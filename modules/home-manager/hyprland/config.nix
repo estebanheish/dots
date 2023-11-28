@@ -286,8 +286,8 @@ in ''
   bind = SUPER, c, exec, $terminal ncmpcpp
 
   # audio
-  bind = SUPER, d, exec, $terminal pulsemixer
-  bind = SUPERSHIFT, d, exec, $terminal alsamixer
+  bind = SUPER, a, exec, $terminal pulsemixer
+  bind = SUPERSHIFT, a, exec, $terminal alsamixer
   binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
   binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
   bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
