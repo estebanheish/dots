@@ -16,7 +16,7 @@
     tree
     mediainfo
     efibootmgr
-    pipe-rename
+    # pipe-rename
     (libqalculate.override {gnuplot = gnuplot_qt;})
 
     # Modern UNIX utitlities
