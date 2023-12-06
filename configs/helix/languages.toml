@@ -10,6 +10,20 @@ roots = ["setup.py", "setup.cfg", "pyproject.toml"]
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
+[language-server.nu-lsp]
+command = "nu"
+args = ["--lsp"]
+
+[[language]]
+name = "nu"
+scope = "source.nu"
+injection-regex = "nu"
+file-types = ["nu"]
+shebangs = ["nu"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["nu-lsp"]
+
 [[language]]
 name = "haskell"
 formatter = { command = "stylish-haskell" }
