@@ -6,7 +6,7 @@ rec {
   focus_window = blue;
   focus_background = blue;
   wall_solid = background;
-  wall = "jase-bloor.jpg";
+  wall = "jase_bloor.jpg";
   flat = true;
 
   # terminal

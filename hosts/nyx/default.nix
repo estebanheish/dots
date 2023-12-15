@@ -45,7 +45,7 @@
       gimp
       inkscape
 
-      obsidian
+      # obsidian
       gnome.nautilus
       # gnome.eog
 

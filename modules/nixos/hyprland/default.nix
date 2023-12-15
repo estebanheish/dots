@@ -11,7 +11,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = config.system.name == "nyx";
   };
 
   imports = [../../../modules/nixos/firefox];

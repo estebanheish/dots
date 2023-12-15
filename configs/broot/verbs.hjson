@@ -11,16 +11,10 @@
         }
 
         # A standard recommended command for editing files, that you
-        #{
-        #    invocation: edit
-        #    shortcut: e
-        #    execution: "$EDITOR +{line} {file}"
-        #    leave_broot: false
-        #}
         {
             invocation: edit
             shortcut: e
-            execution: "$EDITOR {file}"
+            execution: "$EDITOR +{line} {file}"
             leave_broot: false
         }
 
