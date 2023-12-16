@@ -37,5 +37,6 @@
     # tealdeer
     jq
     pup
+    nethogs
   ];
 }
