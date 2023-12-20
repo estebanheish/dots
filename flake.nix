@@ -58,7 +58,7 @@
               ./modules/home-manager/lf
               ./modules/home-manager/nushell
               ./modules/home-manager/helix
-              ./modules/home-manager/direnv
+              # ./modules/home-manager/direnv
               ./modules/home-manager/broot
             ];
             home.packages = [pkgs.zoxide];
