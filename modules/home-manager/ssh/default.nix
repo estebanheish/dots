@@ -14,6 +14,10 @@
         hostname = "192.168.18.8";
         user = "heis";
       };
+      "wololo" = {
+        hostname = "192.168.18.14";
+        user = "heis";
+      };
     };
   };
 }
