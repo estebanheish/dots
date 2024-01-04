@@ -75,6 +75,7 @@
   #systemd.network.wait-online.timeout = 5;
   # networking.firewall = {
   #   allowedTCPPorts = [
+  #     22
   #     8000
   #     8080
   #   ];

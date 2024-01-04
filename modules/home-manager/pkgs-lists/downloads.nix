@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     yt-dlp
-    ytmdl
+    # ytmdl
     transmission_4
     gallery-dl
   ];
