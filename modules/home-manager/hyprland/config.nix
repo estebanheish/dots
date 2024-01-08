@@ -335,6 +335,11 @@ in ''
   env = XDG_SESSION_DESKTOP,Hyprland
   env = NIXOS_OZONE_WL,1
 
+  env = LIBVA_DRIVER_NAME,nvidia
+  env = GBM_BACKEND,nvidia-drm
+  env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+  # env = WLR_NO_HARDWARE_CURSORS,1
+
   env = GDK_BACKEND, wayland
   env = SDL_VIDEODRIVER,wayland
   env = CLUTTER_BACKEND,wayland

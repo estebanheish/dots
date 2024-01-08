@@ -18,6 +18,7 @@
       # nvidia-vaapi-driver
       libvdpau-va-gl
       vaapiVdpau
+      libva
     ];
     driSupport = true;
     driSupport32Bit = true;
