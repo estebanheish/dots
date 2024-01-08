@@ -45,7 +45,7 @@
       gimp
       inkscape
 
-      # obsidian
+      logseq
       gnome.nautilus
       # gnome.eog
 

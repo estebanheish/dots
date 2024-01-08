@@ -18,6 +18,7 @@
     efibootmgr
     # pipe-rename
     (libqalculate.override {gnuplot = gnuplot_qt;})
+    gnuplot_qt
 
     # Modern UNIX utitlities
     bat # cat
