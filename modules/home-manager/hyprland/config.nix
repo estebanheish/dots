@@ -277,7 +277,7 @@ in ''
   bind = SUPERCTRLSHIFT, n, movewindoworgroup, d
 
   # dwindle layout
-  # bind = SUPERSHIFT, D, exec, hyprctl keyword general:layout dwindle; eww update layout="dwindle"
+  # bind = SUPERSHIFTALT, d, exec, hyprctl keyword general:layout dwindle; eww update layout="dwindle"
   # bind = SUPERSHIFT, k, togglesplit
 
   # open stuff
