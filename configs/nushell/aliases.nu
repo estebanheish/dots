@@ -28,14 +28,14 @@ def remove [...pkgs: string] {
   } else {
     let selected = (nix profile list --json | (from json).elements.attrPath | filter {|a| $pkgs | any {|b| $a =~ $b}})
     if not ($selected | is-empty) {
-      nix profile remove $selected
+      nix profile remove ...$selected
     } else {
       remove
     }
   }
 }
 def install [--flake (-f): string = "nixpkgs", ...pkgs] {
-  nix profile install ($pkgs | each {|pkg| $"($flake)#($pkg)"})
+  nix profile install ...($pkgs | each {|pkg| $"($flake)#($pkg)"})
 }
 
 
