@@ -35,8 +35,9 @@
           else "0.9";
         background = colors.terminal_background;
         foreground = colors.foreground;
-        # selection-background=444444
-        # selection-foreground=
+
+        # selection-background = colors.selection_background;
+        # selection-foreground = colors.selection_foreground;
 
         regular0 = colors.black;
         regular1 = colors.red;
