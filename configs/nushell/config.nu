@@ -1,6 +1,6 @@
 # Nushell Config File
 #
-# version = 0.83.1
+# version = "0.89.0"
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -25,13 +25,13 @@ let dark_theme = {
     string: white
     nothing: white
     binary: white
-    cellpath: white
+    cell-path: white
     row_index: green_bold
     record: white
     list: white
     block: white
     hints: dark_gray
-    search_result: {bg: red fg: white}    
+    search_result: {bg: red fg: white}
     shape_and: purple_bold
     shape_binary: purple_bold
     shape_block: blue_bold
@@ -51,6 +51,7 @@ let dark_theme = {
     shape_globpattern: cyan_bold
     shape_int: purple_bold
     shape_internalcall: cyan_bold
+    shape_keyword: cyan_bold
     shape_list: cyan_bold
     shape_literal: blue
     shape_match_pattern: green
@@ -89,13 +90,13 @@ let light_theme = {
     string: dark_gray
     nothing: dark_gray
     binary: dark_gray
-    cellpath: dark_gray
+    cell-path: dark_gray
     row_index: green_bold
-    record: white
-    list: white
-    block: white
+    record: dark_gray
+    list: dark_gray
+    block: dark_gray
     hints: dark_gray
-    search_result: {fg: white bg: red}    
+    search_result: {fg: white bg: red}
     shape_and: purple_bold
     shape_binary: purple_bold
     shape_block: blue_bold
@@ -106,6 +107,7 @@ let light_theme = {
     shape_directory: cyan
     shape_external: cyan
     shape_externalarg: green_bold
+    shape_external_resolved: light_purple_bold
     shape_filepath: cyan
     shape_flag: blue_bold
     shape_float: purple_bold
@@ -114,6 +116,7 @@ let light_theme = {
     shape_globpattern: cyan_bold
     shape_int: purple_bold
     shape_internalcall: cyan_bold
+    shape_keyword: cyan_bold
     shape_list: cyan_bold
     shape_literal: blue
     shape_match_pattern: green
@@ -138,10 +141,9 @@ let light_theme = {
 #     carapace $spans.0 nushell $spans | from json
 # }
 
-
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-    show_banner: false # true or false to enable or disable the welcome banner at startup
+    show_banner: true # true or false to enable or disable the welcome banner at startup
 
     ls: {
         use_ls_colors: true # use the LS_COLORS environment variable to colorize output
@@ -149,7 +151,7 @@ $env.config = {
     }
 
     rm: {
-        always_trash: true # always act as if -t was given. Can be overridden with -p
+        always_trash: false # always act as if -t was given. Can be overridden with -p
     }
 
     table: {
@@ -163,7 +165,10 @@ $env.config = {
             truncating_suffix: "..." # A suffix used by the 'truncating' methodology
         }
         header_on_separator: false # show header text on separator/border line
+        # abbreviated_row_count: 10 # limit data rows from top and bottom after reaching a set point
     }
+
+    error_style: "fancy" # "fancy" or "plain" for screen reader-friendly error messages
 
     # datetime_format determines what a datetime rendered in the shell would look like.
     # Behavior without this configuration point will be to "humanize" the datetime display,
@@ -174,9 +179,6 @@ $env.config = {
     }
 
     explore: {
-        try: {
-            border_color: {fg: "white"}
-        },
         status_bar_background: {fg: "#1D1F21", bg: "#C4C9C6"},
         command_bar_text: {fg: "#C4C9C6"},
         highlight: {fg: "black", bg: "yellow"},
@@ -187,18 +189,9 @@ $env.config = {
         },
         table: {
             split_line: {fg: "#404040"},
-            selected_cell: {},
+            selected_cell: {bg: light_blue},
             selected_row: {},
             selected_column: {},
-            show_cursor: true,
-            line_head_top: true,
-            line_head_bottom: true,
-            line_shift: true,
-            line_index: true,
-        },
-        config: {
-            border_color: {fg: "white"}
-            cursor_color: {fg: "black", bg: "light_yellow"}
         },
     }
 
@@ -222,14 +215,14 @@ $env.config = {
     }
 
     filesize: {
-        metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
+        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
         format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
     }
 
     cursor_shape: {
-        emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line (line is the default)
-        vi_insert: line # block, underscore, line , blink_block, blink_underscore, blink_line (block is the default)
-        vi_normal: block # block, underscore, line, blink_block, blink_underscore, blink_line (underscore is the default)
+        emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
+        vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
+        vi_normal: underscore # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
     }
 
     color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
@@ -239,23 +232,16 @@ $env.config = {
     buffer_editor: "" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
     use_ansi_coloring: true
     bracketed_paste: true # enable bracketed paste, currently useless on windows
-    edit_mode: vi # emacs, vi
+    edit_mode: emacs # emacs, vi
     shell_integration: false # enables terminal shell integration. Off by default, as some terminals have issues with this.
     render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
-    highlight_resolved_externals: true # true enables highlighting of external commands in the repl resolved by which.
+    use_kitty_protocol: false # enables keyboard enhancement protocol implemented by kitty console, only if your terminal support this.
+    highlight_resolved_externals: false # true enables highlighting of external commands in the repl resolved by which.
 
     hooks: {
-        pre_prompt: [
-            { ||
-                if (which direnv | is-empty) {
-                    return
-                }
-
-                direnv export json | from json | default {} | load-env
-            }
-        ]
+        pre_prompt: [{ null }] # run before the prompt is shown
         pre_execution: [{ null }] # run before the repl input is run
-        env_change: { 
+        env_change: {
             PWD: [{|before, after| null }] # run if the PWD environment is different since the last repl input
         }
         display_output: "if (term size).columns >= 100 { table -e } else { table }" # run to display the output of a pipeline
@@ -325,6 +311,7 @@ $env.config = {
                 until: [
                     { send: menu name: completion_menu }
                     { send: menunext }
+                    { edit: complete }
                 ]
             }
         }
@@ -399,7 +386,7 @@ $env.config = {
         {
             name: search_history
             modifier: control
-            keycode: char_r
+            keycode: char_q
             mode: [emacs, vi_normal, vi_insert]
             event: { send: searchhistory }
         }
@@ -674,7 +661,7 @@ $env.config = {
             name: cut_line_from_start
             modifier: control
             keycode: char_u
-            mode: [emacs, vi_insert]
+            mode: emacs
             event: {edit: cutfromstart}
         }
         {
@@ -771,31 +758,7 @@ $env.config = {
             mode: emacs
             event: {edit: capitalizechar}
         }
-        {
-          name: edit
-          modifier: control
-          keycode: char_e
-          mode: [emacs, vi_normal, vi_insert]
-          event: { send: OpenEditor }
-        }
-        { 
-          name: broot
-          modifier: control
-          keycode: char_o
-          mode: [emacs, vi_normal, vi_insert]
-          event: { send: executeHostCommand cmd: br }
-        }
-        { 
-          name: lf
-          modifier: control
-          keycode: char_y
-          mode: [emacs, vi_normal, vi_insert]
-          event: { send: executeHostCommand cmd: lfcd }
-        }
     ]
 }
 
-source ~/.config/nushell/aliases.nu
-source ~/.config/nushell/broot.nu
-source ~/.config/nushell/lf.nu
-source ~/.config/nushell/zoxide.nu
+source ~/.config/nushell/init.nu
