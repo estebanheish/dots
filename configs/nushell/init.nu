@@ -1,3 +1,5 @@
+use ~/.config/nushell/themes/catppuccin_mocha.nu
+
 $env.config = ($env.config | merge {
     show_banner: false
     rm: { 
@@ -11,7 +13,9 @@ $env.config = ($env.config | merge {
         vi_normal: block
     }
     edit_mode: vi
-highlight_resolved_externals: false
+    highlight_resolved_externals: true
+
+    color_config: (catppuccin_mocha)
 })
 
 $env.config.keybindings ++= [

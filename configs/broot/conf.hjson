@@ -154,7 +154,7 @@
 				dark
 				unknown
 			]
-			file: dark-blue-skin.hjson
+			file: skins/catppuccin_mocha.hjson
 		}
         # This skin is imported when your terminal is light
 		{
