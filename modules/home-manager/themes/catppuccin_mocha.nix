@@ -3,10 +3,10 @@ rec {
   backgroundrgba = "rgba(30,30,46,0.9)";
   foreground = "cdd6f4";
   focus = background;
-  focus_window = "cba6f7";
-  focus_background = "cba6f7";
+  focus_window = "b4befe";
+  focus_background = "b4befe";
   wall_solid = background;
-  wall = "solarized_vertical.jpg";
+  wall = "tux_black.png";
   flat = false;
 
   # terminal
