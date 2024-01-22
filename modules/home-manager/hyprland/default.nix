@@ -25,7 +25,7 @@
       wl-clipboard
       cliphist
       wf-recorder
-      kooha
+      # kooha
       imv
       xdg-utils
       swayidle

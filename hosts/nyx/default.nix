@@ -22,16 +22,16 @@
     imports = [
       ../../modules/home-manager/neovim
       ../../modules/home-manager/pkgs-lists/lsps.nix
-      ../../modules/home-manager/haskell
+      # ../../modules/home-manager/haskell
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
     ];
 
     home.packages = with pkgs; [
-      helvum
-      easyeffects
-      obs-studio
+      # helvum
+      # easyeffects
+      # obs-studio
 
       tdesktop
       # discord
@@ -41,9 +41,9 @@
       # bitwarden
       # bitwarden-cli
 
-      libreoffice
-      gimp
-      inkscape
+      # libreoffice
+      # gimp
+      # inkscape
 
       logseq
       gnome.nautilus
@@ -52,8 +52,10 @@
       # tor-browser-bundle-bin
 
       # rustup
+      linuxKernel.packages.linux_zen.perf
+
       quickemu
-      typst
+      # typst
     ];
   };
 
