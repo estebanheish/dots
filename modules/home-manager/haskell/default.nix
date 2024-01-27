@@ -12,6 +12,7 @@
             # regex-pcre
             matrix
             split
+            aeson
             #http-conduit
             #scalpel
             #cursor
