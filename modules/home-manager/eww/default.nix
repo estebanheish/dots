@@ -5,7 +5,7 @@
   ...
 }: {
   home.packages = [
-    pkgs.eww-wayland
+    pkgs.eww
     inputs.eww-scripts.packages.${pkgs.system}.default
     pkgs.inconsolata-nerdfont
     pkgs.ubuntu_font_family
