@@ -309,9 +309,8 @@ in ''
   bind = SHIFT, Print, exec, grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
   # power
-  bind = SUPER, F12, exec, swaylock -f
-  bind = SUPER, XF86ScreenSaver, exec, swaylock -f
-  bind = SUPERSHIFT, F12, exec, swaylock -f; sleep 1; hyprctl dispatch dpms off
+  bind = SUPER, F12, exec, loginctl lock-session
+  bind = SUPER, XF86ScreenSaver, exec, loginctl lock-session
 
   # yt-dl
   # bind = , XF86HomePage, exec, yt-dlp -x "$(wl-paste)" -P ~/Music/yt-dlp
