@@ -69,6 +69,8 @@ in ''
       border_size = 2
       no_border_on_floating = false
 
+      allow_tearing = true
+
       col.active_border = 0xFF${colors.focus_window}
       col.inactive_border = 0xFF${colors.background}
 
@@ -177,6 +179,8 @@ in ''
   # window rules
   windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
   windowrulev2 = center, class:^(firefox)$
+  windowrulev2 = immediate, class:^Minecraft
+
 
   $terminal = XCURSOR_SIZE=24 foot
   $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
@@ -322,7 +326,7 @@ in ''
     then "exec-once = hyprpaper"
     else ""
   }
-  exec-once = hyprctl setcursor capitaine-cursors-white 32
+  # exec-once = hyprctl setcursor capitaine-cursors-white 32
   exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
   exec-once = wl-paste --watch cliphist store
   # exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
@@ -338,6 +342,7 @@ in ''
   env = LIBVA_DRIVER_NAME,nvidia
   env = GBM_BACKEND,nvidia-drm
   env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+  # env = WLR_DRM_NO_ATOMIC,1
   # env = WLR_NO_HARDWARE_CURSORS,1
 
   env = GDK_BACKEND, wayland
@@ -348,4 +353,10 @@ in ''
   env = QT_QPA_PLATFORM,wayland;xcb
   env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
   env = QT_QPA_PLATFORMTHEME,qt5ct
+
+  # cursors
+  env = HYPRCURSOR_THEME, capitan-light
+  env = HYPRCURSOR_SIZE, 32
+  env = XCURSOR_THEME, capitaine-cursors-white
+  env = XCURSOR_SIZE, 32
 ''

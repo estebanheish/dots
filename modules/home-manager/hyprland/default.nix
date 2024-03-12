@@ -73,6 +73,13 @@
     executable = true;
   };
 
+  home.file.".local/share/icons/" = {
+    enable = true;
+    source = ./cursors;
+    # target = ".local/share/icons/";
+    recursive = true;
+  };
+
   xdg.configFile =
     {
       # "swaylock/config".source = ../../../configs/swaylock/config;
@@ -89,13 +96,13 @@
           on-timeout = wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
         }
         listener {
+          timeout = 300
+          on-timeout = wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
+        }
+        listener {
           timeout = 380
           on-timeout = hyprctl dispatch dpms off
           on-resume = hyprctl dispatch dpms on
-        }
-        listener {
-          timeout = 1800
-          on-timeout = systemctl suspend
         }
       '';
       "hypr/hyprlock.conf".text = ''
