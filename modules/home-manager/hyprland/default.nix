@@ -114,7 +114,7 @@
         label {
             monitor =
             text = cmd[update:100000] echo "<b> $(date +"%A, %d, %B") </b>"
-            color = rgb(cdd6f4)
+            color = rgb(${colors.foreground})
             font_size = 24
             font_family = Ubuntu Regular
             position = 0, 136
@@ -124,7 +124,7 @@
         label {
             monitor =
             text = cmd[update:60000] echo "<b><big> $(date +"%H:%M") </big></b>"
-            color = rgb(cdd6f4)
+            color = rgb(${colors.foreground})
             font_size = 88
             font_family = Ubuntu Regular
             position = 0, 16
@@ -138,7 +138,7 @@
             hide_input = true
             fade_on_empty = true
             placeholder_text =
-            inner_color = rgb(cdd6f4)
+            inner_color = rgb(${colors.foreground})
             position = 0, -50
             halign = center
             valign = center

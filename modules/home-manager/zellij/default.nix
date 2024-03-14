@@ -4,7 +4,7 @@
     settings = {
       simplified_ui = true;
       pane_frames = false;
-      theme = "catppuccin-mocha";
+      theme = "solarized-dark";
       default_layout = "compact";
       copy_command = "wl-copy";
       keybinds.tab = {
