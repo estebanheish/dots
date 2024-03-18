@@ -15,6 +15,7 @@
     ../../modules/nixos/corne-udev
     ../../modules/nixos/dlna
     ../../modules/nixos/superlight
+    ../../modules/nixos/docker
     # ../../modules/nixos/steam
   ];
 

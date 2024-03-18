@@ -18,6 +18,7 @@
         font-italic = "Martian Mono Std Md:size=12:style=Italic";
         font-bold-italic = "Martian Mono Std Md:size=12:style=BoldItalic";
         pad = "15x15";
+        dpi-aware = "yes";
       };
 
       mouse = {

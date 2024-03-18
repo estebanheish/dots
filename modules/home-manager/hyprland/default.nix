@@ -93,7 +93,6 @@
         listener {
           timeout = 300
           on-timeout = loginctl lock-session
-          on-timeout = wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
         }
         listener {
           timeout = 300

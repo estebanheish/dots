@@ -34,11 +34,11 @@ $env.config.keybindings ++= [
         event: { send: executeHostCommand cmd: br }
     }
     { 
-        name: lf
+        name: yazi
         modifier: control
         keycode: char_y
         mode: [emacs, vi_normal, vi_insert]
-        event: { send: executeHostCommand cmd: lfcd }
+        event: { send: executeHostCommand cmd: yy }
     }
     {
         name: cut_line_from_start
@@ -59,4 +59,5 @@ $env.config.hooks.pre_prompt ++= { ||
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/broot.nu
 source ~/.config/nushell/lf.nu
+source ~/.config/nushell/yazi.nu
 source ~/.config/nushell/zoxide.nu

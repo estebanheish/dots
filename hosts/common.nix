@@ -23,6 +23,7 @@
     users.${user} = {
       imports = [
         ../modules/home-manager/lf
+        ../modules/home-manager/yazi
         ../modules/home-manager/nushell
         ../modules/home-manager/helix
         ../modules/home-manager/direnv
