@@ -16,6 +16,7 @@
     ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     ../../modules/nixos/docker
+    ../../modules/nixos/quickemu
     # ../../modules/nixos/steam
   ];
 
@@ -55,7 +56,6 @@
       # rustup
       linuxKernel.packages.linux_zen.perf
 
-      quickemu
       # typst
     ];
   };
