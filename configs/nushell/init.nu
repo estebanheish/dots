@@ -1,4 +1,4 @@
-use ~/.config/nushell/themes/catppuccin_mocha.nu
+use ~/.config/nushell/themes/ayu.nu
 
 $env.config = ($env.config | merge {
     show_banner: false
@@ -15,7 +15,7 @@ $env.config = ($env.config | merge {
     edit_mode: vi
     highlight_resolved_externals: true
 
-    color_config: (catppuccin_mocha)
+    color_config: (ayu)
 })
 
 $env.config.keybindings ++= [
