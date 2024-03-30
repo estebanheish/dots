@@ -9,7 +9,7 @@
     ../foot
     ../mako
     ../mpv
-    ../eww
+    ../ironbar
     ../xdg
     ../zathura
     ../mpd
@@ -25,7 +25,7 @@
       playerctl
       wl-clipboard
       cliphist
-      wf-recorder
+      # wf-recorder
       # kooha
       imv
       xdg-utils
@@ -36,7 +36,6 @@
       ncmpcpp
       pulsemixer
       hyprpicker
-      swappy
     ]
     ++ (
       if builtins.hasAttr "wall" colors
@@ -107,13 +106,13 @@
       "hypr/hyprlock.conf".text = ''
         background {
           monitor =
-          color = rgb(0, 0, 0)
+          color = rgb(${colors.background})
           blur_passes = 0
         }
         label {
             monitor =
             text = cmd[update:100000] echo "<b> $(date +"%A, %d, %B") </b>"
-            color = rgb(${colors.foreground})
+            color = rgb(${colors.on_surface})
             font_size = 24
             font_family = Ubuntu Regular
             position = 0, 136
@@ -123,7 +122,7 @@
         label {
             monitor =
             text = cmd[update:60000] echo "<b><big> $(date +"%H:%M") </big></b>"
-            color = rgb(${colors.foreground})
+            color = rgb(${colors.on_surface})
             font_size = 88
             font_family = Ubuntu Regular
             position = 0, 16
@@ -137,7 +136,7 @@
             hide_input = true
             fade_on_empty = true
             placeholder_text =
-            inner_color = rgb(${colors.foreground})
+            inner_color = rgb(${colors.on_surface})
             position = 0, -50
             halign = center
             valign = center

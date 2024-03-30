@@ -66,13 +66,13 @@ in ''
     then "0"
     else "10"
   }
-      border_size = 2
+      border_size = 3
       no_border_on_floating = false
 
       allow_tearing = true
 
-      col.active_border = 0xFF${colors.focus_window}
-      col.inactive_border = 0xFF${colors.background}
+      col.active_border = rgb(${colors.primary})
+      col.inactive_border = rgb(${colors.outline})
 
 
       apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -85,7 +85,7 @@ in ''
       rounding = ${
     if colors.flat
     then "0"
-    else "2"
+    else "10"
   }
 
   drop_shadow = ${
@@ -99,11 +99,7 @@ in ''
       # col.shadow_inactive = rgb(1c252c)
 
     blur {
-      enabled = ${
-    if colors.flat
-    then "false"
-    else "true"
-  }
+      enabled = true
       size = 20 # minimum 1
       passes = 3 # minimum 1
       new_optimizations = 1
@@ -146,23 +142,17 @@ in ''
       swallow_exception_regex = ^(noswallow)$
       mouse_move_enables_dpms = true
       new_window_takes_over_fullscreen = 2
-      background_color = 0x${colors.wall_solid}
+      background_color = rgb(${colors.background})
 
       # animate_manual_resizes = true
       # animate_mouse_windowdragging = true
   }
 
   group {
-    col.border_inactive = 0xFF${colors.background}
-    col.border_active = 0xFF${colors.focus_window}
+    col.border_inactive = rgb(${colors.tertiary_container})
+    col.border_active = rgb(${colors.tertiary})
     groupbar {
-      render_titles = false
-      gradients = false
-      font_size = 12
-      col.active = 0xFF${colors.focus_window}
-      col.inactive = 0xFF${colors.background}
-      # col.locked_active = 0xFF
-      # col.locked_inactive = 0xFF
+      enabled = false
     }
   }
 
@@ -203,7 +193,8 @@ in ''
   bind = SUPER, XF86Reload, exec, hyprctl reload
   bind = SUPERSHIFT, XF86Reload, forcerendererreload,
   bind = SUPERSHIFTALT, XF86Reload, exit,
-  bind = SUPER, b, exec, eww open --toggle bar
+  bind = SUPER, b, exec, nu -c "if (ironbar get-visible main) =~ 'true' { ironbar set-visible main } else { ironbar set-visible main -v }"
+  bind = SUPERSHIFT, b, exec, toggle_flat
   bind = ALTSHIFT, Tab, pin, active
   bind = SUPER, o, exec, makoctl dismiss
   bind = SUPER, z, togglespecialworkspace,
@@ -262,7 +253,7 @@ in ''
   binde = SUPER, right, splitratio, +0.05
 
   # master layout
-  bind = SUPERSHIFTALT, m, exec, hyprctl keyword general:layout master; eww update layout="master"
+  bind = SUPERSHIFTALT, m, exec, hyprctl keyword general:layout master
   bind = SUPER, m, layoutmsg, focusmaster
   bind = SUPERSHIFT, m, layoutmsg, swapwithmaster
   bind = SUPERCTRL, h, layoutmsg, addmaster
@@ -281,7 +272,7 @@ in ''
   bind = SUPERCTRLSHIFT, n, movewindoworgroup, d
 
   # dwindle layout
-  # bind = SUPERSHIFTALT, d, exec, hyprctl keyword general:layout dwindle; eww update layout="dwindle"
+  # bind = SUPERSHIFTALT, d, exec, hyprctl keyword general:layout dwindle
   # bind = SUPERSHIFT, k, togglesplit
 
   # open stuff
@@ -309,16 +300,11 @@ in ''
 
   # screenshots
   bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
-  bind = ALT, Print, exec, grim -g "$(slurp)" - | swappy -f -
   bind = SHIFT, Print, exec, grim -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') - | wl-copy
 
   # power
   bind = SUPER, F12, exec, loginctl lock-session
   bind = SUPER, XF86ScreenSaver, exec, loginctl lock-session
-
-  # yt-dl
-  # bind = , XF86HomePage, exec, yt-dlp -x "$(wl-paste)" -P ~/Music/yt-dlp
-  # bind = SHIFT, XF86HomePage, exec, yt-dlp "$(wl-paste)" -P ~/Videos
 
   # start
   ${
@@ -331,7 +317,7 @@ in ''
   exec-once = wl-paste --watch cliphist store
   # exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
   exec-once = hypridle
-  exec-once = eww open bar
+  exec-once = ironbar
 
   # environment variables
   env = XDG_CURRENT_DESKTOP,Hyprland

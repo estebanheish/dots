@@ -1,4 +1,4 @@
-use ~/.config/nushell/themes/solarized_dark.nu
+use ~/.config/nushell/themes/catppuccin_mocha.nu
 
 $env.config = ($env.config | merge {
     show_banner: false
@@ -15,7 +15,7 @@ $env.config = ($env.config | merge {
     edit_mode: vi
     highlight_resolved_externals: true
 
-    color_config: (solarized_dark)
+    color_config: (catppuccin_mocha)
 })
 
 $env.config.keybindings ++= [

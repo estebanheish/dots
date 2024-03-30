@@ -8,11 +8,11 @@
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${colors.foreground}
-    alternate-result-color = ${colors.white}
+    text-color = ${colors.on_surface}
+    alternate-result-color = ${colors.on_surface_variant}
 
-    selection-color = ${colors.background}
-    selection-background = ${colors.focus_background}
+    selection-color = ${colors.on_primary}
+    selection-background = ${colors.primary}
     selection-background-padding = 2
     selection-background-padding = 0,6,0,6
     selection-background-corner-radius = 5
@@ -50,11 +50,11 @@
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${colors.foreground}
-    alternate-result-color = ${colors.white}
+    text-color = ${colors.on_surface}
+    alternate-result-color = ${colors.on_surface_variant}
 
-    selection-color = ${colors.background}
-    selection-background = ${colors.focus_background}
+    selection-color = ${colors.on_primary}
+    selection-background = ${colors.primary}
     selection-background-padding = 2
     selection-background-padding = 2,8,2,6
     selection-background-corner-radius = 5

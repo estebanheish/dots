@@ -1,9 +1,10 @@
-theme = "solarized_dark"
+theme = "adwaita-dark"
 
 [editor]
 line-number = "relative"
 cursorline = true
 color-modes = true
+shell = ["nu", "-c"]
 
 [editor.cursor-shape]
 insert = "bar"

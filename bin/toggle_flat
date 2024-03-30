@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+def main [] {
+  let disabled = [
+    "keyword general:border_size 2"
+    "keyword general:gaps_in 0"
+    "keyword general:gaps_out 0"
+    "keyword decoration:rounding 0"
+    "keyword decoration:drop_shadow false"
+    "keyword animations:enabled false"
+  ]
+  let enabled = [
+    "keyword general:border_size 3"
+    "keyword general:gaps_in 5"
+    "keyword general:gaps_out 10"
+    "keyword decoration:rounding 10"
+    "keyword decoration:drop_shadow true"
+    "keyword animations:enabled true"
+  ]
+  if (hyprctl getoption animations:enabled) =~ "1" {
+    hyprctl --batch ($disabled | str join "; ")
+  } else {
+    hyprctl --batch ($enabled | str join "; ")
+  }
+}

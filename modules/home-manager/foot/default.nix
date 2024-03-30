@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    foot
+    # foot
     # ubuntu_font_family
     # cascadia-code
     martian-mono
@@ -26,37 +26,37 @@
       };
 
       cursor = {
-        color = "${colors.background} ${colors.cursor}";
+        color = "${colors.on_primary} ${colors.primary}";
       };
 
       colors = {
         alpha =
           if colors.flat
           then "1"
-          else "0.9";
-        background = colors.terminal_background;
-        foreground = colors.foreground;
+          else colors.alpha;
+        background = colors.background;
+        foreground = colors.on_surface;
 
         # selection-background = colors.selection_background;
         # selection-foreground = colors.selection_foreground;
 
-        regular0 = colors.black;
-        regular1 = colors.red;
-        regular2 = colors.green;
-        regular3 = colors.yellow;
-        regular4 = colors.blue;
-        regular5 = colors.magenta;
-        regular6 = colors.cyan;
-        regular7 = colors.white;
+        # regular0 = colors.black;
+        # regular1 = colors.red;
+        # regular2 = colors.green;
+        # regular3 = colors.yellow;
+        # regular4 = colors.blue;
+        # regular5 = colors.magenta;
+        # regular6 = colors.cyan;
+        # regular7 = colors.white;
 
-        bright0 = colors.bright_black;
-        bright1 = colors.bright_red;
-        bright2 = colors.bright_green;
-        bright3 = colors.bright_yellow;
-        bright4 = colors.bright_blue;
-        bright5 = colors.bright_magenta;
-        bright6 = colors.bright_cyan;
-        bright7 = colors.bright_white;
+        # bright0 = colors.bright_black;
+        # bright1 = colors.bright_red;
+        # bright2 = colors.bright_green;
+        # bright3 = colors.bright_yellow;
+        # bright4 = colors.bright_blue;
+        # bright5 = colors.bright_magenta;
+        # bright6 = colors.bright_cyan;
+        # bright7 = colors.bright_white;
       };
     };
   };

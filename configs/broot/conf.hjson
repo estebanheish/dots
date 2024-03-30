@@ -154,7 +154,7 @@
 				dark
 				unknown
 			]
-			file: skins/solarized_dark.hjson
+			file: skins/catppuccin_mocha.hjson
 		}
         # This skin is imported when your terminal is light
 		{

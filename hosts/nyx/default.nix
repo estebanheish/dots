@@ -13,7 +13,7 @@
     ../../modules/nixos/nvidia
     ../../modules/nixos/hyprland
     ../../modules/nixos/corne-udev
-    ../../modules/nixos/dlna
+    # ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
@@ -36,10 +36,11 @@
       # obs-studio
 
       tdesktop
+      # vesktop
       # discord
       # element-desktop
 
-      # spotify
+      spotify
       # bitwarden
       # bitwarden-cli
 
@@ -95,11 +96,11 @@
   programs.ssh.startAgent = true;
   services.fstrim.enable = true;
 
-  fileSystems."/mnt/data" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "ext4";
-    options = ["defaults" "nofail"];
-  };
+  # fileSystems."/mnt/data" = {
+  #   device = "/dev/disk/by-label/data";
+  #   fsType = "ext4";
+  #   options = ["defaults" "nofail"];
+  # };
 
   # boot
   boot.supportedFilesystems = ["ntfs"];

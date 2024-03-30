@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.yazi = {
     enable = true;
     keymap = {
@@ -16,4 +16,5 @@
       };
     };
   };
+  home.packages = [pkgs.inconsolata-nerdfont]; # for icons
 }

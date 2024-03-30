@@ -8,9 +8,9 @@
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${colors.background}";
-    textColor = "#${colors.foreground}";
-    borderColor = "#${colors.focus}";
+    backgroundColor = "#${colors.surface_container}";
+    textColor = "#${colors.on_surface}";
+    borderColor = "#${colors.primary}";
 
     padding = "20";
     margin = "0";
@@ -20,5 +20,9 @@
 
     defaultTimeout = 3500;
     groupBy = "category";
+
+    extraConfig = ''
+      outer-margin=20
+    '';
   };
 }

@@ -14,10 +14,10 @@
       statusbar-home-tilde = "true";
       selection-clipboard = "clipboard";
 
-      default-bg = "#${colors.black}";
+      # default-bg = "#${colors.black}";
 
-      recolor-darkcolor = "#${colors.foreground}";
-      recolor-lightcolor = "#${colors.background}";
+      # recolor-darkcolor = "#${colors.foreground}";
+      # recolor-lightcolor = "#${colors.background}";
     };
   };
 }
