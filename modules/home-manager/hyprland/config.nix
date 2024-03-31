@@ -72,6 +72,7 @@ in ''
       allow_tearing = true
 
       col.active_border = rgb(${colors.primary})
+      # col.active_border = rgb(${colors.primary}) rgb(${colors.secondary}) 0deg
       col.inactive_border = rgb(${colors.outline})
 
 
@@ -100,7 +101,7 @@ in ''
 
     blur {
       enabled = true
-      size = 20 # minimum 1
+      size = 8 # minimum 1
       passes = 3 # minimum 1
       new_optimizations = 1
     }
