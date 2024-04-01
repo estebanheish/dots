@@ -14,6 +14,7 @@
     ../zathura
     ../mpd
     ../tofi
+    ../firefox
   ];
 
   home.packages = with pkgs;

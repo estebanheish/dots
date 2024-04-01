@@ -183,7 +183,7 @@ in ''
   # basic
   bind = SUPER, Escape, killactive,
   bind = SUPERSHIFT, Return, exec, $terminal
-  bind = SUPER, r, exec, firefox
+  bind = SUPER, r, exec, firefox-esr
   bind = SUPERSHIFT, r, exec, firefox_profile_select
   bind = SUPER, t, exec, $dmenu-run
   bind = SUPERSHIFT, t, exec, abre

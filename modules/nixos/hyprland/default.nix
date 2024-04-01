@@ -15,7 +15,6 @@
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
-  imports = [../../../modules/nixos/firefox];
   home-manager.users.${user}.imports = [../../../modules/home-manager/hyprland];
 
   services.greetd = {

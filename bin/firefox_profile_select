@@ -9,5 +9,5 @@ def main [] {
 	| str join "\n" 
 	| tofi -c ~/.config/tofi/config_dmenu
 	| str trim
-	| if not ($in | is-empty) { firefox -P $in }
+	| if not ($in | is-empty) { firefox-esr -P $in }
 }
