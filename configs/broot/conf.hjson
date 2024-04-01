@@ -154,7 +154,7 @@
 				dark
 				unknown
 			]
-			file: skins/dark-orange.hjson
+			file: skins/auto.hjson
 		}
         # This skin is imported when your terminal is light
 		{

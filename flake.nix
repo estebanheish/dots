@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    colors = builtins.fromJSON (builtins.readFile ./modules/home-manager/themes/linux.json);
+    colors = builtins.fromJSON (builtins.readFile ./modules/home-manager/themes/selenized_dark.json);
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
