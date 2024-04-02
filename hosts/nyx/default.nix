@@ -36,7 +36,7 @@
       # obs-studio
 
       tdesktop
-      # vesktop
+      vesktop
       # discord
       # element-desktop
 
@@ -96,11 +96,11 @@
   programs.ssh.startAgent = true;
   services.fstrim.enable = true;
 
-  # fileSystems."/mnt/data" = {
-  #   device = "/dev/disk/by-label/data";
-  #   fsType = "ext4";
-  #   options = ["defaults" "nofail"];
-  # };
+  fileSystems."/mnt/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+    options = ["defaults" "nofail"];
+  };
 
   # boot
   boot.supportedFilesystems = ["ntfs"];
