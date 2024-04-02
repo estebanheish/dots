@@ -15,7 +15,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = ["en_US.UTF-8/UTF-8"];
   # console.keyMap = "us";
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 
   home-manager = {
     useGlobalPkgs = true;
@@ -34,7 +34,7 @@
         ../modules/home-manager/zellij
         ../modules/home-manager/pkgs-lists/core.nix
       ];
-      home.stateVersion = "23.05";
+      home.stateVersion = "24.05";
     };
     extraSpecialArgs = {
       inherit inputs outputs user colors;

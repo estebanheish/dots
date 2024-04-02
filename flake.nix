@@ -53,7 +53,7 @@
           }: {
             home.username = user;
             home.homeDirectory = "/home/${user}";
-            home.stateVersion = "23.05";
+            home.stateVersion = "24.05";
             imports = [
               ./modules/home-manager/lf
               ./modules/home-manager/nushell
