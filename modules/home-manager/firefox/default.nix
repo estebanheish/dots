@@ -4,7 +4,6 @@
     "gfx.webrender.all" = true;
     "media.ffmpeg.vaapi.enabled" = true;
     "browser.toolbars.bookmarks.visibility" = "never";
-    "browser.startup.homepage" = "https://startpage.com";
     "browser.search.separatePrivateDefault" = false;
     "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
     "browser.newtabpage.activity-stream.feeds.topsites" = false;
@@ -87,17 +86,7 @@
         "eBay"
         "Wikipedia"
       ];
-      Default = "StartPage";
-      Add = [
-        {
-          Name = "StartPage";
-          Description = "The world's most private search engine";
-          Alias = "";
-          Method = "GET";
-          URLTemplate = "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch";
-          IconURL = "https://www.startpage.com/favicon.ico";
-        }
-      ];
+      Default = "DuckDuckGo";
     };
   };
   profiles = [
