@@ -17,7 +17,7 @@
     ../../modules/nixos/superlight
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
-    # ../../modules/nixos/steam
+    ../../modules/nixos/steam
   ];
 
   home-manager.users.${user} = {

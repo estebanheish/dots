@@ -3,29 +3,31 @@
   profile,
   ...
 }: let
-  m1 = "HDMI-A-1"; # LG Electronics LG HDR 4K 204NTGYHG007";
-  m2 = "HDMI-A-2"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
+  main = "HDMI-A-1"; # LG Electronics LG HDR 4K 204NTGYHG007";
+  secondary = "DP-1"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
 in ''
   # outputs
-  monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, preferred, 2560x0, 1.5
-  monitor = desc:LG Electronics LG ULTRAWIDE 0x00009E0B, preferred, 0x540, 1
-  monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, disable
+  monitor = DP-1, 2560x1440@240.00Hz, 0x0, 1
+  monitor = HDMI-A-1, preferred, 2560x0, 1.5
+  monitor=,preferred,auto,1
 
+  # monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, disable
+  # monitor = desc:LG Electronics LG ULTRAWIDE 0x00009E0B, preferred, 2560x0, 1
   # monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, disable
   # monitor = desc:LG Electronics LG ULTRAWIDE 0x00009E0B, disable
   # monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, 1920x1080@240Hz, 0x0, 1
 
   # worskpace binds
-  workspace = 1, monitor:${m1}, default:true
-  workspace = 2, monitor:${m1}
-  workspace = 3, monitor:${m1}
-  workspace = 4, monitor:${m1}
-  workspace = 5, monitor:${m1}
-  workspace = 6, monitor:${m1}
+  workspace = 1, monitor:${main}, default:true
+  workspace = 2, monitor:${main}
+  workspace = 3, monitor:${main}
+  workspace = 4, monitor:${main}
+  workspace = 5, monitor:${main}
+  workspace = 6, monitor:${main}
 
-  workspace = 7, monitor:${m2}
-  workspace = 8, monitor:${m2}
-  workspace = 9, monitor:${m2}, default:true
+  workspace = 7, monitor:${secondary}
+  workspace = 8, monitor:${secondary}
+  workspace = 9, monitor:${secondary}, default:true
 
   input {
       kb_layout = us, es
@@ -168,6 +170,7 @@ in ''
   blurls = launcher
 
   # window rules
+  windowrulev2 = suppressevent maximize, class:.*
   windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
   windowrulev2 = center, class:^(firefox)$
   windowrulev2 = immediate, class:^Minecraft
