@@ -9,13 +9,12 @@
 
     ../common.nix
     ../../modules/nixos/pipewire
-    ../../modules/nixos/silent-boot
-    ../../modules/nixos/nvidia
+    # ../../modules/nixos/silent-boot
     ../../modules/nixos/hyprland
-    ../../modules/nixos/corne-udev
+    # ../../modules/nixos/corne-udev
     # ../../modules/nixos/dlna
     ../../modules/nixos/superlight
-    ../../modules/nixos/docker
+    # ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     # ../../modules/nixos/steam
   ];
@@ -37,8 +36,6 @@
 
       tdesktop
       vesktop
-      # discord
-      # element-desktop
 
       spotify
       # bitwarden
@@ -49,20 +46,16 @@
       # inkscape
 
       logseq
-      gnome.nautilus
-      # gnome.eog
 
       # tor-browser-bundle-bin
 
       # rustup
-      linuxKernel.packages.linux_zen.perf
 
       # typst
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  networking.hostName = "nyx";
+  networking.hostName = "clank";
 
   fonts.packages = with pkgs; [
     # cascadia-code
@@ -95,12 +88,6 @@
   };
   programs.ssh.startAgent = true;
   services.fstrim.enable = true;
-
-  fileSystems."/mnt/data" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "ext4";
-    options = ["defaults" "nofail"];
-  };
 
   # boot
   boot.supportedFilesystems = ["ntfs"];

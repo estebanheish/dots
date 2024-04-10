@@ -71,7 +71,7 @@ in ''
       border_size = 3
       no_border_on_floating = false
 
-      allow_tearing = true
+      allow_tearing = false
 
       col.active_border = rgb(${colors.primary})
       # col.active_border = rgb(${colors.primary}) rgb(${colors.secondary}) 0deg
@@ -146,6 +146,7 @@ in ''
       mouse_move_enables_dpms = true
       new_window_takes_over_fullscreen = 2
       background_color = rgb(${colors.background})
+      vrr = 2
 
       # animate_manual_resizes = true
       # animate_mouse_windowdragging = true
@@ -173,8 +174,7 @@ in ''
   windowrulev2 = suppressevent maximize, class:.*
   windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
   windowrulev2 = center, class:^(firefox)$
-  windowrulev2 = immediate, class:^Minecraft
-
+  # windowrulev2 = immediate, class:^(Project Zomboid)$
 
   $terminal = XCURSOR_SIZE=24 foot
   $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu

@@ -34,6 +34,7 @@
 
     nixosConfigurations = {
       nyx = mkNixos "heis" [./hosts/nyx];
+      clank = mkNixos "heis" [./hosts/clank];
       grape = mkNixos "heis" [./hosts/grape];
       lemon = mkNixos "heis" [./hosts/lemon];
     };
