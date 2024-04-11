@@ -1,7 +1,7 @@
 { 
     verbs: [
         { invocation: "gohome",      shortcut: "gh", execution: ":focus ~" key: "ctrl-home", }
-        { invocation: "gonix",       shortcut: "gn", execution: ":focus ~/.nyx" }
+        { invocation: "gonix",       shortcut: "gn", execution: ":focus ~/.dots" }
         { invocation: "gomedia",     shortcut: "gm", execution: ":focus /mnt/data/media" }
         { invocation: "godownloads", shortcut: "gd", execution: ":focus ~/Downloads" }
         { invocation: "godocuments", shortcut: "gD", execution: ":focus ~/Documents" }

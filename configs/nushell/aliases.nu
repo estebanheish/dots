@@ -16,7 +16,7 @@ alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
 
 # NixOS
-alias rebuild = doas nixos-rebuild switch --flake ~/.nyx
+alias rebuild = doas nixos-rebuild switch --flake ~/.dots
 def garbage [] { nix-collect-garbage -d; doas nix-collect-garbage -d }
 alias switch-to-config = doas /run/current-system/bin/switch-to-configuration boot
 alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
