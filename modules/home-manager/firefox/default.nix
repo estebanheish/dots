@@ -10,16 +10,16 @@
     "browser.startup.page" = 3;
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
-  userChrome = ''
-    #TabsToolbar
-    {
-        visibility: collapse;
-    }
-    #sidebar-header
-    {
-        display: none;
-    }
-  '';
+  # userChrome = ''
+  #   #TabsToolbar
+  #   {
+  #       visibility: collapse;
+  #   }
+  #   #sidebar-header
+  #   {
+  #       display: none;
+  #   }
+  # '';
   policies = {
     DisableAppUpdate = true;
     DisableSystemAddonUpdate = true;
@@ -119,7 +119,7 @@ in {
     profiles = builtins.listToAttrs (map (s: {
         name = s.name;
         value = with s; {
-          inherit name id settings userChrome;
+          inherit name id settings;
         };
       })
       profiles);
