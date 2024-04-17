@@ -8,9 +8,9 @@
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${colors.surface_container}";
-    textColor = "#${colors.on_surface}";
-    borderColor = "#${colors.primary}";
+    backgroundColor = "#${colors.layer}";
+    textColor = "#${colors.text}";
+    borderColor = "#${colors.accent}";
 
     padding = "20";
     margin = "0";

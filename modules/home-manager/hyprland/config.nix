@@ -87,9 +87,8 @@ in ''
 
         allow_tearing = false
 
-        col.active_border = rgb(${colors.primary})
-        # col.active_border = rgb(${colors.primary}) rgb(${colors.secondary}) 0deg
-        col.inactive_border = rgb(${colors.outline})
+        col.active_border = rgb(${colors.accent})
+        col.inactive_border = rgb(${colors.layer})
 
 
         apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -167,8 +166,8 @@ in ''
     }
 
     group {
-      col.border_inactive = rgb(${colors.tertiary_container})
-      col.border_active = rgb(${colors.tertiary})
+      col.border_inactive = rgb(${colors.layer})
+      col.border_active = rgb(${colors.accent2})
       groupbar {
         enabled = false
       }
@@ -238,8 +237,8 @@ in ''
 
     bind = SUPER, comma, focusmonitor, l
     bind = SUPER, period, focusmonitor, r
-    bind = SUPERSHIFT, comma, movewindow, mon:1
-    bind = SUPERSHIFT, period, movewindow, mon:0
+    bind = SUPERSHIFT, comma, movewindow, mon:l
+    bind = SUPERSHIFT, period, movewindow, mon:r
     bind = SUPER, slash, swapactiveworkspaces, 0 1
 
     bind = SUPER, q, workspace, 1

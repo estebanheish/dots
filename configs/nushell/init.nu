@@ -1,4 +1,4 @@
-use ~/.config/nushell/themes/selenized-dark.nu
+use ~/.config/nushell/themes/nord.nu
 
 $env.config = ($env.config | merge {
     show_banner: false
@@ -15,7 +15,7 @@ $env.config = ($env.config | merge {
     edit_mode: vi
     highlight_resolved_externals: true
 
-    color_config: (selenized-dark)
+    color_config: (nord)
 })
 
 $env.config.keybindings ++= [

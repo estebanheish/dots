@@ -41,7 +41,7 @@
         }
 
         button:hover {
-            background-color: #${colors.surface_bright};
+            background-color: #${colors.layer};
         }
 
         scale trough {
@@ -67,8 +67,8 @@
         }
 
         .workspaces .item.focused {
-            color: #${colors.on_primary};
-            background-color: #${colors.primary};
+            color: #${colors.layer};
+            background-color: #${colors.accent};
         }
 
         .tray {

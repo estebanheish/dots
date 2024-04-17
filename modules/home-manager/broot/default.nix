@@ -11,11 +11,11 @@
   xdg.configFile."broot/skins/auto.hjson".text = ''
     {
         skin: {
-            default: "#${colors.on_surface} none  / gray(20) none"
-            tree: "#${colors.outline_variant} None  / gray(4) None"
+            default: "#${colors.background} none  / gray(20) none"
+            tree: "#${colors.layer} None  / gray(4) None"
             parent: gray(18) None  / gray(13) None
             file: gray(22) None  / gray(15) None
-            directory: "#${colors.primary} None bold / #${colors.primary} None"
+            directory: "#${colors.accent} None bold / #${colors.accent} None"
             exe: Cyan None
             link: Magenta None
             pruning: gray(12) None Italic

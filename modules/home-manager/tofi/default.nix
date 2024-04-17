@@ -8,11 +8,11 @@
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${colors.on_surface}
-    alternate-result-color = ${colors.on_surface_variant}
+    text-color = ${colors.text}
+    alternate-result-color = ${colors.text2}
 
-    selection-color = ${colors.on_primary}
-    selection-background = ${colors.primary}
+    selection-color = ${colors.layer}
+    selection-background = ${colors.accent}
     selection-background-padding = 2
     selection-background-padding = 0,6,0,6
     selection-background-corner-radius = 5
@@ -31,7 +31,7 @@
 
     width = 100%
     height = 25
-    background-color = ${colors.background}
+    background-color = ${colors.layer}
     outline-width = 0
     border-width = 0
     padding-top = 0
@@ -50,11 +50,11 @@
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${colors.on_surface}
-    alternate-result-color = ${colors.on_surface_variant}
+    text-color = ${colors.text}
+    alternate-result-color = ${colors.text2}
 
-    selection-color = ${colors.on_primary}
-    selection-background = ${colors.primary}
+    selection-color = ${colors.layer}
+    selection-background = ${colors.accent}
     selection-background-padding = 2
     selection-background-padding = 2,8,2,6
     selection-background-corner-radius = 5
@@ -73,7 +73,7 @@
 
     width = 100%
     height = 100%
-    background-color = ${colors.background}EB
+    background-color = ${colors.layer}EB
     outline-width = 0
     border-width = 0
     padding-top = 0
