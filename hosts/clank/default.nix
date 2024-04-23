@@ -15,6 +15,8 @@
     # ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     # ../../modules/nixos/docker
+    ../../modules/nixos/podman
+    # ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     # ../../modules/nixos/steam
   ];
@@ -52,6 +54,9 @@
       # rustup
 
       # typst
+
+      distrobox
+      nvtopPackages.amd
     ];
   };
 
