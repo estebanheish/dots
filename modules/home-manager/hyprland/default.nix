@@ -7,6 +7,7 @@
 }: {
   imports = [
     ../foot
+    ../wezterm
     ../mako
     ../mpv
     ../ironbar
