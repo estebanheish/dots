@@ -1,5 +1,5 @@
 {
-  colors,
+  theme,
   profile,
   ...
 }: let
@@ -73,12 +73,12 @@ in ''
 
     general {
         gaps_in = ${
-    if colors.flat
+    if theme.flat
     then "0"
     else "5"
   }
         gaps_out = ${
-    if colors.flat
+    if theme.flat
     then "0"
     else "10"
   }
@@ -87,8 +87,12 @@ in ''
 
         allow_tearing = false
 
-        col.active_border = rgb(${colors.accent})
-        col.inactive_border = rgb(${colors.layer})
+        ${
+    if theme.hyprland.gradient
+    then "col.active_border = rgb(${theme.hyprland.accent}) rgb(${theme.hyprland.accent2}) 45deg"
+    else "col.active_border = rgb(${theme.hyprland.accent})"
+  }
+        col.inactive_border = rgb(${theme.hyprland.layer})
 
 
         apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
@@ -99,13 +103,13 @@ in ''
 
     decoration {
         rounding = ${
-    if colors.flat
+    if theme.flat
     then "0"
     else "10"
   }
 
     drop_shadow = ${
-    if colors.flat
+    if theme.flat
     then "false"
     else "true"
   }
@@ -125,7 +129,7 @@ in ''
 
     animations {
         enabled = ${
-    if colors.flat
+    if theme.flat
     then "false"
     else "true"
   }
@@ -158,7 +162,7 @@ in ''
         swallow_exception_regex = ^(noswallow)$
         mouse_move_enables_dpms = true
         new_window_takes_over_fullscreen = 2
-        background_color = rgb(${colors.background})
+        background_color = rgb(${theme.hyprland.background})
         vrr = 2
 
         # animate_manual_resizes = true
@@ -166,8 +170,8 @@ in ''
     }
 
     group {
-      col.border_inactive = rgb(${colors.layer})
-      col.border_active = rgb(${colors.accent2})
+      col.border_inactive = rgb(${theme.hyprland.layer})
+      col.border_active = rgb(${theme.hyprland.accent2})
       groupbar {
         enabled = false
       }
@@ -185,9 +189,9 @@ in ''
 
     # window rules
     windowrulev2 = suppressevent maximize, class:.*
-    windowrulev2 = workspace 4, class:^(org.telegram.desktop)$
+    windowrulev2 = workspace 4, class:^(Logseq)$
+    windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
     windowrulev2 = center, class:^(firefox)$
-    # windowrulev2 = immediate, class:^(Project Zomboid)$
 
     $terminal = XCURSOR_SIZE=24 foot
     $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
@@ -325,7 +329,7 @@ in ''
 
     # start
     ${
-    if builtins.hasAttr "wall" colors
+    if builtins.hasAttr "wall" theme.hyprland
     then "exec-once = hyprpaper"
     else ""
   }

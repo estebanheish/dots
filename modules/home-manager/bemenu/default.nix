@@ -1,6 +1,6 @@
 {
   pkgs,
-  colors,
+  theme,
   ...
 }: let
   bemenu = "${pkgs.bemenu}/bin/bemenu";
@@ -9,18 +9,18 @@
 
   bargs = ''    -i -p ''' -H 25 \
          --fn 'Ubuntu bold 15' \
-         --tb '#${colors.background}' \
-         --tf '#${colors.foreground}' \
-         --fb '#${colors.background}' \
-         --ff '#${colors.foreground}' \
-         --nb '#${colors.background}' \
-         --nf '#${colors.foreground}' \
-         --hb '#${colors.focus_background}' \
-         --hf '#${colors.focus}' \
-         --sb '#${colors.background}' \
-         --sf '#${colors.foreground}' \
-         --af '#${colors.white}' \
-         --ab '#${colors.background}' \
+         --tb '#${theme.background}' \
+         --tf '#${theme.foreground}' \
+         --fb '#${theme.background}' \
+         --ff '#${theme.foreground}' \
+         --nb '#${theme.background}' \
+         --nf '#${theme.foreground}' \
+         --hb '#${theme.focus_background}' \
+         --hf '#${theme.focus}' \
+         --sb '#${theme.background}' \
+         --sf '#${theme.foreground}' \
+         --af '#${theme.white}' \
+         --ab '#${theme.background}' \
   '';
 
   bmenu = pkgs.writeScriptBin "bmenu" "${pkgs.bemenu}/bin/bemenu ${bargs}";

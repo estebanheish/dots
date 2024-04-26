@@ -1,6 +1,6 @@
 {
   pkgs,
-  colors,
+  theme,
   profile,
   inputs,
   ...
@@ -40,7 +40,7 @@
       hyprpicker
     ]
     ++ (
-      if builtins.hasAttr "wall" colors
+      if builtins.hasAttr "wall" theme.hyprland
       then [hyprpaper]
       else []
     );
@@ -84,7 +84,7 @@
   xdg.configFile =
     {
       # "swaylock/config".source = ../../../configs/swaylock/config;
-      "hypr/hyprland.conf".text = import ./config.nix {inherit colors profile;};
+      "hypr/hyprland.conf".text = import ./config.nix {inherit theme profile;};
       "hypr/hypridle.conf".text = ''
         general {
           lock_cmd = pidof hyprlock || hyprlock
@@ -108,13 +108,13 @@
       "hypr/hyprlock.conf".text = ''
         background {
           monitor =
-          color = rgb(${colors.background})
+          color = rgb(${theme.hyprland.background})
           blur_passes = 0
         }
         label {
             monitor =
             text = cmd[update:100000] echo "<b> $(date +"%A, %d, %B") </b>"
-            color = rgb(${colors.text})
+            color = rgb(${theme.hyprland.text})
             font_size = 24
             font_family = Ubuntu Regular
             position = 0, 136
@@ -124,7 +124,7 @@
         label {
             monitor =
             text = cmd[update:60000] echo "<b><big> $(date +"%H:%M") </big></b>"
-            color = rgb(${colors.text})
+            color = rgb(${theme.hyprland.text})
             font_size = 88
             font_family = Ubuntu Regular
             position = 0, 16
@@ -138,7 +138,7 @@
             hide_input = true
             fade_on_empty = true
             placeholder_text =
-            inner_color = rgb(${colors.text})
+            inner_color = rgb(${theme.hyprland.text})
             position = 0, -50
             halign = center
             valign = center
@@ -146,12 +146,12 @@
       '';
     }
     // (
-      if builtins.hasAttr "wall" colors
+      if builtins.hasAttr "wall" theme.hyprland
       then {
-        "${colors.wall}".source = ../../../misc/walls/${colors.wall};
+        "${theme.hyprland.wall}".source = ../../../misc/walls/${theme.hyprland.wall};
         "hypr/hyprpaper.conf".text = ''
-          preload = ~/.config/${colors.wall}
-          wallpaper = ,~/.config/${colors.wall}
+          preload = ~/.config/${theme.hyprland.wall}
+          wallpaper = ,~/.config/${theme.hyprland.wall}
           ipc = off
         '';
       }

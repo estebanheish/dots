@@ -1,6 +1,6 @@
 {
   pkgs,
-  colors,
+  theme,
   ...
 }: {
   home.packages = [pkgs.ironbar];
@@ -35,13 +35,13 @@
         }
 
         box, menubar, button {
-            background-color: #${colors.background};
+            background-color: #${theme.bar.background};
             background-image: none;
             box-shadow: none;
         }
 
         button:hover {
-            background-color: #${colors.layer};
+            background-color: #${theme.bar.layer};
         }
 
         scale trough {
@@ -50,7 +50,7 @@
         }
 
         .background {
-            background-color: #${colors.background};
+            background-color: #${theme.bar.background};
         }
 
         #bar {
@@ -67,8 +67,8 @@
         }
 
         .workspaces .item.focused {
-            color: #${colors.layer};
-            background-color: #${colors.accent};
+            color: #${theme.bar.layer};
+            background-color: #${theme.bar.accent};
         }
 
         .tray {

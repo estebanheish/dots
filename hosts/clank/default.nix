@@ -4,28 +4,20 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     ../common.nix
     ../../modules/nixos/pipewire
-    # ../../modules/nixos/silent-boot
     ../../modules/nixos/hyprland
-    # ../../modules/nixos/corne-udev
-    # ../../modules/nixos/dlna
     ../../modules/nixos/superlight
-    # ../../modules/nixos/docker
-    ../../modules/nixos/podman
-    # ../../modules/nixos/ollama
+    ../../modules/nixos/distrobox
     ../../modules/nixos/quickemu
-    # ../../modules/nixos/steam
   ];
 
   home-manager.users.${user} = {
     imports = [
       ../../modules/home-manager/neovim
       ../../modules/home-manager/pkgs-lists/lsps.nix
-      # ../../modules/home-manager/haskell
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
@@ -49,13 +41,9 @@
 
       logseq
 
-      # tor-browser-bundle-bin
-
       # rustup
 
       # typst
-
-      distrobox
       nvtopPackages.amd
     ];
   };

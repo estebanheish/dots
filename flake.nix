@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    colors = import ./modules/home-manager/themes/nord.nix;
+    theme = import ./modules/home-manager/themes/duotone.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
@@ -16,12 +16,12 @@
     mkNixos = user: modules:
       nixpkgs.lib.nixosSystem {
         inherit modules;
-        specialArgs = {inherit inputs outputs user colors;};
+        specialArgs = {inherit inputs outputs user theme;};
       };
     # mkHome = user: modules: pkgs:
     #   home-manager.lib.homeManagerConfiguration {
     #     inherit modules pkgs;
-    #     extraSpecialArgs = {inherit inputs outputs user colors;};
+    #     extraSpecialArgs = {inherit inputs outputs user theme;};
     #   };
   in {
     nixosModules = import ./modules/nixos;
@@ -66,7 +66,7 @@
             programs.home-manager.enable = true;
           })
         ];
-        extraSpecialArgs = {inherit inputs outputs user colors;};
+        extraSpecialArgs = {inherit inputs outputs user theme;};
       };
     };
   };

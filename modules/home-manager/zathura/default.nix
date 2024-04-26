@@ -1,6 +1,6 @@
 {
   pkgs,
-  colors,
+  # theme,
   ...
 }: {
   home.packages = with pkgs; [ubuntu_font_family];
@@ -14,10 +14,10 @@
       statusbar-home-tilde = "true";
       selection-clipboard = "clipboard";
 
-      # default-bg = "#${colors.black}";
+      # default-bg = "#${theme.black}";
 
-      # recolor-darkcolor = "#${colors.foreground}";
-      # recolor-lightcolor = "#${colors.background}";
+      # recolor-darkcolor = "#${theme.foreground}";
+      # recolor-lightcolor = "#${theme.background}";
     };
   };
 }

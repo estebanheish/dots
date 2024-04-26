@@ -1,8 +1,4 @@
-{
-  pkgs,
-  colors,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # foot
     # ubuntu_font_family
@@ -24,9 +20,6 @@
       mouse = {
         hide-when-typing = "yes";
       };
-
-      cursor = colors.terminal.cursor;
-      colors = colors.terminal.colors;
     };
   };
 }

@@ -5,7 +5,7 @@
     sshfs
 
     # video/audio processing
-    ffmpeg_5
+    ffmpeg_7-full
     imagemagick
 
     # basic utils

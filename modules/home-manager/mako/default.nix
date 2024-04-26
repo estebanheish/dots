@@ -1,6 +1,6 @@
 {
   pkgs,
-  colors,
+  theme,
   ...
 }: {
   home.packages = [pkgs.ubuntu_font_family];
@@ -8,9 +8,9 @@
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${colors.layer}";
-    textColor = "#${colors.text}";
-    borderColor = "#${colors.accent}";
+    backgroundColor = "#${theme.layer}";
+    textColor = "#${theme.text}";
+    borderColor = "#${theme.accent}";
 
     padding = "20";
     margin = "0";

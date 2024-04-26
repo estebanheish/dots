@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  colors,
+  theme,
   ...
 }: {
   home.packages = [
@@ -18,13 +18,13 @@
     #   source = ../../../configs/eww/scripts;
     #   recursive = true;
     # };
-    "eww/colors.scss".text = ''
-      $foreground: #${colors.foreground};
-      $background: #${colors.background};
-      $backgroundrgba: ${colors.backgroundrgba};
-      $focus: #${colors.focus};
-      $focus_background: #${colors.focus_background};
-      $red: #${colors.red};
+    "eww/theme.scss".text = ''
+      $foreground: #${theme.foreground};
+      $background: #${theme.background};
+      $backgroundrgba: ${theme.backgroundrgba};
+      $focus: #${theme.focus};
+      $focus_background: #${theme.focus_background};
+      $red: #${theme.red};
     '';
   };
 }

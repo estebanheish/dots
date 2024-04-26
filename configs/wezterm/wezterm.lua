@@ -5,16 +5,17 @@ local config = wezterm.config_builder()
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = true
 config.font =  wezterm.font 'Martian Mono Std Md'
-config.color_scheme = 'Argonaut'
+config.color_scheme = 'Duotone Dark'
+config.front_end = "WebGpu"
 
 config.keys = {
   { key = 'Enter', mods = 'ALT', action = act.DisableDefaultAssignment },
   { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
   { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
-  { key = 'e', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
-  { key = 'n', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-  { key = 'h', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
-  { key = 'i', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+  { key = 'E', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
+  { key = 'N', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+  { key = 'H', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
+  { key = 'I', mods = 'CTRL', action = act.ActivateTabRelative(1) },
   { key = 'f', mods = 'CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
 }
 

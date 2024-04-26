@@ -3,7 +3,7 @@
   outputs,
   pkgs,
   user,
-  colors,
+  theme,
   config,
   ...
 }: {
@@ -37,7 +37,7 @@
       home.stateVersion = "24.05";
     };
     extraSpecialArgs = {
-      inherit inputs outputs user colors;
+      inherit inputs outputs user theme;
       profile = config.system.name;
     };
   };
