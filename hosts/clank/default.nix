@@ -12,6 +12,7 @@
     ../../modules/nixos/superlight
     ../../modules/nixos/distrobox
     ../../modules/nixos/quickemu
+    ../../modules/nixos/nh
   ];
 
   home-manager.users.${user} = {
@@ -61,8 +62,9 @@
   #networking.wireless.iwd.enable = true;
   networking.useNetworkd = true;
   systemd.network.enable = true;
-  systemd.network.wait-online.anyInterface = true;
-  #systemd.network.wait-online.timeout = 5;
+  systemd.network.wait-online.enable = false;
+  # systemd.network.wait-online.anyInterface = true;
+  # systemd.network.wait-online.timeout = 5;
   # networking.firewall = {
   #   allowedTCPPorts = [
   #     22

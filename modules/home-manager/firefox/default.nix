@@ -1,14 +1,14 @@
 {pkgs, ...}: let
   settings = {
-    "gfx.webrender.enabled" = true;
-    "gfx.webrender.all" = true;
-    "media.ffmpeg.vaapi.enabled" = true;
+    # "gfx.webrender.enabled" = true;
+    # "gfx.webrender.all" = true;
+    # "media.ffmpeg.vaapi.enabled" = true;
     "browser.toolbars.bookmarks.visibility" = "never";
     "browser.search.separatePrivateDefault" = false;
     "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
     "browser.newtabpage.activity-stream.feeds.topsites" = false;
     "browser.startup.page" = 3;
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+    # "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
   # userChrome = ''
   #   #TabsToolbar

@@ -137,6 +137,7 @@ in ''
         animation = border, 1, 8, default
         animation = fade, 1, 5, default
         animation = workspaces, 1, 2, default
+        animation = specialWorkspace, 1, 2, default, fade
     }
 
     dwindle {

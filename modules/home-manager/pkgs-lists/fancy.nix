@@ -39,6 +39,5 @@
     jq
     pup
     nethogs
-    nh
   ];
 }

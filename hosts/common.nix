@@ -53,7 +53,7 @@
   nixpkgs.config.allowUnfree = true;
   nix = {
     # settings.allowed-users = ["@wheel" "${user}"];
-    gc.automatic = true;
+    # gc.automatic = true;
     optimise.automatic = true;
     settings.trusted-users = ["@wheel"];
     extraOptions = "experimental-features = nix-command flakes";
