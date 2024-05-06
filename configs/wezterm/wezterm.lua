@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = true
 config.font =  wezterm.font 'Martian Mono Std Md'
-config.color_scheme = 'Duotone Dark'
+config.color_scheme = 'Ayu Mirage (Gogh)'
 config.front_end = "WebGpu"
 
 config.keys = {

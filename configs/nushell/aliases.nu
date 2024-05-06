@@ -48,3 +48,6 @@ def transmission-remove [] { transmission-remote -l | detect columns | where Don
 alias zj = zellij
 alias zz = zellij --session
 alias lg = lazygit
+
+# wezterm
+def wt [name: string] { wezterm cli set-tab-title $name }

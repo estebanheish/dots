@@ -11,6 +11,7 @@
     ../../modules/nixos/hyprland
     ../../modules/nixos/superlight
     ../../modules/nixos/distrobox
+    ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     ../../modules/nixos/nh
   ];

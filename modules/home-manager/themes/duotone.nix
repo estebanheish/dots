@@ -1,3 +1,7 @@
+/*
+wezterm -> "Duotone Dark"
+helix -> "adwaita-dark"
+*/
 rec {
   background = "1F1D27";
   layer = "353147";
@@ -24,5 +28,10 @@ rec {
     gradient = !flat;
     wall = "space.jpg";
     inherit text accent accent2 layer background;
+  };
+
+  notis = {
+    background = layer;
+    inherit text accent;
   };
 }

@@ -8,9 +8,9 @@
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${theme.layer}";
-    textColor = "#${theme.text}";
-    borderColor = "#${theme.accent}";
+    backgroundColor = "#${theme.notis.background}";
+    textColor = "#${theme.notis.text}";
+    borderColor = "#${theme.notis.accent}";
 
     padding = "20";
     margin = "0";

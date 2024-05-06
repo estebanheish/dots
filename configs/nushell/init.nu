@@ -1,4 +1,4 @@
-use ~/.config/nushell/themes/duotone-dark.nu
+use ~/.config/nushell/themes/ayu-mirage.nu
 
 $env.config = ($env.config | merge {
     show_banner: false
@@ -15,7 +15,7 @@ $env.config = ($env.config | merge {
     edit_mode: vi
     highlight_resolved_externals: true
 
-    color_config: (duotone-dark)
+    color_config: (ayu-mirage)
 })
 
 $env.config.keybindings ++= [
