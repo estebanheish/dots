@@ -2,17 +2,18 @@
   pkgs,
   theme,
   ...
-}: {
+}:
+with theme.menu; {
   home.packages = with pkgs; [ubuntu_font_family tofi];
   xdg.configFile."tofi/config_dmenu".text = ''
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${theme.menu.text}
-    alternate-result-color = ${theme.menu.text2}
+    text-color = ${text}
+    alternate-result-color = ${text2}
 
-    selection-color = ${theme.menu.layer}
-    selection-background = ${theme.menu.accent}
+    selection-color = ${focus.fg}
+    selection-background = ${focus.bg}
     selection-background-padding = 2
     selection-background-padding = 0,6,0,6
     selection-background-corner-radius = 5
@@ -31,7 +32,7 @@
 
     width = 100%
     height = 25
-    background-color = ${theme.menu.layer}
+    background-color = ${bg}
     outline-width = 0
     border-width = 0
     padding-top = 0
@@ -50,11 +51,11 @@
     font = "${pkgs.ubuntu_font_family}/share/fonts/ubuntu/Ubuntu-B.ttf"
     font-size = 15
 
-    text-color = ${theme.menu.text}
-    alternate-result-color = ${theme.menu.text2}
+    text-color = ${text}
+    alternate-result-color = ${text2}
 
-    selection-color = ${theme.layer}
-    selection-background = ${theme.menu.accent}
+    selection-color = ${focus.fg}
+    selection-background = ${focus.bg}
     selection-background-padding = 2
     selection-background-padding = 2,8,2,6
     selection-background-corner-radius = 5
@@ -73,7 +74,7 @@
 
     width = 100%
     height = 100%
-    background-color = ${theme.menu.layer}EB
+    background-color = ${bg}EB
     outline-width = 0
     border-width = 0
     padding-top = 0

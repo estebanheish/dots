@@ -1,11 +1,12 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = wezterm.config_builder()
+local colors_exist, colors = pcall(require, 'colors')
 
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = true
 config.font =  wezterm.font 'Martian Mono Std Md'
-config.color_scheme = 'Ayu Mirage (Gogh)'
+config.color_scheme = 'Rosé Pine Moon (Gogh)'
 config.front_end = "WebGpu"
 
 config.keys = {
@@ -18,6 +19,11 @@ config.keys = {
   { key = 'I', mods = 'CTRL', action = act.ActivateTabRelative(1) },
   { key = 'f', mods = 'CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
 }
+
+if colors_exist then
+  config.window_frame = colors.window_frame;
+  config.colors = colors.colors;
+end
 
 local search_mode = nil
 if wezterm.gui then

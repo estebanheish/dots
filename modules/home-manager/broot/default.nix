@@ -11,7 +11,7 @@
   xdg.configFile."broot/skins/auto.hjson".text = ''
     {
         skin: {
-            default: "#${theme.background} none  / gray(20) none"
+            default: "#${theme.bg} none  / gray(20) none"
             tree: "#${theme.layer} None  / gray(4) None"
             parent: gray(18) None  / gray(13) None
             file: gray(22) None  / gray(15) None

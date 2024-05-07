@@ -2,7 +2,7 @@
   pkgs,
   theme,
   profile,
-  inputs,
+  # inputs,
   ...
 }: {
   imports = [
@@ -33,8 +33,10 @@
       xdg-utils
       # swayidle
       # swaylock
-      inputs.hypridle.packages.${pkgs.system}.default
-      inputs.hyprlock.packages.${pkgs.system}.default
+      # inputs.hypridle.packages.${pkgs.system}.default
+      # inputs.hyprlock.packages.${pkgs.system}.default
+      hypridle
+      hyprlock
       ncmpcpp
       pulsemixer
       hyprpicker
@@ -108,7 +110,7 @@
       "hypr/hyprlock.conf".text = ''
         background {
           monitor =
-          color = rgb(${theme.hyprland.background})
+          color = rgb(${theme.hyprland.bg})
           blur_passes = 0
         }
         label {

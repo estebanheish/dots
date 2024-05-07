@@ -2,15 +2,16 @@
   pkgs,
   theme,
   ...
-}: {
+}:
+with theme.notis; {
   home.packages = [pkgs.ubuntu_font_family];
   services.mako = {
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${theme.notis.background}";
-    textColor = "#${theme.notis.text}";
-    borderColor = "#${theme.notis.accent}";
+    backgroundColor = "#${bg}";
+    textColor = "#${text}";
+    borderColor = "#${border}";
 
     padding = "20";
     margin = "0";

@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = [pkgs.ironbar];
-  xdg.configFile = {
+  xdg.configFile = with theme.bar; {
     "ironbar/config.yaml" = {
       text = ''
         monitors:
@@ -35,13 +35,15 @@
         }
 
         box, menubar, button {
-            background-color: #${theme.bar.background};
+            color: #${theme.bar.text};
+            background-color: #${bg};
             background-image: none;
+            text-shadow: unset;
             box-shadow: none;
         }
 
         button:hover {
-            background-color: #${theme.bar.layer};
+            background-color: #${hover};
         }
 
         scale trough {
@@ -50,7 +52,7 @@
         }
 
         .background {
-            background-color: #${theme.bar.background};
+            background-color: #${bg};
         }
 
         #bar {
@@ -67,8 +69,8 @@
         }
 
         .workspaces .item.focused {
-            color: #${theme.bar.layer};
-            background-color: #${theme.bar.accent};
+            color: #${focus.fg};
+            background-color: #${focus.bg};
         }
 
         .tray {

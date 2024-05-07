@@ -59,7 +59,7 @@
         "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi"
         "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
-        "https://addons.mozilla.org/firefox/downloads/latest/surfingkeys_ff/latest.xpi"
+        # "https://addons.mozilla.org/firefox/downloads/latest/surfingkeys_ff/latest.xpi"
         # "https://addons.mozilla.org/firefox/downloads/latest/adaptive_tab_bar_colour/latest.xpi"
       ];
       Uninstall = [

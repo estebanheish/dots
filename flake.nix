@@ -8,7 +8,7 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    theme = import ./modules/home-manager/themes/ayu_mirage.nix;
+    theme = import ./modules/home-manager/themes/rose_pine_moon.nix;
 
     forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
     forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
@@ -80,17 +80,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hyprlock = {
+    #   url = "github:hyprwm/hyprlock";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hypridle = {
+    #   url = "github:hyprwm/hypridle";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 }
