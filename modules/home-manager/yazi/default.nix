@@ -16,5 +16,10 @@
       };
     };
   };
+  xdg.configFile."yazi/init.lua".text = ''
+    require("session"):setup {
+    	sync_yanked = true,
+    }
+  '';
   home.packages = [pkgs.inconsolata-nerdfont]; # for icons
 }
