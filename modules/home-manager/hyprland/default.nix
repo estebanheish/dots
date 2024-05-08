@@ -8,7 +8,6 @@
   imports = [
     ../foot
     ../wezterm
-    ../mako
     ../mpv
     ../ironbar
     ../xdg
@@ -16,6 +15,7 @@
     ../mpd
     ../tofi
     ../firefox
+    ../swaync
   ];
 
   home.packages = with pkgs;

@@ -214,10 +214,10 @@ in
       bind = SUPER, b, exec, nu -c "if (ironbar get-visible main) =~ 'true' { ironbar set-visible main } else { ironbar set-visible main -v }"
       bind = SUPERSHIFT, b, exec, toggle_flat
       bind = ALTSHIFT, Tab, pin, active
-      bind = SUPER, o, exec, makoctl dismiss
       bind = SUPER, z, togglespecialworkspace,
       bind = SUPERSHIFT, z, movetoworkspacesilent, special
       bind = SUPER, x, bringactivetotop,
+      bind = SUPER, o, exec, swaync-client -t
 
       bind = SUPER, equal, exec, hyprctl --batch "keyword general:gaps_in 0 ; keyword general:gaps_out 0"
       bind = SUPERSHIFT, equal, exec, hyprctl --batch "keyword general:gaps_in 5 ; keyword general:gaps_out 10"
@@ -336,6 +336,7 @@ in
       # exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
       exec-once = hypridle
       exec-once = ironbar
+      exec-once = swaync
 
       # environment variables
       env = XDG_CURRENT_DESKTOP,Hyprland

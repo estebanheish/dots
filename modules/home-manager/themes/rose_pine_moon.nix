@@ -27,8 +27,8 @@ rec {
   bar = {
     hover = layer;
     focus = {
-      fg = text;
-      bg = layer;
+      fg = layer;
+      bg = text;
     };
     text = text;
     inherit bg;
@@ -49,15 +49,20 @@ rec {
   };
 
   notis = {
-    border = accent;
-    inherit bg text;
+    bg = layer;
+    border = "56526e";
+    layer = "393552";
+    hover = "44415a";
+    accent = text;
+    muted = "6e6a86";
+    inherit text;
   };
 
   terminal = {
     custom_tab = true;
     window_frame = {
-      active_titlebar_bg = bg;
-      inactive_titlebar_bg = bg;
+      active_titlebar_bg = "191724";
+      inactive_titlebar_bg = "191724";
     };
     colors = {
       scrollbar_thumb = layer;
