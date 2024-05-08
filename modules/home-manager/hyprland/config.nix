@@ -305,9 +305,9 @@ in
       binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
       bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bind = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-      bind = SHIFT, XF86AudioPlay, exec, playerctl play-pause
-      bind = SHIFT, XF86AudioPrev, exec, playerctl previous
-      bind = SHIFT, XF86AudioNext, exec, playerctl next
+      bind = SHIFT, XF86AudioPlay, exec, playerctl --player=spotify,firefox,%any play-pause
+      bind = SHIFT, XF86AudioPrev, exec, playerctl --player=spotify,firefox,%any previous
+      bind = SHIFT, XF86AudioNext, exec, playerctl --player=spotify,firefox,%any next
 
       # mpd
       bind = , XF86AudioPlay, exec, mpc toggle
