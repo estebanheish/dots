@@ -1,31 +1,34 @@
 /*
-wezterm -> "Rosé Pine Moon (Gogh)"
-helix -> "rose_pine_moon"
+wezterm -> "nord"
+helix -> "nord"
 */
 rec {
-  bg = base;
-  layer = surface;
+  bg = nord0;
+  layer = nord1;
 
-  text2 = subtle;
+  text = nord6;
+  text2 = nord5;
+  muted = nord4;
 
-  accent = text;
-  accent2 = "9ccfd8";
+  accent = nord10;
+  accent2 = nord9;
 
-  base = "232136";
-  surface = "2a273f";
-  overlay = "393552";
-  muted = "6e6a86";
-  subtle = "908caa";
-  text = "e0def4";
-  love = "eb6f92";
-  gold = "f6c177";
-  rose = "ea9a97";
-  pine = "3e8fb0";
-  foam = "9ccfd8";
-  iris = "c4a7e7";
-  hl_low = "2a283e";
-  hl_med = "44415a";
-  hl_high = "56526e";
+  nord0 = "2e3440";
+  nord1 = "3b4252";
+  nord2 = "434c5e";
+  nord3 = "4c566a";
+  nord4 = "d8dee9";
+  nord5 = "e5e9f0";
+  nord6 = "eceff4";
+  nord7 = "8fbcbb";
+  nord8 = "88c0d0";
+  nord9 = "81a1c1";
+  nord10 = "5e81ac";
+  nord11 = "bf616a";
+  nord12 = "d08770";
+  nord13 = "ebcb8b";
+  nord14 = "a3be8c";
+  nord15 = "b48ead";
 
   flat = false;
 
@@ -34,7 +37,7 @@ rec {
       fg = layer;
       bg = text;
     };
-    bg = "393552";
+    bg = layer;
     text = text;
     text2 = text;
   };
@@ -50,9 +53,9 @@ rec {
   };
 
   hyprland = {
-    wall = "jase_bloor.jpg";
+    wall = "ocean.jpg";
     border = {
-      active = "rgb(${iris}) rgb(${love}) 45deg";
+      active = "rgb(${accent2}) rgb(${accent}) 45deg";
       # active = "rgb(${accent})";
       inactive = layer;
     };
@@ -65,30 +68,29 @@ rec {
 
   notis = {
     bg = layer;
-    border = hl_high;
-    layer = overlay;
-    hover = hl_med;
-    accent = text;
-    inherit text muted;
+    border = accent;
+    layer = nord2;
+    hover = nord3;
+    inherit text muted accent;
   };
 
   terminal = {
     custom_tab = true;
     window_frame = {
-      active_titlebar_bg = "191724";
-      inactive_titlebar_bg = "191724";
+      active_titlebar_bg = "242932";
+      inactive_titlebar_bg = "242932";
     };
     colors = {
       scrollbar_thumb = layer;
       tab_bar = {
         inactive_tab_edge = text2;
         active_tab = {
-          bg_color = layer;
+          bg_color = bg;
           fg_color = text;
         };
         inactive_tab = {
-          bg_color = bg;
-          fg_color = text2;
+          bg_color = "292E38";
+          fg_color = "7B879D";
         };
         inactive_tab_hover = {
           bg_color = layer;

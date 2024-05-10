@@ -3,14 +3,31 @@ wezterm -> "Solarized Dark (Gogh)"
 helix -> "solarized_dark"
 */
 rec {
-  bg = "002b36";
-  layer = "073642";
+  bg = base03;
+  layer = base02;
 
-  text = "93a1a1";
-  text2 = "839496";
+  text = base0;
+  text2 = base1;
 
-  accent = "2aa198";
-  accent2 = "d33682";
+  accent = violet;
+  accent2 = green;
+
+  base03 = "002b36";
+  base02 = "073642";
+  base01 = "586e75";
+  base00 = "657b83";
+  base0 = "839496";
+  base1 = "93a1a1";
+  base2 = "eee8d5";
+  base3 = "fdf6e3";
+  yellow = "b58900";
+  orange = "cb4b16";
+  red = "dc322f";
+  magenta = "d33682";
+  violet = "6c71c4";
+  blue = "268bd2";
+  cyan = "2aa198";
+  green = "859900";
 
   flat = false;
 
@@ -48,8 +65,11 @@ rec {
   };
 
   notis = {
-    border = accent;
-    inherit bg text;
+    border = base01;
+    hover = "094453";
+    muted = base01;
+    text = text;
+    inherit bg layer accent;
   };
 
   terminal = {
