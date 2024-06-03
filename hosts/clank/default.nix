@@ -45,7 +45,7 @@
 
       # rustup
 
-      # typst
+      typst
       nvtopPackages.amd
     ];
   };

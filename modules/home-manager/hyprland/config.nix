@@ -93,8 +93,11 @@ in
 
           apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 
-          cursor_inactive_timeout = 30
           layout = master
+      }
+
+      cursor {
+        inactive_timeout = 30
       }
 
       decoration {
