@@ -94,10 +94,7 @@ in
           apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 
           layout = master
-      }
-
-      cursor {
-        inactive_timeout = 30
+          cursor_inactive_timeout = 30
       }
 
       decoration {
@@ -221,6 +218,8 @@ in
       bind = SUPERSHIFT, z, movetoworkspacesilent, special
       bind = SUPER, x, bringactivetotop,
       bind = SUPER, o, exec, swaync-client -t
+      bind = SUPER, s, exec, tts
+      bind = SUPERSHIFT, s, exec, tts --mpv
 
       bind = SUPER, equal, exec, hyprctl --batch "keyword general:gaps_in 0 ; keyword general:gaps_out 0"
       bind = SUPERSHIFT, equal, exec, hyprctl --batch "keyword general:gaps_in 5 ; keyword general:gaps_out 10"

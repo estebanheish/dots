@@ -1,0 +1,19 @@
+#!/usr/bin/env nu
+
+def main [] {
+  mkdir ~/Downloads/subs/
+  cd ~/Downloads/subs/
+  yt-dlp --write-auto-sub --skip-download (wl-paste)
+  let subs = (ls 
+  | sort-by modified 
+  | get name.0 
+  | open $in 
+  | lines
+  | skip 4
+  | filter {|o| not ($o =~ ">") and ($o | str length) > 2}
+  | uniq
+  | str join " ")
+
+  $subs | wl-copy
+  $subs | save ~/subs.txt -f
+}

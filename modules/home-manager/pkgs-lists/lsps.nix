@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # rust-analyzer
-    nodePackages.bash-language-server
+    # nodePackages.bash-language-server
     # haskell-language-server
     nil
     alejandra

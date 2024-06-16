@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+def main [model: string = "en_default", --file: string, --mpv] {
+  let model = $"($env.HOME)/.config/piper/models/($model).onnx"
+
+  if $mpv {
+    let out = $"($env.HOME)/Downloads/tts_(date now | format date "%Y_%m_%d_%H_%M_%S").wav"
+    wl-paste | piper --model $model --output-file $out
+    mpv $out --profile=pseudo-gui
+    return
+  }
+
+  let running = (ps | find aplay)
+  if ($running | is-empty) {
+    if ($file | is-empty) {
+      wl-paste
+      | piper --model $model --output-raw
+      | aplay -r 22050 -f S16_LE -t raw -
+    } else {
+      wl-paste | piper --model $model --output-file $"($file).wav"
+    }
+  } else {
+    $running.pid | each {|pid| kill $pid}
+  }
+}

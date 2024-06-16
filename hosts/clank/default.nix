@@ -19,6 +19,7 @@
   home-manager.users.${user} = {
     imports = [
       ../../modules/home-manager/neovim
+      ../../modules/home-manager/piper
       ../../modules/home-manager/pkgs-lists/lsps.nix
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
@@ -44,6 +45,7 @@
       logseq
 
       # rustup
+      linuxKernel.packages.linux_zen.perf
 
       typst
       nvtopPackages.amd
