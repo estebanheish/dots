@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ../common.nix
     inputs.raspberry-pi-nix.nixosModules.raspberry-pi
@@ -6,13 +10,12 @@
 
   console.keyMap = "colemak";
 
-  networking = {
-    hostName = "rivet";
-    useDHCP = false;
-    interfaces = {wlan0.useDHCP = true;};
-    useNetworkd = true;
-    wireless.iwd.enable = true;
-  };
+  environment.systemPackages = with pkgs; [
+    raspberrypi-eeprom
+  ];
+
+  networking.hostName = "rivet";
+  networking.wireless.iwd.enable = true;
   systemd.network.enable = true;
   systemd.network.wait-online.enable = false;
 
