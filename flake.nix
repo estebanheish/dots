@@ -35,6 +35,7 @@
     nixosConfigurations = {
       nyx = mkNixos "heis" [./hosts/nyx];
       clank = mkNixos "heis" [./hosts/clank];
+      rivet = mkNixos "heis" [./hosts/rivet];
       grape = mkNixos "heis" [./hosts/grape];
       lemon = mkNixos "heis" [./hosts/lemon];
     };
@@ -79,6 +80,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
 
     # hyprland = {
     #   url = "github:hyprwm/Hyprland";

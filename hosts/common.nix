@@ -49,6 +49,7 @@
     shell = pkgs.nushell;
     extraGroups = ["wheel" "audio" "video"];
   };
+  users.users.root.initialPassword = "hola";
 
   nixpkgs.config.allowUnfree = true;
   nix = {

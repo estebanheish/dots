@@ -5,7 +5,8 @@ local colors_exist, colors = pcall(require, 'colors')
 
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = true
-config.font =  wezterm.font 'Martian Mono Std Md'
+config.font =  wezterm.font 'Ubuntu Mono'
+config.font_size = 15
 config.color_scheme = 'Rosé Pine Moon (Gogh)'
 config.front_end = "WebGpu"
 
