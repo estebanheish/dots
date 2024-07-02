@@ -14,10 +14,15 @@
     raspberrypi-eeprom
   ];
 
-  networking.hostName = "rivet";
-  networking.wireless.iwd.enable = true;
-  systemd.network.enable = true;
-  systemd.network.wait-online.enable = false;
+  networking = {
+    hostName = "rivet";
+    useDHCP = false;
+    interfaces = {
+      wlan0.useDHCP = true;
+      end0.useDHCP = true;
+    };
+    wireless.iwd.enable = true;
+  };
 
   hardware = {
     bluetooth.enable = true;
