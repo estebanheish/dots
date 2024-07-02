@@ -29,10 +29,6 @@
               enable = true;
               value = "on";
             };
-            dtparam = {
-              enable = true;
-              value = "pciex1";
-            };
           };
         };
       };
