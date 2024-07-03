@@ -73,7 +73,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
@@ -82,6 +82,8 @@
     };
 
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
+
+    wezterm.url = "github:wez/wezterm?dir=nix";
 
     # hyprland = {
     #   url = "github:hyprwm/Hyprland";

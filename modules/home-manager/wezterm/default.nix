@@ -1,9 +1,10 @@
 {
   pkgs,
+  inputs,
   theme,
   ...
 }: {
-  home.packages = [pkgs.wezterm];
+  home.packages = [inputs.wezterm.packages.${pkgs.system}.default];
   xdg.configFile =
     {
       "wezterm/wezterm.lua".source = ../../../configs/wezterm/wezterm.lua;

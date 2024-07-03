@@ -146,7 +146,7 @@ in
 
       master {
           no_gaps_when_only = 1
-          new_is_master = no
+          new_status = slave
       }
 
       gestures {
@@ -158,7 +158,7 @@ in
           disable_splash_rendering = yes
           disable_autoreload = yes
           enable_swallow = yes
-          swallow_regex = ^(foot)$
+          swallow_regex = ^(org.wezfurlong.wezterm)$
           swallow_exception_regex = ^(noswallow)$
           mouse_move_enables_dpms = true
           new_window_takes_over_fullscreen = 2
@@ -193,7 +193,7 @@ in
       windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
       windowrulev2 = center, class:^(firefox)$
 
-      $terminal = XCURSOR_SIZE=24 foot
+      $terminal = wezterm # XCURSOR_SIZE=24 foot
       $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
       $dmenu = tofi -c ~/.config/tofi/config_dmenu
       $lmenu = tofi -c ~/.config/tofi/config_list
