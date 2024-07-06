@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../common.nix
+    ../../modules/nixos/hostsfile
     inputs.raspberry-pi-nix.nixosModules.raspberry-pi
   ];
 
@@ -42,7 +43,7 @@
 
   services.openssh = {
     enable = true;
-    # settings.PasswordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
   nixpkgs.hostPlatform = "aarch64-linux";

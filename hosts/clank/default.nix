@@ -14,6 +14,7 @@
     ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     ../../modules/nixos/nh
+    ../../modules/nixos/hostsfile
   ];
 
   home-manager.users.${user} = {
