@@ -3,6 +3,7 @@
     # file sync
     rsync
     sshfs
+    restic
 
     # video/audio processing
     ffmpeg_7-full
