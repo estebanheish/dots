@@ -5,9 +5,10 @@
 }: {
   imports = [
     ../common.nix
+    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+
     ../../modules/nixos/hostsfile
     ../../modules/nixos/qbittorrent-service
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
   ];
 
   console.keyMap = "colemak";
