@@ -8,7 +8,8 @@ config.enable_scroll_bar = true
 config.font =  wezterm.font 'Ubuntu Mono'
 config.font_size = 15
 config.color_scheme = 'Rosé Pine Moon (Gogh)'
-config.front_end = "WebGpu"
+config.front_end = "OpenGL" -- TODO: "WebGpu"
+config.window_close_confirmation = 'NeverPrompt'
 
 config.keys = {
   { key = 'Enter', mods = 'ALT', action = act.DisableDefaultAssignment },
