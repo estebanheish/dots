@@ -6,6 +6,7 @@
   imports = [
     ../common.nix
     ../../modules/nixos/hostsfile
+    ../../modules/nixos/qbittorrent-service
     inputs.raspberry-pi-nix.nixosModules.raspberry-pi
   ];
 
