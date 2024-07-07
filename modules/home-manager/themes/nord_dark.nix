@@ -57,7 +57,7 @@ rec {
     border = {
       active = "rgb(${accent2}) rgb(${accent}) 45deg";
       # active = "rgb(${accent})";
-      inactive = layer;
+      inactive = "rgb(${layer})";
     };
     group_border = {
       active = accent2;

@@ -89,7 +89,7 @@ in
           allow_tearing = false
 
           col.active_border = ${border.active}
-          col.inactive_border = rgb(${border.inactive})
+          col.inactive_border = ${border.inactive}
 
           apply_sens_to_raw = 0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 
@@ -300,12 +300,12 @@ in
 
       # open stuff
       # bind=SUPER_SHIFT,w,exec,qutebrowser
-      bind = SUPER, x, exec, $terminal btm
-      bind = SUPER, c, exec, $terminal ncmpcpp
+      bind = SUPER, x, exec, $terminal start -- btm
+      bind = SUPER, c, exec, $terminal start -- ncmpcpp
 
       # audio
-      bind = SUPER, a, exec, $terminal pulsemixer
-      bind = SUPERSHIFT, a, exec, $terminal alsamixer
+      bind = SUPER, a, exec, $terminal start -- pulsemixer
+      bind = SUPERSHIFT, a, exec, $terminal start -- alsamixer
       binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
       binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
       bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
