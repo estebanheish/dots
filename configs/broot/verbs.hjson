@@ -91,7 +91,5 @@
             key: "ctrl-k"
             internal: ":toggle_preview"
         }
-
     ]
-
 }

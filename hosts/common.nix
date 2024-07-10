@@ -51,7 +51,20 @@
   };
   users.users.root.initialPassword = "hola";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-27.3.11" # TODO
+      ];
+    };
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+    ];
+  };
+
   nix = {
     # settings.allowed-users = ["@wheel" "${user}"];
     # gc.automatic = true;

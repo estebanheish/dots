@@ -68,7 +68,7 @@ rec {
       inactive_titlebar_bg = "080808";
     };
     colors = {
-      scrollbar_thumb = layer;
+      scrollbar_thumb = "303030";
       tab_bar = {
         inactive_tab_edge = text2;
         active_tab = {

@@ -29,7 +29,7 @@
     templates = import ./templates;
     formatter = forEachPkgs (pkgs: pkgs.alejandra);
 
-    overlays = import ./overlays {inherit inputs outputs;};
+    overlays = import ./overlays {inherit inputs;};
     packages = forEachPkgs (pkgs: (import ./pkgs {inherit pkgs;}));
 
     nixosConfigurations = {

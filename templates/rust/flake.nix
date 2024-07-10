@@ -19,7 +19,7 @@
       (system: fn {pkgs = import nixpkgs {inherit system;};});
   in {
     devShells = forAllSystems ({pkgs}: {
-      default = pkgs.mkShell {
+      default = pkgs.mkShell rec {
         name = "nix";
         packages = with pkgs; [
           rustc
@@ -27,7 +27,19 @@
           rustfmt
           rustPackages.clippy
           rust-analyzer
+
+          # libxkbcommon
+          # libGL
+          # alsa-lib
+          # udev
+          # vulkan-loader
+          # wayland
+
+          # pkg-config
+          # clang
+          # mold
         ];
+        # LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath packages}";
       };
     });
 

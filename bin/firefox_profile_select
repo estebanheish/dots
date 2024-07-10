@@ -1,13 +1,13 @@
 #!/usr/bin/env nu
 
 def main [] {
-	open ~/.mozilla/firefox/profiles.ini 
-	| lines 
-	| find "Name="
-	| split column "=" 
-	| get column2 
-	| str join "\n" 
-	| tofi -c ~/.config/tofi/config_dmenu
-	| str trim
-	| if not ($in | is-empty) { firefox-esr -P $in }
+  open -r ~/.mozilla/firefox/profiles.ini 
+  | lines 
+  | find "Name="
+  | split column "=" 
+  | get column2 
+  | str join "\n" 
+  | tofi -c ~/.config/tofi/config_dmenu
+  | str trim
+  | if not ($in | is-empty) { firefox-esr -P $in }
 }
