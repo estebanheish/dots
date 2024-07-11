@@ -39,7 +39,7 @@ def install [--flake (-f): string = "nixpkgs", ...pkgs] {
 }
 
 # yt-dlp
-alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s"
+alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
 alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
 
 def transmission-remove [] { transmission-remote -l | detect columns | where Done == "100%" | get ID | transmission-remote -t $in -r }

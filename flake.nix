@@ -10,8 +10,14 @@
     inherit (self) outputs;
     theme = import ./modules/home-manager/themes/papercolordark.nix;
 
-    forEachSystem = nixpkgs.lib.genAttrs ["x86_64-linux" "aarch64-linux"];
-    forEachPkgs = f: forEachSystem (sys: f nixpkgs.legacyPackages.${sys});
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    forAllSystems = nixpkgs.lib.genAttrs systems;
 
     mkNixos = user: modules:
       nixpkgs.lib.nixosSystem {
@@ -27,10 +33,10 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     templates = import ./templates;
-    formatter = forEachPkgs (pkgs: pkgs.alejandra);
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
-    packages = forEachPkgs (pkgs: (import ./pkgs {inherit pkgs;}));
+    packages = forAllSystems (system: import ./pkgs inputs.master.legacyPackages.${system});
 
     nixosConfigurations = {
       nyx = mkNixos "heis" [./hosts/nyx];
@@ -73,7 +79,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    master.url = "github:nixos/nixpkgs/master";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {

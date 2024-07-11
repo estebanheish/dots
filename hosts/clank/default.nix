@@ -1,10 +1,14 @@
 {
   user,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     ../common.nix
     ../../modules/nixos/pipewire
@@ -81,7 +85,6 @@
     settings.PasswordAuthentication = false;
   };
   programs.ssh.startAgent = true;
-  services.fstrim.enable = true;
 
   # boot
   boot.supportedFilesystems = ["ntfs"];
