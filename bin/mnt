@@ -1,0 +1,25 @@
+#!/usr/bin/env nu
+
+def main [] {
+  let s = (lsblk -lJ -o NAME,SIZE,LABEL,MOUNTPOINT,FSTYPE,TYPE | from json | get blockdevices)
+  let idx = ($s | each {|s| $"($s.name | fill -a l -w 12)($s.size | fill -a l -w 10)($s.fstype | try {fill -a l -w 13})($s.mountpoint | try {fill -a l -w 10})"} | input list -f -i)
+  let selected = $s | get $idx
+  let device = "/dev/" + $selected.name
+
+  if ($selected.mountpoint | is-empty) {
+    let mountpoint = "mnt_" + (random chars -l 5)
+    mkdir $mountpoint
+    if $selected.fstype == "crypto_LUKS" {
+      doas cryptsetup open $device $mountpoint
+      doas mount $"/dev/mapper/($mountpoint)" $mountpoint
+    } else {
+      doas mount $device $mountpoint
+    }
+  } else {
+    doas umount $selected.mountpoint
+    rm $selected.mountpoint
+    if $selected.type == "crypt" {
+      doas cryptsetup close $selected.name
+    }
+  }
+}
