@@ -13,6 +13,10 @@
     enable = true;
     acceleration = "rocm";
     package = outputs.packages.${pkgs.system}.ollama;
+    rocmOverrideGfx = "11.0.0";
+    environmentVariables = {
+      OLLAMA_KEEP_ALIVE = "60m";
+    };
   };
 
   # https://github.com/NixOS/nixpkgs/pull/325224
