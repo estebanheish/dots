@@ -4,11 +4,19 @@
     path = ./shell;
   };
   python = {
-    description = "python shell";
+    description = "python flake";
     path = ./python;
   };
   rust = {
-    description = "rust shell";
+    description = "rust flake";
     path = ./rust;
+  };
+  iced = {
+    description = "iced app flake";
+    path = ./iced;
+  };
+  go = {
+    description = "go flake";
+    path = ./go;
   };
 }

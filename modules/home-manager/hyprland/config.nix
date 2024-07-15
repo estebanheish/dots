@@ -64,7 +64,7 @@ in
 
           ${
       if builtins.elem profile ["nyx" "clank"]
-      then "sensitivity = -1"
+      then "sensitivity = -0.8"
       else ""
     }
       }

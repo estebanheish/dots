@@ -92,6 +92,8 @@
 
     wezterm.url = "github:wez/wezterm?dir=nix";
 
+    teja.url = "github:estebanheish/teja";
+
     # hyprland = {
     #   url = "github:hyprwm/Hyprland";
     #   inputs.nixpkgs.follows = "nixpkgs";
