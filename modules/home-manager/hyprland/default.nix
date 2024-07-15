@@ -115,11 +115,11 @@
         }
         label {
             monitor =
-            text = cmd[update:100000] echo "<b> $(date +"%A, %d, %B") </b>"
+            text = cmd[update:100000] echo "<b> $(date +"%A, %d %B") </b>"
             color = rgb(${theme.hyprland.text})
             font_size = 24
             font_family = Ubuntu Regular
-            position = 0, 136
+            position = 0, 120
             halign = center
             valign = center
         }
@@ -129,7 +129,7 @@
             color = rgb(${theme.hyprland.text})
             font_size = 88
             font_family = Ubuntu Regular
-            position = 0, 16
+            position = 0, 50
             halign = center
             valign = center
         }

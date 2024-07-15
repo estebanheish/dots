@@ -7,7 +7,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = true
 config.font =  wezterm.font 'Ubuntu Mono'
 config.font_size = 16
-config.color_scheme = 'Papercolor Dark (Gogh)'
+config.color_scheme = 'nord'
 config.front_end = "OpenGL" -- TODO: "WebGpu"
 config.window_close_confirmation = 'NeverPrompt'
 

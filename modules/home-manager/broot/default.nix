@@ -1,8 +1,10 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
+args @ {pkgs, ...}: let
+  isTheme = builtins.hasAttr "theme" args;
+  f = t: n:
+    if isTheme
+    then "#" + t
+    else n;
+in {
   home.packages = [pkgs.broot];
   xdg.configFile."broot" = {
     source = ../../../configs/broot;
@@ -11,11 +13,11 @@
   xdg.configFile."broot/skins/auto.hjson".text = ''
     {
         skin: {
-            default: "#${theme.bg} none  / gray(20) none"
-            tree: "#${theme.layer} None  / gray(4) None"
+            default: "${f args.theme.bg "gray(22)"} None  / gray(20) None"
+            tree: "${f args.theme.layer "gray(8)"} None  / gray(4) None"
             parent: gray(18) None  / gray(13) None
             file: gray(22) None  / gray(15) None
-            directory: "#${theme.accent} None bold / #${theme.accent} None"
+            directory: "${f args.theme.accent "ansi(110)"} None bold / ${f args.theme.accent "ansi(110)"} None"
             exe: Cyan None
             link: Magenta None
             pruning: gray(12) None Italic

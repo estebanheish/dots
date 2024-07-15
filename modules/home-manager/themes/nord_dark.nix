@@ -3,6 +3,12 @@ wezterm -> "nord"
 helix -> "nord"
 */
 rec {
+  name = {
+    files = "nord_dark";
+    wezterm = "nord";
+    helix = "nord";
+  };
+
   bg = nord0;
   layer = nord1;
 

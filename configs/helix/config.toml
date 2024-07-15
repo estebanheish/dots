@@ -1,5 +1,3 @@
-theme = "fleet_dark"
-
 [editor]
 line-number = "relative"
 cursorline = true

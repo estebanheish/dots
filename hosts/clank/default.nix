@@ -21,6 +21,8 @@
     ../../modules/nixos/hostsfile
   ];
 
+  _module.args.theme = import ../../modules/home-manager/themes/nord_dark.nix;
+
   home-manager.users.${user} = {
     imports = [
       ../../modules/home-manager/neovim
