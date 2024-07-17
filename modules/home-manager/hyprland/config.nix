@@ -318,8 +318,8 @@ in
       bind = , XF86AudioPlay, exec, mpc toggle
       bind = , XF86AudioNext, exec, mpc next
       bind = , XF86AudioPrev, exec, mpc prev
-      bind = SHIFT, XF86AudioRaiseVolume, exec,mpc volume +2
-      bind = SHIFT, XF86AudioLowerVolume, exec,mpc volume -2
+      binde = SHIFT, XF86AudioRaiseVolume, exec, mpc volume +2
+      binde = SHIFT, XF86AudioLowerVolume, exec, mpc volume -2
 
       # screenshots
       bind = , Print, exec, grim -g "$(slurp)" - | wl-copy
