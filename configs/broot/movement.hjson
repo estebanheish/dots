@@ -6,7 +6,7 @@
         { invocation: "godownloads", shortcut: "gd", execution: ":focus ~/Downloads" }
         { invocation: "godocuments", shortcut: "gD", execution: ":focus ~/Documents" }
         { invocation: "golibros",    shortcut: "gl", execution: ":focus ~/Documents/libros" }
-        { invocation: "goprojects",  shortcut: "gp", execution: ":focus ~/projects" }
+        { invocation: "gocode",      shortcut: "gc", execution: ":focus ~/code" }
         { invocation: "gopictures",  shortcut: "gP", execution: ":focus ~/Pictures" }
         { invocation: "govideos",    shortcut: "gv", execution: ":focus ~/Videos" }
         { invocation: "gomusic",     shortcut: "gM", execution: ":focus ~/Music" }

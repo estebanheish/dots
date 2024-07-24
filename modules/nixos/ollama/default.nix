@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  outputs,
   ...
 }: {
   disabledModules = ["services/misc/ollama.nix"];
@@ -12,7 +11,7 @@
   services.ollama = {
     enable = true;
     acceleration = "rocm";
-    package = outputs.packages.${pkgs.system}.ollama;
+    # package = outputs.packages.${pkgs.system}.ollama;
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
       OLLAMA_KEEP_ALIVE = "60m";

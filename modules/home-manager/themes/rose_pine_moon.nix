@@ -39,6 +39,11 @@ rec {
     text2 = text;
   };
 
+  broot = {
+    tree = layer;
+    inherit bg accent;
+  };
+
   bar = {
     hover = layer;
     focus = {

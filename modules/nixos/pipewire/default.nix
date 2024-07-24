@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   # rtkit is optional but recommended
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

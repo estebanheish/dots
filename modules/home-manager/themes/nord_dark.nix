@@ -48,6 +48,11 @@ rec {
     text2 = text;
   };
 
+  broot = {
+    tree = accent2;
+    inherit bg accent;
+  };
+
   bar = {
     hover = layer;
     focus = {
@@ -66,7 +71,7 @@ rec {
       inactive = "rgb(${layer})";
     };
     group_border = {
-      active = accent2;
+      active = nord7;
       inactive = layer;
     };
     inherit text accent accent2 layer bg;

@@ -40,6 +40,11 @@ rec {
     inherit bg text2;
   };
 
+  broot = {
+    tree = layer;
+    inherit bg accent;
+  };
+
   bar = {
     hover = layer;
     focus = {

@@ -59,5 +59,10 @@
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
     wezterm.url = "github:wez/wezterm?dir=nix";
     teja.url = "github:estebanheish/teja";
+
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "master";
+    };
   };
 }

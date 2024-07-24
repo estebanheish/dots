@@ -22,10 +22,10 @@
       default = pkgs.mkShell {
         name = "nix";
         packages = with pkgs; [
-          nodePackages.pyright
-          (python311.withPackages (ps:
+          pyright
+          black
+          (python312.withPackages (ps:
             with ps; [
-              black
             ]))
         ];
       };

@@ -60,6 +60,7 @@ formatter = { command = 'prettier', args = ["--parser", "css"] }
 [[language]]
 name = "javascript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+language-servers = ["typescript-language-server"]
 auto-format = true
 
 [[language]]
@@ -70,4 +71,10 @@ auto-format = true
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "svelte"
+formatter = { command = 'prettier', args = ["--parser", "svelte"] }
+file-types = ["svelte"]
 auto-format = true

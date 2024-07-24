@@ -13,11 +13,11 @@ in {
   xdg.configFile."broot/skins/auto.hjson".text = ''
     {
         skin: {
-            default: "${f args.theme.bg "gray(22)"} None  / gray(20) None"
-            tree: "${f args.theme.layer "gray(8)"} None  / gray(4) None"
+            default: "${f args.theme.broot.bg "gray(22)"} None  / gray(20) None"
+            tree: "${f args.theme.broot.tree "gray(8)"} None  / gray(4) None"
             parent: gray(18) None  / gray(13) None
             file: gray(22) None  / gray(15) None
-            directory: "${f args.theme.accent "ansi(110)"} None bold / ${f args.theme.accent "ansi(110)"} None"
+            directory: "${f args.theme.broot.accent "ansi(110)"} None bold / ${f args.theme.accent "ansi(110)"} None"
             exe: Cyan None
             link: Magenta None
             pruning: gray(12) None Italic

@@ -18,7 +18,7 @@
     ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     ../../modules/nixos/nh
-    ../../modules/nixos/hostsfile
+    # ../../modules/nixos/hostsfile
   ];
 
   _module.args.theme = import ../../modules/home-manager/themes/nord_dark.nix;
