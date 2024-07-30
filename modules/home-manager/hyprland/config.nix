@@ -83,7 +83,11 @@ in
       then "0"
       else "10"
     }
-          border_size = 3
+          border_size = ${
+      if theme.flat
+      then "2"
+      else "3"
+    }
           no_border_on_floating = false
 
           allow_tearing = false

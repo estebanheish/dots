@@ -14,6 +14,7 @@ alias ll = ls -l
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
+alias empty_trash = rm -rp ~/.local/share/Trash/*
 
 # NixOS
 alias rebuild = doas nixos-rebuild switch --flake ~/.dots
@@ -41,6 +42,7 @@ def install [--flake (-f): string = "nixpkgs", ...pkgs] {
 # yt-dlp
 alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
 alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
+def ffix [f: string] {ffmpeg -i $f -c copy ($f | str substring 0..-6)}
 
 def transmission-remove [] { transmission-remote -l | detect columns | where Done == "100%" | get ID | transmission-remote -t $in -r }
 

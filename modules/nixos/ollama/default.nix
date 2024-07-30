@@ -18,7 +18,7 @@
     };
   };
 
-  environment.systemPackages = [inputs.teja.packages.${pkgs.system}.default];
+  environment.systemPackages = [inputs.reja.packages.${pkgs.system}.default];
 
   # https://github.com/NixOS/nixpkgs/pull/325224
   # services.open-webui = {

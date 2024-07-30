@@ -14,7 +14,8 @@ config.window_close_confirmation = 'NeverPrompt'
 config.keys = {
   { key = 'Enter', mods = 'ALT', action = act.DisableDefaultAssignment },
   { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-  { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
+  { key = 'Escape', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
+  -- { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
   { key = 'E', mods = 'CTRL', action = act.ActivateTabRelative(-1) },
   { key = 'N', mods = 'CTRL', action = act.ActivateTabRelative(1) },
   { key = 'H', mods = 'CTRL', action = act.ActivateTabRelative(-1) },

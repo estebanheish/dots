@@ -36,7 +36,7 @@ rec {
   nord14 = "a3be8c";
   nord15 = "b48ead";
 
-  flat = false;
+  flat = true;
 
   menu = {
     focus = {

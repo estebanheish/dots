@@ -1,52 +1,89 @@
 {
-  inputs,
+  user,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
-    ../common.nix
-    inputs.raspberry-pi-nix.nixosModules.raspberry-pi
+    ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
 
-    ../../modules/nixos/hostsfile
-    ../../modules/nixos/qbittorrent-service
+    ../common.nix
+    ../../modules/nixos/pipewire
+    ../../modules/nixos/hyprland
+    ../../modules/nixos/nh
+    # ../../modules/nixos/hostsfile
   ];
 
+  _module.args.theme = import ../../modules/home-manager/themes/nord_dark.nix;
+
+  home-manager.users.${user} = {
+    imports = [
+      # ../../modules/home-manager/pkgs-lists/lsps.nix
+      ../../modules/home-manager/pkgs-lists/downloads.nix
+      ../../modules/home-manager/pkgs-lists/fancy.nix
+      ../../modules/home-manager/pkgs-lists/archives.nix
+    ];
+
+    home.packages = with pkgs; [
+      # helvum
+      # easyeffects
+      # obs-studio
+
+      # tdesktop
+      # vesktop
+
+      # spotify
+      # bitwarden
+      # bitwarden-cli
+
+      # libreoffice
+      # gimp
+      # inkscape
+
+      logseq
+
+      # rustup
+      # linuxKernel.packages.linux_zen.perf
+
+      # typst
+    ];
+  };
+
+  networking.hostName = "rivet";
   console.keyMap = "colemak";
 
-  environment.systemPackages = with pkgs; [
-    raspberrypi-eeprom
+  fonts.packages = with pkgs; [
+    # cascadia-code
+    ubuntu_font_family
+    martian-mono
   ];
 
-  networking = {
-    hostName = "rivet";
-    useDHCP = false;
-    interfaces = {
-      wlan0.useDHCP = true;
-      end0.useDHCP = true;
-    };
-    wireless.iwd.enable = true;
-  };
+  # networking
+  hardware.bluetooth.enable = true;
+  networking.wireless.iwd.enable = true;
+  # networking.firewall = {
+  #   allowedTCPPorts = [
+  #     22
+  #     8000
+  #     8080
+  #   ];
+  #   allowedUDPPorts = [
+  #     1900
+  #   ];
+  # };
 
-  hardware = {
-    bluetooth.enable = true;
-    raspberry-pi = {
-      config = {
-        all = {
-          base-dt-params = {
-            krnbt = {
-              enable = true;
-              value = "on";
-            };
-          };
-        };
-      };
-    };
-  };
-
+  # services
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings.PasswordAuthentication = true;
   };
+  programs.ssh.startAgent = true;
 
-  nixpkgs.hostPlatform = "aarch64-linux";
+  # boot
+  boot.supportedFilesystems = ["ntfs"];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  nixpkgs.hostPlatform.system = "x86_64-linux";
 }

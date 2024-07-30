@@ -36,6 +36,7 @@
       nyx = mkNixos "heis" [./hosts/nyx];
       clank = mkNixos "heis" [./hosts/clank];
       rivet = mkNixos "heis" [./hosts/rivet];
+      wololo = mkNixos "heis" [./hosts/wololo];
       grape = mkNixos "heis" [./hosts/grape];
       lemon = mkNixos "heis" [./hosts/lemon];
     };
@@ -58,7 +59,7 @@
 
     raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    teja.url = "github:estebanheish/teja";
+    reja.url = "github:estebanheish/reja";
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
