@@ -10,7 +10,7 @@
         hostname = "192.168.18.3";
         user = "heis";
       };
-      "rivet" = {
+      "wololo" = {
         hostname = "192.168.18.4";
         user = "heis";
       };
@@ -24,6 +24,10 @@
       };
       "lemon" = {
         hostname = "192.168.18.7";
+        user = "heis";
+      };
+      "rivet" = {
+        hostname = "192.168.18.10";
         user = "heis";
       };
     };
