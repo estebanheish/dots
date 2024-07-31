@@ -19,34 +19,22 @@
 
   home-manager.users.${user} = {
     imports = [
-      # ../../modules/home-manager/pkgs-lists/lsps.nix
+      ../../modules/home-manager/pkgs-lists/lsps.nix
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
     ];
 
     home.packages = with pkgs; [
-      # helvum
-      # easyeffects
-      # obs-studio
+      tdesktop
+      vesktop
 
-      # tdesktop
-      # vesktop
-
-      # spotify
+      spotify
       # bitwarden
       # bitwarden-cli
 
-      # libreoffice
-      # gimp
-      # inkscape
-
       logseq
-
-      # rustup
-      # linuxKernel.packages.linux_zen.perf
-
-      # typst
+      typst
     ];
   };
 

@@ -2,6 +2,7 @@
   pkgs,
   theme,
   profile,
+  osConfig,
   # inputs,
   ...
 }: {
@@ -44,6 +45,11 @@
     ++ (
       if builtins.hasAttr "wall" theme.hyprland
       then [hyprpaper]
+      else []
+    )
+    ++ (
+      if osConfig.networking.hostName == "rivet"
+      then [brightnessctl]
       else []
     );
 

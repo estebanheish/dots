@@ -228,6 +228,10 @@ in
       bind = SUPER, s, exec, tts
       bind = SUPERSHIFT, s, exec, tts --mpv
 
+      # backlight
+      binde = , XF86MonBrightnessUp, exec, brightnessctl set +10%
+      binde = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
+
       bind = SUPER, equal, exec, hyprctl --batch "keyword general:gaps_in 0 ; keyword general:gaps_out 0"
       bind = SUPERSHIFT, equal, exec, hyprctl --batch "keyword general:gaps_in 5 ; keyword general:gaps_out 10"
 

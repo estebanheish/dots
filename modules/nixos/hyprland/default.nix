@@ -1,7 +1,7 @@
 {
   pkgs,
   user,
-  inputs,
+  # inputs,
   ...
 }: {
   environment.localBinInPath = true;
