@@ -7,6 +7,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     ../common.nix
     ../../modules/nixos/pipewire
