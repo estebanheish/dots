@@ -10,6 +10,7 @@
     ../common.nix
     ../../modules/nixos/hyprland
     ../../modules/nixos/pipewire
+    ../../modules/nixos/bluetooth
     ../../modules/nixos/silent-boot
   ];
 
@@ -36,7 +37,6 @@
   hardware.sane.extraBackends = [pkgs.sane-airscan];
 
   # networking
-  hardware.bluetooth.enable = true;
   networking.wireless.iwd.enable = true;
   networking.useNetworkd = true;
   systemd.network.enable = true;

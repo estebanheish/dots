@@ -9,6 +9,7 @@
 
     ../common.nix
     ../../modules/nixos/pipewire
+    ../../modules/nixos/bluetooth
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
     ../../modules/nixos/hyprland
@@ -71,7 +72,6 @@
   ];
 
   # networking
-  hardware.bluetooth.enable = true;
   networking.wireless.iwd.enable = true;
   # networking.firewall = {
   #   allowedTCPPorts = [

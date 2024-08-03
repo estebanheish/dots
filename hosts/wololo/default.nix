@@ -8,6 +8,7 @@
     inputs.raspberry-pi-nix.nixosModules.raspberry-pi
 
     ../../modules/nixos/hostsfile
+    ../../modules/nixos/bluetooth
     ../../modules/nixos/qbittorrent-service
   ];
 
@@ -28,7 +29,6 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
     raspberry-pi = {
       config = {
         all = {

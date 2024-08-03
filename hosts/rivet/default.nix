@@ -11,6 +11,7 @@
 
     ../common.nix
     ../../modules/nixos/pipewire
+    ../../modules/nixos/bluetooth
     ../../modules/nixos/hyprland
     ../../modules/nixos/nh
     # ../../modules/nixos/hostsfile
@@ -49,7 +50,6 @@
   ];
 
   # networking
-  hardware.bluetooth.enable = true;
   networking.wireless.iwd.enable = true;
   # networking.firewall = {
   #   allowedTCPPorts = [
