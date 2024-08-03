@@ -48,6 +48,9 @@
     initialPassword = "hola";
     shell = pkgs.nushell;
     extraGroups = ["wheel" "audio" "video"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA0fkLNNFP4Aj+CnpbpLq/uT96TZpiKKeGGtaH+9jK+ estebanheish@gmail.com"
+    ];
   };
   users.users.root.initialPassword = "hola";
 
