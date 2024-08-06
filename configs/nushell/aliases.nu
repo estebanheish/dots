@@ -54,3 +54,4 @@ alias lg = lazygit
 def wt [name: string] { wezterm cli set-tab-title $name }
 
 alias pa = playerctl --all-players pause
+alias bt = bluetuith
