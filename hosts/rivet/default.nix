@@ -14,6 +14,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/hyprland
     ../../modules/nixos/nh
+    ../../modules/nixos/syncthing
     # ../../modules/nixos/hostsfile
   ];
 
