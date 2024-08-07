@@ -8,7 +8,7 @@ config.enable_scroll_bar = true
 config.font =  wezterm.font 'Ubuntu Mono'
 config.font_size = 16
 config.color_scheme = 'nord'
-config.front_end = "WebGpu"
+config.front_end = "WebGPu"
 config.window_close_confirmation = 'NeverPrompt'
 
 config.keys = {

@@ -18,7 +18,7 @@
     # ../../modules/nixos/hostsfile
   ];
 
-  _module.args.theme = import ../../modules/home-manager/themes/nord_dark.nix;
+  _module.args.theme = import ../../modules/home-manager/themes/rose_pine.nix;
 
   home-manager.users.${user} = {
     imports = [

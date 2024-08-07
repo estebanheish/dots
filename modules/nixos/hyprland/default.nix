@@ -36,6 +36,12 @@
     # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    xdgOpenUsePortal = true;
+  };
+
   home-manager.users.${user}.imports = [../../../modules/home-manager/hyprland];
 
   services.greetd = {

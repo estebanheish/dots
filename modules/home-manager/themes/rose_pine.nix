@@ -1,8 +1,8 @@
 rec {
   name = {
-    files = "rose_pine_moon";
-    wezterm = "Rosé Pine Moon (Gogh)";
-    helix = "rose_pine_moon";
+    files = "rose_pine";
+    wezterm = "rose-pine";
+    helix = "rose_pine";
   };
 
   bg = base;
@@ -13,23 +13,23 @@ rec {
   accent = text;
   accent2 = "9ccfd8";
 
-  base = "232136";
-  surface = "2a273f";
-  overlay = "393552";
+  base = "191724";
+  surface = "1f1d2e";
+  overlay = "26233a";
   muted = "6e6a86";
   subtle = "908caa";
   text = "e0def4";
   love = "eb6f92";
   gold = "f6c177";
-  rose = "ea9a97";
-  pine = "3e8fb0";
+  rose = "ebbcba";
+  pine = "31748f";
   foam = "9ccfd8";
   iris = "c4a7e7";
-  hl_low = "2a283e";
-  hl_med = "44415a";
-  hl_high = "56526e";
+  hl_low = "21202e";
+  hl_med = "403d52";
+  hl_high = "524f67";
 
-  flat = false;
+  flat = true;
 
   menu = {
     focus = {
@@ -57,7 +57,7 @@ rec {
   };
 
   hyprland = {
-    wall = "jase_bloor.jpg";
+    wall = "nix_nineish_dark.png";
     border = {
       active = "rgb(${iris}) rgb(${love}) 45deg";
       # active = "rgb(${accent})";

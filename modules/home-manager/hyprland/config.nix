@@ -197,7 +197,7 @@ in
       windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
       windowrulev2 = center, class:^(firefox)$
 
-      $terminal = wezterm # XCURSOR_SIZE=24 foot
+      $terminal = XCURSOR_SIZE=24 foot # wezterm
       $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
       $dmenu = tofi -c ~/.config/tofi/config_dmenu
       $lmenu = tofi -c ~/.config/tofi/config_list
