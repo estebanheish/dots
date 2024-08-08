@@ -57,7 +57,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
+    raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
     wezterm.url = "github:wez/wezterm?dir=nix";
     reja.url = "github:estebanheish/reja";
 
