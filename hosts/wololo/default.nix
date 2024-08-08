@@ -12,6 +12,7 @@
     ../../modules/nixos/qbittorrent-service
     ../../modules/nixos/dlna
   ];
+  _module.args.theme = import ../../modules/home-manager/themes/rose_pine.nix;
 
   console.keyMap = "colemak";
 
@@ -28,6 +29,8 @@
     };
     wireless.iwd.enable = true;
   };
+
+  raspberry-pi-nix.board = "bcm2712";
 
   hardware = {
     raspberry-pi = {
