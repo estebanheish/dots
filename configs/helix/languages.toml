@@ -77,4 +77,9 @@ auto-format = true
 name = "svelte"
 formatter = { command = 'prettier', args = ["--parser", "svelte"] }
 file-types = ["svelte"]
+language-servers = [
+  "svelteserver",
+  "tailwindcss-ls",
+  "typescript-language-server",
+]
 auto-format = true
