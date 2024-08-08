@@ -39,6 +39,10 @@ def install [--flake (-f): string = "nixpkgs", ...pkgs] {
   nix profile install ...($pkgs | each {|pkg| $"($flake)#($pkg)"})
 }
 
+def install-unfree [--flake (-f): string = "nixpkgs", ...pkgs] {
+  NIXPKGS_ALLOW_UNFREE=1 nix profile install ...($pkgs | each {|pkg| $"($flake)#($pkg)"}) --impure
+}
+
 # yt-dlp
 alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
 alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
