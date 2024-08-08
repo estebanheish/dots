@@ -10,6 +10,7 @@
     ../../modules/nixos/hostsfile
     ../../modules/nixos/bluetooth
     ../../modules/nixos/qbittorrent-service
+    ../../modules/nixos/dlna
   ];
 
   console.keyMap = "colemak";

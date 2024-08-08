@@ -4,7 +4,7 @@
     openFirewall = true;
     settings = {
       friendly_name = "SHH DLNA SERVER";
-      media_dir = ["/mnt/data/media/"];
+      media_dir = ["/mnt/data/"];
       inotify = "yes";
     };
   };
