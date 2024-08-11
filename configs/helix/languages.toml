@@ -77,9 +77,7 @@ auto-format = true
 name = "svelte"
 formatter = { command = 'prettier', args = ["--parser", "svelte"] }
 file-types = ["svelte"]
-language-servers = [
-  "svelteserver",
-  "tailwindcss-ls",
-  "typescript-language-server",
-]
+language-servers = ["tailwindcss-ls", "svelteserver"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+comment-tokens = "//"
 auto-format = true

@@ -162,7 +162,7 @@ in
           disable_splash_rendering = yes
           disable_autoreload = yes
           enable_swallow = yes
-          swallow_regex = ^(org.wezfurlong.wezterm)$
+          swallow_regex = ^(foot)$
           swallow_exception_regex = ^(noswallow)$
           mouse_move_enables_dpms = true
           new_window_takes_over_fullscreen = 2
@@ -174,10 +174,13 @@ in
       }
 
       group {
-        col.border_inactive = rgb(${group_border.inactive})
-        col.border_active = rgb(${group_border.active})
+        col.border_active = ${border.active}
+        col.border_inactive = ${border.inactive}
         groupbar {
-          enabled = false
+          enabled = true
+          text_color = rgb(${groupbar.text})
+          col.active = rgb(${groupbar.active})
+          col.inactive = rgb(${groupbar.inactive})
         }
       }
 
@@ -308,12 +311,12 @@ in
 
       # open stuff
       # bind=SUPER_SHIFT,w,exec,qutebrowser
-      bind = SUPER, x, exec, $terminal start -- btm
-      bind = SUPER, c, exec, $terminal start -- ncmpcpp
+      bind = SUPER, x, exec, $terminal btm
+      bind = SUPER, c, exec, $terminal ncmpcpp
 
       # audio
-      bind = SUPER, a, exec, $terminal start -- pulsemixer
-      bind = SUPERSHIFT, a, exec, $terminal start -- alsamixer
+      bind = SUPER, a, exec, $terminal pulsemixer
+      bind = SUPERSHIFT, a, exec, $terminal alsamixer
       binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
       binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
       bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle

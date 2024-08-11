@@ -63,9 +63,10 @@ rec {
       # active = "rgb(${accent})";
       inactive = "rgb(${layer})";
     };
-    group_border = {
-      active = accent2;
-      inactive = layer;
+    groupbar = {
+      active = overlay;
+      inactive = surface;
+      inherit text;
     };
     inherit text accent accent2 layer bg;
   };
