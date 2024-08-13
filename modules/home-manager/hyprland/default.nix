@@ -10,7 +10,7 @@
     ../foot
     # ../wezterm
     ../mpv
-    ../ironbar
+    # ../ironbar
     ../xdg
     ../zathura
     ../mpd

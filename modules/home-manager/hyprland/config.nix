@@ -19,8 +19,10 @@ in
     ${
       if profile == "clank"
       then ''
-        monitor = DP-3, 2560x1440@240.00Hz, 0x0, 1
-        monitor = HDMI-A-1, preferred, 2560x0, 1.5
+        # monitor = DP-3, 2560x1440@240.00Hz, 0x0, 1
+        # monitor = HDMI-A-1, preferred, 2560x0, 1.5
+        monitor = DP-4, 2560x1440@240.00Hz, 0x0, 1
+        monitor = HDMI-A-2, preferred, 2560x0, 1.5
       ''
       else ""
     }
@@ -122,7 +124,11 @@ in
           # col.shadow_inactive = rgb(1c252c)
 
         blur {
-          enabled = true
+          enabled = ${
+      if theme.flat
+      then "false"
+      else "true"
+    }
           size = 8 # minimum 1
           passes = 3 # minimum 1
           new_optimizations = 1
@@ -351,7 +357,7 @@ in
       exec-once = wl-paste --watch cliphist store
       # exec-once = swayidle -w timeout 300 'wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1; swaylock -f' timeout 310 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
       exec-once = hypridle
-      exec-once = ironbar
+      # exec-once = ironbar
       exec-once = swaync
 
       # environment variables
