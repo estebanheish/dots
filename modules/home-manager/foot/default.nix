@@ -3,16 +3,17 @@
     # foot
     # ubuntu_font_family
     # cascadia-code
-    martian-mono
+    monaspace
+    # martian-mono
   ];
   programs.foot = {
     enable = true;
     settings = {
       main = {
-        font = "Martian Mono Std Md:size=12:style=Semibold";
-        font-bold = "Martian Mono Std Md:size=12:style=Bold";
-        font-italic = "Martian Mono Std Md:size=12:style=Italic";
-        font-bold-italic = "Martian Mono Std Md:size=12:style=BoldItalic";
+        font = "Monaspace Neon:size=14";
+        font-bold = "Monaspace Neon:size=14:style=Bold";
+        font-italic = "Monaspace Neon:size=14:style=BoldItalic";
+        font-bold-italic = "Monaspace Neon:size=14:style=Italic";
         pad = "12x7";
         dpi-aware = "yes";
       };
