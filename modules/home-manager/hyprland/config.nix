@@ -223,7 +223,7 @@ in
       bind = SUPER, v, exec, cliphist list | $lmenu | cliphist decode | wl-copy
       bind = SUPER, Tab, fullscreen, 0
       bind = SUPERSHIFT, Tab, togglefloating,
-      bind = ALT, Tab, fakefullscreen
+      bind = ALT, Tab, fullscreenstate, -1 2
       bind = SUPER, XF86Reload, exec, hyprctl reload
       bind = SUPERSHIFT, XF86Reload, forcerendererreload,
       bind = SUPERSHIFTALT, XF86Reload, exit,

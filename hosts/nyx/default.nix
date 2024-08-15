@@ -17,7 +17,7 @@
     # ../../modules/nixos/dlna
     ../../modules/nixos/superlight
     ../../modules/nixos/docker
-    ../../modules/nixos/quickemu
+    # ../../modules/nixos/quickemu
     # ../../modules/nixos/steam
   ];
 

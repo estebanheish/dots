@@ -17,7 +17,7 @@
     ../../modules/nixos/superlight
     ../../modules/nixos/distrobox
     ../../modules/nixos/ollama
-    ../../modules/nixos/quickemu
+    # ../../modules/nixos/quickemu
     ../../modules/nixos/nh
     ../../modules/nixos/syncthing
     # ../../modules/nixos/hostsfile

@@ -3,9 +3,9 @@
     enable = true;
     userName = "estebanheish";
     userEmail = "estebanheish@gmail.com";
-    delta = {
-      enable = true;
-    };
+    # delta = {
+    #   enable = true;
+    # };
     aliases = {
       s = "status";
       d = "diff";

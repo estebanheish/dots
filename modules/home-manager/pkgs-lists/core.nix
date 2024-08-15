@@ -8,7 +8,7 @@
     tmate
     zoxide
     bat
-    delta
+    # delta
     duf
     du-dust
     fd
