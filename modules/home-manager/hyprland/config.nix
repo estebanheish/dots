@@ -3,8 +3,8 @@
   profile,
   ...
 }: let
-  main = "HDMI-A-1"; # LG Electronics LG HDR 4K 204NTGYHG007";
-  secondary = "DP-3"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
+  main = "HDMI-A-2"; # LG Electronics LG HDR 4K 204NTGYHG007";
+  secondary = "DP-4"; # "LG Electronics LG ULTRAWIDE 0x00009E0B";
 in
   with theme.hyprland; ''
       # outputs
@@ -35,16 +35,22 @@ in
       # monitor = desc:BNQ ZOWIE XL LCD XBG00968SL0, 1920x1080@240Hz, 0x0, 1
 
       # worskpace binds
-      workspace = 1, monitor:${main}, default:true
-      workspace = 2, monitor:${main}
-      workspace = 3, monitor:${main}
-      workspace = 4, monitor:${main}
-      workspace = 5, monitor:${main}
-      workspace = 6, monitor:${main}
+      ${
+      if profile == "clank"
+      then ''
+        workspace = 1, monitor:${main}, default:true
+        workspace = 2, monitor:${main}
+        workspace = 3, monitor:${main}
+        workspace = 4, monitor:${main}
+        workspace = 5, monitor:${main}
+        workspace = 6, monitor:${main}
 
-      workspace = 7, monitor:${secondary}
-      workspace = 8, monitor:${secondary}
-      workspace = 9, monitor:${secondary}, default:true
+        workspace = 7, monitor:${secondary}
+        workspace = 8, monitor:${secondary}
+        workspace = 9, monitor:${secondary}, default:true
+      ''
+      else ""
+    }
 
       input {
           kb_layout = us, es

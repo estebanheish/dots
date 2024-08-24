@@ -14,7 +14,7 @@
         font-bold = "Monaspace Neon:size=14:style=Bold";
         font-italic = "Monaspace Neon:size=14:style=BoldItalic";
         font-bold-italic = "Monaspace Neon:size=14:style=Italic";
-        pad = "12x7";
+        # pad = "12x7";
         dpi-aware = "yes";
       };
 

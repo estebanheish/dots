@@ -81,3 +81,8 @@ language-servers = ["tailwindcss-ls", "svelteserver"]
 block-comment-tokens = { start = "<!--", end = "-->" }
 comment-tokens = "//"
 auto-format = true
+
+[[language]]
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true

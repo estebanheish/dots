@@ -15,6 +15,12 @@
         border_symbol = " ";
       };
     };
+    settings = {
+      preview = {
+        max_width = 2160;
+        max_heigh = 2160;
+      };
+    };
   };
   xdg.configFile."yazi/init.lua".text = ''
     require("session"):setup {

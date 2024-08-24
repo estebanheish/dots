@@ -30,7 +30,7 @@
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = import ./overlays {inherit inputs;};
-    packages = forAllSystems (system: import ./pkgs inputs.master.legacyPackages.${system});
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
     nixosConfigurations = {
       nyx = mkNixos "heis" [./hosts/nyx];
