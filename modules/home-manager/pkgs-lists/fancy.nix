@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     # file sync
     rsync
@@ -6,7 +10,7 @@
     restic
 
     # video/audio processing
-    ffmpeg_7-full
+    inputs.master.legacyPackages.${pkgs.system}.ffmpeg_7-full
     imagemagick
 
     # basic utils

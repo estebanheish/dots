@@ -1,6 +1,4 @@
 alias sudo = doas
-alias lfcd = cd (_lfcd_cmd)
-
 alias ka = killall
 alias e = ^$env.EDITOR
 alias v = ^$env.EDITOR
@@ -44,9 +42,27 @@ def install-unfree [--flake (-f): string = "nixpkgs", ...pkgs] {
 }
 
 # yt-dlp
-alias ytda = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
-alias ytdv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
+alias yta = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
+alias ytv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
+alias yt = yt-dlp (wl-paste)
 def ffix [f: string] {ffmpeg -i $f -c copy ($f | str substring 0..-6)}
+def to_av1 [original: string, --crf: int = 35, --rename_old (-r)] {
+  let av1_filename = $original | path parse | update stem {|o| $o.stem + "_av1"} | update extension "mkv" | path join
+  if ($av1_filename | path exists) {
+    print "already converted"
+    return
+  }
+  (ffmpeg 
+    -i $original 
+    -c:v libsvtav1 
+    -crf $crf
+    -preset 3 
+    $av1_filename)
+  if $rename_old {
+    let new_original = $original | path parse | update stem {|o| $o.stem + "_original"} | path join
+    mv $original $new_original
+  }
+}
 
 def transmission-remove [] { transmission-remote -l | detect columns | where Done == "100%" | get ID | transmission-remote -t $in -r }
 
@@ -59,3 +75,10 @@ def wt [name: string] { wezterm cli set-tab-title $name }
 
 alias pa = playerctl --all-players pause
 alias bt = bluetuith
+
+def cas [file: path] { 
+  let stem = ($file | path parse | get stem); 
+  as $file -o $"($stem).o"; ld $"($stem).o" -o $stem
+}
+
+def flattenfolder [] { glob */** -D | each {|f| mv $f . | ignore} } 

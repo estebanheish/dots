@@ -1,7 +1,11 @@
 {inputs, ...}: {
-  disabledModules = ["services/misc/ollama.nix"];
+  disabledModules = [
+    # "services/misc/ollama.nix"
+    # "services/misc/open-webui.nix"
+  ];
   imports = [
-    "${inputs.master}/nixos/modules/services/misc/ollama.nix"
+    # "${inputs.master}/nixos/modules/services/misc/ollama.nix"
+    # "${inputs.master}/nixos/modules/services/misc/open-webui.nix"
   ];
 
   services.ollama = {
@@ -10,7 +14,7 @@
     # package = outputs.packages.${pkgs.system}.ollama;
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
-      OLLAMA_KEEP_ALIVE = "60m";
+      OLLAMA_KEEP_ALIVE = "15m";
     };
   };
 

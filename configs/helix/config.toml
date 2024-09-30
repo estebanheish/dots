@@ -50,3 +50,6 @@ M = "goto_window_center"
 L = "goto_window_bottom"
 G = "goto_file_end"
 Z = { Z = ":wq", Q = ":q!" }
+
+[keys.normal."space"]
+H = ":toggle lsp.display-inlay-hints"

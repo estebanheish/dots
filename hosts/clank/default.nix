@@ -17,7 +17,7 @@
     ../../modules/nixos/superlight
     ../../modules/nixos/distrobox
     ../../modules/nixos/ollama
-    # ../../modules/nixos/quickemu
+    ../../modules/nixos/quickemu
     ../../modules/nixos/nh
     ../../modules/nixos/syncthing
     # ../../modules/nixos/hostsfile
@@ -54,7 +54,7 @@
       logseq
 
       # rustup
-      linuxKernel.packages.linux_zen.perf
+      # linuxKernel.packages.linux_zen.perf
 
       typst
       nvtopPackages.amd
@@ -62,6 +62,9 @@
       zed-editor
     ];
   };
+
+  programs.steam.enable = true;
+  hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
 
   networking.hostName = "clank";
 

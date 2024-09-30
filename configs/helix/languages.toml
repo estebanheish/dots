@@ -86,3 +86,15 @@ auto-format = true
 name = "lua"
 formatter = { command = "stylua", args = ["-"] }
 auto-format = true
+
+[language-server.deno]
+command = "deno"
+args = ["lsp"]
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "tsx"
+language-servers = ["deno", "typescript-language-server", "emmet-lsp"]

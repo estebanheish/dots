@@ -7,12 +7,7 @@
     self,
     nixpkgs,
   }: let
-    allSystems = [
-      "x86_64-linux" # 64bit AMD/Intel x86
-      "aarch64-linux" # 64bit ARM Linux
-      "x86_64-darwin" # 64bit AMD/Intel macOS
-      "aarch64-darwin" # 64bit ARM macOS
-    ];
+    allSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
 
     forAllSystems = fn:
       nixpkgs.lib.genAttrs allSystems

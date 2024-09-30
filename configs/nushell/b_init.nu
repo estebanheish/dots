@@ -52,6 +52,8 @@ $env.config.hooks.pre_prompt ++= { ||
     direnv export json | from json | default {} | load-env
 }
 
+$env.EDITOR = "hx"
+
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/broot.nu
 source ~/.config/nushell/lf.nu
