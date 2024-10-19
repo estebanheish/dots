@@ -22,10 +22,10 @@ with theme.hyprland; ''
   ${
     if profile == "clank"
     then ''
-      # $main = HDMI-A-1
-      # $secondary = DP-3
-      $main = HDMI-A-2
-      $secondary = DP-4
+      $main = HDMI-A-1
+      $secondary = DP-3
+      # $main = HDMI-A-2
+      # $secondary = DP-4
       monitor = $secondary, 2560x1440@240.00Hz, 0x0, 1
       monitor = $main, preferred, 2560x0, 1.5
 
@@ -201,6 +201,7 @@ with theme.hyprland; ''
     windowrulev2 = workspace 4, class:^(Logseq)$
     windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
     windowrulev2 = center, class:^(firefox)$
+    windowrulev2 = workspace:8, fullscreen, immediate, class:^(steam_app_.*)$
 
     $terminal = XCURSOR_SIZE=24 foot # wezterm
     $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu

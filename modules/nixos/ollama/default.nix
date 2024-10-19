@@ -8,11 +8,11 @@
     "services/misc/open-webui.nix"
   ];
   imports = [
-    "${inputs.master}/nixos/modules/services/misc/ollama.nix"
-    "${inputs.stable}/nixos/modules/services/misc/open-webui.nix"
+    "${inputs.nixpkgs-master}/nixos/modules/services/misc/ollama.nix"
+    "${inputs.nixpkgs-stable}/nixos/modules/services/misc/open-webui.nix"
   ];
 
-  # environment.systemPackages = [inputs.master.legacyPackages.${pkgs.system}.lsp-ai];
+  # environment.systemPackages = [pkgs.master.lsp-ai];
 
   services.ollama = {
     enable = true;
@@ -32,6 +32,6 @@
       OLLAMA_API_BASE_URL = "http://localhost:11434";
       WEBUI_AUTH = "False";
     };
-    package = inputs.stable.legacyPackages.${pkgs.system}.open-webui;
+    package = pkgs.stable.open-webui;
   };
 }

@@ -20,6 +20,7 @@
     ../../modules/nixos/quickemu
     ../../modules/nixos/nh
     ../../modules/nixos/syncthing
+    ../../modules/nixos/steam
     # ../../modules/nixos/hostsfile
   ];
 
@@ -63,7 +64,6 @@
     ];
   };
 
-  programs.steam.enable = true;
   hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
 
   networking.hostName = "clank";

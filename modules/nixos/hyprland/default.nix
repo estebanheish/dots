@@ -27,7 +27,7 @@
   };
 
   # disabledModules = ["programs/wayland/hyprland.nix"];
-  # imports = ["${inputs.master}/nixos/modules/programs/wayland/hyprland.nix"];
+  # imports = ["${inputs.nixpkgs-master}/nixos/modules/programs/wayland/hyprland.nix"];
 
   programs.hyprland = {
     enable = true;
