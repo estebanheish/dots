@@ -6,6 +6,8 @@
     nil
     alejandra
     taplo
+    vscode-langservers-extracted
+    nodePackages_latest.prettier
     # nodePackages.typescript-language-server
     # nodePackages.pyright
     # vls

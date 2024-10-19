@@ -3,7 +3,7 @@
   theme,
   profile,
   osConfig,
-  # inputs,
+  inputs,
   ...
 }: {
   imports = [

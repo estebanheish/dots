@@ -38,7 +38,7 @@
     home.packages = with pkgs; [
       # helvum
       # easyeffects
-      # obs-studio
+      obs-studio
 
       tdesktop
       vesktop

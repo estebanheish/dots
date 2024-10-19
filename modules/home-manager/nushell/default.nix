@@ -39,7 +39,7 @@ in {
   xdg.configFile."nushell/plugins.nu".text = expand (s: "plugin add ${pkgs.nushellPlugins.${s}}/bin/nu_plugin_${s}") [
     "query"
     "polars"
-    # "net" # TODO
+    "net"
     "gstat"
     "formats"
   ];

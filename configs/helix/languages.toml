@@ -48,6 +48,11 @@ auto-format = true
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
+language-servers = [
+  "vscode-html-language-server",
+  "emmet-lsp",
+  "tailwindcss-ls",
+]
 
 [[language]]
 name = "json"
@@ -71,6 +76,12 @@ auto-format = true
 [[language]]
 name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+language-servers = [
+  "deno",
+  # "typescript-language-server",
+  "emmet-lsp",
+  "tailwindcss-ls",
+]
 auto-format = true
 
 [[language]]
@@ -94,7 +105,3 @@ args = ["lsp"]
 [language-server.emmet-lsp]
 command = "emmet-language-server"
 args = ["--stdio"]
-
-[[language]]
-name = "tsx"
-language-servers = ["deno", "typescript-language-server", "emmet-lsp"]
