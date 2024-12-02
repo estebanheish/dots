@@ -38,7 +38,9 @@
     lazygit
     # tealdeer
     jq
+    fx
     pup
     nethogs
+    # gitoxide
   ];
 }

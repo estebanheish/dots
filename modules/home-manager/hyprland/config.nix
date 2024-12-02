@@ -22,12 +22,13 @@ with theme.hyprland; ''
   ${
     if profile == "clank"
     then ''
-      $main = HDMI-A-1
-      $secondary = DP-3
-      # $main = HDMI-A-2
-      # $secondary = DP-4
+      # $main = HDMI-A-1
+      # $secondary = DP-3
+      $main = HDMI-A-2
+      $secondary = DP-4
       monitor = $secondary, 2560x1440@240.00Hz, 0x0, 1
       monitor = $main, preferred, 2560x0, 1.5
+      # monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, disable
 
       # worskpace binds
       workspace = 1, monitor:$main, default:true
@@ -90,7 +91,7 @@ with theme.hyprland; ''
   }
         no_border_on_floating = false
 
-        allow_tearing = false
+        allow_tearing = true
 
         col.active_border = ${border.active}
         col.inactive_border = ${border.inactive}
@@ -109,15 +110,18 @@ with theme.hyprland; ''
     else "10"
   }
 
-    drop_shadow = ${
+    shadow {
+
+    enabled = ${
     if theme.flat
     then "false"
     else "true"
   }
-        shadow_range = 20
-        shadow_render_power = 15
-        col.shadow = rgba(00000065)
-        # col.shadow_inactive = rgb(1c252c)
+        range = 20
+        render_power = 15
+        color = rgba(00000065)
+        # col.inactive = rgb(1c252c)
+    }
 
       blur {
         enabled = ${
@@ -151,7 +155,6 @@ with theme.hyprland; ''
     }
 
     master {
-        no_gaps_when_only = 1
         new_status = slave
     }
 
@@ -165,7 +168,7 @@ with theme.hyprland; ''
         disable_autoreload = yes
         enable_swallow = yes
         swallow_regex = ^(foot)$
-        swallow_exception_regex = ^(noswallow)$
+        # swallow_exception_regex = ^(noswallow)$
         mouse_move_enables_dpms = true
         new_window_takes_over_fullscreen = 2
         background_color = rgb(${bg})
@@ -201,7 +204,15 @@ with theme.hyprland; ''
     windowrulev2 = workspace 4, class:^(Logseq)$
     windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
     windowrulev2 = center, class:^(firefox)$
-    windowrulev2 = workspace:8, fullscreen, immediate, class:^(steam_app_.*)$
+    windowrulev2 = immediate, class:^(steam_app_1422450)$
+
+    # "smart gaps” / “no gaps when only"
+    workspace = w[tv1], gapsout:0, gapsin:0
+    workspace = f[1], gapsout:0, gapsin:0
+    windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+    windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+    windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+    windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
     $terminal = XCURSOR_SIZE=24 foot # wezterm
     $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
@@ -376,13 +387,14 @@ with theme.hyprland; ''
     # env = WLR_DRM_NO_ATOMIC,1
     # env = WLR_NO_HARDWARE_CURSORS,1
 
-    env = GDK_BACKEND, wayland
+    env = GDK_BACKEND,wayland,x11
     env = SDL_VIDEODRIVER,wayland
     env = CLUTTER_BACKEND,wayland
 
     env = QT_AUTO_SCREEN_SCALE_FACTOR,1
     env = QT_QPA_PLATFORM,wayland;xcb
     env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+    env = QT_QPA_PLATFORM,wayland;xcb
     env = QT_QPA_PLATFORMTHEME,qt5ct
 
     # cursors

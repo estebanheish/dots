@@ -3,14 +3,20 @@ wezterm -> "Solarized Dark (Gogh)"
 helix -> "solarized_dark"
 */
 rec {
+  name = {
+    files = "solarized_dark";
+    wezterm = "Solarized Dark - Patched";
+    helix = "solarized_dark";
+  };
+
   bg = base03;
   layer = base02;
 
   text = base0;
   text2 = base1;
 
-  accent = violet;
-  accent2 = green;
+  accent = green;
+  accent2 = blue;
 
   base03 = "002b36";
   base02 = "073642";
@@ -29,7 +35,7 @@ rec {
   cyan = "2aa198";
   green = "859900";
 
-  flat = false;
+  flat = true;
 
   menu = {
     focus = {
@@ -62,9 +68,10 @@ rec {
       active = "rgb(${accent})";
       inactive = "rgb(${layer})";
     };
-    group_border = {
+    groupbar = {
       active = accent2;
       inactive = layer;
+      inherit text;
     };
     inherit text accent accent2 layer bg;
   };

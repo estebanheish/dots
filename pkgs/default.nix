@@ -1,3 +1,3 @@
 pkgs: {
-  # example = pkgs.callPackage ./example { };
+  # example = pkgs.callPackage ./example {};
 }

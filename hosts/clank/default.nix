@@ -21,7 +21,8 @@
     ../../modules/nixos/nh
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
-    # ../../modules/nixos/hostsfile
+    ../../modules/nixos/nix-ld
+    ../../modules/nixos/hostsfile
   ];
 
   _module.args.theme = import ../../modules/home-manager/themes/rose_pine.nix;
@@ -61,6 +62,7 @@
       nvtopPackages.amd
 
       zed-editor
+      smartcat
     ];
   };
 
@@ -98,6 +100,7 @@
   boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
 }

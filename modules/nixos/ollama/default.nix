@@ -5,11 +5,11 @@
 }: {
   disabledModules = [
     "services/misc/ollama.nix"
-    "services/misc/open-webui.nix"
+    # "services/misc/open-webui.nix"
   ];
   imports = [
     "${inputs.nixpkgs-master}/nixos/modules/services/misc/ollama.nix"
-    "${inputs.nixpkgs-stable}/nixos/modules/services/misc/open-webui.nix"
+    # "${inputs.nixpkgs-stable}/nixos/modules/services/misc/open-webui.nix"
   ];
 
   # environment.systemPackages = [pkgs.master.lsp-ai];
@@ -18,6 +18,7 @@
     enable = true;
     acceleration = "rocm";
     # package = outputs.packages.${pkgs.system}.ollama;
+    package = pkgs.ollama;
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
       OLLAMA_KEEP_ALIVE = "15m";

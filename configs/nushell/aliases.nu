@@ -1,6 +1,6 @@
 alias sudo = doas
 alias ka = killall
-alias e = ^$env.EDITOR
+alias e = ^zeditor -n
 alias v = ^$env.EDITOR
 alias r = ^$env.READER
 alias o = ^$env.OPENER
@@ -9,6 +9,7 @@ alias q = qalc
 alias l = ls
 alias la = ls -a
 alias ll = ls -l
+alias zed = zeditor -n
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
@@ -19,13 +20,12 @@ alias rebuild = run0 nixos-rebuild switch --flake ~/.dots
 def garbage [] { nix-collect-garbage -d; run0 nix-collect-garbage -d }
 alias switch-to-config = run0 /run/current-system/bin/switch-to-configuration boot
 alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
-def npl [] = { nix profile list --json | (from json).elements | select attrPath originalUrl | rename pkg flake | update pkg { str substring 28.. } | update flake { str substring 6.. } }
+def npl [] { nix profile list --json | (from json).elements | columns }
 def remove [...pkgs: string] {
   if ($pkgs | is-empty) {
-    let pkgs = (nix profile list --json | (from json).elements.attrPath | str substring 28..)
-    nix profile remove ($pkgs | enumerate | move item --before index | transpose -r -d | get ($pkgs | input list -f))
+    nix profile remove (npl | input list)
   } else {
-    let selected = (nix profile list --json | (from json).elements.attrPath | filter {|a| $pkgs | any {|b| $a =~ $b}})
+    let selected = (npl | filter {|pkg| $pkgs | any {|b| $pkg =~ $b }})
     if not ($selected | is-empty) {
       nix profile remove ...$selected
     } else {
@@ -42,9 +42,10 @@ def install-unfree [--flake (-f): string = "nixpkgs", ...pkgs] {
 }
 
 # yt-dlp
-alias yta = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
+alias ytm = yt-dlp -x (wl-paste) -o "~/Music/%(title)s.%(ext)s" --audio-quality best
 alias ytv = yt-dlp (wl-paste) -o "~/Videos/%(title)s.%(ext)s"
 alias yt = yt-dlp (wl-paste)
+alias yta = yt-dlp -x (wl-paste) --audio-quality best
 def ffix [f: string] {ffmpeg -i $f -c copy ($f | str substring 0..-6)}
 def to_av1 [original: string, --crf: int = 35, --rename_old (-r)] {
   let av1_filename = $original | path parse | update stem {|o| $o.stem + "_av1"} | update extension "mkv" | path join
@@ -82,3 +83,5 @@ def cas [file: path] {
 }
 
 def flattenfolder [] { glob */** -D | each {|f| mv $f . | ignore} } 
+
+alias deadlock = steam steam://rungameid/1422450
