@@ -25,7 +25,7 @@
     ../../modules/nixos/hostsfile
   ];
 
-  _module.args.theme = import ../../modules/home-manager/themes/rose_pine.nix;
+  _module.args.theme = import ../../modules/home-manager/themes/gruvbox.nix;
 
   home-manager.users.${user} = {
     imports = [

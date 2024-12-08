@@ -49,25 +49,48 @@
       # };
 
       # rose pine
+      #   colors = {
+      #     background = "191724";
+      #     foreground = "e0def4";
+      #     regular0 = "26233a";
+      #     regular1 = "eb6f92";
+      #     regular2 = "31748f";
+      #     regular3 = "f6c177";
+      #     regular4 = "9ccfd8";
+      #     regular5 = "c4a7e7";
+      #     regular6 = "ebbcba";
+      #     regular7 = "e0def4";
+      #     bright0 = "6e6a86";
+      #     bright1 = "eb6f92";
+      #     bright2 = "31748f";
+      #     bright3 = "f6c177";
+      #     bright4 = "9ccfd8";
+      #     bright5 = "c4a7e7";
+      #     bright6 = "ebbcba";
+      #     bright7 = "e0def4";
+      #   };
+      # };
+
+      # gruvbox
       colors = {
-        background = "191724";
-        foreground = "e0def4";
-        regular0 = "26233a";
-        regular1 = "eb6f92";
-        regular2 = "31748f";
-        regular3 = "f6c177";
-        regular4 = "9ccfd8";
-        regular5 = "c4a7e7";
-        regular6 = "ebbcba";
-        regular7 = "e0def4";
-        bright0 = "6e6a86";
-        bright1 = "eb6f92";
-        bright2 = "31748f";
-        bright3 = "f6c177";
-        bright4 = "9ccfd8";
-        bright5 = "c4a7e7";
-        bright6 = "ebbcba";
-        bright7 = "e0def4";
+        background = "282828";
+        foreground = "ebdbb2";
+        regular0 = "282828";
+        regular1 = "cc241d";
+        regular2 = "98971a";
+        regular3 = "d79921";
+        regular4 = "458588";
+        regular5 = "b16286";
+        regular6 = "689d6a";
+        regular7 = "a89984";
+        bright0 = "928374";
+        bright1 = "fb4934";
+        bright2 = "b8bb26";
+        bright3 = "fabd2f";
+        bright4 = "83a598";
+        bright5 = "d3869b";
+        bright6 = "8ec07c";
+        bright7 = "ebdbb2";
       };
     };
   };

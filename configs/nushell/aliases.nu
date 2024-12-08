@@ -10,6 +10,8 @@ alias l = ls
 alias la = ls -a
 alias ll = ls -l
 alias zed = zeditor -n
+alias log = journalctl
+alias sctl = systemctl
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)

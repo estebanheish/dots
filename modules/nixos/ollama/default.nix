@@ -8,6 +8,9 @@
     # "services/misc/open-webui.nix"
   ];
   imports = [
+    # Searxng Query URL: http://localhost:8888/search?q=<query>
+    ../searx
+
     "${inputs.nixpkgs-master}/nixos/modules/services/misc/ollama.nix"
     # "${inputs.nixpkgs-stable}/nixos/modules/services/misc/open-webui.nix"
   ];
@@ -22,6 +25,7 @@
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
       OLLAMA_KEEP_ALIVE = "15m";
+      OLLAMA_GPU_OVERHEAD = "1000000000";
     };
   };
 

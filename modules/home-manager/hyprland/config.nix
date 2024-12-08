@@ -22,10 +22,10 @@ with theme.hyprland; ''
   ${
     if profile == "clank"
     then ''
-      # $main = HDMI-A-1
-      # $secondary = DP-3
-      $main = HDMI-A-2
-      $secondary = DP-4
+      $main = HDMI-A-1
+      $secondary = DP-3
+      # $main = HDMI-A-2
+      # $secondary = DP-4
       monitor = $secondary, 2560x1440@240.00Hz, 0x0, 1
       monitor = $main, preferred, 2560x0, 1.5
       # monitor = desc:LG Electronics LG HDR 4K 204NTGYHG007, disable
