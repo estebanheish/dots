@@ -27,5 +27,5 @@
     	sync_yanked = true,
     }
   '';
-  home.packages = [pkgs.inconsolata-nerdfont]; # for icons
+  home.packages = [pkgs.nerd-fonts.inconsolata]; # for icons
 }

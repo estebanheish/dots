@@ -7,21 +7,19 @@
   ...
 }: {
   imports = [
-    ../foot
-    # ../wezterm
+    ../ghostty
     ../mpv
-    # ../ironbar
     ../xdg
     ../zathura
     ../mpd
-    ../tofi
+    ../kickoff
     ../firefox
     ../swaync
   ];
 
   home.packages = with pkgs;
     [
-      ubuntu_font_family
+      monaspace
       wev
       grim
       slurp
@@ -124,7 +122,7 @@
             text = cmd[update:100000] echo "<b> $(date +"%A, %d %B") </b>"
             color = rgb(${theme.hyprland.text})
             font_size = 24
-            font_family = Ubuntu Regular
+            font_family = Monaspace Xenon
             position = 0, 120
             halign = center
             valign = center
@@ -134,7 +132,7 @@
             text = cmd[update:60000] echo "<b><big> $(date +"%H:%M") </big></b>"
             color = rgb(${theme.hyprland.text})
             font_size = 88
-            font_family = Ubuntu Regular
+            font_family = Monaspace Xenon
             position = 0, 50
             halign = center
             valign = center

@@ -3,12 +3,12 @@
   # theme,
   ...
 }: {
-  home.packages = with pkgs; [ubuntu_font_family];
+  home.packages = with pkgs; [monaspace];
 
   programs.zathura = {
     enable = true;
     options = {
-      font = "Ubuntu Bold 13";
+      font = "Monaspace Xenon 14";
       recolor = "true";
       render-loading = "true";
       statusbar-home-tilde = "true";

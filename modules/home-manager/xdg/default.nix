@@ -67,7 +67,7 @@
     desktopEntries = {
       helix = {
         name = "helix";
-        exec = "foot hx %u";
+        exec = "ghostty -e hx %u";
       };
     };
   };

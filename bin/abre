@@ -9,7 +9,7 @@ def main [] {
     --search-path ~/Pictures 
     --search-path /mnt/data/media 
     --search-path ~/Music 
-    | tofi -c ~/.config/tofi/config_list)
+    | kickoff --from-stdin --stdout)
 
   let type = ($file | path type)
 
@@ -20,7 +20,7 @@ def main [] {
 
   let mime_type = (ls $file --mime-type | get type | split row '/')
   match $mime_type {
-    ["text", _] => { foot hx $file }
+    ["text", _] => { ghostty -e hx $file }
     ["image", _] => { imv $file }
     ["video", _] => { mpv $file }
     ["audio", _] => { mpc update; mpc insert ($file | path split | skip while {|it| $it != 'Music'} | skip 1 | path join) ; mpc next }

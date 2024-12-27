@@ -30,7 +30,8 @@
 
     home.packages = with pkgs; [
       tdesktop
-      vesktop
+      # vesktop
+      discord-canary
 
       spotify
       # bitwarden
@@ -43,12 +44,6 @@
 
   networking.hostName = "rivet";
   console.keyMap = "colemak";
-
-  fonts.packages = with pkgs; [
-    # cascadia-code
-    ubuntu_font_family
-    martian-mono
-  ];
 
   # networking
   networking.wireless.iwd.enable = true;

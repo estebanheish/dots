@@ -18,9 +18,9 @@ alias mpw = mpv (wl-paste)
 alias empty_trash = rm -rp ~/.local/share/Trash/*
 
 # NixOS
-alias rebuild = run0 nixos-rebuild switch --flake ~/.dots
-def garbage [] { nix-collect-garbage -d; run0 nix-collect-garbage -d }
-alias switch-to-config = run0 /run/current-system/bin/switch-to-configuration boot
+alias rebuild = doas nixos-rebuild switch --flake ~/.dots
+def garbage [] { nix-collect-garbage -d; doas nix-collect-garbage -d }
+alias switch-to-config = doas /run/current-system/bin/switch-to-configuration boot
 alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
 def npl [] { nix profile list --json | (from json).elements | columns }
 def remove [...pkgs: string] {

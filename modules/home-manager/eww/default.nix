@@ -7,7 +7,7 @@
   home.packages = [
     pkgs.eww
     inputs.eww-scripts.packages.${pkgs.system}.default
-    pkgs.inconsolata-nerdfont
+    pkgs.nerd-fonts.inconsolata
     pkgs.ubuntu_font_family
   ];
 

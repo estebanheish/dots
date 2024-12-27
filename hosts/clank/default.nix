@@ -43,7 +43,8 @@
       obs-studio
 
       tdesktop
-      vesktop
+      # vesktop
+      discord-canary
 
       spotify
       # bitwarden
@@ -69,12 +70,6 @@
   hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
 
   networking.hostName = "clank";
-
-  fonts.packages = with pkgs; [
-    # cascadia-code
-    ubuntu_font_family
-    martian-mono
-  ];
 
   # networking
   networking.wireless.iwd.enable = true;

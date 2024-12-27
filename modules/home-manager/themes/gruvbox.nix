@@ -3,6 +3,7 @@ rec {
   name = {
     files = "gruvbox";
     wezterm = "Gruvbox Dark (Gogh)";
+    ghostty = "GruvboxDark";
     helix = "gruvbox";
   };
 
@@ -53,13 +54,10 @@ rec {
   flat = true;
 
   menu = {
-    focus = {
-      fg = bg;
-      bg = accent;
-    };
-    bg = bg;
+    bg = bg_hard;
+    selected = accent;
+    query = accent2;
     text = text;
-    text2 = text2;
   };
 
   broot = {

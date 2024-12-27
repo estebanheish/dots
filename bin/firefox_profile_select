@@ -7,7 +7,7 @@ def main [] {
   | split column "=" 
   | get column2 
   | str join "\n" 
-  | tofi -c ~/.config/tofi/config_dmenu
+  | kickoff --from-stdin --stdout
   | str trim
   | if not ($in | is-empty) { firefox-esr -P $in }
 }

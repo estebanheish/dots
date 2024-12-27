@@ -1,5 +1,5 @@
 $env.EDITOR = "hx"
-$env.TERMINAL = "foot"
+$env.TERMINAL = "ghostty"
 $env.FILE = "broot"
 $env.BROWSER = "firefox-esr"
 $env.READER = "zathura"

@@ -37,8 +37,8 @@
       # obs-studio
 
       tdesktop
-      vesktop
-      # discord
+      # vesktop
+      discord-canary
       # element-desktop
 
       spotify
@@ -64,12 +64,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nyx";
-
-  fonts.packages = with pkgs; [
-    # cascadia-code
-    ubuntu_font_family
-    martian-mono
-  ];
 
   # networking
   networking.wireless.iwd.enable = true;

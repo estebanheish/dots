@@ -60,7 +60,7 @@
 
     raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
     wezterm.url = "github:wez/wezterm?dir=nix";
-    reja.url = "github:estebanheish/reja";
+    ghostty.url = "github:ghostty-org/ghostty";
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";

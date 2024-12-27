@@ -167,7 +167,7 @@ with theme.hyprland; ''
         disable_splash_rendering = yes
         disable_autoreload = yes
         enable_swallow = yes
-        swallow_regex = ^(foot)$
+        swallow_regex = ^(com.mitchellh.ghostty)$
         # swallow_exception_regex = ^(noswallow)$
         mouse_move_enables_dpms = true
         new_window_takes_over_fullscreen = 2
@@ -214,10 +214,8 @@ with theme.hyprland; ''
     windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
     windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
-    $terminal = XCURSOR_SIZE=24 foot # wezterm
-    $dmenu-run = tofi-drun -c ~/.config/tofi/config_dmenu
-    $dmenu = tofi -c ~/.config/tofi/config_dmenu
-    $lmenu = tofi -c ~/.config/tofi/config_list
+    $terminal_with = ghostty -e
+    $terminal = ghostty
 
     # binds
     #
@@ -226,9 +224,9 @@ with theme.hyprland; ''
     bind = SUPERSHIFT, Return, exec, $terminal
     bind = SUPER, r, exec, firefox-esr
     bind = SUPERSHIFT, r, exec, firefox_profile_select
-    bind = SUPER, t, exec, $dmenu-run
+    bind = SUPER, t, exec, kickoff
     bind = SUPERSHIFT, t, exec, abre
-    bind = SUPER, v, exec, cliphist list | $lmenu | cliphist decode | wl-copy
+    bind = SUPER, v, exec, cliphist list | kickoff --from-stdin --stdout | cliphist decode | wl-copy
     bind = SUPER, Tab, fullscreen, 0
     bind = SUPERSHIFT, Tab, togglefloating,
     bind = ALT, Tab, fullscreenstate, -1 2
@@ -325,12 +323,12 @@ with theme.hyprland; ''
 
     # open stuff
     # bind=SUPER_SHIFT,w,exec,qutebrowser
-    bind = SUPER, x, exec, $terminal btm
-    bind = SUPER, c, exec, $terminal ncmpcpp
+    bind = SUPER, x, exec, $terminal_with btm
+    bind = SUPER, c, exec, $terminal_with ncmpcpp
 
     # audio
-    bind = SUPER, a, exec, $terminal pulsemixer
-    bind = SUPERSHIFT, a, exec, $terminal alsamixer
+    bind = SUPER, a, exec, $terminal_with pulsemixer
+    bind = SUPERSHIFT, a, exec, $terminal_with alsamixer
     binde = , XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+
     binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-
     bind = SHIFT, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle

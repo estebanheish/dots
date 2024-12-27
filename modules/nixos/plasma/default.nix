@@ -5,7 +5,7 @@
 
   home-manager.users.${user}.imports = [
     ../../home-manager/firefox
-    ../../home-manager/foot
+    ../../home-manager/ghostty
     ../../home-manager/mpv
     ../../home-manager/zathura
   ];

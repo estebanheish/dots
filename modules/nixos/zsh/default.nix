@@ -22,7 +22,7 @@ in {
 
     environment.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "foot";
+      TERMINAL = "ghostty";
       FILE = "broot";
       BROWSER = "qutebrowser";
       READER = "zathura";
