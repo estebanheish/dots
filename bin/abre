@@ -3,13 +3,13 @@
 def main [] {
 
   let file = (fd -tf 
-    --search-path ~/Documents 
-    --search-path ~/Downloads 
-    --search-path ~/Videos 
-    --search-path ~/Pictures 
-    --search-path /mnt/data/media 
-    --search-path ~/Music 
+    --search-path Documents 
+    --search-path Downloads 
+    --search-path Videos 
+    --search-path Pictures 
+    --search-path Music 
     | kickoff --from-stdin --stdout)
+
 
   let type = ($file | path type)
 
