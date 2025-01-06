@@ -1,0 +1,1 @@
+LD_PRELOAD="" XKB_DEFAULT_LAYOUT=us XKB_DEFAULT_VARIANT=colemak gamescope -W 2560 -H 1440 -r 240 -f -e --force-grab-cursor -- %command% --intro-skip -skipStartScreen --launcher-skip

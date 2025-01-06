@@ -87,3 +87,4 @@ def cas [file: path] {
 def flattenfolder [] { glob */** -D | each {|f| mv $f . | ignore} } 
 
 alias deadlock = steam steam://rungameid/1422450
+alias cyberpunk = steam steam://rungameid/1091500
