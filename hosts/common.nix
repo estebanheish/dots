@@ -22,7 +22,6 @@
     useUserPackages = true;
     users.${user} = {
       imports = [
-        ../modules/home-manager/lf
         ../modules/home-manager/yazi
         ../modules/home-manager/nushell
         ../modules/home-manager/helix
@@ -86,5 +85,8 @@
     sudo.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [git];
+  environment.systemPackages = with pkgs; [
+    git
+    doas-sudo-shim # for nixos-rebuild --target-host ""--use-remote-sudo""
+  ];
 }

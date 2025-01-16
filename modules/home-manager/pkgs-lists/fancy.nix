@@ -23,6 +23,7 @@
 
     # Modern UNIX utitlities
     bat # cat
+    # procs
     # delta # syntax-highlighting pager for git, diff and grep output
     # duf # df
     # du-dust # du
@@ -31,15 +32,15 @@
     # procs # ps
     # bottom # htop / top
     hyperfine # time
-    xh # curl
-    dog # dig
-    sd # sed
-    grex
+    # xh # curl
+    # dog # dig
+    # sd # sed
+    # grex
     lazygit
     # tealdeer
-    jq
-    fx
-    pup
+    # jq
+    # fx
+    # pup
     nethogs
     # gitoxide
   ];

@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
     inputs.nixos-hardware.nixosModules.common-pc-ssd
+    inputs.nixos-cosmic.nixosModules.default
 
     ../common.nix
     ../../modules/nixos/pipewire
@@ -18,7 +19,8 @@
     # ../../modules/nixos/hostsfile
   ];
 
-  _module.args.theme = import ../../modules/home-manager/themes/rose_pine.nix;
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 
   home-manager.users.${user} = {
     imports = [

@@ -7,13 +7,10 @@
     file
     tmate
     zoxide
-    bat
-    # delta
     duf
     du-dust
     fd
     ripgrep
-    procs
     bottom
     tealdeer
   ];

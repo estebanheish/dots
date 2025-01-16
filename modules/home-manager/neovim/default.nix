@@ -4,8 +4,8 @@
     viAlias = true;
     vimAlias = true;
   };
-  # xdg.configFile."nvim" = {
-  #   source = ../../../configs/nvim;
-  #   recursive = true;
-  # };
+  xdg.configFile."nvim" = {
+    source = ../../../configs/nvim;
+    recursive = true;
+  };
 }

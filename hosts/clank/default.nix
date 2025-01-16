@@ -13,23 +13,19 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/hyprland
+    ../../modules/nixos/cosmic
     ../../modules/nixos/superlight
-    ../../modules/nixos/distrobox
     ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
-    ../../modules/nixos/nh
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
-    ../../modules/nixos/nix-ld
+    # ../../modules/nixos/ios
+    # ../../modules/nixos/nix-ld
     ../../modules/nixos/hostsfile
   ];
 
-  _module.args.theme = import ../../modules/home-manager/themes/gruvbox.nix;
-
   home-manager.users.${user} = {
     imports = [
-      ../../modules/home-manager/neovim
       ../../modules/home-manager/piper
       ../../modules/home-manager/pkgs-lists/lsps.nix
       ../../modules/home-manager/pkgs-lists/downloads.nix

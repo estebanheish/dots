@@ -59,12 +59,13 @@
     };
 
     raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
-    wezterm.url = "github:wez/wezterm?dir=nix";
-    ghostty.url = "github:ghostty-org/ghostty";
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs-master";
     };
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    ghostty.url = "github:ghostty-org/ghostty";
   };
 }
