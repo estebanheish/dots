@@ -154,7 +154,7 @@
 				dark
 				unknown
 			]
-			file: skins/dark-blue.hjson
+			file: skins/solarized-dark.hjson
 		}
         # This skin is imported when your terminal is light
 		{

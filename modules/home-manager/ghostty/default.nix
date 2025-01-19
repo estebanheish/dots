@@ -7,7 +7,7 @@
   xdg.configFile."ghostty/config".text = ''
     font-family = Monaspace Xenon
     font-size = 14
-    theme = Ayu Mirage
+    theme = Builtin Solarized Dark
     window-decoration = false
     confirm-close-surface = false
     resize-overlay = never

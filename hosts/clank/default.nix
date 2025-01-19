@@ -20,7 +20,7 @@
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
     # ../../modules/nixos/ios
-    # ../../modules/nixos/nix-ld
+    ../../modules/nixos/nix-ld
     ../../modules/nixos/hostsfile
   ];
 
