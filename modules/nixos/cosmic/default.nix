@@ -15,6 +15,7 @@
       ../../home-manager/firefox
       ../../home-manager/mpv
       ../../home-manager/ghostty
+      ../../home-manager/zathura
     ];
     home.file."bin" = {
       enable = true;

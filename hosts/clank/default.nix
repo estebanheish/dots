@@ -15,7 +15,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/cosmic
     ../../modules/nixos/superlight
-    ../../modules/nixos/ollama
+    # ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
