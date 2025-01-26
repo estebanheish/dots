@@ -13,9 +13,8 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/hyprland
-    ../../modules/nixos/nh
     ../../modules/nixos/syncthing
+    ../../modules/nixos/cosmic
     # ../../modules/nixos/hostsfile
   ];
 
