@@ -105,3 +105,12 @@ args = ["lsp"]
 [language-server.emmet-lsp]
 command = "emmet-language-server"
 args = ["--stdio"]
+
+[[language]]
+name = "php"
+auto-format = true
+language-servers = ["phpactor"]
+
+[language-server.phpactor]
+command = "phpactor"
+args = ["language-server"]

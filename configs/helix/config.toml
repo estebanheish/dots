@@ -5,6 +5,11 @@ line-number = "relative"
 cursorline = true
 color-modes = true
 shell = ["nu", "-c"]
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+# other-lines = "error"
 
 [editor.cursor-shape]
 insert = "bar"
