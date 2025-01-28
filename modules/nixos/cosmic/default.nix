@@ -16,6 +16,12 @@
       ../../home-manager/mpv
       ../../home-manager/ghostty
       ../../home-manager/zathura
+      ({config, ...}: {
+        xdg.configFile."cosmic" = {
+          recursive = true;
+          source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/cosmic";
+        };
+      })
     ];
     home.file."bin" = {
       enable = true;

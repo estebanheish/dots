@@ -32,6 +32,7 @@
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
+      ../../modules/home-manager/zed
     ];
 
     home.packages = with pkgs; [
@@ -59,7 +60,6 @@
       typst
       nvtopPackages.amd
 
-      zed-editor
       smartcat
     ];
   };

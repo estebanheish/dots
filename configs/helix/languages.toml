@@ -1,14 +1,13 @@
 [[language]]
 name = "python"
-scope = "source.python"
-injection-regex = "python"
-file-types = ["py"]
-shebangs = ["python"]
-comment-token = "#"
-language-servers = ["pyright"]
+language-servers = ["ruff", "pyright"]
 roots = ["setup.py", "setup.cfg", "pyproject.toml"]
-formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
 
 [language-server.nu-lsp]
 command = "nu"

@@ -1,0 +1,533 @@
+{
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "l",
+    ): MoveToWorkspace(7),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "s",
+    ): System(WebBrowser),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "n",
+    ): Focus(Down),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Tab",
+    ): ToggleWindowFloating,
+    (
+        modifiers: [
+            Shift,
+        ],
+        key: "XF86AudioPlay",
+        description: Some("play/pause mpc"),
+    ): Spawn("mpc toggle"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "u",
+    ): MoveToWorkspace(8),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "6",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): Focus(Up),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "p",
+    ): Workspace(4),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Alt,
+        ],
+        key: "e",
+    ): MoveToOutput(Up),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Alt,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Escape",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "F12",
+    ): System(LockScreen),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "5",
+    ): Disable,
+    (
+        modifiers: [
+            Shift,
+        ],
+        key: "XF86AudioLowerVolume",
+        description: Some("mpc lowe volume"),
+    ): Spawn("mpc volume -5"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "w",
+    ): MoveToWorkspace(2),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "period",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "e",
+    ): SwitchOutput(Up),
+    (
+        modifiers: [
+            Super,
+        ],
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "7",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "n",
+    ): SwitchOutput(Down),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "f",
+    ): MoveToWorkspace(3),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "i",
+    ): Focus(Right),
+    (
+        modifiers: [
+            Shift,
+        ],
+        key: "XF86AudioNext",
+        description: Some("mpc next"),
+    ): Spawn("mpc next"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "1",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "8",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "i",
+    ): SwitchOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "b",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "y",
+    ): Workspace(9),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): Workspace(3),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "e",
+    ): Move(Up),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "3",
+    ): Disable,
+    (
+        modifiers: [
+            Shift,
+        ],
+        key: "XF86AudioRaiseVolume",
+        description: Some("mpc raise volume"),
+    ): Spawn("mpc volume +5"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "comma",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "0",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "n",
+    ): Move(Down),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "n",
+    ): MoveToOutput(Down),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "4",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "i",
+    ): Move(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "m",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "8",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "2",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "j",
+    ): Workspace(6),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "5",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Alt,
+        ],
+        key: "j",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Return",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "y",
+    ): MoveToWorkspace(9),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "u",
+    ): Workspace(8),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "2",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "7",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "c",
+    ): Resizing(Inwards),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "k",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "r",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Alt,
+        ],
+        key: "h",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "h",
+    ): MoveToOutput(Left),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "g",
+    ): Workspace(5),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "a",
+    ): System(WorkspaceOverview),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "g",
+    ): MoveToWorkspace(5),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Shift,
+        ],
+        key: "i",
+    ): MoveToOutput(Right),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "w",
+    ): Workspace(2),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+        ],
+        key: "h",
+    ): SwitchOutput(Left),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "9",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "r",
+    ): System(Launcher),
+    (
+        modifiers: [
+            Super,
+            Ctrl,
+            Alt,
+        ],
+        key: "l",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "slash",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "p",
+    ): MoveToWorkspace(4),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "k",
+    ): ToggleStacking,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "q",
+    ): MoveToWorkspace(1),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "4",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Tab",
+    ): Maximize,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "z",
+    ): ToggleSticky,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "l",
+    ): Workspace(7),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Return",
+        description: Some("open ghostty"),
+    ): Spawn("ghostty"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Workspace(1),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "j",
+    ): MoveToWorkspace(6),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "c",
+    ): Resizing(Outwards),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "3",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "1",
+    ): Disable,
+    (
+        modifiers: [
+            Shift,
+        ],
+        key: "XF86AudioPrev",
+        description: Some("mpc prev"),
+    ): Spawn("mpc prev"),
+}
