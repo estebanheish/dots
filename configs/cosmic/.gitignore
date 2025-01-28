@@ -1,4 +1,10 @@
 *
-!com.system76.CosmicSettings.Shortcuts
-!com.system76.CosmicComp
-!com.system76.CosmicIdle
+!com.system76.CosmicSettings.Shortcuts/
+!com.system76.CosmicComp/
+!com.system76.CosmicIdle/
+!com.system76.CosmicPanel/
+!com.system76.CosmicPanel.Panel/
+!com.system76.CosmicPanel.Panel/v1/anchor
+!com.system76.CosmicPanel.Panel/v1/autohide
+!com.system76.CosmicPanel.Panel/v1/exclusive_zone
+!com.system76.CosmicPanel.Panel/v1/plugins_wings
