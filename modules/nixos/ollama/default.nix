@@ -1,17 +1,13 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   disabledModules = [
-    "services/misc/ollama.nix"
+    # "services/misc/ollama.nix"
     # "services/misc/open-webui.nix"
   ];
   imports = [
     # Searxng Query URL: http://localhost:8888/search?q=<query>
     ../searx
 
-    "${inputs.nixpkgs-master}/nixos/modules/services/misc/ollama.nix"
+    # "${inputs.nixpkgs-master}/nixos/modules/services/misc/ollama.nix"
     # "${inputs.nixpkgs-stable}/nixos/modules/services/misc/open-webui.nix"
   ];
 
@@ -21,7 +17,7 @@
     enable = true;
     acceleration = "rocm";
     # package = outputs.packages.${pkgs.system}.ollama;
-    package = pkgs.master.ollama;
+    package = pkgs.ollama;
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
       OLLAMA_KEEP_ALIVE = "15m";
