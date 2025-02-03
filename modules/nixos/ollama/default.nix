@@ -17,7 +17,7 @@
     enable = true;
     acceleration = "rocm";
     # package = outputs.packages.${pkgs.system}.ollama;
-    package = pkgs.ollama;
+    package = pkgs.master.ollama;
     rocmOverrideGfx = "11.0.0";
     environmentVariables = {
       OLLAMA_KEEP_ALIVE = "15m";
