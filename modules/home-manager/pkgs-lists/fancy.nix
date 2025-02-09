@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  imports = [
+    ../lazygit
+  ];
   home.packages = with pkgs; [
     # file sync
     rsync
@@ -36,7 +39,7 @@
     # dog # dig
     # sd # sed
     # grex
-    lazygit
+    # lazygit
     # tealdeer
     # jq
     # jless
