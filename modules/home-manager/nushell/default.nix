@@ -5,17 +5,18 @@ in {
   programs.nushell = {
     enable = true;
     package = pkgs.nushell;
-    plugins = with pkgs.nushellPlugins; [
-      units
-      skim
-      query
-      polars
-      # net
-      highlight
-      gstat
-      formats
-      # dbus
-    ];
+    # TODO
+    # plugins = with pkgs.nushellPlugins; [
+    #   units
+    #   skim
+    #   query
+    #   polars
+    #   # net
+    #   highlight
+    #   gstat
+    #   formats
+    #   # dbus
+    # ];
   };
 
   home.packages = with pkgs; [

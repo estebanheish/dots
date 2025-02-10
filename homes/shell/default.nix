@@ -13,6 +13,6 @@
     ../../modules/home-manager/direnv
     ../../modules/home-manager/broot
   ];
-  home.packages = [pkgs.zoxide];
+  home.packages = with pkgs; [zoxide];
   programs.home-manager.enable = true;
 }

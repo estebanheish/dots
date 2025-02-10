@@ -1,6 +1,6 @@
 $env.config.show_banner = false
 $env.config.rm.always_trash = true
-$env.config.filesize.metric = true
+$env.config.filesize.unit = "metric"
 $env.config.cursor_shape.vi_insert = "line"
 $env.config.cursor_shape.vi_normal = "block"
 $env.config.edit_mode = "vi"

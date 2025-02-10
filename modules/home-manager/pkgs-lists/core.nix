@@ -6,7 +6,7 @@
     git
     file
     tmate
-    zoxide
+    pkgs.master.zoxide # TODO
     duf
     du-dust
     fd
