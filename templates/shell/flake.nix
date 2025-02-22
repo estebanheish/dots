@@ -19,6 +19,8 @@
         # shellHook = ''''; # Bash statements that are executed by nix-shell.
         # packages = with pkgs; []; # Add executable packages to the nix-shell environment.
         # inputsFrom = []; # Add build dependencies of the listed derivations to the nix-shell environment.
+        # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath packages;
+        # stdenv.cc.cc.lib
       };
     });
   };
