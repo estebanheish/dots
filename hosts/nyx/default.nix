@@ -44,7 +44,6 @@
       # inkscape
 
       logseq
-      gnome.nautilus
       # gnome.eog
 
       # tor-browser-bundle-bin
