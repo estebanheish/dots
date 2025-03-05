@@ -12,20 +12,14 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/silent-boot
     ../../modules/nixos/nvidia
-    ../../modules/nixos/hyprland
+    ../../modules/nixos/cosmic
     ../../modules/nixos/corne-udev
-    # ../../modules/nixos/dlna
-    ../../modules/nixos/superlight
-    ../../modules/nixos/docker
-    # ../../modules/nixos/quickemu
-    # ../../modules/nixos/steam
   ];
 
   home-manager.users.${user} = {
     imports = [
+      ../../modules/home-manager/helix
       ../../modules/home-manager/neovim
-      ../../modules/home-manager/pkgs-lists/lsps.nix
-      # ../../modules/home-manager/haskell
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix

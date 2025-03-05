@@ -25,6 +25,7 @@
       ruff
     ];
   };
+
   xdg.configFile."zed" = {
     recursive = true;
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/zed";
