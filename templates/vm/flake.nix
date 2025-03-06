@@ -39,6 +39,7 @@
               ];
             };
           };
+          system.stateVersion = "25.05";
         })
       ];
       # specialArgs = {inherit inputs self;};

@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   inherit (pkgs) nu_scripts;
   expand = f: l: builtins.concatStringsSep "\n" (map f l);
 in {
@@ -11,17 +15,23 @@ in {
     #   skim
     #   query
     #   polars
-    #   # net
+    #   net
     #   highlight
     #   gstat
     #   formats
-    #   # dbus
+    #   dbus
     # ];
   };
 
   home.packages = with pkgs; [
+    atuin
     nufmt
   ];
+
+  xdg.configFile."atuin" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/atuin";
+    recursive = true;
+  };
 
   xdg.configFile."nushell" = {
     source = ../../../configs/nushell;
@@ -38,7 +48,7 @@ in {
     "less"
     "typst"
     "curl"
-    # "btm"
+    "btm"
     # "bat"
 
     "cargo"
