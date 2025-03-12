@@ -42,7 +42,7 @@
     # lazygit
     # tealdeer
     # jq
-    # jless
+    jless
     # pup
     nethogs
     # gitoxide
