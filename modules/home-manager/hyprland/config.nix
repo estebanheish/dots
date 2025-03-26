@@ -203,7 +203,7 @@ with theme.hyprland; ''
     windowrulev2 = suppressevent maximize, class:.*
     windowrulev2 = workspace 4, class:^(Logseq)$
     windowrulev2 = workspace 5, class:^(org.telegram.desktop)$
-    windowrulev2 = center, class:^(firefox)$
+    windowrulev2 = center, class:^(librewolf)$
     windowrulev2 = immediate, class:^(steam_app_1422450)$
 
     # "smart gaps” / “no gaps when only"

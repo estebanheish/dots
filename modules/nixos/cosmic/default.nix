@@ -12,7 +12,7 @@
   services.displayManager.cosmic-greeter.enable = true;
   home-manager.users.${user} = {
     imports = [
-      ../../home-manager/firefox
+      ../../home-manager/librewolf
       ../../home-manager/mpv
       ../../home-manager/ghostty
       ../../home-manager/zathura

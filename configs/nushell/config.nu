@@ -58,7 +58,7 @@ $env.config.hooks.pre_prompt = [{ ||
 $env.EDITOR = "hx"
 $env.TERMINAL = "ghostty"
 $env.FILE = "yazi"
-$env.BROWSER = "firefox-esr"
+$env.BROWSER = "librewolf"
 # $env.READER = "zathura"
 # $env.OPENER = "xdg-open"
 

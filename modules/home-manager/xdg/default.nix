@@ -9,7 +9,7 @@
         img = "imv";
         pdf = "org.pwmt.zathura";
         torrent = "transmission";
-        browser = "firefox-esr";
+        browser = "librewolf";
       in {
         # Text
         "text/plain" = ["${text}.desktop"];

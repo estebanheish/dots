@@ -1,6 +1,6 @@
 $env.EDITOR = "hx"
 $env.TERMINAL = "ghostty"
 $env.FILE = "broot"
-$env.BROWSER = "firefox-esr"
+$env.BROWSER = "librewolf"
 $env.READER = "zathura"
 $env.OPENER = "xdg-open"

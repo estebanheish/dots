@@ -13,7 +13,7 @@
     ../zathura
     ../mpd
     ../kickoff
-    ../firefox
+    ../librewolf
     ../swaync
   ];
 
