@@ -14,7 +14,7 @@
         };
         devices = {
           clank.id = "WV7TPHZ-D5MXJPQ-RKBNLUO-HLV3LHC-NKIMVU5-VU4HJ4X-HTP7WEM-AZZKEQM";
-          rivet.id = "43UIVEC-5HOOXJG-SMTJ2T4-234EWIS-HWMG5D5-ZMSKAM2-HAX6IU4-Z45HDQR";
+          rivet.id = "C43ALVN-4ZRFV2I-HCLS6WQ-Q554WTV-PXF3UIQ-PMABDUN-UM2LM64-7PZYCAC";
         };
         folders = {
           "Documents" = {
