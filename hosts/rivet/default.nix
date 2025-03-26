@@ -38,7 +38,7 @@
       # bitwarden
       # bitwarden-cli
 
-      logseq
+      # logseq
       typst
     ];
   };

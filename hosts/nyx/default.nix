@@ -43,7 +43,7 @@
       # gimp
       # inkscape
 
-      logseq
+      # logseq
       # gnome.eog
 
       # tor-browser-bundle-bin

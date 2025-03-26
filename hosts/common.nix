@@ -56,9 +56,9 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "electron-27.3.11" # TODO: logseq
-      ];
+      # permittedInsecurePackages = [
+      #   "electron-27.3.11" # TODO: logseq
+      # ];
     };
     overlays = [
       outputs.overlays.additions

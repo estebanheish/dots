@@ -52,7 +52,7 @@
       # gimp
       # inkscape
 
-      logseq
+      # logseq
 
       # rustup
       # linuxKernel.packages.linux_zen.perf
