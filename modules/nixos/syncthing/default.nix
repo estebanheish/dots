@@ -13,7 +13,7 @@
           urAccepted = -1;
         };
         devices = {
-          clank.id = "XJZULI3-L53TGMK-55V5MXO-RW74G4T-S3ZGRXA-6H4IWLV-3OFWQY2-STA25Q7";
+          clank.id = "WV7TPHZ-D5MXJPQ-RKBNLUO-HLV3LHC-NKIMVU5-VU4HJ4X-HTP7WEM-AZZKEQM";
           rivet.id = "43UIVEC-5HOOXJG-SMTJ2T4-234EWIS-HWMG5D5-ZMSKAM2-HAX6IU4-Z45HDQR";
         };
         folders = {
