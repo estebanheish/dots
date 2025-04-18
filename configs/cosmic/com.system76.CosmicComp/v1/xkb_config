@@ -2,7 +2,7 @@
     rules: "",
     model: "pc104",
     layout: "us,es,us",
-    variant: ",,colemak",
+    variant: "colemak,,",
     options: Some("terminate:ctrl_alt_bksp"),
     repeat_delay: 200,
     repeat_rate: 45,

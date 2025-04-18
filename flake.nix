@@ -44,7 +44,8 @@
     homeConfigurations = let
       user = builtins.getEnv "USER";
     in {
-      "${user}" = mkHome user [./homes/shell] builtins.currentSystem;
+      "shell" = mkHome user [./homes/shell] builtins.currentSystem;
+      "wm" = mkHome user [./homes/wm] builtins.currentSystem;
     };
   };
 

@@ -14,12 +14,9 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
     ../../modules/nixos/syncthing
-    ../../modules/nixos/cosmic
+    ../../modules/nixos/hyprland
     # ../../modules/nixos/hostsfile
   ];
-
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
 
   home-manager.users.${user} = {
     imports = [
@@ -30,6 +27,8 @@
     ];
 
     home.packages = with pkgs; [
+      acpi
+
       tdesktop
       # vesktop
       discord-canary

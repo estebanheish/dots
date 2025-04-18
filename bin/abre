@@ -8,7 +8,8 @@ def main [] {
     --search-path Videos 
     --search-path Pictures 
     --search-path Music 
-    | kickoff --from-stdin --stdout)
+    --search-path /run/media
+    | fuzzel -d -w 100 -l 25)
 
 
   let type = ($file | path type)

@@ -12,6 +12,8 @@
     ../../modules/home-manager/helix
     ../../modules/home-manager/direnv
     ../../modules/home-manager/broot
+
+    ../../modules/home-manager/hyprland
   ];
   home.packages = with pkgs; [zoxide];
   programs.home-manager.enable = true;

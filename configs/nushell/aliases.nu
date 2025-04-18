@@ -12,6 +12,7 @@ alias ll = ls -l
 alias zed = zeditor -n
 alias log = journalctl
 alias sctl = systemctl
+alias vault = zed ~/Documents/Vault
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)

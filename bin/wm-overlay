@@ -1,0 +1,40 @@
+#!/usr/bin/env nu
+
+def main [mode: string] {
+  match $mode {
+    "audio" => audio
+    "mic" => mic
+    "dndtrue" => { dnd true }
+    "dndfalse" => { dnd false }
+    "brightness" => brightness
+  }
+}
+
+def audio [] {
+  let vol = (wpctl get-volume @DEFAULT_AUDIO_SINK@ | split column  "." | get column2 | first)
+  try {
+    fyi -t 200 -a overlay -H $"int:value:($vol | into int)" -H string:x-canonical-private-synchronous:overlay ""
+  } catch {
+    fyi -t 500 -a overlay -H "int:value:0" -H string:x-canonical-private-synchronous:overlay "audio muted"
+  }
+}
+
+def mic [] {
+  let status = (wpctl get-volume @DEFAULT_AUDIO_SOURCE@) =~ "MUTED"
+  if $status {
+    fyi -t 500 -a overlay -H string:x-canonical-private-synchronous:overlay "mic muted"
+  } else {
+    fyi -t 500 -a overlay -H string:x-canonical-private-synchronous:overlay "mic on"
+  }
+}
+
+def dnd [on: bool] {
+  fyi -t 500 -a overlay -H string:x-canonical-private-synchronous:overlay $"dnd (if $on { "on" } else { "off"})"
+}
+
+def brightness [] {
+  let v = brightnessctl g | into int
+  let m = brightnessctl m | into int
+  let p = ($v / $m * 100) | math floor
+  fyi -t 200 -a overlay -H $"int:value:($p)" -H string:x-canonical-private-synchronous:overlay ""
+}
