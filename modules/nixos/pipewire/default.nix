@@ -8,20 +8,10 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
     pulse.enable = true;
-    wireplumber = {
-      enable = true;
-      extraConfig = {
-        "10-disable-camera" = {
-          "wireplumber.profiles" = {
-            main."monitor.libcamera" = "disabled";
-          };
-        };
-      };
-    };
+    wireplumber.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    pulsemixer
     alsa-utils
   ];
 }

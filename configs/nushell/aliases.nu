@@ -13,6 +13,7 @@ alias zed = zeditor -n
 alias log = journalctl
 alias sctl = systemctl
 alias vault = zed ~/Documents/Vault
+alias brillo = ddcutil setvcp 10
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)

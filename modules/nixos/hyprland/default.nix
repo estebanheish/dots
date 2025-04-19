@@ -1,42 +1,36 @@
 {
   pkgs,
   user,
+  # config,
   # inputs,
   ...
 }: {
   environment.localBinInPath = true;
+  security.polkit.enable = true;
 
-  # authentication agent
-  # security.polkit.enable = true;
+  # external monitor backlight
+  hardware.i2c.enable = true;
+  environment.systemPackages = with pkgs; [ddcutil];
+  users.users.${user}.extraGroups = ["i2c"];
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = false;
+  home-manager.users.${user} = {
+    imports = [
+      ../../../modules/home-manager/hyprland
+      ../../../modules/home-manager/librewolf
+      ../../../modules/home-manager/mpv
+    ];
   };
-
-  programs.hyprlock.enable = true;
-  services.hypridle.enable = true;
-
-  # xdg.portal = {
-  #   enable = true;
-  #   extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  #   xdgOpenUsePortal = true;
-  # };
-
-  home-manager.users.${user}.imports = [
-    ../../../modules/home-manager/hyprland
-    ../../../modules/home-manager/librewolf
-  ];
 
   services.greetd = {
     enable = true;
+    vt = 3;
     settings = {
       default_session = {
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        inherit user;
+        user = "greeter";
       };
       initial_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "Hyprland";
         inherit user;
       };
     };

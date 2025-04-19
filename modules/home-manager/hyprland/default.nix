@@ -1,24 +1,20 @@
 {
   pkgs,
-  config,
+  # config,
   ...
 }: {
   home.packages = with pkgs; [
     monaspace
-    # wev
-    # imv
-    # satty
+    wev
+    imv
+    satty
+    grimblast
     # gpu-screen-recorder
-
-    hypridle
-    hyprlock
-    hyprpaper
-    # hyprpicker
 
     brightnessctl
     playerctl
     wl-clipboard
-    cliphist
+    # cliphist
 
     ncpamixer
     impala
@@ -28,44 +24,57 @@
     fyi
     fuzzel
     foot
-    mako
-
-    # wf-recorder
-    # kooha
-    # xdg-utils
   ];
 
-  services.hyprpolkitagent.enable = true;
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   systemd.enable = true;
-  #   xwayland.enable = false;
-  # };
+  home.pointerCursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    hyprcursor.enable = true;
+  };
 
-  xdg.configFile = builtins.listToAttrs (map (name: {
-    name = name;
-    # value = {
-    #   source = ../../../configs/${name};
-    #   recursive = true;
-    # };
-    value = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/${name}";
-      recursive = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = builtins.readFile ../../../configs/hypr/hyprland.conf;
+  };
+
+  # services
+  services.hyprpolkitagent.enable = true;
+  services.hyprsunset.enable = true;
+  services.hypridle = {
+    enable = true;
+    # extraConfig = builtins.readFile ../../../configs/hypr/hypridle.conf;
+  };
+  programs.hyprlock = {
+    enable = true;
+    extraConfig = builtins.readFile ../../../configs/hypr/hyprlock.conf;
+  };
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = ["~/.wall.jpg"];
+      wallpaper = [", ~/.wall.jpg"];
+      ipc = "off";
     };
-  }) ["hypr" "mako" "fuzzel" "foot"]);
+  };
+  services.cliphist.enable = true;
+  services.mako = {
+    enable = true;
+    extraConfig = builtins.readFile ../../../configs/mako/config;
+  };
+
+  xdg.configFile."hypr/hypridle.conf".source = ../../../configs/hypr/hypridle.conf;
+  xdg.configFile."foot/foot.ini".source = ../../../configs/foot/foot.ini;
+  xdg.configFile."fuzzel/fuzzel.ini".source = ../../../configs/fuzzel/fuzzel.ini;
 
   home.sessionPath = ["$HOME/.local/bin"];
-  home.file."bin" = {
-    enable = true;
-    source = ../../../bin;
-    target = ".local/bin";
-    recursive = true;
-    executable = true;
+  home.file = {
+    "bin" = {
+      enable = true;
+      source = ../../../bin;
+      target = ".local/bin";
+      recursive = true;
+      executable = true;
+    };
+    ".wall.jpg".source = ../../../misc/walls/tolga-ahmetler.jpg;
   };
-  # home.file = builtins.listToAttrs (map (name: {
-  #   name = ".local/bin/${name}";
-  #   value = {
-  #     source = ../../bin/${name};
-  #   };
-  # }) ["abre"]);
 }

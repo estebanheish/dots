@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   hardware.bluetooth.enable = true;
-  environment.systemPackages = [pkgs.bluetuith];
+  # environment.systemPackages = [pkgs.bluetuith];
 }

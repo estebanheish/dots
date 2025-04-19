@@ -33,7 +33,7 @@
         ../modules/home-manager/zellij
         ../modules/home-manager/pkgs-lists/core.nix
       ];
-      home.stateVersion = "24.05";
+      home.stateVersion = "25.05";
     };
     extraSpecialArgs = {
       inherit inputs outputs user theme;
