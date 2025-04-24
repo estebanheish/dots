@@ -21,22 +21,22 @@
           "Documents" = {
             label = "Documents";
             path = "/home/${user}/Documents";
-            devices = ["clank" "rivet"];
+            devices = ["clank" "rivet" "orbb"];
           };
           "Videos" = {
             label = "Videos";
             path = "/home/${user}/Videos";
-            devices = ["clank" "rivet"];
+            devices = ["clank" "rivet" "orbb"];
           };
           "Music" = {
             label = "Music";
             path = "/home/${user}/Music";
-            devices = ["clank" "rivet"];
+            devices = ["clank" "rivet" "orbb"];
           };
           "Pictures" = {
             label = "Pictures";
             path = "/home/${user}/Pictures";
-            devices = ["clank" "rivet"];
+            devices = ["clank" "rivet" "orbb"];
           };
         };
       };
