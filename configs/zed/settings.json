@@ -13,7 +13,7 @@
   "features": {
     "inline_completion_provider": "supermaven"
   },
-  "theme": "Zed Legacy: Solarized Dark",
+  "theme": "Ayu Mirage",
   "language_models": {
     "ollama": {}
   },

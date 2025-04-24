@@ -33,12 +33,13 @@
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
     nixosConfigurations = {
-      nyx = mkNixos "heis" [./hosts/nyx];
       clank = mkNixos "heis" [./hosts/clank];
+      orbb = mkNixos "heis" [./hosts/orbb];
       rivet = mkNixos "heis" [./hosts/rivet];
       wololo = mkNixos "heis" [./hosts/wololo];
-      grape = mkNixos "heis" [./hosts/grape];
+      nyx = mkNixos "heis" [./hosts/nyx];
       lemon = mkNixos "heis" [./hosts/lemon];
+      grape = mkNixos "heis" [./hosts/grape];
     };
 
     homeConfigurations = let
