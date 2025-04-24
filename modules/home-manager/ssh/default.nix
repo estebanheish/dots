@@ -6,28 +6,28 @@
         hostname = "192.168.18.2";
         user = "heis";
       };
-      "nyx" = {
+      "orbb" = {
         hostname = "192.168.18.3";
         user = "heis";
       };
-      "wololo" = {
+      "rivet" = {
         hostname = "192.168.18.4";
         user = "heis";
       };
-      "rivetw" = {
+      "nyx" = {
         hostname = "192.168.18.5";
         user = "heis";
       };
-      "grape" = {
+      "wololo" = {
         hostname = "192.168.18.6";
         user = "heis";
       };
-      "lemon" = {
+      "grape" = {
         hostname = "192.168.18.7";
         user = "heis";
       };
-      "rivet" = {
-        hostname = "192.168.18.10";
+      "lemon" = {
+        hostname = "192.168.18.8";
         user = "heis";
       };
     };
