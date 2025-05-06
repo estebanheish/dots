@@ -1,12 +1,24 @@
 {
   user,
-  pkgs,
+  # pkgs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../common.nix
+    ../../modules/nixos/dlna
+    ../../modules/nixos/qbittorrent-service
+  ];
+
+  fileSystems."/media" = {
+    device = "/dev/disk/by-uuid/81ba0469-d0ee-4a56-8f26-960916eef6fc";
+    fsType = "ext4";
+    options = ["nofail"];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /media 0777 ${user} users -"
   ];
 
   home-manager.users.${user} = {
@@ -15,10 +27,6 @@
       ../../modules/home-manager/neovim
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
-    ];
-
-    home.packages = with pkgs; [
-      qbittorrent
     ];
   };
 
@@ -53,6 +61,11 @@
   };
   programs.ssh.startAgent = true;
   services.fstrim.enable = true;
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # boot
   boot.supportedFilesystems = ["ntfs"];

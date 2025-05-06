@@ -19,6 +19,7 @@
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/hostsfile
+    ../../modules/nixos/steam
   ];
 
   home-manager.users.${user} = {
