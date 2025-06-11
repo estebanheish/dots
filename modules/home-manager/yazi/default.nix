@@ -11,7 +11,7 @@
       ];
     };
     theme = {
-      manager = {
+      mgr = {
         border_symbol = " ";
       };
     };
