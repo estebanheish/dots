@@ -19,7 +19,7 @@
     # ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
-    ../../modules/nixos/steam
+    # ../../modules/nixos/steam
     # ../../modules/nixos/ios
     ../../modules/nixos/nix-ld
     ../../modules/nixos/hostsfile
@@ -42,7 +42,7 @@
 
       tdesktop
       # vesktop
-      discord-canary
+      discord
 
       spotify
       # bitwarden
