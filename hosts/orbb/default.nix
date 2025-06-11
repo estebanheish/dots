@@ -15,11 +15,10 @@
     ../../modules/nixos/hyprland
     ../../modules/nixos/superlight
     ../../modules/nixos/nvidia
-    ../../modules/nixos/ollama
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/hostsfile
-    ../../modules/nixos/steam
+    ../../modules/nixos/nix-ld
   ];
 
   home-manager.users.${user} = {

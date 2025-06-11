@@ -57,14 +57,12 @@
     };
   };
   services.cliphist.enable = true;
-  services.mako = {
-    enable = true;
-    extraConfig = builtins.readFile ../../../configs/mako/config;
-  };
+  services.mako.enable = true;
 
   xdg.configFile."hypr/hypridle.conf".source = ../../../configs/hypr/hypridle.conf;
   xdg.configFile."foot/foot.ini".source = ../../../configs/foot/foot.ini;
   xdg.configFile."fuzzel/fuzzel.ini".source = ../../../configs/fuzzel/fuzzel.ini;
+  xdg.configFile."mako/config".source = ../../../configs/mako/config;
 
   home.sessionPath = ["$HOME/.local/bin"];
   home.file = {

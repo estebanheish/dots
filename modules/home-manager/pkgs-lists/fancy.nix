@@ -8,6 +8,8 @@
     sshfs
     restic
 
+    caligula
+
     # video/audio processing
     pkgs.master.ffmpeg_7-full
     imagemagick
