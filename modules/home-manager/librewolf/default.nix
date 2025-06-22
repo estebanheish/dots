@@ -8,7 +8,7 @@
       "privacy.resistFingerprinting" = false;
       "middlemouse.paste" = false;
       "general.autoScroll" = true;
-      "media.autoplay.default" = "0";
+      # "media.autoplay.default" = "0";
     };
   };
 }

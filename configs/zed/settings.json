@@ -11,18 +11,18 @@
     "dock": "right"
   },
   "features": {
-    "inline_completion_provider": "supermaven"
+    "edit_prediction_provider": "supermaven"
   },
-  "theme": "Ayu Mirage",
+  "theme": "GitHub Dark Default",
   "language_models": {
     "ollama": {}
   },
-  "assistant": {
+  "agent": {
     "provider": null,
     "version": "2",
     "default_model": {
       "provider": "ollama",
-      "model": "qwen2.5-coder:32b"
+      "model": "devstral:24b"
     }
   },
   "telemetry": {
@@ -45,8 +45,9 @@
   "tabs": {
     "git_status": true
   },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "ui_font_size": 18,
+  "buffer_font_size": 18,
+  "agent_font_size": 22,
   "scrollbar": { "show": "never" },
   "gutter": {
     "code_actions": false,

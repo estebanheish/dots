@@ -1,4 +1,4 @@
-theme = "solarized_dark"
+theme = "github_dark"
 
 [editor]
 line-number = "relative"

@@ -30,10 +30,9 @@
       recursive = true;
       executable = true;
     };
-    # services.cliphist.enable = true;
-    # home.packages = with pkgs; [
-    #   kooha
-    #   wl-clipboard
-    # ];
+    services.cliphist.enable = true;
+    home.packages = with pkgs; [
+      wl-clipboard
+    ];
   };
 }

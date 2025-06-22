@@ -3,7 +3,7 @@
   xdg.configFile."ghostty/config".text = ''
     font-family = Monaspace Xenon
     font-size = 14
-    theme = Builtin Solarized Dark
+    theme = GitHub-Dark-Default
     window-decoration = false
     confirm-close-surface = false
     resize-overlay = never
