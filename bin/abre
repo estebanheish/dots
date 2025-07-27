@@ -3,13 +3,13 @@
 def main [] {
 
   let file = (fd -tf 
-    --search-path Documents 
-    --search-path Downloads 
-    --search-path Videos 
-    --search-path Pictures 
-    --search-path Music 
+    --search-path ~/Documents 
+    --search-path ~/Downloads 
+    --search-path ~/Videos 
+    --search-path ~/Pictures 
+    --search-path ~/Music 
     --search-path /run/media
-    | fuzzel -d -w 100 -l 25)
+    | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi)
 
 
   let type = ($file | path type)
@@ -21,7 +21,7 @@ def main [] {
 
   let mime_type = (ls $file --mime-type | get type | split row '/')
   match $mime_type {
-    ["text", _] => { ghostty -e hx $file }
+    ["text", _] => { foot hx $file }
     ["image", _] => { imv $file }
     ["video", _] => { mpv $file }
     ["audio", _] => { mpc update; mpc insert ($file | path split | skip while {|it| $it != 'Music'} | skip 1 | path join) ; mpc next }

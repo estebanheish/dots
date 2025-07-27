@@ -1,11 +1,11 @@
 font=Monaspace Neon
 
 default-timeout=3000
-border-size=0
-background-color=#002b36
-text-color=#657b83
+border-size=2
+background-color=#000000
+text-color=#ffffff
 border-color=#268bd2
-progress-color=#eee8d5
+progress-color=#2d2d2d
 default-timeout=5000
 
 [urgency=high]
@@ -14,8 +14,8 @@ text-color=#dc322f
 [app-name=overlay]
 layer=overlay
 history=0
-border-size=0
-anchor=bottom-center
+# border-size=0
+# anchor=bottom-center
 
 [mode=do-not-disturb]
 invisible=1

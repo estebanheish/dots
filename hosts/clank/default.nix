@@ -13,7 +13,7 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/cosmic
+    ../../modules/nixos/niri
     ../../modules/nixos/superlight
     ../../modules/nixos/ollama
     # ../../modules/nixos/docker
@@ -42,10 +42,10 @@
 
       tdesktop
       # vesktop
-      discord
+      # discord
 
       spotify
-      # bitwarden
+      bitwarden
       # bitwarden-cli
 
       # libreoffice
@@ -86,7 +86,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
 
   # boot
   boot.supportedFilesystems = ["ntfs"];

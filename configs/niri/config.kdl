@@ -9,6 +9,12 @@ hotkey-overlay {
     skip-at-startup
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 input {
     keyboard {
         xkb {
@@ -29,16 +35,52 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "DP-2" {
-    mode "2560x1440@240.000"
+output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
+    mode "3840x2160@240.084"
     scale 1
     transform "normal"
     position x=0 y=0
 }
 
+output "LG Electronics LG HDR 4K 204NTGYHG007" {
+    mode "3840x2160@59.997"
+    scale 1
+    transform "normal"
+    position x=2160 y=0
+}
+
+workspace "1" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "2" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "3" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "4" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "5" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "6" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "7" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+workspace "8" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+workspace "9" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+
 layout {
     gaps 16
     center-focused-column "never"
+    always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
@@ -48,7 +90,7 @@ layout {
 
     default-column-width { proportion 0.5; }
 
-   focus-ring {
+    focus-ring {
         width 4
         active-color "#268bd2"
         inactive-color "#586e75"
@@ -88,21 +130,29 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Shift+Return { spawn "foot"; }
-    Mod+R { spawn "fuzzel"; }
+    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
     Mod+Shift+R { spawn "~/.dots/bin/abre"; }
-    Mod+S { spawn "firefox"; }
+    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
+    Mod+b { spawn "librewolf"; }
     Super+Alt+L { spawn "swaylock"; }
+    Super+A repeat=false { toggle-overview; }
 
     // mako
-    Mod+M { spawn "nu" "-c" "niri-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
+    Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
     Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
 
     // audio
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; niri-overlay audio"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; niri-overlay audio"; }
-    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; niri-overlay audio"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; niri-overlay mic"; }
-    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; niri-overlay mic"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; wm-overlay audio"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; wm-overlay audio"; }
+    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wm-overlay audio"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPause { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+
 
     Mod+Escape { close-window; }
 
@@ -209,24 +259,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+Q { focus-workspace 1; }
-    Mod+W { focus-workspace 2; }
-    Mod+F { focus-workspace 3; }
-    Mod+P { focus-workspace 4; }
-    Mod+G { focus-workspace 5; }
-    Mod+J { focus-workspace 6; }
-    Mod+L { focus-workspace 7; }
-    Mod+U { focus-workspace 8; }
-    Mod+Y { focus-workspace 9; }
-    Mod+Shift+Q { move-column-to-workspace 1; }
-    Mod+Shift+W { move-column-to-workspace 2; }
-    Mod+Shift+F { move-column-to-workspace 3; }
-    Mod+Shift+P { move-column-to-workspace 4; }
-    Mod+Shift+G { move-column-to-workspace 5; }
-    Mod+Shift+J { move-column-to-workspace 6; }
-    Mod+Shift+L { move-column-to-workspace 7; }
-    Mod+Shift+U { move-column-to-workspace 8; }
-    Mod+Shift+Y { move-column-to-workspace 9; }
+    Mod+Q { focus-workspace "1"; }
+    Mod+W { focus-workspace "2"; }
+    Mod+F { focus-workspace "3"; }
+    Mod+P { focus-workspace "4"; }
+    Mod+G { focus-workspace "5"; }
+    Mod+J { focus-workspace "6"; }
+    Mod+L { focus-workspace "7"; }
+    Mod+U { focus-workspace "8"; }
+    Mod+Y { focus-workspace "9"; }
+    Mod+Shift+Q { move-column-to-workspace "1"; }
+    Mod+Shift+W { move-column-to-workspace "2"; }
+    Mod+Shift+F { move-column-to-workspace "3"; }
+    Mod+Shift+P { move-column-to-workspace "4"; }
+    Mod+Shift+G { move-column-to-workspace "5"; }
+    Mod+Shift+J { move-column-to-workspace "6"; }
+    Mod+Shift+L { move-column-to-workspace "7"; }
+    Mod+Shift+U { move-column-to-workspace "8"; }
+    Mod+Shift+Y { move-column-to-workspace "9"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -289,6 +339,6 @@ binds {
 }
 
 spawn-at-startup "mako"
-spawn-at-startup "swaybg" "-i" "/home/lemon/Pictures/tolga-ahmetler.jpg" "-m" "fill"
+spawn-at-startup "swaybg" "-i" "/home/heis/.wall.jpg" "-m" "fill"
 spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
 

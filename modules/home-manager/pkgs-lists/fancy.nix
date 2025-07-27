@@ -37,7 +37,7 @@
     # procs # ps
     # bottom # htop / top
     hyperfine # time
-    # xh # curl
+    xh # curl
     # dog # dig
     # sd # sed
     # grex

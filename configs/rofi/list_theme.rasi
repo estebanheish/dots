@@ -1,0 +1,39 @@
+* {
+    background-color:      Black;
+    border-color:          White;
+    text-color:           White;
+    font:            "Times New Roman 15";
+}
+window {
+    anchor:     north;
+    location:   north;
+    width:      70%;
+    padding:    4px;
+    children:   [ horibox ];
+}
+horibox {
+    orientation: vertical;
+    children:   [ entry, listview ];
+}
+listview {
+    layout:        vertical;
+    spacing:       5px;
+    fixed-height:  false;
+    require-input: false;
+    dynamic:       true;
+}
+entry {
+    expand:     false;
+    width:      10em;
+}
+element {
+    padding: 0px 2px;
+}
+element selected {
+    background-color: #268bd2;
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}

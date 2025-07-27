@@ -14,6 +14,7 @@ alias log = journalctl
 alias sctl = systemctl
 alias vault = zed ~/Documents/Vault
 alias brillo = ddcutil setvcp 10
+alias mixer = ncpamixer
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
@@ -29,7 +30,7 @@ def remove [...pkgs: string] {
   if ($pkgs | is-empty) {
     nix profile remove (npl | input list)
   } else {
-    let selected = (npl | filter {|pkg| $pkgs | any {|b| $pkg =~ $b }})
+    let selected = (npl | where {|pkg| $pkgs | any {|b| $pkg =~ $b }})
     if not ($selected | is-empty) {
       nix profile remove ...$selected
     } else {

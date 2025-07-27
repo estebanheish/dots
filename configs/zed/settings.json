@@ -13,13 +13,12 @@
   "features": {
     "edit_prediction_provider": "supermaven"
   },
-  "theme": "GitHub Dark Default",
+  "theme": "Zed Legacy: Solarized Dark",
   "language_models": {
     "ollama": {}
   },
   "agent": {
     "provider": null,
-    "version": "2",
     "default_model": {
       "provider": "ollama",
       "model": "devstral:24b"
@@ -45,8 +44,8 @@
   "tabs": {
     "git_status": true
   },
-  "ui_font_size": 18,
-  "buffer_font_size": 18,
+  "ui_font_size": 20,
+  "buffer_font_size": 20,
   "agent_font_size": 22,
   "scrollbar": { "show": "never" },
   "gutter": {

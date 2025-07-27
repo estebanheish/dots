@@ -14,16 +14,6 @@ command = "nu"
 args = ["--lsp"]
 
 [[language]]
-name = "nu"
-scope = "source.nu"
-injection-regex = "nu"
-file-types = ["nu"]
-shebangs = ["nu"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-language-servers = ["nu-lsp"]
-
-[[language]]
 name = "haskell"
 formatter = { command = "stylish-haskell" }
 auto-format = true
@@ -89,7 +79,6 @@ formatter = { command = 'prettier', args = ["--parser", "svelte"] }
 file-types = ["svelte"]
 language-servers = ["tailwindcss-ls", "svelteserver"]
 block-comment-tokens = { start = "<!--", end = "-->" }
-comment-tokens = "//"
 auto-format = true
 
 [[language]]

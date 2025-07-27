@@ -35,4 +35,6 @@
       wl-clipboard
     ];
   };
+
+  services.gnome.gnome-keyring.enable = false; # TODO
 }
