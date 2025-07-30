@@ -19,7 +19,7 @@ input {
     keyboard {
         xkb {
             layout "us"
-    	    // variant ",colemak"
+    	    variant "colemak"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
         repeat-delay 200
@@ -40,6 +40,7 @@ output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
     scale 1
     transform "normal"
     position x=0 y=0
+    focus-at-startup
 }
 
 output "LG Electronics LG HDR 4K 204NTGYHG007" {
@@ -112,24 +113,30 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
+    match app-id=r#"^org\.telegram\.desktop$"#
+    match app-id="vesktop"
+    match app-id="Bitwarden"
+   
     block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
 }
+
+window-rule {
+    match app-id="vesktop"
+    match app-id="spotify"
+
+    open-on-workspace "9"
+}
+
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Shift+Return { spawn "foot"; }
+    Mod+Return { spawn "foot"; }
     Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
     Mod+Shift+R { spawn "~/.dots/bin/abre"; }
     Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }

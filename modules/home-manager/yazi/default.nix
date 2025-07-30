@@ -21,11 +21,11 @@
         max_heigh = 2160;
       };
     };
+    initLua = ''
+      require("session"):setup {
+      	sync_yanked = true,
+      }
+    '';
   };
-  xdg.configFile."yazi/init.lua".text = ''
-    require("session"):setup {
-    	sync_yanked = true,
-    }
-  '';
   home.packages = [pkgs.nerd-fonts.inconsolata]; # for icons
 }
