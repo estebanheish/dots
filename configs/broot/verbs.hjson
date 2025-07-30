@@ -69,11 +69,15 @@
             cmd: ":focus;:select_first;:input_clear"
         }
         {
-            key: "alt-enter"
+            key: "alt-t"
             apply_to: file
             cmd: ":focus;:select_first;:cd"
         }
-        
+        {
+            key: "alt-t"
+            apply_to: directory
+            cmd: ":cd"
+        }
         # { key: "ctrl-u", internal: ":clear_stage" }
         { 
             invocation: move_from_staging

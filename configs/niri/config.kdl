@@ -143,6 +143,7 @@ binds {
     Mod+b { spawn "librewolf"; }
     Super+Alt+L { spawn "swaylock"; }
     Super+A repeat=false { toggle-overview; }
+    Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
     // mako
     Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }

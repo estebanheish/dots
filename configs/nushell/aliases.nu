@@ -72,6 +72,8 @@ def to_av1 [original: string, --crf: int = 35, --rename_old (-r)] {
 
 def transmission-remove [] { transmission-remote -l | detect columns | where Done == "100%" | get ID | transmission-remote -t $in -r }
 
+def sp [...txt: string] { $txt | str join " " | hunspell -d es_ES,en_US }
+
 alias zj = zellij
 alias zz = zellij --session
 alias lg = lazygit
@@ -89,5 +91,6 @@ def cas [file: path] {
 
 def flattenfolder [] { glob */** -D | each {|f| mv $f . | ignore} } 
 
+# games
 alias deadlock = steam steam://rungameid/1422450
 alias cyberpunk = steam steam://rungameid/1091500

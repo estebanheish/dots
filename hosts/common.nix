@@ -31,6 +31,7 @@
         ../modules/home-manager/ssh
         ../modules/home-manager/tmux
         ../modules/home-manager/zellij
+        ../modules/home-manager/hunspell
         ../modules/home-manager/pkgs-lists/core.nix
       ];
       home.stateVersion = "25.05";
