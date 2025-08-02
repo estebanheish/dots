@@ -1,13 +1,15 @@
 {
   pkgs,
   config,
+  lib,
   ...
-}: {
+}: let
+  myLib = import ../../../lib {inherit lib config;};
+in {
   imports = [
-    ../ghostty
     ../librewolf
     ../mpv
-    ../tofi
+    ../adwaita-dark
   ];
 
   home.packages = with pkgs; [
@@ -28,39 +30,17 @@
     # ncmpcpp
 
     fyi
-    fuzzel
     rofi-wayland
     foot
   ];
 
-  xdg.configFile."niri" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri";
-    recursive = true;
-  };
-  xdg.configFile."mako" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/mako";
-    recursive = true;
-  };
-  xdg.configFile."foot" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/foot";
-    recursive = true;
-  };
-  xdg.configFile."swaylock" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/swaylock";
-    recursive = true;
-  };
-  xdg.configFile."rofi" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/rofi";
-    recursive = true;
-  };
-
-  programs.fuzzel.enable = true;
-  programs.swaylock.enable = true;
-  programs.waybar.enable = true;
   services.mako.enable = true;
   services.swayidle.enable = true;
+  programs.swaylock.enable = true;
   services.polkit-gnome.enable = true;
   services.cliphist.enable = true;
+
+  xdg.configFile = myLib.mkRecSymCfg ["niri" "mako" "foot" "swaylock" "rofi"];
 
   home.file = {
     "bin" = {

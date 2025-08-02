@@ -57,4 +57,5 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   nixpkgs.hostPlatform.system = "x86_64-linux";
+  system.stateVersion = "24.05";
 }

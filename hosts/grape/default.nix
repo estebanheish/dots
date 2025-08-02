@@ -48,4 +48,5 @@
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
+  system.stateVersion = "24.05";
 }
