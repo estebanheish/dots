@@ -342,11 +342,8 @@ binds {
 
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Ctrl+Alt+Delete { quit; }
-    Shift+Ctrl+Alt+Delete { power-off-monitors; }
+    Ctrl+Alt+Return { quit; }
+    Ctrl+Alt+Shift+Return { power-off-monitors; }
 }
 
-spawn-at-startup "mako"
 spawn-at-startup "swaybg" "-i" "/home/heis/.wall.jpg" "-m" "fill"
-spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
-

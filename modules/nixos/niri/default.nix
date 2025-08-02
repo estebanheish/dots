@@ -19,6 +19,16 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  services.logind = {
+    extraConfig = ''
+      IdleActionSec=60m
+    '';
+  };
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=2h
+  '';
+
   services.greetd = {
     enable = true;
     settings = {

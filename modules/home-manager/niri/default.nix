@@ -35,7 +35,26 @@ in {
   ];
 
   services.mako.enable = true;
-  services.swayidle.enable = true;
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 600;
+        command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+      }
+      {
+        timeout = 650;
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+    ];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+    ];
+  };
+
   programs.swaylock.enable = true;
   services.polkit-gnome.enable = true;
   services.cliphist.enable = true;
