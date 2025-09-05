@@ -19,10 +19,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  services.logind = {
-    extraConfig = ''
-      IdleActionSec=60m
-    '';
+  services.logind.settings.Login = {
+    IdleActionSec = "60m";
   };
 
   systemd.sleep.extraConfig = ''
@@ -33,7 +31,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
         user = "greeter";
       };
       initial_session = {

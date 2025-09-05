@@ -13,7 +13,7 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
     ../../modules/nixos/syncthing
-    ../../modules/nixos/hyprland
+    ../../modules/nixos/niri
     # ../../modules/nixos/hostsfile
   ];
 
@@ -30,7 +30,7 @@
 
       tdesktop
       # vesktop
-      discord-canary
+      # discord-canary
 
       spotify
       # bitwarden
@@ -62,7 +62,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
 
   # boot
   boot.supportedFilesystems = ["ntfs"];

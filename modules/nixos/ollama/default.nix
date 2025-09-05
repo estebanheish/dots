@@ -33,6 +33,6 @@
       OLLAMA_API_BASE_URL = "http://localhost:11434";
       WEBUI_AUTH = "False";
     };
-    package = pkgs.stable.open-webui;
+    # package = pkgs.stable.open-webui;
   };
 }

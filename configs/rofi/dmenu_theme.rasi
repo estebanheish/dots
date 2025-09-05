@@ -28,7 +28,8 @@ element {
     padding: 0px 2px;
 }
 element selected {
-    background-color: #268bd2;
+    // background-color: #268bd2;
+    background-color: #3e8fb0;
 }
 
 element-text, element-icon {

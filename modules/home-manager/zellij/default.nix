@@ -4,7 +4,7 @@
     settings = {
       simplified_ui = true;
       pane_frames = false;
-      theme = "solarized-dark";
+      theme = "nord";
       themes.rose-pine = {
         bg = "#403d52";
         fg = "#e0def4";
@@ -40,6 +40,11 @@
         "bind \"g\"" = {
           GoToTab = 5;
           SwitchToMode = "normal";
+        };
+      };
+      plugins = {
+        "compact-bar location=\"zellij:compact-bar\"" = {
+          tooltip = "F1";
         };
       };
     };

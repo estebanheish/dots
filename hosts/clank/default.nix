@@ -15,11 +15,11 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     ../../modules/nixos/superlight
-    ../../modules/nixos/ollama
+    # ../../modules/nixos/ollama
     # ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
-    # ../../modules/nixos/steam
+    ../../modules/nixos/steam
     # ../../modules/nixos/ios
     ../../modules/nixos/nix-ld
     ../../modules/nixos/hostsfile

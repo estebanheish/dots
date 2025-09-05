@@ -68,7 +68,7 @@ source ~/.config/nushell/lf.nu
 source ~/.config/nushell/yazi.nu
 source ~/.config/nushell/zoxide.nu
 source ~/.config/nushell/completions.nu
-source ~/.config/nushell/themes/solarized_dark.nu
+source ~/.config/nushell/themes/rose_pine.nu
 source ~/.config/nushell/atuin.nu
 # source ~/.config/nushell/plugins.nu
 

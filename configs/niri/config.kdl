@@ -93,7 +93,8 @@ layout {
 
     focus-ring {
         width 4
-        active-color "#268bd2"
+        // active-color "#268bd2"
+        active-color "#3e8fb0"
         inactive-color "#586e75"
     }
 
@@ -347,3 +348,8 @@ binds {
 }
 
 spawn-at-startup "swaybg" "-i" "/home/heis/.wall.jpg" "-m" "fill"
+spawn-at-startup "xwayland-satellite"
+
+environment {
+    DISPLAY ":0"
+}

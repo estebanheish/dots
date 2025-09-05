@@ -10,6 +10,7 @@ alias l = ls
 alias la = ls -a
 alias ll = ls -l
 alias zed = zeditor -n
+alias z. = zed .
 alias log = journalctl
 alias sctl = systemctl
 alias vault = zed ~/Documents/Vault

@@ -10,6 +10,7 @@ in {
     ../librewolf
     ../mpv
     ../adwaita-dark
+    ../zathura
   ];
 
   home.packages = with pkgs; [
@@ -32,6 +33,8 @@ in {
     fyi
     rofi-wayland
     foot
+
+    xwayland-satellite
   ];
 
   services.mako.enable = true;

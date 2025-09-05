@@ -40,7 +40,7 @@
       "ctrl-j": "workspace::ToggleBottomDock",
       "ctrl-b": "workspace::ToggleLeftDock",
       "tab": "pane::ActivateNextItem",
-      "shift-tab": "pane::ActivatePreviousItem"
+      "shift-tab": "pane::ActivatePrevItem"
     }
   },
   {
@@ -52,7 +52,7 @@
       // ",": ["vim::SwitchMode", "Normal"],
       "s": ["buffer_search::Deploy", { "selection_search_enabled": true }],
       "tab": "pane::ActivateNextItem",
-      "shift-tab": "pane::ActivatePreviousItem"
+      "shift-tab": "pane::ActivatePrevItem"
     }
   },
   {
