@@ -31,7 +31,7 @@ in {
     # ncmpcpp
 
     fyi
-    rofi-wayland
+    rofi
     foot
 
     xwayland-satellite

@@ -44,5 +44,8 @@
         controlPersist = "no";
       };
     };
+    extraConfig = ''
+      Include ~/.ssh/config.local
+    '';
   };
 }

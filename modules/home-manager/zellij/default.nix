@@ -4,7 +4,7 @@
     settings = {
       simplified_ui = true;
       pane_frames = false;
-      theme = "nord";
+      theme = "solarized-dark";
       themes.rose-pine = {
         bg = "#403d52";
         fg = "#e0def4";
