@@ -4,7 +4,8 @@ default-timeout=3000
 border-size=2
 background-color=#000000
 text-color=#ffffff
-border-color=#268bd2
+# border-color=#268bd2
+border-color=#66023C
 progress-color=#2d2d2d
 default-timeout=5000
 
