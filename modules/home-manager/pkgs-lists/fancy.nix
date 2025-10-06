@@ -36,6 +36,7 @@
     # ripgrep # grep
     # procs # ps
     # bottom # htop / top
+    # dysk
     hyperfine # time
     xh # curl
     # dog # dig
