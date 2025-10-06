@@ -12,7 +12,7 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/hyprland
+    ../../modules/nixos/niri
     ../../modules/nixos/superlight
     ../../modules/nixos/nvidia
     ../../modules/nixos/quickemu
@@ -55,7 +55,6 @@
     enable = true;
     settings.PasswordAuthentication = false;
   };
-  programs.ssh.startAgent = true;
 
   # boot
   boot.supportedFilesystems = ["ntfs"];
