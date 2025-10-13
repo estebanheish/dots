@@ -15,7 +15,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     ../../modules/nixos/superlight
-    # ../../modules/nixos/ollama
+    ../../modules/nixos/ollama
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
@@ -64,7 +64,7 @@
     ];
   };
 
-  hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
+  # hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
 
   networking.hostName = "clank";
 

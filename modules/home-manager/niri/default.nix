@@ -24,10 +24,12 @@ in {
     wl-clipboard
     swaybg
 
+    pwvucontrol
     blueman
 
     ncpamixer
     impala
+    bluetui
     # ncmpcpp
 
     fyi
