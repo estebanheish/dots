@@ -40,11 +40,11 @@ def remove [...pkgs: string] {
   }
 }
 def install [--flake (-f): string = "nixpkgs", ...pkgs] {
-  nix profile install ...($pkgs | each {|pkg| $"($flake)#($pkg)"})
+  nix profile add ...($pkgs | each {|pkg| $"($flake)#($pkg)"})
 }
 
 def install-unfree [--flake (-f): string = "nixpkgs", ...pkgs] {
-  NIXPKGS_ALLOW_UNFREE=1 nix profile install ...($pkgs | each {|pkg| $"($flake)#($pkg)"}) --impure
+  NIXPKGS_ALLOW_UNFREE=1 nix profile add ...($pkgs | each {|pkg| $"($flake)#($pkg)"}) --impure
 }
 
 # yt-dlp
