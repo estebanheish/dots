@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    davinci-resolve
+    master.davinci-resolve
   ];
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
@@ -14,6 +14,7 @@
     enable = true;
     extraPackages = with pkgs; [
       mesa.opencl # Enables Rusticl (OpenCL) support
+      rocmPackages.clr.icd
     ];
   };
 }
