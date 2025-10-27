@@ -13,7 +13,7 @@
     ../../modules/home-manager/direnv
     ../../modules/home-manager/broot
 
-    ../../modules/home-manager/hyprland
+    ../../modules/home-manager/niri
   ];
   home.packages = with pkgs; [zoxide];
   programs.home-manager.enable = true;
