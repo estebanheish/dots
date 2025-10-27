@@ -20,6 +20,7 @@
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
+    ../../modules/nixos/weylus
     # ../../modules/nixos/ios
     ../../modules/nixos/nix-ld
     ../../modules/nixos/hostsfile
