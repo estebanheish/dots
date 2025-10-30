@@ -20,7 +20,7 @@
   console.keyMap = "colemak";
 
   environment.systemPackages = with pkgs; [
-    # tdesktop
+    # telegram-desktop
     # discord
 
     # rustup

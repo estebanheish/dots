@@ -28,12 +28,12 @@
     home.packages = with pkgs; [
       acpi
 
-      tdesktop
+      telegram-desktop
       # vesktop
       # discord-canary
 
       spotify
-      # bitwarden
+      # bitwarden-desktop
       # bitwarden-cli
 
       # logseq

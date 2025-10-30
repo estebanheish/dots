@@ -8,7 +8,7 @@
     tmate
     pkgs.master.zoxide # TODO
     duf
-    du-dust
+    dust
     fd
     ripgrep
     bottom

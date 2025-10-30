@@ -31,7 +31,7 @@
     # procs
     # delta # syntax-highlighting pager for git, diff and grep output
     # duf # df
-    # du-dust # du
+    # dust # du
     # fd # find
     # ripgrep # grep
     # procs # ps

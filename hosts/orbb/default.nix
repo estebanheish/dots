@@ -31,11 +31,11 @@
     ];
 
     home.packages = with pkgs; [
-      tdesktop
+      telegram-desktop
       discord-canary
 
       spotify
-      # bitwarden
+      # bitwarden-desktop
       # bitwarden-cli
 
       # linuxKernel.packages.linux_zen.perf

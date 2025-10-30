@@ -41,12 +41,12 @@
       # easyeffects
       obs-studio
 
-      tdesktop
+      telegram-desktop
       # vesktop
       # discord
 
       spotify
-      bitwarden
+      bitwarden-desktop
       # bitwarden-cli
 
       # libreoffice
