@@ -1,0 +1,5 @@
+[config]
+
+[templates.rofi]
+input_path = '~/.config/matugen/rofi-colors.rasi'
+output_path = '~/.config/rofi/rofi-colors.rasi'

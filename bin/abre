@@ -9,7 +9,7 @@ def main [] {
     --search-path ~/Pictures 
     --search-path ~/Music 
     --search-path /run/media
-    | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi)
+    | rofi -dmenu -theme ~/.config/rofi/list_theme_dms.rasi)
 
 
   let type = ($file | path type)

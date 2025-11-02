@@ -16,6 +16,12 @@
   i18n.supportedLocales = ["en_US.UTF-8/UTF-8"];
   console.keyMap = "colemak";
 
+  services.xserver = {
+    xkb.layout = "us";
+    xkbVariant = "colemak";
+    xkb.options = "grp:win_space_toggle";
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

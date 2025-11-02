@@ -13,7 +13,7 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/niri
+    ../../modules/nixos/niri_dms
     ../../modules/nixos/superlight
     ../../modules/nixos/ollama
     ../../modules/nixos/docker

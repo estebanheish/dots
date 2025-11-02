@@ -1,16 +1,20 @@
 {...}: {
   programs.git = {
     enable = true;
-    userName = "estebanheish";
-    userEmail = "estebanheish@gmail.com";
+    settings = {
+      user = {
+        name = "estebanheish";
+        email = "estebanheish@gmail.com";
+      };
+      aliase = {
+        s = "status";
+        d = "diff";
+        ds = "diff --staged";
+        A = "add -A";
+      };
+    };
     # delta = {
     #   enable = true;
     # };
-    aliases = {
-      s = "status";
-      d = "diff";
-      ds = "diff --staged";
-      A = "add -A";
-    };
   };
 }
