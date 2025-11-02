@@ -46,7 +46,7 @@
   },
   "ui_font_size": 20,
   "buffer_font_size": 20,
-  "agent_font_size": 22,
+  "agent_ui_font_size": 22,
   "scrollbar": { "show": "never" },
   "gutter": {
     "runnables": false,
