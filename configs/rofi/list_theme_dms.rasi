@@ -47,5 +47,5 @@ element-text, element-icon {
   text-color: inherit;
 }
 
-@import "rofi-colors.rasi"
+@import "matugen/colors.rasi"
 
