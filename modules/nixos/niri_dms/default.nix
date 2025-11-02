@@ -1,11 +1,19 @@
 {
   user,
+  pkgs,
   inputs,
   ...
-}: {
+}: let
+  system = pkgs.stdenv.hostPlatform.system;
+in {
   environment.localBinInPath = true;
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package =
+      inputs.niri.packages.${system}.niri.overrideAttrs
+      (_old: {doCheck = false;});
+  };
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
