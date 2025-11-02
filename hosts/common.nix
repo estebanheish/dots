@@ -17,9 +17,11 @@
   console.keyMap = "colemak";
 
   services.xserver = {
-    xkb.layout = "us";
-    xkbVariant = "colemak";
-    xkb.options = "grp:win_space_toggle";
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+      options = "grp:win_space_toggle";
+    };
   };
 
   home-manager = {
