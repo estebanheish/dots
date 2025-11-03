@@ -93,6 +93,9 @@ layout {
 
     focus-ring {
         width 4
+        // active-color "#268bd2"
+        active-color "#66023C"
+        inactive-color "#586e75"
     }
 
     border { off; }
@@ -100,15 +103,7 @@ layout {
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-animations {
-    slowdown 0.5
-    // off
-}
-
-window-rule {
-    geometry-corner-radius 10
-    clip-to-geometry true
-}
+animations { off; }
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -122,13 +117,12 @@ window-rule {
     match app-id=r#"^org\.telegram\.desktop$"#
     match app-id="vesktop"
     match app-id="Bitwarden"
-   
+
     block-out-from "screen-capture"
 }
 
 layer-rule {
     match namespace="^notifications$"
-    match namespace="^quickshell:notification$"
     block-out-from "screencast"
 }
 
@@ -144,49 +138,11 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "foot"; }
-    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme_dms.rasi"; }
+    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
     Mod+Shift+R { spawn "~/.dots/bin/abre"; }
-    // Mod+R { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
     Mod+b { spawn "librewolf"; }
-    Super+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
-
-    Alt+M hotkey-overlay-title="Task Manager" {
-        spawn "dms" "ipc" "call" "processlist" "toggle";
-    }
-    Alt+N hotkey-overlay-title="Notification Center" {
-        spawn "dms" "ipc" "call" "notifications" "toggle";
-    }
-    Alt+Comma hotkey-overlay-title="Settings" {
-        spawn "dms" "ipc" "call" "settings" "toggle";
-    }
-    Alt+P hotkey-overlay-title="Notepad" {
-        spawn "dms" "ipc" "call" "notepad" "toggle";
-    }
-    Alt+BackSpace hotkey-overlay-title="Power Menu" {
-        spawn "dms" "ipc" "call" "powermenu" "toggle";
-    }
-    Alt+C hotkey-overlay-title="Control Center" {
-        spawn "dms" "ipc" "call" "control-center" "toggle";
-    }
-    Alt+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
-    }
-    Alt+B hotkey-overlay-title="Toggle Bar" {
-        spawn "dms" "ipc" "call" "bar" "toggle";
-    }
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
-    }
-    // You can override the default device for e.g. keyboards by adding the device name to the last param
-    XF86MonBrightnessDown allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
-    }
-    // Night mode toggle
-    Alt+Shift+N allow-when-locked=true {
-        spawn "dms" "ipc" "call" "night" "toggle";
-    }
-
+    Super+Alt+L { spawn "swaylock"; }
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
@@ -195,16 +151,16 @@ binds {
     Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
 
     // audio
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
-    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
-    Shift+XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; wm-overlay audio"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; wm-overlay audio"; }
+    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wm-overlay audio"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
 
-    XF86AudioPause { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioPlay { spawn "dms" "ipc" "call" "mpris" "playPause"; }
-    XF86AudioPrev { spawn "dms" "ipc" "call" "mpris" "previous"; }
-    XF86AudioNext { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPause { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
 
 
     Mod+Escape { close-window; }
@@ -395,23 +351,4 @@ environment {
     DISPLAY ":0"
 }
 
-config-notification {
-    disable-failed
-}
-
-debug {
-   honor-xdg-activation-with-invalid-serial
-}
-
-// layer-rule {
-//     match namespace="quickshell"
-//     place-within-backdrop true
-// }
-
-// layer-rule {
-//     match namespace="dms:blurwallpaper"
-//     place-within-backdrop true
-// }
-
-// include "dms/colors.kdl"
-// include "dms/layout.kdl"
+spawn-at-startup "xwayland-satellite"

@@ -13,7 +13,7 @@
     ../common.nix
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
-    ../../modules/nixos/niri_dms
+    ../../modules/nixos/niri
     ../../modules/nixos/superlight
     ../../modules/nixos/ollama
     ../../modules/nixos/docker
@@ -97,4 +97,6 @@
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   system.stateVersion = "24.05";
+
+  dots.niri.profile = "dms";
 }

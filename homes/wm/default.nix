@@ -17,4 +17,5 @@
   ];
   home.packages = with pkgs; [zoxide];
   programs.home-manager.enable = true;
+  dots.niri.profile = "simple";
 }

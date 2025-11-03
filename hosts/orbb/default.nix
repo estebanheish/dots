@@ -62,4 +62,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   system.stateVersion = "25.05";
+
+  dots.niri.profile = "simple";
 }

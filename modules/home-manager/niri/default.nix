@@ -2,78 +2,158 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: let
-  myLib = import ../../../lib {inherit lib config;};
+  cfg = config.dots.niri;
+  dotConfigs = "${config.home.homeDirectory}/.dots/configs";
+  linkFile = rel: config.lib.file.mkOutOfStoreSymlink "${dotConfigs}/${rel}";
+  linkDir = rel: {
+    source = config.lib.file.mkOutOfStoreSymlink "${dotConfigs}/${rel}";
+    recursive = true;
+  };
 in {
+  options.dots.niri.profile = lib.mkOption {
+    type = lib.types.enum ["simple" "dms"];
+    default = "simple";
+  };
+
   imports = [
     ../librewolf
     ../mpv
-    ../adwaita-dark
     ../zathura
+    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
   ];
 
-  home.packages = with pkgs; [
-    monaspace
-    wev
-    imv
-    satty
+  config = lib.mkMerge [
+    {
+      home.packages = with pkgs; [
+        monaspace
+        wev
+        imv
+        satty
+        swaybg
+        pwvucontrol
+        blueman
+        impala
+        bluetui
+        rofi
+        foot
+        fyi
+        xwayland-satellite
+      ];
 
-    brightnessctl
-    playerctl
-    wl-clipboard
-    swaybg
+      services = {
+        mako.enable = true;
+        polkit-gnome.enable = true;
+        cliphist.enable = true;
+      };
 
-    pwvucontrol
-    blueman
+      xdg.configFile = {
+        "niri/base.kdl".source = linkFile "niri/base.kdl";
+        "niri/profiles/simple.kdl".source = linkFile "niri/profiles/simple.kdl";
+        "niri/profiles/dms.kdl".source = linkFile "niri/profiles/dms.kdl";
+        # "niri/dms" = linkDir "niri/dms";
+        "foot/foot.ini".source = linkFile "foot/foot.ini";
+        "rofi" = linkDir "rofi";
+      };
 
-    ncpamixer
-    impala
-    bluetui
-    # ncmpcpp
+      home.file = lib.mkMerge [
+        {
+          "bin" = {
+            enable = true;
+            source = ../../../bin;
+            target = ".local/bin";
+            recursive = true;
+            executable = true;
+          };
+        }
+        (
+          let
+            profilePath = "${dotConfigs}/niri/profiles/${cfg.profile}.kdl";
+            targetKey = ".config/niri/config.kdl";
+          in
+            if builtins.pathExists profilePath
+            then {
+              "${targetKey}".source = config.lib.file.mkOutOfStoreSymlink profilePath;
+            }
+            else {
+              "${targetKey}".text = ''include "profiles/${cfg.profile}.kdl"'';
+            }
+        )
+        (lib.mkIf (cfg.profile == "simple") {
+          ".wall.jpg".source = ../../../misc/walls/moon.jpg;
+        })
+      ];
+    }
 
-    fyi
-    rofi
-    foot
+    (lib.mkIf (cfg.profile == "simple") {
+      home.packages = with pkgs; [
+        brightnessctl
+        playerctl
+        wl-clipboard
+        ncpamixer
+      ];
 
-    xwayland-satellite
+      services.swayidle = {
+        enable = true;
+        timeouts = [
+          {
+            timeout = 600;
+            command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+          }
+          {
+            timeout = 650;
+            command = "${pkgs.swaylock}/bin/swaylock -f";
+          }
+        ];
+        events = [
+          {
+            event = "before-sleep";
+            command = "${pkgs.swaylock}/bin/swaylock -f";
+          }
+        ];
+      };
+
+      programs.swaylock.enable = true;
+
+      xdg.configFile = {
+        "mako" = linkDir "mako";
+        "swaylock" = linkDir "swaylock";
+      };
+
+      dconf.settings = {
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      };
+
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Adwaita-dark";
+          package = pkgs.gnome-themes-extra;
+        };
+      };
+
+      qt = {
+        enable = true;
+        platformTheme.name = "adwaita";
+        style = {
+          package = pkgs.adwaita-qt;
+          name = "adwaita-dark";
+        };
+      };
+    })
+
+    (lib.mkIf (cfg.profile == "dms") {
+      xdg.configFile = {
+        "matugen" = linkDir "matugen";
+      };
+      programs.dankMaterialShell = {
+        quickshell.package = inputs.quickshell.packages.${pkgs.system}.default;
+        enable = true;
+        enableSystemd = true;
+        enableVPN = false;
+      };
+    })
   ];
-
-  services.mako.enable = true;
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      {
-        timeout = 600;
-        command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
-      }
-      {
-        timeout = 650;
-        command = "${pkgs.swaylock}/bin/swaylock -f";
-      }
-    ];
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -f";
-      }
-    ];
-  };
-
-  programs.swaylock.enable = true;
-  services.polkit-gnome.enable = true;
-  services.cliphist.enable = true;
-
-  xdg.configFile = myLib.mkRecSymCfg ["niri" "mako" "foot" "swaylock" "rofi"];
-
-  home.file = {
-    "bin" = {
-      enable = true;
-      source = ../../../bin;
-      target = ".local/bin";
-      recursive = true;
-      executable = true;
-    };
-    ".wall.jpg".source = ../../../misc/walls/moon.jpg;
-  };
 }

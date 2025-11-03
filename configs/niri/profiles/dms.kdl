@@ -1,0 +1,96 @@
+include "../base.kdl"
+include "../dms/colors.kdl"
+include "../dms/wpblur.kdl"
+
+animations {
+    slowdown 0.5
+    on
+}
+
+layout {
+    gaps 16
+
+    border {
+        width 2
+    }
+
+    focus-ring {
+        width 2
+    }
+}
+
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^quickshell:notification$"
+    block-out-from "screencast"
+}
+
+binds {
+    // Mod+R { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme_dms.rasi"; }
+    Mod+Shift+R { spawn "~/.dots/bin/abre"; }
+
+    Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+
+    Super+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
+
+    Alt+M hotkey-overlay-title="Task Manager" {
+        spawn "dms" "ipc" "call" "processlist" "toggle";
+    }
+    Alt+N hotkey-overlay-title="Notification Center" {
+        spawn "dms" "ipc" "call" "notifications" "toggle";
+    }
+    Alt+Comma hotkey-overlay-title="Settings" {
+        spawn "dms" "ipc" "call" "settings" "toggle";
+    }
+    Alt+P hotkey-overlay-title="Notepad" {
+        spawn "dms" "ipc" "call" "notepad" "toggle";
+    }
+    Alt+BackSpace hotkey-overlay-title="Power Menu" {
+        spawn "dms" "ipc" "call" "powermenu" "toggle";
+    }
+    Alt+C hotkey-overlay-title="Control Center" {
+        spawn "dms" "ipc" "call" "control-center" "toggle";
+    }
+    Alt+Y hotkey-overlay-title="Browse Wallpapers" {
+        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+    }
+    Alt+B hotkey-overlay-title="Toggle Bar" {
+        spawn "dms" "ipc" "call" "bar" "toggle";
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+    }
+    // You can override the default device for e.g. keyboards by adding the device name to the last param
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+    }
+    // Night mode toggle
+    Alt+Shift+N allow-when-locked=true {
+        spawn "dms" "ipc" "call" "night" "toggle";
+    }
+
+    // audio
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    Shift+XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+
+    XF86AudioPause { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPlay { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+    XF86AudioPrev { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    XF86AudioNext { spawn "dms" "ipc" "call" "mpris" "next"; }
+}
+
+config-notification {
+    disable-failed
+}
+
+debug {
+   honor-xdg-activation-with-invalid-serial
+}
