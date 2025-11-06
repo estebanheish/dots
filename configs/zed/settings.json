@@ -74,7 +74,6 @@
     "nu": true,
     "sql": true,
     "ron": true,
-    "ruff": true,
     "zed-legacy-themes": true
   },
   "title_bar": { "show": "never" }

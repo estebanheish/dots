@@ -2,7 +2,9 @@ configuration {
 	font: "mono 12";
 	terminal: "foot";
 	drun-display-format: "{name}";
-	matching: "fuzzy";
+	matching: "normal,fuzzy";
+	case-smart: true;
+	sorting-method: "fzf";
     scroll-method: 1;
   timeout {
       action: "kb-cancel";
