@@ -92,5 +92,9 @@ config-notification {
 }
 
 debug {
-   honor-xdg-activation-with-invalid-serial
+    honor-xdg-activation-with-invalid-serial
+}
+
+environment {
+    DMS_DISABLE_POLKIT "1"
 }
