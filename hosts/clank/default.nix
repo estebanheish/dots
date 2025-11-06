@@ -65,6 +65,8 @@
     ];
   };
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   # hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
 
   networking.hostName = "clank";
