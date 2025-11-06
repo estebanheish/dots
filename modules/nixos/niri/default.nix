@@ -26,6 +26,7 @@ in {
 
       security.polkit.enable = true;
       services.gnome.gnome-keyring.enable = true;
+      services.upower.enable = true;
       security.pam.services.swaylock = {};
 
       home-manager.users.${user} = {
