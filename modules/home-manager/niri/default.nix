@@ -34,7 +34,7 @@ in {
         satty
         swaybg
         pwvucontrol
-        blueman
+        # blueman
         impala
         bluetui
         rofi
