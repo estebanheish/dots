@@ -54,7 +54,18 @@
     createHome = true;
     initialPassword = "hola";
     shell = pkgs.nushell;
-    extraGroups = ["wheel" "audio" "video"];
+    extraGroups = [
+      "wheel"
+      "audio"
+      "disk"
+      "floppy"
+      "input"
+      "kvm"
+      "optical"
+      "scanner"
+      "storage"
+      "video"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA0fkLNNFP4Aj+CnpbpLq/uT96TZpiKKeGGtaH+9jK+ estebanheish@gmail.com"
     ];
