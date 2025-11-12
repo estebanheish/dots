@@ -1,4 +1,6 @@
 {
+  "agent_buffer_font_size": 18.0,
+  "buffer_font_weight": 400.0,
   "show_edit_predictions": false,
   "collaboration_panel": {
     "dock": "right"
@@ -6,7 +8,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "Github Dark",
+  "theme": "Github Dark Dimmed",
   "language_models": {
     "ollama": {}
   },
@@ -23,6 +25,12 @@
     //   "provider": "ollama",
     //   "model": "devstral:24b"
     // }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "max_severity": null
+    }
   },
   "telemetry": {
     "diagnostics": false,
@@ -44,9 +52,9 @@
   "tabs": {
     "git_status": true
   },
-  "ui_font_size": 20,
-  "buffer_font_size": 20,
-  "agent_ui_font_size": 22,
+  "ui_font_size": 20.0,
+  "buffer_font_size": 20.0,
+  "agent_ui_font_size": 24.0,
   "scrollbar": { "show": "never" },
   "gutter": {
     "runnables": false,
