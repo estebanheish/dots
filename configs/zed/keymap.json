@@ -80,5 +80,11 @@
     "bindings": {
       "ctrl-`": "terminal_panel::ToggleFocus"
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-;": "editor::ToggleInlineDiagnostics"
+    }
   }
 ]
