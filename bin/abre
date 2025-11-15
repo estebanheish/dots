@@ -24,7 +24,8 @@ def main [] {
     ["text", _] => { foot hx $file }
     ["image", _] => { imv $file }
     ["video", _] => { mpv $file }
-    ["audio", _] => { mpc update; mpc insert ($file | path split | skip while {|it| $it != 'Music'} | skip 1 | path join) ; mpc next }
+    ["audio", _] => { mpv --force-window=yes $file }
+    # ["audio", _] => { mpc update; mpc insert ($file | path split | skip while {|it| $it != 'Music'} | skip 1 | path join) ; mpc next }
     ["application", "pdf"] => { zathura $file }
     ["application", "epub+zip"] => { zathura $file }
     _ => { print --stderr "can't open this"; exit 1 }

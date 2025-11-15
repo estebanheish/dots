@@ -15,6 +15,7 @@ in {
   };
 
   imports = [
+    ../i2c
     inputs.dankMaterialShell.nixosModules.greeter
   ];
 

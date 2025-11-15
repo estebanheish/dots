@@ -151,7 +151,7 @@ in {
       programs.dankMaterialShell = {
         quickshell.package = inputs.quickshell.packages.${pkgs.system}.default;
         enable = true;
-        enableSystemd = true;
+        systemd.enable = true;
         enableVPN = false;
       };
     })
