@@ -41,6 +41,8 @@ in {
         foot
         fyi
         xwayland-satellite
+        nautilus
+        papirus-icon-theme
       ];
 
       services = {

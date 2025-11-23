@@ -14,7 +14,7 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
-    ../../modules/nixos/superlight
+    # ../../modules/nixos/superlight
     # ../../modules/nixos/ollama
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
