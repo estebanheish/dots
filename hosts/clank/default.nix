@@ -15,7 +15,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     # ../../modules/nixos/superlight
-    # ../../modules/nixos/ollama
+    ../../modules/nixos/ollama
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
@@ -23,7 +23,19 @@
     ../../modules/nixos/weylus
     # ../../modules/nixos/ios
     ../../modules/nixos/nix-ld
-    ../../modules/nixos/hostsfile
+    # ../../modules/nixos/hostsfile
+  ];
+
+  hardware.firmware = [
+    (pkgs.linux-firmware.overrideAttrs (old: {
+      version = "20251111";
+      src = pkgs.fetchurl {
+        # https://www.kernel.org/pub/linux/kernel/firmware/
+        url = "https://www.kernel.org/pub/linux/kernel/firmware/linux-firmware-20251111.tar.gz";
+        # > nix-prefetch-url https://www.kernel.org/pub/linux/kernel/firmware/linux-firmware-20251111.tar.gz
+        sha256 = "0rp2ah8drcnl7fh9vbawa8p8c9lhvn1d8zkl48ckj20vba0maz2g";
+      };
+    }))
   ];
 
   home-manager.users.${user} = {
@@ -95,7 +107,7 @@
   boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   system.stateVersion = "24.05";

@@ -37,6 +37,7 @@ input {
 
 output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
     mode "3840x2160@240.084"
+    // mode "1920x1080@480.170"
     scale 1
     transform "normal"
     position x=0 y=0
@@ -44,27 +45,12 @@ output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
 }
 
 output "LG Electronics LG HDR 4K 204NTGYHG007" {
+    // off
     mode "3840x2160@59.997"
     scale 1
     transform "normal"
     position x=2160 y=0
 }
-
-// output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
-//     mode "1920x1080@480.170"
-//     scale 1
-//     transform "normal"
-//     position x=0 y=0
-//     focus-at-startup
-// }
-
-// output "LG Electronics LG HDR 4K 204NTGYHG007" {
-//     off
-//     mode "3840x2160@59.997"
-//     scale 1
-//     transform "normal"
-//     position x=2000 y=0
-// }
 
 workspace "1" {
     open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"

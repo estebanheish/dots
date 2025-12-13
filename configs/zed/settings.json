@@ -89,5 +89,13 @@
     "ron": true,
     "zed-legacy-themes": true
   },
-  "title_bar": { "show": "never" }
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  }
 }

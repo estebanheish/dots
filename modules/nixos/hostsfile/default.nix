@@ -1,7 +1,7 @@
 {...}: {
   networking = {
     stevenblack = {
-      enable = false;
+      enable = true;
       block = ["fakenews" "gambling" "porn" "social"];
     };
     extraHosts = ''

@@ -34,7 +34,7 @@ in {
         satty
         swaybg
         pwvucontrol
-        # blueman
+        blueman
         impala
         bluetui
         rofi
@@ -42,7 +42,6 @@ in {
         fyi
         xwayland-satellite
         nautilus
-        papirus-icon-theme
       ];
 
       services = {
@@ -147,6 +146,13 @@ in {
     })
 
     (lib.mkIf (cfg.profile == "dms") {
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Adwaita-Dark";
+          package = pkgs.gnome-themes-extra;
+        };
+      };
       xdg.configFile = {
         "matugen" = linkDir "matugen";
       };
