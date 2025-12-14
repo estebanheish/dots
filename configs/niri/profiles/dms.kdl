@@ -1,6 +1,7 @@
 include "../base.kdl"
 include "../dms/colors.kdl"
 include "../dms/wpblur.kdl"
+include "../dms/alttab.kdl"
 
 animations {
     slowdown 0.5
@@ -60,7 +61,7 @@ binds {
         spawn "dms" "ipc" "call" "dankdash" "wallpaper";
     }
     Alt+B hotkey-overlay-title="Toggle Bar" {
-        spawn "dms" "ipc" "call" "bar" "toggle";
+        spawn "dms" "ipc" "call" "bar" "toggle" "index" "0";
     }
     XF86MonBrightnessUp allow-when-locked=true {
         spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
