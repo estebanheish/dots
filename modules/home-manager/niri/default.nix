@@ -153,6 +153,7 @@ in {
           package = pkgs.gnome-themes-extra;
         };
       };
+      home.packages = [pkgs.kdePackages.qt6ct];
       xdg.configFile = {
         "matugen" = linkDir "matugen";
       };

@@ -80,6 +80,15 @@ workspace "9" {
     open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
 }
 
+recent-windows {
+    binds {
+        Mod+t           { next-window     scope="output"; }
+        Mod+Shift+t     { previous-window scope="output"; }
+        Mod+grave       { next-window     scope="output" filter="app-id"; }
+        Mod+Shift+grave { previous-window scope="output" filter="app-id"; }
+    }
+}
+
 layout {
     gaps 16
     center-focused-column "never"
@@ -270,24 +279,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+Q { focus-workspace "1"; }
-    Mod+W { focus-workspace "2"; }
-    Mod+F { focus-workspace "3"; }
-    Mod+P { focus-workspace "4"; }
-    Mod+G { focus-workspace "5"; }
-    Mod+J { focus-workspace "6"; }
-    Mod+L { focus-workspace "7"; }
-    Mod+U { focus-workspace "8"; }
-    Mod+Y { focus-workspace "9"; }
-    Mod+Shift+Q { move-column-to-workspace "1"; }
-    Mod+Shift+W { move-column-to-workspace "2"; }
-    Mod+Shift+F { move-column-to-workspace "3"; }
-    Mod+Shift+P { move-column-to-workspace "4"; }
-    Mod+Shift+G { move-column-to-workspace "5"; }
-    Mod+Shift+J { move-column-to-workspace "6"; }
-    Mod+Shift+L { move-column-to-workspace "7"; }
-    Mod+Shift+U { move-column-to-workspace "8"; }
-    Mod+Shift+Y { move-column-to-workspace "9"; }
+    Mod+1 { focus-workspace "1"; }
+    Mod+2 { focus-workspace "2"; }
+    Mod+3 { focus-workspace "3"; }
+    Mod+4 { focus-workspace "4"; }
+    Mod+5 { focus-workspace "5"; }
+    Mod+6 { focus-workspace "6"; }
+    Mod+7 { focus-workspace "7"; }
+    Mod+8 { focus-workspace "8"; }
+    Mod+9 { focus-workspace "9"; }
+    Mod+Shift+1 { move-column-to-workspace "1"; }
+    Mod+Shift+2 { move-column-to-workspace "2"; }
+    Mod+Shift+3 { move-column-to-workspace "3"; }
+    Mod+Shift+4 { move-column-to-workspace "4"; }
+    Mod+Shift+5 { move-column-to-workspace "5"; }
+    Mod+Shift+6 { move-column-to-workspace "6"; }
+    Mod+Shift+7 { move-column-to-workspace "7"; }
+    Mod+Shift+8 { move-column-to-workspace "8"; }
+    Mod+Shift+9 { move-column-to-workspace "9"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -306,8 +315,8 @@ binds {
     Mod+apostrophe { switch-preset-window-height; }
     Mod+Shift+apostrophe { reset-window-height; }
 
-    Mod+Tab { maximize-column; }
-    Mod+Shift+Tab { fullscreen-window; }
+    Mod+f { maximize-column; }
+    Mod+Shift+f { fullscreen-window; }
 
     Mod+Z { center-column; }
 
