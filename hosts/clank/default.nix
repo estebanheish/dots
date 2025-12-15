@@ -107,7 +107,7 @@
   boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   system.stateVersion = "24.05";

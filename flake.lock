@@ -11,11 +11,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1765661038,
-        "narHash": "sha256-HSpkTs+J84DG0i9TJSM7u6ybEDHZ6W/GO5FZJnC8qao=",
+        "lastModified": 1765728985,
+        "narHash": "sha256-GR+kdOuyvbzdg3aLrjITNZJe6s+S3OhYweEsBi6lho0=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "fbf79e62e9961d809a12cf8990a23901a2e93d38",
+        "rev": "ca5fe6f7db6f3880caff99f6696dd8f44d099cca",
         "type": "github"
       },
       "original": {
@@ -51,11 +51,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765606130,
-        "narHash": "sha256-KOP4QnkiRwiD5KEOr6ceF67rfTP1OqPmCCft6xDC3k4=",
+        "lastModified": 1765682243,
+        "narHash": "sha256-yeCxFV/905Wr91yKt5zrVvK6O2CVXWRMSrxqlAZnLp0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d787ec69c3216ea33be1c0424fe65cb23aa8fb31",
+        "rev": "58bf3ecb2d0bba7bdf363fc8a6c4d49b4d509d03",
         "type": "github"
       },
       "original": {
@@ -98,27 +98,6 @@
         "type": "github"
       }
     },
-    "niri": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1765625997,
-        "narHash": "sha256-d0/ugnBSrCJwwySMc5skOMbAfEdjWapc+EMFbcsnd5Q=",
-        "owner": "YaLTeR",
-        "repo": "niri",
-        "rev": "d1fc1ab731f7cc59923a16acce9a387782bfeb10",
-        "type": "github"
-      },
-      "original": {
-        "owner": "YaLTeR",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1764440730,
@@ -152,11 +131,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1765666409,
-        "narHash": "sha256-etVoOodN3CxT8L8qW3PRsB79GIpM0wVw6mfOLO+lW+Y=",
+        "lastModified": 1765735849,
+        "narHash": "sha256-BuebrKpk1Xsox7d/OGnm0kVj/MpqUkG7g6XBxgctejA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5d6aaa756b89b9b81635c855c084ae0ee6e1cd4f",
+        "rev": "ea279aeb083c72ab81e78001f063a23af8b2516d",
         "type": "github"
       },
       "original": {
@@ -272,7 +251,6 @@
         "dankMaterialShell": "dankMaterialShell",
         "dgop": "dgop",
         "home-manager": "home-manager",
-        "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
@@ -397,27 +375,6 @@
         "owner": "raspberrypi",
         "ref": "v1.5.2",
         "repo": "rpicam-apps",
-        "type": "github"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "niri",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1757989933,
-        "narHash": "sha256-9cpKYWWPCFhgwQTww8S94rTXgg8Q8ydFv9fXM6I8xQM=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "8249aa3442fb9b45e615a35f39eca2fe5510d7c3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
         "type": "github"
       }
     }

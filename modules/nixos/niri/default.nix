@@ -7,7 +7,7 @@
   ...
 }: let
   cfg = config.dots.niri;
-  system = pkgs.stdenv.hostPlatform.system;
+  # system = pkgs.stdenv.hostPlatform.system;
 in {
   options.dots.niri.profile = lib.mkOption {
     type = lib.types.enum ["simple" "dms"];
@@ -47,9 +47,9 @@ in {
         HibernateDelaySec=2h
       '';
 
-      programs.niri.package = lib.mkForce (
-        inputs.niri.packages.${system}.niri.overrideAttrs (_: {doCheck = false;})
-      );
+      # programs.niri.package = lib.mkForce (
+      #   inputs.niri.packages.${system}.niri.overrideAttrs (_: {doCheck = false;})
+      # );
     }
 
     (lib.mkIf (cfg.profile == "simple") {
