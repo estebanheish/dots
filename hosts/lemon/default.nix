@@ -10,7 +10,7 @@
     ../common.nix
     ../../modules/nixos/hyprland
     ../../modules/nixos/pipewire
-    ../../modules/nixos/bluetooth
+    ../../modules/nixos/bluetooth_bat
     ../../modules/nixos/silent-boot
   ];
 

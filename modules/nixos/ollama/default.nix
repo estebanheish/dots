@@ -13,7 +13,7 @@
 
   services.ollama = {
     enable = true;
-    package = pkgs.ollama-rocm;
+    package = pkgs.ollama-vulkan;
     # package = outputs.packages.${pkgs.system}.ollama;
     # package = pkgs.ollama;
     # rocmOverrideGfx = "11.0.0";

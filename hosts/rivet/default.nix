@@ -11,7 +11,7 @@
 
     ../common.nix
     ../../modules/nixos/pipewire
-    ../../modules/nixos/bluetooth
+    ../../modules/nixos/bluetooth_bat
     ../../modules/nixos/syncthing
     ../../modules/nixos/niri
     # ../../modules/nixos/hostsfile
