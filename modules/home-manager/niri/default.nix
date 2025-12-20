@@ -22,7 +22,7 @@ in {
     ../librewolf
     ../mpv
     ../zathura
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    inputs.dankMaterialShell.homeModules.dank-material-shell
   ];
 
   config = lib.mkMerge [
@@ -42,6 +42,7 @@ in {
         fyi
         xwayland-satellite
         nautilus
+        wl-clipboard
       ];
 
       services = {
@@ -158,7 +159,7 @@ in {
         "matugen" = linkDir "matugen";
       };
       programs.dankMaterialShell = {
-        quickshell.package = inputs.quickshell.packages.${pkgs.system}.default;
+        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
         enable = true;
         systemd.enable = true;
         enableVPN = false;

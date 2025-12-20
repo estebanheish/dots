@@ -6,7 +6,7 @@
 }: {
   home.packages = [
     pkgs.eww
-    inputs.eww-scripts.packages.${pkgs.system}.default
+    inputs.eww-scripts.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.nerd-fonts.inconsolata
     pkgs.ubuntu_font_family
   ];

@@ -4,7 +4,7 @@ include "../dms/wpblur.kdl"
 include "../dms/alttab.kdl"
 
 animations {
-    slowdown 0.5
+    slowdown 0.3
     on
 }
 
@@ -21,7 +21,7 @@ layout {
 }
 
 window-rule {
-    geometry-corner-radius 10
+    // geometry-corner-radius 10
     clip-to-geometry true
 }
 
@@ -54,9 +54,9 @@ binds {
     Alt+BackSpace hotkey-overlay-title="Power Menu" {
         spawn "dms" "ipc" "call" "powermenu" "toggle";
     }
-    Alt+C hotkey-overlay-title="Control Center" {
-        spawn "dms" "ipc" "call" "control-center" "toggle";
-    }
+    // Alt+C hotkey-overlay-title="Control Center" {
+    //     spawn "dms" "ipc" "call" "control-center" "toggle";
+    // }
     Alt+Y hotkey-overlay-title="Browse Wallpapers" {
         spawn "dms" "ipc" "call" "dankdash" "wallpaper";
     }

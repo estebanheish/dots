@@ -4,7 +4,7 @@
   theme,
   ...
 }: {
-  home.packages = [inputs.wezterm.packages.${pkgs.system}.default];
+  home.packages = [inputs.wezterm.packages.${pkgs.stdenv.hostPlatform.system}.default];
   xdg.configFile =
     {
       "wezterm/wezterm.lua".source = ../../../configs/wezterm/wezterm.lua;

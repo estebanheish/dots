@@ -13,8 +13,8 @@
 
   services.ollama = {
     enable = true;
-    package = pkgs.ollama-vulkan;
-    # package = outputs.packages.${pkgs.system}.ollama;
+    package = pkgs.ollama-rocm;
+    # package = outputs.packages.${pkgs.stdenv.hostPlatform.system}.ollama;
     # package = pkgs.ollama;
     # rocmOverrideGfx = "11.0.0";
     environmentVariables = {

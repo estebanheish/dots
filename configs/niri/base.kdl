@@ -138,9 +138,12 @@ layer-rule {
 }
 
 window-rule {
-    match app-id="vesktop"
     match app-id="spotify"
+    open-on-workspace "8"
+}
 
+window-rule {
+    match app-id="vesktop"
     open-on-workspace "9"
 }
 
