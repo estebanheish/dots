@@ -3,3 +3,8 @@
 [templates.rofi]
 input_path = '~/.config/matugen/rofi-colors.rasi'
 output_path = '~/.config/rofi/matugen/colors.rasi'
+
+[templates.vicinae]
+input_path = '~/.config/matugen/vicinae.toml'
+output_path = '~/.local/share/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'

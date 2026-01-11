@@ -41,7 +41,7 @@
         ../modules/home-manager/hunspell
         ../modules/home-manager/pkgs-lists/core.nix
       ];
-      home.stateVersion = "25.05";
+      home.stateVersion = "25.11";
     };
     extraSpecialArgs = {
       inherit inputs outputs user theme;

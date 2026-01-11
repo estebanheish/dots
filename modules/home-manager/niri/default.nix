@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  inputs,
   ...
 }: let
   cfg = config.dots.niri;
@@ -22,7 +21,6 @@ in {
     ../librewolf
     ../mpv
     ../zathura
-    inputs.dankMaterialShell.homeModules.dank-material-shell
   ];
 
   config = lib.mkMerge [
@@ -32,23 +30,23 @@ in {
         wev
         imv
         satty
-        swaybg
         pwvucontrol
         blueman
         impala
         bluetui
-        rofi
-        foot
         fyi
-        xwayland-satellite
+        # rofi
+        foot
+        # xwayland-satellite
         nautilus
-        wl-clipboard
       ];
 
-      services = {
-        mako.enable = true;
-        polkit-gnome.enable = true;
-        cliphist.enable = true;
+      programs.vicinae = {
+        enable = true;
+        systemd = {
+          enable = true;
+          autoStart = true;
+        };
       };
 
       xdg.configFile = {
@@ -57,7 +55,7 @@ in {
         "niri/profiles/dms.kdl".source = linkFile "niri/profiles/dms.kdl";
         # "niri/dms" = linkDir "niri/dms";
         "foot/foot.ini".source = linkFile "foot/foot.ini";
-        "rofi" = linkDir "rofi";
+        # "rofi" = linkDir "rofi";
       };
 
       home.file = lib.mkMerge [
@@ -91,6 +89,7 @@ in {
 
     (lib.mkIf (cfg.profile == "simple") {
       home.packages = with pkgs; [
+        swaybg
         brightnessctl
         playerctl
         wl-clipboard
@@ -115,6 +114,12 @@ in {
             command = "${pkgs.swaylock}/bin/swaylock -f";
           }
         ];
+      };
+
+      services = {
+        mako.enable = true;
+        polkit-gnome.enable = true;
+        cliphist.enable = true;
       };
 
       programs.swaylock.enable = true;
@@ -157,12 +162,6 @@ in {
       home.packages = [pkgs.kdePackages.qt6ct];
       xdg.configFile = {
         "matugen" = linkDir "matugen";
-      };
-      programs.dankMaterialShell = {
-        quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
-        enable = true;
-        systemd.enable = true;
-        enableVPN = false;
       };
     })
   ];

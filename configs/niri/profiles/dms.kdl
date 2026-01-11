@@ -1,11 +1,10 @@
 include "../base.kdl"
 include "../dms/colors.kdl"
-include "../dms/wpblur.kdl"
-include "../dms/alttab.kdl"
+// include "../dms/alttab.kdl"
 
 animations {
-    slowdown 0.3
-    on
+    // slowdown 0.3
+    // on
 }
 
 layout {
@@ -32,47 +31,35 @@ layer-rule {
 
 binds {
     // Mod+R { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
-    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme_dms.rasi"; }
-    Mod+Shift+R { spawn "~/.dots/bin/abre"; }
+    // Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
 
-    Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+G hotkey-overlay-title="Toggle Bar" {
+        spawn "dms" "ipc" "call" "bar" "toggle" "index" "0";
+    }
 
-    Super+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
-
-    Alt+M hotkey-overlay-title="Task Manager" {
+    Mod+P hotkey-overlay-title="Task Manager" {
         spawn "dms" "ipc" "call" "processlist" "toggle";
     }
-    Alt+N hotkey-overlay-title="Notification Center" {
+
+    Mod+Y hotkey-overlay-title="Notification Center" {
         spawn "dms" "ipc" "call" "notifications" "toggle";
     }
-    Alt+Comma hotkey-overlay-title="Settings" {
+
+    Mod+J hotkey-overlay-title="Settings" {
         spawn "dms" "ipc" "call" "settings" "toggle";
     }
-    Alt+P hotkey-overlay-title="Notepad" {
+    Mod+L hotkey-overlay-title="Notepad" {
         spawn "dms" "ipc" "call" "notepad" "toggle";
     }
     Alt+BackSpace hotkey-overlay-title="Power Menu" {
         spawn "dms" "ipc" "call" "powermenu" "toggle";
     }
-    // Alt+C hotkey-overlay-title="Control Center" {
-    //     spawn "dms" "ipc" "call" "control-center" "toggle";
-    // }
-    Alt+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
-    }
-    Alt+B hotkey-overlay-title="Toggle Bar" {
-        spawn "dms" "ipc" "call" "bar" "toggle" "index" "0";
-    }
+
     XF86MonBrightnessUp allow-when-locked=true {
         spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
     }
-    // You can override the default device for e.g. keyboards by adding the device name to the last param
     XF86MonBrightnessDown allow-when-locked=true {
         spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
-    }
-    // Night mode toggle
-    Alt+Shift+N allow-when-locked=true {
-        spawn "dms" "ipc" "call" "night" "toggle";
     }
 
     // audio
@@ -94,8 +81,4 @@ config-notification {
 
 debug {
     honor-xdg-activation-with-invalid-serial
-}
-
-environment {
-    DMS_DISABLE_POLKIT "1"
 }

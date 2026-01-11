@@ -42,6 +42,7 @@ output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
     transform "normal"
     position x=0 y=0
     focus-at-startup
+    variable-refresh-rate on-demand=true
 }
 
 output "LG Electronics LG HDR 4K 204NTGYHG007" {
@@ -147,16 +148,38 @@ window-rule {
     open-on-workspace "9"
 }
 
+window-rule {
+    match app-id="^mpv$"
+    variable-refresh-rate true
+}
+
+window-rule {
+    match app-id="^pioneergame.exe$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+window-rule {
+    match app-id="^steam$"
+    open-on-workspace "4"
+}
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
-
     Mod+Return { spawn "foot"; }
-    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
-    Mod+Shift+R { spawn "~/.dots/bin/abre"; }
-    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
+
+    // vicinae
+    Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
+    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+
+    // rofi
+    // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
+    // Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
+    // Mod+Shift+R { spawn "~/.dots/bin/abre"; }
+    
     Mod+b { spawn "librewolf"; }
-    Super+Alt+L { spawn "swaylock"; }
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 

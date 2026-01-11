@@ -15,7 +15,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     # ../../modules/nixos/superlight
-    ../../modules/nixos/ollama
+    ../../modules/nixos/llamaswap
     ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
@@ -26,18 +26,6 @@
     # ../../modules/nixos/hostsfile
   ];
 
-  hardware.firmware = [
-    (pkgs.linux-firmware.overrideAttrs (old: {
-      version = "20251111";
-      src = pkgs.fetchurl {
-        # https://www.kernel.org/pub/linux/kernel/firmware/
-        url = "https://www.kernel.org/pub/linux/kernel/firmware/linux-firmware-20251111.tar.gz";
-        # > nix-prefetch-url https://www.kernel.org/pub/linux/kernel/firmware/linux-firmware-20251111.tar.gz
-        sha256 = "0rp2ah8drcnl7fh9vbawa8p8c9lhvn1d8zkl48ckj20vba0maz2g";
-      };
-    }))
-  ];
-
   home-manager.users.${user} = {
     imports = [
       ../../modules/home-manager/piper
@@ -45,7 +33,7 @@
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
-      ../../modules/home-manager/zed
+      # ../../modules/home-manager/zed
     ];
 
     home.packages = with pkgs; [
@@ -79,8 +67,6 @@
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  # hardware.graphics.extraPackages = [pkgs.amf]; # for ffmpeg av1_amf
-
   networking.hostName = "clank";
 
   # networking
@@ -107,7 +93,7 @@
   boot.supportedFilesystems = ["ntfs"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   system.stateVersion = "24.05";

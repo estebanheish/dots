@@ -61,31 +61,5 @@
     };
 
     raspberry-pi-nix.url = "github:nix-community/raspberry-pi-nix";
-
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # niri = {
-    #   url = "github:YaLTeR/niri";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
-    };
-
-    # hyprland = {
-    #   url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    #   inputs.nixpkgs.follows = "nixpkgs-master";
-    # };
-
-    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    # ghostty.url = "github:ghostty-org/ghostty";
   };
 }

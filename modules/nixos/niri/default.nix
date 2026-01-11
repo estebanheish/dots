@@ -2,12 +2,10 @@
   user,
   pkgs,
   lib,
-  inputs,
   config,
   ...
 }: let
   cfg = config.dots.niri;
-  # system = pkgs.stdenv.hostPlatform.system;
 in {
   options.dots.niri.profile = lib.mkOption {
     type = lib.types.enum ["simple" "dms"];
@@ -16,24 +14,16 @@ in {
 
   imports = [
     ../i2c
-    inputs.dankMaterialShell.nixosModules.greeter
   ];
 
   config = lib.mkMerge [
     {
       environment.localBinInPath = true;
-
       programs.niri.enable = true;
-
-      security.polkit.enable = true;
-      services.gnome.gnome-keyring.enable = true;
       services.upower.enable = true;
-      security.pam.services.swaylock = {};
 
       home-manager.users.${user} = {
-        imports = [
-          ../../../modules/home-manager/niri
-        ];
+        imports = [../../../modules/home-manager/niri];
         dots.niri.profile = cfg.profile;
       };
 
@@ -46,13 +36,12 @@ in {
       systemd.sleep.extraConfig = ''
         HibernateDelaySec=2h
       '';
-
-      # programs.niri.package = lib.mkForce (
-      #   inputs.niri.packages.${system}.niri.overrideAttrs (_: {doCheck = false;})
-      # );
     }
 
     (lib.mkIf (cfg.profile == "simple") {
+      security.pam.services.swaylock = {};
+      security.polkit.enable = true;
+      services.gnome.gnome-keyring.enable = true;
       services.greetd = {
         enable = true;
         settings = {
@@ -69,9 +58,26 @@ in {
     })
 
     (lib.mkIf (cfg.profile == "dms") {
-      programs.dankMaterialShell.greeter = {
+      programs.dms-shell = {
         enable = true;
-        compositor.name = "niri";
+
+        systemd = {
+          enable = true; # Systemd service for auto-start
+          restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
+        };
+
+        # Core features
+        enableSystemMonitoring = true; # System monitoring widgets (dgop)
+        enableClipboard = true; # Clipboard history manager
+        enableVPN = false; # VPN management widget
+        enableDynamicTheming = true; # Wallpaper-based theming (matugen)
+        enableAudioWavelength = true; # Audio visualizer (cava)
+        enableCalendarEvents = true; # Calendar integration (khal)
+      };
+
+      services.displayManager.dms-greeter = {
+        enable = true;
+        compositor.name = "niri"; #
         configHome = "/home/${user}";
       };
     })
