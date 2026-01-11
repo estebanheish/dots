@@ -1,9 +1,11 @@
-{
-  pkgs,
-  theme,
-  ...
-}:
-with theme.menu; {
+{pkgs, ...}: let
+  colors = {
+    bg = "101417";
+    text = "f8f8f2";
+    query = "7aa2f7";
+    selected = "ffffff";
+  };
+in {
   home.packages = [pkgs.kickoff];
   xdg.configFile."kickoff/config.toml".text = ''
     prompt = '''
@@ -19,11 +21,11 @@ with theme.menu; {
 
     [colors]
     # color format: rgb or rgba, if transparency is desired
-    background = '#${bg}aa'
-    prompt = '#${text}ff'
-    text = '#${text}ff'          # for search results
-    text_query = '#${query}ff'    # for the search query
-    text_selected = '#${selected}ff' # for the currently selected result
+    background = '#${colors.bg}aa'
+    prompt = '#${colors.text}ff'
+    text = '#${colors.text}ff'          # for search results
+    text_query = '#${colors.query}ff'    # for the search query
+    text_selected = '#${colors.selected}ff' # for the currently selected result
 
     [keybindings]
     # keybindings syntax: ctrl/shift/alt/logo as modifiers and a key joined by '+' signs

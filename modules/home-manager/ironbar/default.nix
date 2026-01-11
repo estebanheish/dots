@@ -1,10 +1,16 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
+{pkgs, ...}: let
+  colors = {
+    text = "f8f8f2";
+    bg = "1c1c1c";
+    hover = "2a2a2a";
+    focus = {
+      fg = "000000";
+      bg = "7aa2f7";
+    };
+  };
+in {
   home.packages = [pkgs.ironbar];
-  xdg.configFile = with theme.bar; {
+  xdg.configFile = {
     "ironbar/config.yaml" = {
       text = ''
         monitors:
@@ -35,15 +41,15 @@
         }
 
         box, menubar, button {
-            color: #${theme.bar.text};
-            background-color: #${bg};
+            color: #${colors.text};
+            background-color: #${colors.bg};
             background-image: none;
             text-shadow: unset;
             box-shadow: none;
         }
 
         button:hover {
-            background-color: #${hover};
+            background-color: #${colors.hover};
         }
 
         scale trough {
@@ -52,7 +58,7 @@
         }
 
         .background {
-            background-color: #${bg};
+            background-color: #${colors.bg};
         }
 
         #bar {
@@ -69,8 +75,8 @@
         }
 
         .workspaces .item.focused {
-            color: #${focus.fg};
-            background-color: #${focus.bg};
+            color: #${colors.focus.fg};
+            background-color: #${colors.focus.bg};
         }
 
         .tray {

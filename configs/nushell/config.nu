@@ -71,4 +71,3 @@ source ~/.config/nushell/completions.nu
 source ~/.config/nushell/themes/github-dark-default.nu
 source ~/.config/nushell/atuin.nu
 # source ~/.config/nushell/plugins.nu
-

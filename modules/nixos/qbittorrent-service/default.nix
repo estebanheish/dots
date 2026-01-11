@@ -36,4 +36,5 @@ in {
   users.groups.qbit = {};
 
   networking.firewall.allowedTCPPorts = [port];
+  networking.firewall.allowedUDPPorts = [port];
 }

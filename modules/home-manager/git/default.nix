@@ -7,7 +7,7 @@
         name = "estebanheish";
         email = "estebanheish@gmail.com";
       };
-      aliase = {
+      aliases = {
         s = "status";
         d = "diff";
         ds = "diff --staged";

@@ -4,13 +4,9 @@
   lib,
   ...
 }: let
+  l = import ../lib {inherit config;};
+  inherit (l) linkFile linkDir;
   cfg = config.dots.niri;
-  dotConfigs = "${config.home.homeDirectory}/.dots/configs";
-  linkFile = rel: config.lib.file.mkOutOfStoreSymlink "${dotConfigs}/${rel}";
-  linkDir = rel: {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotConfigs}/${rel}";
-    recursive = true;
-  };
 in {
   options.dots.niri.profile = lib.mkOption {
     type = lib.types.enum ["simple" "dms"];
@@ -21,6 +17,7 @@ in {
     ../librewolf
     ../mpv
     ../zathura
+    ../foot
   ];
 
   config = lib.mkMerge [
@@ -36,8 +33,7 @@ in {
         bluetui
         fyi
         # rofi
-        foot
-        # xwayland-satellite
+        xwayland-satellite
         nautilus
       ];
 
@@ -50,12 +46,7 @@ in {
       };
 
       xdg.configFile = {
-        "niri/base.kdl".source = linkFile "niri/base.kdl";
-        "niri/profiles/simple.kdl".source = linkFile "niri/profiles/simple.kdl";
-        "niri/profiles/dms.kdl".source = linkFile "niri/profiles/dms.kdl";
-        # "niri/dms" = linkDir "niri/dms";
-        "foot/foot.ini".source = linkFile "foot/foot.ini";
-        # "rofi" = linkDir "rofi";
+        "niri/config.kdl".source = linkFile "niri/config.kdl";
       };
 
       home.file = lib.mkMerge [
@@ -68,22 +59,6 @@ in {
             executable = true;
           };
         }
-        (
-          let
-            profilePath = "${dotConfigs}/niri/profiles/${cfg.profile}.kdl";
-            targetKey = ".config/niri/config.kdl";
-          in
-            if builtins.pathExists profilePath
-            then {
-              "${targetKey}".source = config.lib.file.mkOutOfStoreSymlink profilePath;
-            }
-            else {
-              "${targetKey}".text = ''include "profiles/${cfg.profile}.kdl"'';
-            }
-        )
-        (lib.mkIf (cfg.profile == "simple") {
-          ".wall.jpg".source = ../../../misc/walls/moon.jpg;
-        })
       ];
     }
 
@@ -124,9 +99,12 @@ in {
 
       programs.swaylock.enable = true;
 
+      home.file.".wall.jpg".source = ../../../misc/walls/moon.jpg;
+
       xdg.configFile = {
         "mako" = linkDir "mako";
         "swaylock" = linkDir "swaylock";
+        "niri/profile.kdl".source = linkFile "niri/simple.kdl";
       };
 
       dconf.settings = {
@@ -152,6 +130,10 @@ in {
     })
 
     (lib.mkIf (cfg.profile == "dms") {
+      services = {
+        polkit-gnome.enable = true;
+      };
+      home.packages = with pkgs; [kdePackages.qt6ct adw-gtk3];
       gtk = {
         enable = true;
         theme = {
@@ -159,9 +141,11 @@ in {
           package = pkgs.gnome-themes-extra;
         };
       };
-      home.packages = [pkgs.kdePackages.qt6ct];
       xdg.configFile = {
         "matugen" = linkDir "matugen";
+        # "foot/theme.ini".text = "include=~/.config/foot/dank-colors.ini";
+        # "foot/theme.ini".source = linkFile "foot/themes/github_dark.ini";
+        "niri/profile.kdl".source = linkFile "niri/dms.kdl";
       };
     })
   ];

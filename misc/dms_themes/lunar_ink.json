@@ -1,0 +1,22 @@
+{
+  "name": "Lunar Ink",
+  "primary": "#66023C",
+  "primaryText": "#FFFFFF",
+  "primaryContainer": "#450129",
+  "secondary": "#919191",
+  "surfaceTint": "#66023C",
+  "surface": "#000000",
+  "surfaceText": "#E3E3E3",
+  "surfaceVariant": "#121212",
+  "surfaceVariantText": "#A6A6A6",
+  "surfaceContainer": "#000000",
+  "surfaceContainerHigh": "#1A1A1A",
+  "surfaceContainerHighest": "#262626",
+  "background": "#000000",
+  "backgroundText": "#F0F0F0",
+  "outline": "#2B2B2B",
+  "error": "#B22222",
+  "warning": "#C6A15B",
+  "info": "#66023C",
+  "matugen_type": "scheme-content"
+}

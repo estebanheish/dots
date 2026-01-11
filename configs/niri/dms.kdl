@@ -1,5 +1,4 @@
-include "../base.kdl"
-include "../dms/colors.kdl"
+include "dms/colors.kdl"
 // include "../dms/alttab.kdl"
 
 animations {
@@ -81,4 +80,9 @@ config-notification {
 
 debug {
     honor-xdg-activation-with-invalid-serial
+}
+
+environment {
+  QT_QPA_PLATFORMTHEME "qt6ct"
+  QT_QPA_PLATFORMTHEME_QT6 "qt6ct"
 }

@@ -9,7 +9,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "Github Dark Dimmed",
+  "theme": "Github Dark",
   "language_models": {
     "ollama": {}
   },

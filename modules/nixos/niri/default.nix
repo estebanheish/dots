@@ -21,6 +21,10 @@ in {
       environment.localBinInPath = true;
       programs.niri.enable = true;
       services.upower.enable = true;
+      security.polkit.enable = true;
+      services.gnome.gnome-keyring.enable = true;
+
+      environment.shells = with pkgs; [nushell];
 
       home-manager.users.${user} = {
         imports = [../../../modules/home-manager/niri];
@@ -40,8 +44,6 @@ in {
 
     (lib.mkIf (cfg.profile == "simple") {
       security.pam.services.swaylock = {};
-      security.polkit.enable = true;
-      services.gnome.gnome-keyring.enable = true;
       services.greetd = {
         enable = true;
         settings = {
@@ -77,7 +79,7 @@ in {
 
       services.displayManager.dms-greeter = {
         enable = true;
-        compositor.name = "niri"; #
+        compositor.name = "niri";
         configHome = "/home/${user}";
       };
     })

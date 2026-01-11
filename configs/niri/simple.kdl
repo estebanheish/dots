@@ -1,3 +1,1 @@
-include "../base.kdl"
-
 spawn-at-startup "swaybg" "-i" "/home/heis/.wall.jpg" "-m" "fill"

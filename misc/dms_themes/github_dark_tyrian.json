@@ -1,0 +1,22 @@
+{
+  "name": "GitHub Dark Tyrian",
+  "primary": "#66023C",
+  "primaryText": "#FFFFFF",
+  "primaryContainer": "#4D012D",
+  "secondary": "#7d8590",
+  "surfaceTint": "#66023C",
+  "surface": "#0d1117",
+  "surfaceText": "#e6edf3",
+  "surfaceVariant": "#161b22",
+  "surfaceVariantText": "#848d97",
+  "surfaceContainer": "#0d1117",
+  "surfaceContainerHigh": "#161b22",
+  "surfaceContainerHighest": "#21262d",
+  "background": "#010409",
+  "backgroundText": "#e6edf3",
+  "outline": "#30363d",
+  "error": "#f85149",
+  "warning": "#d29922",
+  "info": "#66023C",
+  "matugen_type": "scheme-content"
+}

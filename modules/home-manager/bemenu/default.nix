@@ -1,26 +1,29 @@
-{
-  pkgs,
-  theme,
-  ...
-}: let
+{pkgs, ...}: let
+  colors = {
+    background = "1c1c1c";
+    foreground = "f8f8f2";
+    focus_background = "2a2a2a";
+    focus = "7aa2f7";
+    white = "ffffff";
+  };
   bemenu = "${pkgs.bemenu}/bin/bemenu";
   cliphist = "${pkgs.cliphist}/bin/cliphist";
   wl-copy = "${pkgs.wl-clipboard}/bin/wl-copy";
 
   bargs = ''    -i -p ''' -H 25 \
          --fn 'Ubuntu bold 15' \
-         --tb '#${theme.background}' \
-         --tf '#${theme.foreground}' \
-         --fb '#${theme.background}' \
-         --ff '#${theme.foreground}' \
-         --nb '#${theme.background}' \
-         --nf '#${theme.foreground}' \
-         --hb '#${theme.focus_background}' \
-         --hf '#${theme.focus}' \
-         --sb '#${theme.background}' \
-         --sf '#${theme.foreground}' \
-         --af '#${theme.white}' \
-         --ab '#${theme.background}' \
+         --tb '#${colors.background}' \
+         --tf '#${colors.foreground}' \
+         --fb '#${colors.background}' \
+         --ff '#${colors.foreground}' \
+         --nb '#${colors.background}' \
+         --nf '#${colors.foreground}' \
+         --hb '#${colors.focus_background}' \
+         --hf '#${colors.focus}' \
+         --sb '#${colors.background}' \
+         --sf '#${colors.foreground}' \
+         --af '#${colors.white}' \
+         --ab '#${colors.background}' \
   '';
 
   bmenu = pkgs.writeScriptBin "bmenu" "${pkgs.bemenu}/bin/bemenu ${bargs}";

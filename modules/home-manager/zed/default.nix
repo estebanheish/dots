@@ -2,9 +2,12 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  l = import ../lib {inherit config;};
+in {
   programs.zed-editor = {
     enable = true;
+    package = pkgs.master.zed-editor;
     extraPackages = with pkgs; [
       haskell-language-server
       ormolu
@@ -26,8 +29,5 @@
     ];
   };
 
-  xdg.configFile."zed" = {
-    recursive = true;
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/zed";
-  };
+  xdg.configFile."zed" = l.linkDir "zed";
 }

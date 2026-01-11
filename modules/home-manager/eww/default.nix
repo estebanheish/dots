@@ -1,12 +1,15 @@
-{
-  inputs,
-  pkgs,
-  theme,
-  ...
-}: {
+{pkgs, ...}: let
+  colors = {
+    foreground = "f8f8f2";
+    background = "1c1c1c";
+    backgroundrgba = "rgba(28,28,28,0.92)";
+    focus = "7aa2f7";
+    focus_background = "2a2a2a";
+    red = "ff6c6b";
+  };
+in {
   home.packages = [
     pkgs.eww
-    inputs.eww-scripts.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.nerd-fonts.inconsolata
     pkgs.ubuntu_font_family
   ];
@@ -19,12 +22,12 @@
     #   recursive = true;
     # };
     "eww/theme.scss".text = ''
-      $foreground: #${theme.foreground};
-      $background: #${theme.background};
-      $backgroundrgba: ${theme.backgroundrgba};
-      $focus: #${theme.focus};
-      $focus_background: #${theme.focus_background};
-      $red: #${theme.red};
+      $foreground: #${colors.foreground};
+      $background: #${colors.background};
+      $backgroundrgba: ${colors.backgroundrgba};
+      $focus: #${colors.focus};
+      $focus_background: #${colors.focus_background};
+      $red: #${colors.red};
     '';
   };
 }

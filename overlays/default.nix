@@ -1,6 +1,6 @@
 # This file defines overlays
 {inputs, ...}: {
-  additions = final: _prev: import ../pkgs final.pkgs;
+  additions = final: _prev: import ../pkgs final;
 
   modifications = final: prev: {
     # example = prev.example.overrideAttrs (oldAttrs: rec {

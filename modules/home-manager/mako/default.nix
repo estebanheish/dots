@@ -1,17 +1,18 @@
-{
-  pkgs,
-  theme,
-  ...
-}:
-with theme.notis; {
+{pkgs, ...}: let
+  colors = {
+    bg = "1c1c1c";
+    text = "f8f8f2";
+    border = "7aa2f7";
+  };
+in {
   home.packages = [pkgs.ubuntu_font_family];
   services.mako = {
     enable = true;
 
     font = "Ubuntu Bold 16";
-    backgroundColor = "#${bg}";
-    textColor = "#${text}";
-    borderColor = "#${border}";
+    backgroundColor = "#${colors.bg}";
+    textColor = "#${colors.text}";
+    borderColor = "#${colors.border}";
 
     padding = "20";
     margin = "0";

@@ -383,3 +383,5 @@ binds {
     Ctrl+Alt+Return { quit; }
     Ctrl+Alt+Shift+Return { power-off-monitors; }
 }
+
+include "profile.kdl"
