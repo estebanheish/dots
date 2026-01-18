@@ -55,8 +55,8 @@ $env.config.hooks.pre_prompt = [{ ||
     direnv export json | from json | default {} | load-env
 }]
 
-$env.EDITOR = "hx"
-$env.TERMINAL = "ghostty"
+$env.EDITOR = "nvim"
+$env.TERMINAL = "foot"
 $env.FILE = "yazi"
 $env.BROWSER = "librewolf"
 # $env.READER = "zathura"

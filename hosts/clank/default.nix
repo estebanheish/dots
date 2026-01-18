@@ -15,12 +15,12 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     # ../../modules/nixos/superlight
-    ../../modules/nixos/llamaswap
-    ../../modules/nixos/docker
-    ../../modules/nixos/quickemu
+    # ../../modules/nixos/llamaswap
+    # ../../modules/nixos/docker
+    # ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
-    ../../modules/nixos/weylus
+    # ../../modules/nixos/weylus
     # ../../modules/nixos/ios
     ../../modules/nixos/nix-ld
     # ../../modules/nixos/hostsfile
@@ -28,7 +28,7 @@
 
   home-manager.users.${user} = {
     imports = [
-      ../../modules/home-manager/piper
+      # ../../modules/home-manager/piper
       ../../modules/home-manager/pkgs-lists/lsps.nix
       ../../modules/home-manager/pkgs-lists/downloads.nix
       ../../modules/home-manager/pkgs-lists/fancy.nix
