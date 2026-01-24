@@ -11,18 +11,6 @@ animations {
     // on
 }
 
-layout {
-    gaps 16
-
-    border {
-        width 2
-    }
-
-    focus-ring {
-        width 2
-    }
-}
-
 window-rule {
     // geometry-corner-radius 10
     clip-to-geometry true
@@ -84,7 +72,7 @@ config-notification {
 }
 
 debug {
-    honor-xdg-activation-with-invalid-serial
+    // honor-xdg-activation-with-invalid-serial
 }
 
 environment {

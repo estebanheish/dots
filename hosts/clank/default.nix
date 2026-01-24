@@ -16,7 +16,7 @@
     ../../modules/nixos/niri
     # ../../modules/nixos/superlight
     # ../../modules/nixos/llamaswap
-    # ../../modules/nixos/docker
+    ../../modules/nixos/docker
     # ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/steam
@@ -26,6 +26,8 @@
     # ../../modules/nixos/hostsfile
   ];
 
+  programs.localsend.enable = true;
+
   home-manager.users.${user} = {
     imports = [
       # ../../modules/home-manager/piper
@@ -34,6 +36,7 @@
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
       ../../modules/home-manager/zed
+      ../../modules/home-manager/neovim
     ];
 
     home.packages = with pkgs; [

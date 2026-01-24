@@ -3,5 +3,6 @@
     nil
     alejandra
     taplo
+    lua-language-server
   ];
 }
