@@ -130,6 +130,7 @@ window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     match app-id=r#"^org\.telegram\.desktop$"#
     match app-id="vesktop"
+    match app-id="discord"
     match app-id="Bitwarden"
 
     block-out-from "screen-capture"

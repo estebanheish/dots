@@ -1,4 +1,12 @@
 {
+  "agent_servers": {
+    "codex": {
+      "default_mode": "full-access",
+      "favorite_models": [],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+    }
+  },
   "buffer_font_family": "Monaspace Krypton",
   "agent_buffer_font_size": 18.0,
   "buffer_font_weight": 400.0,
@@ -9,7 +17,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "Github Dark",
+  "theme": "GitHub Dark",
   "language_models": {
     "ollama": {}
   },

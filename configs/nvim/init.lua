@@ -56,9 +56,15 @@ vim.pack.add({
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/stevearc/oil.nvim",
     "https://github.com/EdenEast/nightfox.nvim",
+    "https://github.com/nvim-mini/mini.pairs",
+    "https://github.com/nvim-mini/mini.completion",
+    "https://github.com/nvim-mini/mini.snippets",
+    "https://github.com/rafamadriz/friendly-snippets"
 })
 
-vim.cmd("colorscheme carbonfox")
+vim.cmd("colorscheme rose-pine")
+
+require('mini.pairs').setup()
 
 require('mini.pick').setup()
 vim.keymap.set({ "n" }, "<leader>f", ':Pick files<CR>')
@@ -68,16 +74,31 @@ vim.keymap.set({ "n" }, "<leader>h", ':Pick help<CR>')
 require("oil").setup()
 vim.keymap.set({ 'n' }, "<leader>e", ':Oil<CR>')
 
+require("mini.completion").setup()
+require("mini.snippets").setup()
+
 vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'taplo' })
+
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end
-    vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
-    vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
-  end,
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+        end
+        vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
+        vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
+    end,
 })
 vim.keymap.set({ "n" }, "<leader>l", vim.diagnostic.open_float, { desc = "open diagnostics pop up" })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+    callback = function(args)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = args.buf,
+            callback = function()
+                vim.lsp.buf.format { async = false, id = args.data.client_id }
+            end,
+        })
+    end
+})

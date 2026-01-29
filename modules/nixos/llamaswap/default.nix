@@ -31,6 +31,8 @@
         );
       llama-server = lib.getExe' llama-cpp "llama-server";
     in {
+      # includeAliasesInList = true;
+      # apiKeys = ["hola"];
       healthCheckTimeout = 1000;
       models = let
         env = [
@@ -48,6 +50,10 @@
         };
         "gpt" = {
           cmd = "${llama-server} --port \${PORT} -hf DavidAU/OpenAi-GPT-oss-20b-HERETIC-uncensored-NEO-Imatrix-gguf:Q8_0 --fit-target 1024";
+          inherit env;
+        };
+        "gemma" = {
+          cmd = "${llama-server} --port \${PORT} -hf unsloth/gemma-3-27b-it-GGUF:Q8_0 --fit-target 1024 --n-gpu-layers 24";
           inherit env;
         };
       };

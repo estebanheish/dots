@@ -15,7 +15,7 @@
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
     # ../../modules/nixos/superlight
-    # ../../modules/nixos/llamaswap
+    ../../modules/nixos/llamaswap
     ../../modules/nixos/docker
     # ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
