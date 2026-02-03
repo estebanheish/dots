@@ -8,22 +8,22 @@
 [
   {
     "context": "Workspace",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "Editor",
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "VimControl && !menu", // normal & visual mode
-    "bindings": {}
+    "bindings": {},
   },
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": "vim::PushSneak",
-      "shift-s": "vim::PushSneakBackward"
-    }
+      "shift-s": "vim::PushSneakBackward",
+    },
   },
   {
     "context": "vim_mode == normal && !menu",
@@ -33,11 +33,9 @@
       "space S": "project_symbols::Toggle",
       "space d": "diagnostics::Deploy",
       "space a": "editor::ToggleCodeActions",
-      "space k": "editor::Hover",
       "space /": "pane::DeploySearch",
       "space c": "vim::ToggleComments",
       "space p": "editor::Paste",
-      "space r": "editor::Rename",
       "shift-u": "vim::Redo",
       "alt-k": "editor::AddSelectionAbove", // Insert Cursor Above
       "alt-j": "editor::AddSelectionBelow", // Insert Cursor Below
@@ -45,8 +43,8 @@
       "tab": "pane::ActivateNextItem",
       "shift-tab": "pane::ActivatePreviousItem",
       "ctrl-j": "workspace::ToggleBottomDock",
-      "ctrl-b": "workspace::ToggleLeftDock"
-    }
+      "ctrl-b": "workspace::ToggleLeftDock",
+    },
   },
   {
     "context": "vim_mode == visual",
@@ -57,8 +55,8 @@
       "s": ["buffer_search::Deploy", { "selection_search_enabled": true }],
       "tab": "pane::ActivateNextItem",
       "shift-tab": "pane::ActivatePreviousItem",
-      "shift-x": "vim::Exchange"
-    }
+      "shift-x": "vim::Exchange",
+    },
   },
   {
     "context": "VimControl && !menu && vim_mode != operator",
@@ -66,25 +64,25 @@
       "w": "vim::NextSubwordStart",
       "b": "vim::PreviousSubwordStart",
       "e": "vim::NextSubwordEnd",
-      "g e": "vim::PreviousSubwordEnd"
-    }
+      "ge": "vim::PreviousSubwordEnd",
+    },
   },
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      "space f": "file_finder::Toggle"
-    }
+      "space f": "file_finder::Toggle",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-`": "terminal_panel::ToggleFocus"
-    }
+      "ctrl-`": "terminal_panel::ToggleFocus",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-alt-;": "editor::ToggleInlineDiagnostics"
-    }
-  }
+      "ctrl-alt-;": "editor::ToggleInlineDiagnostics",
+    },
+  },
 ]

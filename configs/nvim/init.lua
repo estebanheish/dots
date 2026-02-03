@@ -54,6 +54,15 @@ vim.pack.add({
     "https://github.com/vague-theme/vague.nvim",
     "https://github.com/nvim-mini/mini.pick",
     "https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/projekt0n/github-nvim-theme",
+    "https://github.com/sainnhe/sonokai",
+    "https://github.com/rose-pine/neovim",
+    "https://github.com/loctvl842/monokai-pro.nvim",
+    "https://github.com/rebelot/kanagawa.nvim",
+    "https://github.com/scottmckendry/cyberdream.nvim",
+    "https://github.com/bluz71/vim-moonfly-colors",
+    "https://github.com/nyoom-engineering/oxocarbon.nvim",
+    "https://github.com/marko-cerovac/material.nvim",
     "https://github.com/stevearc/oil.nvim",
     "https://github.com/EdenEast/nightfox.nvim",
     "https://github.com/nvim-mini/mini.pairs",
@@ -62,7 +71,7 @@ vim.pack.add({
     "https://github.com/rafamadriz/friendly-snippets"
 })
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme cyberdream")
 
 require('mini.pairs').setup()
 
@@ -77,7 +86,7 @@ vim.keymap.set({ 'n' }, "<leader>e", ':Oil<CR>')
 require("mini.completion").setup()
 require("mini.snippets").setup()
 
-vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'taplo' })
+vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'taplo', 'vtsls', "svelte", "eslint" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)

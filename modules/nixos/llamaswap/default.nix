@@ -41,19 +41,23 @@
         ];
       in {
         "nemo" = {
-          cmd = "${llama-server} --port \${PORT} -hf unsloth/Nemotron-3-Nano-30B-A3B-GGUF:Q8_0 --fit-target 1024";
+          cmd = "${llama-server} --port \${PORT} -hf unsloth/Nemotron-3-Nano-30B-A3B-GGUF:Q8_0 --fit-target 2048";
           inherit env;
         };
         "code" = {
-          cmd = "${llama-server} --port \${PORT} -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q8_K_XL --fit-target 1024";
+          cmd = "${llama-server} --port \${PORT} -hf unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q8_K_XL --fit-target 2048";
           inherit env;
         };
         "gpt" = {
-          cmd = "${llama-server} --port \${PORT} -hf DavidAU/OpenAi-GPT-oss-20b-HERETIC-uncensored-NEO-Imatrix-gguf:Q8_0 --fit-target 1024";
+          cmd = "${llama-server} --port \${PORT} -hf DavidAU/OpenAi-GPT-oss-20b-HERETIC-uncensored-NEO-Imatrix-gguf:Q8_0 --fit-target 2048";
           inherit env;
         };
         "gemma" = {
-          cmd = "${llama-server} --port \${PORT} -hf unsloth/gemma-3-27b-it-GGUF:Q8_0 --fit-target 1024 --n-gpu-layers 24";
+          cmd = "${llama-server} --port \${PORT} -hf unsloth/gemma-3-27b-it-GGUF:Q8_0 --fit-target 2048";
+          inherit env;
+        };
+        "glm" = {
+          cmd = "${llama-server} --port \${PORT} -hf unsloth/GLM-4.7-Flash-GGUF:Q8_0 --fit-target 2048 --temp 1.0 --top-p 0.95 --repeat-penalty 1.0 --ctx-size 131072 --cache-type-k q8_0 --cache-type-v q8_0";
           inherit env;
         };
       };

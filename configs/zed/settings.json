@@ -17,7 +17,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "GitHub Dark",
+  "theme": "Gruvbox Dark Hard",
   "language_models": {
     "ollama": {}
   },

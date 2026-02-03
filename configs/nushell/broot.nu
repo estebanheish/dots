@@ -8,7 +8,7 @@
 #   > br -hi -c "vacheblan.svg;:open_preview" ..
 #
 # See https://dystroy.org/broot/install-br/
-def --env br [
+export def --env br [
     --cmd(-c): string               # Semicolon separated commands to execute
     --color: string = "auto"        # Whether to have styles and colors (auto is default and usually OK) [possible values: auto, yes, no]
     --conf: string                  # Semicolon separated paths to specific config files"),
@@ -20,6 +20,8 @@ def --env br [
     --no-show-git-info(-G)          # Don't show git statuses on files and stats on repo
     --git-status                    # Only show files having an interesting git status, including hidden ones
     --hidden(-h)                    # Show hidden files
+    --listen: string                # Listen for commands on a given linux socket
+    --listen-auto                   # Listen for commands on a random linux socket
     --no-hidden(-H)                 # Don't show hidden files
     --height: int                   # Height (if you don't want to fill the screen or for file export)
     --help                          # Print help information
@@ -34,6 +36,7 @@ def --env br [
     --no-sizes(-S)                  # Don't show sizes
     --set-install-state: path       # Where to write the produced cmd (if any) [possible values: undefined, refused, installed]
     --show-root-fs                  # Show filesystem info on top
+    --max-depth: int                # Only show trees up to a certain depth
     --sort-by-count                 # Sort by count (only show one level of the tree)
     --sort-by-date                  # Sort by date (only show one level of the tree)
     --sort-by-size                  # Sort by size (only show one level of the tree)
@@ -65,6 +68,8 @@ def --env br [
     if $git_ignored { $args = ($args | append $'--git-ignored') }
     if $no_git_ignored { $args = ($args | append $'--no-git-ignored') }
     if $install { $args = ($args | append $'--install') }
+    if $listen != null { $args = ($args | append $'--listen=($listen)') }
+    if $listen_auto { $args = ($args | append $'--listen-auto') }
     if $no_sort { $args = ($args | append $'--no-sort') }
     if $permissions { $args = ($args | append $'--permissions') }
     if $no_permissions { $args = ($args | append $'--no-permissions') }
@@ -73,6 +78,7 @@ def --env br [
     if $no_sizes { $args = ($args | append $'--no-sizes') }
     if $set_install_state != null { $args = ($args | append $'--set-install-state=($set_install_state)') }
     if $show_root_fs { $args = ($args | append $'--show-root-fs') }
+    if $max_depth != null { $args = ($args | append $'--max-depth=($max_depth)') }
     if $sort_by_count { $args = ($args | append $'--sort-by-count') }
     if $sort_by_date { $args = ($args | append $'--sort-by-date') }
     if $sort_by_size { $args = ($args | append $'--sort-by-size') }
@@ -85,12 +91,16 @@ def --env br [
     if $whale_spotting { $args = ($args | append $'--whale-spotting') }
     if $write_default_conf != null { $args = ($args | append $'--write-default-conf=($write_default_conf)') }
 
-    let cmd_file = ([ $nu.temp-path, $"broot-(random chars).tmp" ] | path join)
+    let cmd_file = (
+        if ($env.XDG_RUNTIME_DIR? | is-not-empty) { $env.XDG_RUNTIME_DIR } else { $nu.temp-path }
+        | path join $"broot-(random chars).tmp"
+    )
+
     touch $cmd_file
     if ($file == null) {
         ^broot --outcmd $cmd_file ...$args
     } else {
-        ^broot --outcmd $cmd_file $args $file
+        ^broot --outcmd $cmd_file ...$args $file
     }
     let $cmd = (open $cmd_file)
     rm -p -f $cmd_file
@@ -118,6 +128,8 @@ export extern broot [
     --git-ignored(-i)               # Show git ignored files
     --no-git-ignored(-I)            # Don't show git ignored files
     --install                       # Install or reinstall the br shell function
+    --listen: string                # Listen for commands on a given linux socket
+    --listen-auto                   # Listen for commands on a random linux socket
     --no-sort                       # Don't sort
     --outcmd: path                  # Write cd command in given path
     --permissions(-p)               # Show permissions
@@ -127,6 +139,7 @@ export extern broot [
     --no-sizes(-S)                  # Don't show sizes
     --set-install-state: path       # Where to write the produced cmd (if any) [possible values: undefined, refused, installed]
     --show-root-fs                  # Show filesystem info on top
+    --max-depth: int                # Only show trees up to a certain depth
     --sort-by-count                 # Sort by count (only show one level of the tree)
     --sort-by-date                  # Sort by date (only show one level of the tree)
     --sort-by-size                  # Sort by size (only show one level of the tree)
