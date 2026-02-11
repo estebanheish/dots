@@ -17,7 +17,7 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "theme": "Gruvbox Dark Hard",
+  "theme": "Sonokai",
   "language_models": {
     "ollama": {}
   },

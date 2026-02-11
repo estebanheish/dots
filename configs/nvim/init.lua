@@ -71,7 +71,7 @@ vim.pack.add({
     "https://github.com/rafamadriz/friendly-snippets"
 })
 
-vim.cmd("colorscheme cyberdream")
+vim.cmd("colorscheme sonokai")
 
 require('mini.pairs').setup()
 
@@ -95,6 +95,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
         vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
+        vim.keymap.set({ "n" }, "<leader>a", vim.lsp.buf.code_action, { desc = "lsp code action" })
         vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
     end,
 })

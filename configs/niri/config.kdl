@@ -142,26 +142,50 @@ layer-rule {
 }
 
 window-rule {
-    match app-id="spotify"
+    match app-id="^spotify$"
     open-on-workspace "8"
 }
 
 window-rule {
-    match app-id="vesktop"
+    match app-id="^vesktop$"
     open-on-workspace "9"
 }
+
+window-rule {
+    match app-id="^discord$"
+    open-on-workspace "9"
+}
+
 
 window-rule {
     match app-id="^mpv$"
     variable-refresh-rate true
 }
 
+// arc raiders
 window-rule {
     match app-id="^pioneergame.exe$"
     open-on-workspace "2"
     open-fullscreen true
     variable-refresh-rate true
 }
+
+// overwatch
+window-rule {
+    match app-id="^steam_app_2357570$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+// quake
+window-rule {
+    match app-id="^steam_app_611500$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
 
 window-rule {
     match app-id="^steam$"

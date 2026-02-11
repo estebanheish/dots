@@ -26,8 +26,6 @@
     # ../../modules/nixos/hostsfile
   ];
 
-  programs.localsend.enable = true;
-
   home-manager.users.${user} = {
     imports = [
       # ../../modules/home-manager/piper
