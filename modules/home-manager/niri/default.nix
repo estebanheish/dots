@@ -83,12 +83,7 @@ in {
             command = "${pkgs.swaylock}/bin/swaylock -f";
           }
         ];
-        events = [
-          {
-            event = "before-sleep";
-            command = "${pkgs.swaylock}/bin/swaylock -f";
-          }
-        ];
+        events.before-sleep = "${pkgs.swaylock}/bin/swaylock -f";
       };
 
       services = {

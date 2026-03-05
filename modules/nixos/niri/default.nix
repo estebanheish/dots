@@ -37,9 +37,9 @@ in {
         IdleActionSec = "60m";
       };
 
-      systemd.sleep.extraConfig = ''
-        HibernateDelaySec=2h
-      '';
+      systemd.sleep.settings.Sleep = {
+        HibernateDelaySec = "2h";
+      };
     }
 
     (lib.mkIf (cfg.profile == "simple") {
