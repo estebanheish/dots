@@ -58,10 +58,10 @@
           cmd = "${llama-server} --port \${PORT} -hf unsloth/GLM-4.7-Flash-GGUF:Q8_0 --fit-target 2048 --temp 1.0 --top-p 0.95 --repeat-penalty 1.0 --ctx-size 131072 --cache-type-k q8_0 --cache-type-v q8_0";
           inherit env;
         };
-        "qwen_next" = {
-          cmd = "${llama-server} --port \${PORT} -hf unsloth/Qwen3-Coder-Next-GGUF:Q8_K_XL --fit-target 2048";
-          inherit env;
-        };
+        # "qwen_next" = {
+        #   cmd = "${llama-server} --port \${PORT} -hf unsloth/Qwen3-Coder-Next-GGUF:Q8_K_XL --fit-target 2048";
+        #   inherit env;
+        # };
       };
     };
   };

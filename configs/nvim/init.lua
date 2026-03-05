@@ -71,7 +71,7 @@ vim.pack.add({
     "https://github.com/rafamadriz/friendly-snippets"
 })
 
-vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme vague")
 
 require('mini.pairs').setup()
 
@@ -86,29 +86,54 @@ vim.keymap.set({ 'n' }, "<leader>e", ':Oil<CR>')
 require("mini.completion").setup()
 require("mini.snippets").setup()
 
-vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'taplo', 'vtsls', "svelte", "eslint" })
+vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'ruff', 'taplo', 'vtsls', "svelte", "eslint" })
+
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     callback = function(args)
+--         local client = vim.lsp.get_client_by_id(args.data.client_id)
+--         if client and client:supports_method('textDocument/completion') then
+--             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+--         end
+--         vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
+--         vim.keymap.set({ "n" }, "<leader>a", vim.lsp.buf.code_action, { desc = "lsp code action" })
+--         vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
+--     end,
+-- })
+
+vim.keymap.set({ "n" }, "<leader>l", vim.diagnostic.open_float, { desc = "open diagnostics pop up" })
+
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--     group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+--     callback = function(args)
+--         vim.api.nvim_create_autocmd("BufWritePre", {
+--             buffer = args.buf,
+--             callback = function()
+--                 vim.lsp.buf.format { async = false, id = args.data.client_id }
+--             end,
+--         })
+--     end
+-- })
 
 vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
+
         if client and client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
-        vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
-        vim.keymap.set({ "n" }, "<leader>a", vim.lsp.buf.code_action, { desc = "lsp code action" })
-        vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
-    end,
-})
-vim.keymap.set({ "n" }, "<leader>l", vim.diagnostic.open_float, { desc = "open diagnostics pop up" })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    callback = function(args)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = args.buf,
-            callback = function()
-                vim.lsp.buf.format { async = false, id = args.data.client_id }
-            end,
-        })
-    end
+        if client and client:supports_method("textDocument/formatting") then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                end,
+            })
+        end
+
+        vim.keymap.set("n", "<leader>r", vim.lsp.buf.format, { buffer = args.buf, desc = "lsp format buffer" })
+        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { buffer = args.buf, desc = "lsp code action" })
+        vim.keymap.set("n", "cd", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP Rename" })
+    end,
 })
