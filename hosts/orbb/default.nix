@@ -28,6 +28,7 @@
       ../../modules/home-manager/pkgs-lists/fancy.nix
       ../../modules/home-manager/pkgs-lists/archives.nix
       ../../modules/home-manager/zed
+      ../../modules/home-manager/neovim
     ];
 
     home.packages = with pkgs; [
