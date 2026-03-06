@@ -25,6 +25,12 @@ binds {
     // Mod+R { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     // Mod+V { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
 
+    // vicinae
+    Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
+    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+
+
     Mod+G hotkey-overlay-title="Toggle Bar" {
         spawn "dms" "ipc" "call" "bar" "toggle" "index" "0";
     }

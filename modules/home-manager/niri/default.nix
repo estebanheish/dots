@@ -32,18 +32,9 @@ in {
         impala
         bluetui
         fyi
-        # rofi
         xwayland-satellite
         nautilus
       ];
-
-      programs.vicinae = {
-        enable = true;
-        systemd = {
-          enable = true;
-          autoStart = true;
-        };
-      };
 
       xdg.configFile = {
         "niri/config.kdl".source = linkFile "niri/config.kdl";
@@ -69,6 +60,7 @@ in {
         playerctl
         wl-clipboard
         ncpamixer
+        rofi
       ];
 
       services.swayidle = {
@@ -100,6 +92,7 @@ in {
         "mako" = linkDir "mako";
         "swaylock" = linkDir "swaylock";
         "niri/profile.kdl".source = linkFile "niri/simple.kdl";
+        "rofi" = linkDir "rofi";
       };
 
       dconf.settings = {
@@ -128,6 +121,14 @@ in {
       services = {
         polkit-gnome.enable = true;
       };
+      programs.vicinae = {
+        enable = true;
+        systemd = {
+          enable = true;
+          autoStart = true;
+        };
+      };
+
       home.packages = with pkgs; [kdePackages.qt6ct adw-gtk3];
       gtk = {
         enable = true;

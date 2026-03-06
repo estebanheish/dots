@@ -212,14 +212,14 @@ binds {
     Mod+Return { spawn "foot"; }
 
     // vicinae
-    Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
-    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
-    Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    // Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
+    // Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    // Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 
     // rofi
-    // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
-    // Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
-    // Mod+Shift+R { spawn "~/.dots/bin/abre"; }
+    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
+    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
+    Mod+Shift+R { spawn "~/.dots/bin/abre"; }
     
     Mod+b { spawn "librewolf"; }
     Super+A repeat=false { toggle-overview; }
