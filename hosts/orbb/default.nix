@@ -17,7 +17,7 @@
     ../../modules/nixos/nvidia
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
-    ../../modules/nixos/hostsfile
+    # ../../modules/nixos/hostsfile
     ../../modules/nixos/nix-ld
   ];
 
