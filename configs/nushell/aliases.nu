@@ -16,6 +16,8 @@ alias sctl = systemctl
 alias vault = zed ~/Documents/Vault
 alias brillo = ddcutil setvcp 10
 alias mixer = ncpamixer
+alias sysinhibit = systemd-inhibit --what=handle-lid-switch:sleep:idle:shutdown sleep infinity
+alias lock = loginctl lock-session
 
 alias wlp = wl-paste
 alias mpw = mpv (wl-paste)
