@@ -94,13 +94,19 @@
     extraOptions = "experimental-features = nix-command flakes";
   };
 
-  # doas instead of sudo
-  security = {
-    doas = {
-      enable = true;
-      extraConfig = "permit nopass :wheel";
-    };
-    sudo.enable = false;
+  security.sudo-rs = {
+    enable = true;
+    extraRules = [
+      {
+        groups = ["wheel"];
+        commands = [
+          {
+            command = "ALL";
+            options = ["NOPASSWD"];
+          }
+        ];
+      }
+    ];
   };
 
   environment.systemPackages = with pkgs; [

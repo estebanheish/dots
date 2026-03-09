@@ -34,6 +34,7 @@ in {
         fyi
         xwayland-satellite
         nautilus
+        wiremix
       ];
 
       xdg.configFile = {
@@ -59,7 +60,6 @@ in {
         brightnessctl
         playerctl
         wl-clipboard
-        ncpamixer
         rofi
       ];
 

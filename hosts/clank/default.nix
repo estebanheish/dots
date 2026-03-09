@@ -21,7 +21,7 @@
     ../../modules/nixos/audiobookshelf
     ../../modules/nixos/steam
     ../../modules/nixos/nix-ld
-    # ../../modules/nixos/hostsfile
+    ../../modules/nixos/hostsfile
   ];
 
   home-manager.users.${user} = {
