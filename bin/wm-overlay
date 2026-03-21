@@ -11,7 +11,7 @@ def main [mode: string] {
 }
 
 def audio [] {
-  let vol = (wpctl get-volume @DEFAULT_AUDIO_SINK@ | split column  "." | get column2 | first)
+  let vol = (wpctl get-volume @DEFAULT_AUDIO_SINK@ | split column  "." | get column1 | first)
   try {
     fyi -t 500 -a overlay -H $"int:value:($vol | into int)" -H string:x-canonical-private-synchronous:overlay $"Volume: ($vol)%"
   } catch {

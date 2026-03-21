@@ -14,14 +14,14 @@
     ../../modules/nixos/pipewire
     ../../modules/nixos/bluetooth
     ../../modules/nixos/niri
-    ../../modules/nixos/llamaswap
-    ../../modules/nixos/docker
+    # ../../modules/nixos/llamaswap
+    # ../../modules/nixos/docker
     ../../modules/nixos/quickemu
     ../../modules/nixos/syncthing
     ../../modules/nixos/audiobookshelf
     ../../modules/nixos/steam
     ../../modules/nixos/nix-ld
-    ../../modules/nixos/hostsfile
+    # ../../modules/nixos/hostsfile
   ];
 
   home-manager.users.${user} = {
@@ -63,6 +63,8 @@
       smartcat
     ];
   };
+
+  hardware.wooting.enable = true;
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
