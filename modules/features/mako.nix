@@ -1,0 +1,36 @@
+{config, ...}: {
+  flake.nixosModules.mako = {
+    home-manager.users.${config.username} =
+      {pkgs, ...}: let
+        colors = {
+          bg = "1c1c1c";
+          text = "f8f8f2";
+          border = "7aa2f7";
+        };
+      in {
+        home.packages = [pkgs.ubuntu_font_family];
+        services.mako = {
+          enable = true;
+      
+          font = "Ubuntu Bold 16";
+          backgroundColor = "#${colors.bg}";
+          textColor = "#${colors.text}";
+          borderColor = "#${colors.border}";
+      
+          padding = "20";
+          margin = "0";
+          width = 400;
+          height = 200;
+          borderSize = 3;
+      
+          defaultTimeout = 3500;
+          groupBy = "category";
+      
+          extraConfig = ''
+            outer-margin=20
+          '';
+        };
+      }
+    ;
+  };
+}

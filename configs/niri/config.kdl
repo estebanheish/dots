@@ -35,52 +35,6 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
-    mode "3840x2160@240.084"
-    // mode "1920x1080@480.170"
-    scale 1
-    transform "normal"
-    position x=0 y=0
-    focus-at-startup
-    variable-refresh-rate on-demand=true
-}
-
-output "LG Electronics LG HDR 4K 204NTGYHG007" {
-    // off
-    mode "3840x2160@59.997"
-    scale 1
-    transform "normal"
-    position x=2160 y=0
-}
-
-workspace "1" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "2" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "3" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "4" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "5" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "6" {
-    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
-}
-workspace "7" {
-    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
-}
-workspace "8" {
-    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
-}
-workspace "9" {
-    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
-}
-
 recent-windows {
     binds {
         Mod+t           { next-window     scope="output"; }
@@ -120,6 +74,11 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations { off; }
 
 window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -136,75 +95,21 @@ window-rule {
     block-out-from "screen-capture"
 }
 
+// Blurred Overview Wallpaper
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
 layer-rule {
     match namespace="^notifications$"
+    match namespace="noctalia-notifications*"
     block-out-from "screencast"
 }
 
 window-rule {
-    match app-id="^spotify$"
-    open-on-workspace "8"
-}
-
-window-rule {
-    match app-id="^vesktop$"
-    open-on-workspace "9"
-}
-
-window-rule {
-    match app-id="^discord$"
-    open-on-workspace "9"
-}
-
-
-window-rule {
     match app-id="^mpv$"
     variable-refresh-rate true
-}
-
-// arc raiders
-window-rule {
-    match app-id="^pioneergame.exe$"
-    open-on-workspace "2"
-    open-fullscreen true
-    variable-refresh-rate true
-}
-
-// overwatch
-window-rule {
-    match app-id="^steam_app_2357570$"
-    open-on-workspace "2"
-    open-fullscreen true
-    variable-refresh-rate true
-}
-
-// quake
-window-rule {
-    match app-id="^steam_app_611500$"
-    open-on-workspace "2"
-    open-fullscreen true
-    variable-refresh-rate true
-}
-
-window-rule {
-    match app-id="^rocketleague.exe$"
-    open-on-workspace "2"
-    open-fullscreen true
-    variable-refresh-rate true
-}
-
-window-rule {
-    match app-id="^cs2$"
-    open-on-workspace "2"
-    open-focused false
-    open-maximized false
-}
-
-window-rule {
-    match app-id="^steam$"
-    open-on-workspace "4"
-    open-focused false
-    open-maximized false
 }
 
 binds {
@@ -212,29 +117,36 @@ binds {
     Mod+Return { spawn "foot"; }
 
     // vicinae
-    // Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
-    // Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
-    // Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
+    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 
     // rofi
-    Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
-    Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
-    Mod+Shift+R { spawn "~/.dots/bin/abre"; }
+    // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
+    // Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
+    // Mod+Shift+R { spawn "~/.dots/bin/abre"; }
     
     Mod+b { spawn "librewolf"; }
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
     // mako
-    Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
-    Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
+    Mod+M { spawn-sh "noctalia-shell ipc call notifications toggleDND"; }
+    Mod+Shift+M { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
+    // Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
+    // Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
 
     // audio
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; wm-overlay audio"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; wm-overlay audio"; }
-    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wm-overlay audio"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
-    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; wm-overlay audio"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; wm-overlay audio"; }
+    // XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wm-overlay audio"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+    // Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
 
     XF86AudioNext { spawn "playerctl" "next"; }
     XF86AudioPause { spawn "playerctl" "play-pause"; }
@@ -426,4 +338,12 @@ binds {
     Ctrl+Alt+Shift+Return { power-off-monitors; }
 }
 
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
+spawn-at-startup "noctalia-shell"
+
+include "noctalia.kdl"
+include "extra_rules.kdl"
 include "profile.kdl"

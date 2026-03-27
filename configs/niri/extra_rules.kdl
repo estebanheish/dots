@@ -1,0 +1,45 @@
+// arc raiders
+window-rule {
+    match app-id="^pioneergame.exe$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+// overwatch
+window-rule {
+    match app-id="^steam_app_2357570$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+// quake
+window-rule {
+    match app-id="^steam_app_611500$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+window-rule {
+    match app-id="^rocketleague.exe$"
+    open-on-workspace "2"
+    open-fullscreen true
+    variable-refresh-rate true
+}
+
+window-rule {
+    match app-id="^cs2$"
+    open-on-workspace "2"
+    open-focused false
+    open-maximized false
+}
+
+window-rule {
+    match app-id="^steam$"
+    open-on-workspace "4"
+    open-focused false
+    open-maximized false
+}
+

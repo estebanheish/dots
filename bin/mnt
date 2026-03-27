@@ -10,16 +10,16 @@ def main [] {
     let mountpoint = "mnt_" + (random chars -l 5)
     mkdir $mountpoint
     if $selected.fstype == "crypto_LUKS" {
-      doas cryptsetup open $device $mountpoint
-      doas mount $"/dev/mapper/($mountpoint)" $mountpoint
+      sudo cryptsetup open $device $mountpoint
+      sudo mount $"/dev/mapper/($mountpoint)" $mountpoint
     } else {
-      doas mount $device $mountpoint
+      sudo mount $device $mountpoint
     }
   } else {
-    doas umount $selected.mountpoint
+    sudo umount $selected.mountpoint
     rm $selected.mountpoint
     if $selected.type == "crypt" {
-      doas cryptsetup close $selected.name
+      sudo cryptsetup close $selected.name
     }
   }
 }

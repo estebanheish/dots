@@ -1,0 +1,55 @@
+output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
+    mode "3840x2160@240.084"
+    // mode "1920x1080@480.170"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate on-demand=true
+}
+
+output "LG Electronics LG HDR 4K 204NTGYHG007" {
+    // off
+    mode "3840x2160@59.997"
+    scale 1
+    transform "normal"
+    position x=2160 y=0
+}
+
+workspace "1" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "2" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "3" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "4" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "5" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "6" {
+    open-on-output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942"
+}
+workspace "7" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+workspace "8" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+workspace "9" {
+    open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
+}
+
+window-rule {
+    match app-id="^spotify$"
+    open-on-workspace "8"
+}
+
+window-rule {
+    match app-id="^discord$"
+    open-on-workspace "9"
+}
