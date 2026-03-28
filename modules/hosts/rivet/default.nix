@@ -22,6 +22,7 @@
       self.nixosModules.downloadsPkgs
       self.nixosModules.fancyPkgs
       self.nixosModules.archivesPkgs
+      self.nixosModules.udiskie
     ];
 
     home-manager.users.${config.username} = {
