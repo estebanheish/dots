@@ -153,6 +153,8 @@ binds {
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
     XF86AudioPrev { spawn "playerctl" "previous"; }
 
+    XF86MonBrightnessUp { spawn-sh "noctalia-shell ipc call brightness increase"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia-shell ipc call brightness decrease"; }
 
     Mod+Escape { close-window; }
 
