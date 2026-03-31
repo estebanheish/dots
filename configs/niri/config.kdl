@@ -26,6 +26,11 @@ input {
         repeat-rate 45
     }
 
+    mouse {
+        accel-speed 0.15
+        accel-profile "flat"
+    }
+
     touchpad {
         tap
         natural-scroll
