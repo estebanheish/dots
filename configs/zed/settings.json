@@ -3,11 +3,9 @@
     "provider": "zed"
   },
   "agent_servers": {
-    "codex": {
-      "default_mode": "full-access",
-      "favorite_models": [],
-      "default_config_options": {},
-      "favorite_config_option_values": {}
+    "codex-acp": {
+      "type": "registry",
+      "default_mode": "full-access"
     }
   },
   "buffer_font_family": "Monaspace Krypton",
