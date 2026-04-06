@@ -37,6 +37,7 @@
       self.nixosModules.archivesPkgs
       self.nixosModules.hardwareAccess
       self.nixosModules.nh
+      self.nixosModules.nix-ld
     ];
 
     home-manager.users.${config.username} = {
