@@ -1,0 +1,9 @@
+output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
+    mode "3840x2160@240.084"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate on-demand=true
+}
+

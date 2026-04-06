@@ -14,19 +14,15 @@
       self.nixosModules.pipewire
       self.nixosModules.bluetooth
       self.nixosModules.niri
-      self.nixosModules.superlight
+      self.nixosModules.shell
       self.nixosModules.nvidia
-      self.nixosModules.quickemu
       self.nixosModules.syncthing
       # self.nixosModules.hostsfile
       self.nixosModules.nix-ld
-
       self.nixosModules.lspPkgs
       self.nixosModules.downloadsPkgs
       self.nixosModules.fancyPkgs
       self.nixosModules.archivesPkgs
-      self.nixosModules.zed
-      self.nixosModules.neovim
     ];
 
     home-manager.users.${config.username} = {

@@ -4,7 +4,7 @@
   moduleWithSystem,
   ...
 }: {
-  flake.nixosModules.niri = moduleWithSystem ({inputs', ...}: {
+  flake.nixosModules.niri = moduleWithSystem ({inputs', ...}: nixosConfig @ {
     pkgs,
     lib,
     ...
@@ -77,7 +77,7 @@
 
       xdg.configFile = {
         "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/config.kdl";
-        "niri/profile.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/clank.kdl";
+        "niri/profile.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/${nixosConfig.config.networking.hostName}.kdl";
         "niri/extra_rules.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/extra_rules.kdl";
       };
     };
