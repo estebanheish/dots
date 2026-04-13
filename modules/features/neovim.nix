@@ -10,6 +10,8 @@
         viAlias = true;
         vimAlias = true;
         package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        withRuby = false;
+        withPython3 = false;
       };
       xdg.configFile = {
         "nvim/init.lua".source = ../../configs/nvim/init.lua;

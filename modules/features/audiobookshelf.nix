@@ -9,6 +9,7 @@
     fileSystems."/var/lib/audiobookshelf/audiobooks" = {
       device = "/home/${config.username}/Documents/audiolibros";
       options = ["bind" "ro"];
+      fsType = "auto";
     };
     home-manager.users.${config.username} = {
       xdg.desktopEntries.audiobookshelf = {
