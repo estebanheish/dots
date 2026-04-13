@@ -135,6 +135,8 @@ binds {
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
+    Mod+g { spawn-sh "noctalia-shell ipc call bar toggle"; }
+
     // mako
     Mod+M { spawn-sh "noctalia-shell ipc call notifications toggleDND"; }
     Mod+Shift+M { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
