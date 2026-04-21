@@ -1,5 +1,5 @@
 {
-  inputs,
+  # inputs,
   config,
   ...
 }: {
@@ -9,7 +9,7 @@
         enable = true;
         viAlias = true;
         vimAlias = true;
-        package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        # package = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
         withRuby = false;
         withPython3 = false;
       };

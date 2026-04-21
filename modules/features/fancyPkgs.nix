@@ -3,8 +3,6 @@
     home-manager.users.${config.username} = {
       home.packages = with pkgs; [
         # file sync
-        rsync
-        sshfs
         restic
 
         caligula

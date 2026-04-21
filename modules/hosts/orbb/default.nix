@@ -9,6 +9,7 @@
       ./_hardware-configuration.nix
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-pc-ssd
+      inputs.home-manager.nixosModules.home-manager
 
       self.nixosModules.common
       self.nixosModules.pipewire

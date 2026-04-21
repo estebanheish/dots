@@ -1,12 +1,10 @@
 {
   self,
-  inputs,
   config,
   ...
 }: {
   flake.nixosModules.common = {pkgs, ...}: {
     imports = [
-      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.git
     ];
 
@@ -44,7 +42,6 @@
         "scanner"
         "storage"
         "video"
-        "plugdev"
       ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA0fkLNNFP4Aj+CnpbpLq/uT96TZpiKKeGGtaH+9jK+ estebanheish@gmail.com"

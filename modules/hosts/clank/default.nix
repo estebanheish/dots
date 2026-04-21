@@ -10,6 +10,7 @@
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-gpu-amd
       inputs.nixos-hardware.nixosModules.common-pc-ssd
+      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.pipewire
       self.nixosModules.bluetooth
 
@@ -29,7 +30,7 @@
       self.nixosModules.zed
       # self.nixosModules.nix-ld
       # self.nixosModules.hostfile
-      # self.nixosModules.archEmulation
+      self.nixosModules.archEmulation
       self.nixosModules.corePkgs
       self.nixosModules.lspPkgs
       self.nixosModules.downloadsPkgs

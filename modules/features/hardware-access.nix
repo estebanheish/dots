@@ -1,7 +1,13 @@
-{...}: {
+{config, ...}: {
   flake.nixosModules.hardwareAccess = {
+    users.groups.plugdev = {};
+
+    users.users.${config.username} = {
+      extraGroups = ["plugdev" "input"];
+    };
+
     services.udev.extraRules = ''
-      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", TAG+="uaccess"
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev", TAG+="uaccess"
     '';
   };
 }

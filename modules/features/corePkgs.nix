@@ -2,6 +2,8 @@
   flake.nixosModules.corePkgs = {pkgs, ...}: {
     home-manager.users.${config.username} = {
       home.packages = with pkgs; [
+        rsync
+        sshfs
         wget
         parted
         killall

@@ -5,21 +5,29 @@
   ...
 }: {
   flake.nixosModules.wololo = {pkgs, ...}: {
-    imports = [
+    imports = with inputs.nixos-raspberrypi.nixosModules; [
+      raspberry-pi-5.base
+      raspberry-pi-5.page-size-16k
+      raspberry-pi-5.bluetooth
+
+      inputs.home-manager-rpi.nixosModules.home-manager
+      inputs.disko-rpi.nixosModules.disko
+      ./_disko-sdcard.nix
+
       self.nixosModules.common
-      inputs.raspberry-pi-nix.nixosModules.raspberry-pi
-
-      self.nixosModules.hostsfile
-      self.nixosModules.bluetooth
-      self.nixosModules.qbittorrentService
-      self.nixosModules.dlna
+      # self.nixosModules.shell
+      # self.nixosModules.corePkgs
+      # self.nixosModules.downloadsPkgs
+      # self.nixosModules.archivesPkgs
+      self.nixosModules.nh
     ];
-
-    console.keyMap = "colemak";
 
     environment.systemPackages = with pkgs; [
       raspberrypi-eeprom
     ];
+
+    # boot.loader.raspberryPi.enable = true;
+    boot.loader.raspberry-pi.bootloader = "kernel";
 
     networking = {
       hostName = "wololo";
@@ -31,34 +39,16 @@
       wireless.iwd.enable = true;
     };
 
-    raspberry-pi-nix.board = "bcm2712";
-
-    hardware = {
-      raspberry-pi = {
-        config = {
-          all = {
-            base-dt-params = {
-              krnbt = {
-                enable = true;
-                value = "on";
-              };
-            };
-          };
-        };
-      };
-    };
-
     services.openssh = {
       enable = true;
-      settings.PasswordAuthentication = false;
+      # settings.PasswordAuthentication = false;
     };
 
-    nixpkgs.hostPlatform = "aarch64-linux";
-    system.stateVersion = "24.05";
+    system.stateVersion = "25.11";
     home-manager.users.${config.username}.home.stateVersion = "25.11";
   };
 
-  flake.nixosConfigurations.wololo = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.wololo = inputs.nixos-raspberrypi.lib.nixosSystemFull {
     modules = [
       self.nixosModules.wololo
     ];
