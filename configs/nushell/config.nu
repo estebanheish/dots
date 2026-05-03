@@ -5,7 +5,7 @@ $env.config.cursor_shape.vi_insert = "line"
 $env.config.cursor_shape.vi_normal = "block"
 $env.config.edit_mode = "vi"
 $env.config.highlight_resolved_externals = true
-$env.config.buffer_editor = "hx"
+$env.config.buffer_editor = "nvim"
 
 $env.config.keybindings ++= [
     {

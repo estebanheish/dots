@@ -18,8 +18,8 @@
       self.nixosModules.niri
       self.nixosModules.shell
       self.nixosModules.direnv
-      # self.nixosModules.llamaswap
-      # self.nixosModules.docker
+      self.nixosModules.llamaswap
+      self.nixosModules.docker
       self.nixosModules.quickemu
       self.nixosModules.syncthing
       self.nixosModules.audiobookshelf
