@@ -1,4 +1,13 @@
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "edit_predictions": {
     "provider": "zed"
   },
@@ -20,6 +29,7 @@
     "ollama": {}
   },
   "agent": {
+    "dock": "right",
     "inline_assistant_model": {
       "provider": "google",
       "model": "gemini-2.5-flash"
