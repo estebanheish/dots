@@ -3,7 +3,7 @@
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
       modesetting.enable = true;
       nvidiaSettings = true;
       powerManagement.enable = false;

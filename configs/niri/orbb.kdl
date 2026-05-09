@@ -1,5 +1,5 @@
 output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
-    mode "3840x2160@240.084"
+    mode "3840x2160@59.997"
     scale 1
     transform "normal"
     position x=0 y=0
