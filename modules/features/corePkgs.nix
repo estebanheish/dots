@@ -6,6 +6,8 @@
         sshfs
         wget
         parted
+        pciutils
+        usbutils
         killall
         git
         file

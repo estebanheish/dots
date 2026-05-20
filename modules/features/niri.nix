@@ -64,7 +64,7 @@
         nautilus
         # blueman
         # impala
-        # bluetui
+        bluetui
         wiremix
         fyi
         inputs'.noctalia.packages.default

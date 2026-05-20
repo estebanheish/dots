@@ -39,6 +39,7 @@
       self.nixosModules.hardwareAccess
       self.nixosModules.nh
       self.nixosModules.nix-ld
+      # self.nixosModules.hermesAgent
     ];
 
     home-manager.users.${config.username} = {
@@ -52,7 +53,8 @@
     };
 
     networking.hostName = "clank";
-    networking.wireless.iwd.enable = true;
+    networking.networkmanager.enable = true;
+    networking.dhcpcd.enable = false;
     # networking.firewall = {
     #   allowedTCPPorts = [
     #     22
@@ -72,7 +74,7 @@
     boot.supportedFilesystems = ["ntfs"];
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+    boot.kernelPackages = inputs.nixpkgs-kernel-clank.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_zen;
     system.stateVersion = "24.05";
   };
 

@@ -7,8 +7,6 @@
         General = {
           Experimental = true;
           FastConnectable = true;
-          ReconnectAttempts = 0;
-          ReconnectIntervals = 0;
         };
         Policy = {
           AutoEnable = true;
