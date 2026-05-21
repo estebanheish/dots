@@ -1,4 +1,9 @@
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "project_panel": {
     "dock": "left"
   },
@@ -24,7 +29,11 @@
   "collaboration_panel": {
     "dock": "right"
   },
-  "theme": "Vague",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Gruvbox Dark Hard"
+  },
   "language_models": {
     "ollama": {}
   },

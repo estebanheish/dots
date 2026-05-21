@@ -74,7 +74,7 @@
     boot.supportedFilesystems = ["ntfs"];
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = inputs.nixpkgs-kernel-clank.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_zen;
+    boot.kernelPackages = pkgs.linuxPackages_zen;
     system.stateVersion = "24.05";
   };
 
