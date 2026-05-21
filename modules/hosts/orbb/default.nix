@@ -19,7 +19,11 @@
       self.nixosModules.nvidia
       self.nixosModules.syncthing
       # self.nixosModules.hostsfile
+      self.nixosModules.zed
+      self.nixosModules.direnv
+      self.nixosModules.nh
       self.nixosModules.nix-ld
+      self.nixosModules.corePkgs
       self.nixosModules.lspPkgs
       self.nixosModules.downloadsPkgs
       self.nixosModules.fancyPkgs
@@ -29,7 +33,6 @@
     home-manager.users.${config.username} = {
       home.packages = with pkgs; [
         telegram-desktop
-        discord-canary
 
         spotify
         # bitwarden-desktop
