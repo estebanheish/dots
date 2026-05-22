@@ -35,12 +35,12 @@
         telegram-desktop
 
         spotify
-        # bitwarden-desktop
+        bitwarden-desktop
         # bitwarden-cli
 
         # linuxKernel.packages.linux_zen.perf
         typst
-        nvtopPackages.nvidia
+        nvtopPackages.full
         smartcat
       ];
       home.stateVersion = "25.11";
