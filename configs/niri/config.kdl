@@ -108,7 +108,7 @@ layer-rule {
 
 layer-rule {
     match namespace="^notifications$"
-    match namespace="noctalia-notifications*"
+    match namespace="noctalia-toast*"
     block-out-from "screencast"
 }
 

@@ -16,9 +16,9 @@
       self.nixosModules.bluetooth
       self.nixosModules.niri
       self.nixosModules.shell
-      self.nixosModules.nvidia
       self.nixosModules.syncthing
       # self.nixosModules.hostsfile
+      self.nixosModules.docker
       self.nixosModules.zed
       self.nixosModules.direnv
       self.nixosModules.nh

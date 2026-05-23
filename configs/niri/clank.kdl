@@ -44,12 +44,3 @@ workspace "9" {
     open-on-output "LG Electronics LG HDR 4K 204NTGYHG007"
 }
 
-window-rule {
-    match app-id="^spotify$"
-    open-on-workspace "8"
-}
-
-window-rule {
-    match app-id="^discord$"
-    open-on-workspace "9"
-}
