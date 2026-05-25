@@ -19,12 +19,14 @@
       self.nixosModules.niri
       self.nixosModules.shell
       self.nixosModules.syncthing
+      self.nixosModules.desktopEntries
       # self.nixosModules.hostsfile
       self.nixosModules.docker
       self.nixosModules.zed
       self.nixosModules.direnv
       self.nixosModules.nh
       self.nixosModules.nix-ld
+      self.nixosModules.archEmulation
       self.nixosModules.corePkgs
       self.nixosModules.lspPkgs
       self.nixosModules.downloadsPkgs

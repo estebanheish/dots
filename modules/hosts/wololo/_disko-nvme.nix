@@ -5,8 +5,8 @@
 }: let
   firmwarePartition = lib.recursiveUpdate {
     priority = 1;
-    type = "0700"; # Microsoft basic data
-    attributes = [0]; # Required Partition
+    type = "0700";
+    attributes = [0];
     size = "1024M";
     content = {
       type = "filesystem";
@@ -21,8 +21,8 @@
   };
 
   espPartition = lib.recursiveUpdate {
-    type = "EF00"; # EFI System Partition (ESP)
-    attributes = [2]; # Legacy BIOS Bootable, for U-Boot to find extlinux config
+    type = "EF00";
+    attributes = [2];
     size = "1024M";
     content = {
       type = "filesystem";
@@ -37,7 +37,6 @@
     };
   };
 in {
-  # https://nixos.wiki/wiki/Btrfs#Scrubbing
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
@@ -45,13 +44,11 @@ in {
   };
 
   fileSystems = {
-    # mount early enough in the boot process so no logs will be lost
     "/var/log".neededForBoot = true;
   };
 
   disko.devices.disk.main = {
     type = "disk";
-    # Pointed directly to the NVMe drive
     device = "/dev/nvme0n1";
 
     content = {
@@ -68,12 +65,12 @@ in {
         };
 
         system = {
-          type = "8305"; # Linux ARM64 root (/)
+          type = "8305";
           size = "100%";
           content = {
             type = "btrfs";
             extraArgs = [
-              "-f" # Override existing partition
+              "-f"
             ];
             postCreateHook = let
               thisBtrfs = config.disko.devices.disk.main.content.partitions.system.content;
@@ -115,23 +112,23 @@ in {
                 mountpoint = "/.swapvol";
                 swap."swapfile" = {
                   size = "8G";
-                  priority = 3; # Higher than hibernation, lower than ZRAM
+                  priority = 3;
                 };
               };
             };
           };
-        }; # system
+        };
 
         swap = {
-          type = "8200"; # Linux swap
-          size = "9G"; # RAM + 1GB for hibernation
+          type = "8200";
+          size = "9G";
           content = {
             type = "swap";
-            resumeDevice = true; # "hibernation" swap
-            priority = 2; # Last resort swap tier
+            resumeDevice = true;
+            priority = 2;
           };
         };
       };
     };
-  }; # disko.devices.disk.main
+  };
 }

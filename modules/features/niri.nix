@@ -43,6 +43,8 @@
 
     services.logind.settings.Login = {
       IdleActionSec = "60m";
+      # HandlePowerKey = "poweroff";
+      # HandlePowerKeyLongPress = "poweroff";
     };
 
     systemd.sleep.settings.Sleep = {

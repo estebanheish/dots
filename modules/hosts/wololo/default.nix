@@ -43,25 +43,6 @@
     #   ];
     # };
 
-    services.audiobookshelf = {
-      enable = true;
-      port = 1778;
-      host = "0.0.0.0";
-      openFirewall = true;
-
-      user = config.username;
-      group = "users";
-    };
-
-    fileSystems = {
-      "/var/lib/audiobookshelf/audiobooks" = {
-        device = "/mnt/data/audiobookshelf";
-        options = ["bind" "rw"];
-        fsType = "none";
-        depends = ["mnt-data.mount"];
-      };
-    };
-
     # boot.loader.raspberryPi.enable = true;
     boot.loader.raspberry-pi.bootloader = "kernel";
 
@@ -82,6 +63,37 @@
 
     system.stateVersion = "25.11";
     home-manager.users.${config.username}.home.stateVersion = "25.11";
+
+    users.groups.data = {};
+    users.users.${config.username}.extraGroups = ["data"];
+
+    systemd.tmpfiles.rules = [
+      "d /data             2775 ${config.username} data - -"
+      "d /data/downloads   2775 ${config.username} data - -"
+      "d /data/movies      2775 ${config.username} data - -"
+      "d /data/tvshows     2775 ${config.username} data - -"
+      "d /data/audiobooks  2775 ${config.username} data - -"
+      "d /data/podcasts  2775 ${config.username} data - -"
+    ];
+
+    services.audiobookshelf = {
+      enable = true;
+      port = 1778;
+      host = "0.0.0.0";
+      openFirewall = true;
+      group = "data";
+    };
+
+    services.qbittorrent = {
+      enable = true;
+      openFirewall = true;
+      group = "data";
+    };
+
+    # services.jellyfin = {
+    #   enable = true;
+    #   group = "data";
+    # };
   };
 
   flake.nixosConfigurations.wololo = inputs.nixos-raspberrypi.lib.nixosSystemFull {
