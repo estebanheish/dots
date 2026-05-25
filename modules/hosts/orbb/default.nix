@@ -8,6 +8,8 @@
     imports = [
       ./_hardware-configuration.nix
       inputs.nixos-hardware.nixosModules.common-cpu-amd
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+      inputs.nixos-hardware.nixosModules.common-gpu-amd
       inputs.nixos-hardware.nixosModules.common-pc-ssd
       inputs.home-manager.nixosModules.home-manager
 
@@ -40,7 +42,7 @@
 
         # linuxKernel.packages.linux_zen.perf
         typst
-        nvtopPackages.full
+        nvtopPackages.amd
         smartcat
       ];
       home.stateVersion = "25.11";

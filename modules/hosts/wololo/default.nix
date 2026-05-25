@@ -26,6 +26,23 @@
       raspberrypi-eeprom
     ];
 
+    # external usb HDD
+    systemd.tmpfiles.rules = [
+      "d /mnt/data 0755 ${config.username} users - -"
+    ];
+    fileSystems."/mnt/data" = {
+      device = "/dev/disk/by-uuid/1676deb4-b5d6-4b86-b210-57993ed20bf9";
+      fsType = "ext4";
+      options = [
+        "nofail"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=10min"
+        "defaults"
+        "users"
+        "noatime"
+      ];
+    };
+
     # boot.loader.raspberryPi.enable = true;
     boot.loader.raspberry-pi.bootloader = "kernel";
 
