@@ -22,7 +22,6 @@
       self.nixosModules.docker
       self.nixosModules.quickemu
       self.nixosModules.syncthing
-      self.nixosModules.audiobookshelf
       self.nixosModules.steam
       self.nixosModules.ssh
       # self.nixosModules.zed

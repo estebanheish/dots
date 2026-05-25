@@ -12,7 +12,7 @@
 
       inputs.home-manager-rpi.nixosModules.home-manager
       inputs.disko-rpi.nixosModules.disko
-      ./_disko-sdcard.nix
+      ./_disko-nvme.nix
 
       self.nixosModules.common
       # self.nixosModules.shell
@@ -27,20 +27,39 @@
     ];
 
     # external usb HDD
-    systemd.tmpfiles.rules = [
-      "d /mnt/data 0755 ${config.username} users - -"
-    ];
-    fileSystems."/mnt/data" = {
-      device = "/dev/disk/by-uuid/1676deb4-b5d6-4b86-b210-57993ed20bf9";
-      fsType = "ext4";
-      options = [
-        "nofail"
-        "x-systemd.automount"
-        "x-systemd.idle-timeout=10min"
-        "defaults"
-        "users"
-        "noatime"
-      ];
+    # systemd.tmpfiles.rules = [
+    #   "d /mnt/data 0755 ${config.username} users - -"
+    # ];
+    # fileSystems."/mnt/data" = {
+    #   device = "/dev/disk/by-uuid/1676deb4-b5d6-4b86-b210-57993ed20bf9";
+    #   fsType = "ext4";
+    #   options = [
+    #     "nofail"
+    #     "x-systemd.automount"
+    #     "x-systemd.idle-timeout=10min"
+    #     "defaults"
+    #     "users"
+    #     "noatime"
+    #   ];
+    # };
+
+    services.audiobookshelf = {
+      enable = true;
+      port = 1778;
+      host = "0.0.0.0";
+      openFirewall = true;
+
+      user = config.username;
+      group = "users";
+    };
+
+    fileSystems = {
+      "/var/lib/audiobookshelf/audiobooks" = {
+        device = "/mnt/data/audiobookshelf";
+        options = ["bind" "rw"];
+        fsType = "none";
+        depends = ["mnt-data.mount"];
+      };
     };
 
     # boot.loader.raspberryPi.enable = true;
