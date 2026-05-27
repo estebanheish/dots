@@ -90,10 +90,19 @@
       group = "data";
     };
 
-    # services.jellyfin = {
-    #   enable = true;
-    #   group = "data";
-    # };
+    users.users.minidlna.extraGroups = ["media"];
+    services.minidlna = {
+      enable = true;
+      openFirewall = true;
+      settings = {
+        friendly_name = "wololo minidlna";
+        inotify = "yes";
+        media_dir = [
+          "V,/data/movies"
+          "V,/data/tvshows"
+        ];
+      };
+    };
   };
 
   flake.nixosConfigurations.wololo = inputs.nixos-raspberrypi.lib.nixosSystemFull {

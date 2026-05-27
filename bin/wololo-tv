@@ -1,0 +1,196 @@
+#!/usr/bin/env nu
+# wololo-tv: browse wololo's MiniDLNA library with Television and play in mpv.
+#
+# Dependencies:
+#   - nushell (runs this script)
+#   - television, command name: tv (fuzzy picker)
+#   - mpv (player)
+#   - POSIX coreutils cat/rm are used only for temporary Television channel files.
+#
+# Nix profile install example:
+#   nix profile install nixpkgs#nushell nixpkgs#television nixpkgs#mpv
+#
+# Usage:
+#   wololo-tv                 # pick from 192.168.18.6:8200 and play with mpv
+#   wololo-tv --list          # print discovered media without opening Television
+#   wololo-tv --no-play       # pick and print the URL instead of playing
+#   wololo-tv --host wololo   # override host
+
+def xml-escape [s: string] {
+  $s | str replace --all '&' '&amp;' | str replace --all '<' '&lt;' | str replace --all '>' '&gt;' | str replace --all '"' '&quot;' | str replace --all "'" '&apos;'
+}
+
+def child-text [node: record, wanted: string] {
+  let children = ($node.content | default [])
+  let matches = ($children | where tag == $wanted)
+  if ($matches | is-empty) {
+    ""
+  } else {
+    ($matches.0.content.0.content | default "")
+  }
+}
+
+def attr [node: record, name: string] {
+  $node.attributes | default {} | get --optional $name | default ""
+}
+
+def first-playable-res [node: record] {
+  let resources = ($node.content | default [] | where tag == "res")
+  let video = ($resources | where {|r| (attr $r protocolInfo | str starts-with "http-get:*:video") })
+  if not ($video | is-empty) { return $video.0 }
+
+  # MiniDLNA usually marks videos as video/*, but keep an http URL fallback so
+  # renamed or uncommon formats can still be selected if they are exposed as a resource.
+  let http_res = ($resources | where {|r| (attr $r protocolInfo | str starts-with "http-get:*") and not ((attr $r protocolInfo) | str contains ":image/") })
+  if ($http_res | is-empty) { null } else { $http_res.0 }
+}
+
+def media-record [node: record] {
+  let res = (first-playable-res $node)
+  if ($res == null) { return null }
+
+  let proto = (attr $res protocolInfo)
+  let proto_parts = ($proto | split row ':')
+  let media_type = ($proto_parts | get --optional 2 | default "")
+
+  {
+    title: (child-text $node title)
+    class: (child-text $node class)
+    date: (child-text $node date)
+    id: (attr $node id)
+    parent_id: (attr $node parentID)
+    duration: (attr $res duration)
+    resolution: (attr $res resolution)
+    size: (attr $res size)
+    type: $media_type
+    url: ($res.content.0.content | default "")
+  }
+}
+
+def browse-direct [endpoint: string, object_id: string] {
+  let object_id = (xml-escape $object_id)
+  let body = $'<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><s:Body><u:Browse xmlns:u="urn:schemas-upnp-org:service:ContentDirectory:1"><ObjectID>($object_id)</ObjectID><BrowseFlag>BrowseDirectChildren</BrowseFlag><Filter>*</Filter><StartingIndex>0</StartingIndex><RequestedCount>0</RequestedCount><SortCriteria></SortCriteria></u:Browse></s:Body></s:Envelope>'
+  let headers = {'SOAPACTION': '"urn:schemas-upnp-org:service:ContentDirectory:1#Browse"'}
+
+  let soap = (http post --raw --max-time 10sec --content-type 'text/xml; charset="utf-8"' --headers $headers $endpoint $body | from xml)
+  let browse_response = ($soap.content.0.content.0.content | default [])
+  let result = ($browse_response | where tag == Result)
+  if ($result | is-empty) { return [] }
+
+  let didl_text = ($result.0.content.0.content | default "")
+  if ($didl_text | is-empty) { return [] }
+
+  let didl = ($didl_text | from xml)
+  $didl.content | default []
+}
+
+def browse-recursive [endpoint: string, object_id: string] {
+  let children = (browse-direct $endpoint $object_id)
+
+  $children | reduce --fold [] {|child, acc|
+    match $child.tag {
+      "container" => {
+        let id = (attr $child id)
+        if ($id | is-empty) { $acc } else { $acc ++ (browse-recursive $endpoint $id) }
+      }
+      "item" => {
+        let item = (media-record $child)
+        if ($item == null) { $acc } else { $acc ++ [$item] }
+      }
+      _ => $acc
+    }
+  }
+}
+
+def require-command [cmd: string, package: string] {
+  if ((which $cmd | length) == 0) {
+    print --stderr $"Missing dependency: ($cmd). Install it with: nix profile install nixpkgs#($package)"
+    exit 127
+  }
+}
+
+def display-line [item] {
+  # Pull fields into plain strings first. This avoids Nushell trying to treat a
+  # streamed/scalar value as a record while interpolating `$item.title` directly.
+  let is_record = (($item | describe) | str starts-with "record")
+  let title = (if $is_record { $item | get --optional title | default "" } else { $item | to nuon })
+  let url = (if $is_record { $item | get --optional url | default "" } else { "" })
+  let duration = (if $is_record { $item | get --optional duration | default "" } else { "" })
+  let resolution = (if $is_record { $item | get --optional resolution | default "" } else { "" })
+  let media_type = (if $is_record { $item | get --optional type | default "" } else { "" })
+  let meta = ([ $duration $resolution $media_type ] | where {|x| not ($x | is-empty) } | str join ' | ')
+
+  if ($meta | is-empty) {
+    ($title + "\t" + $url)
+  } else {
+    ($title + "  [" + $meta + "]\t" + $url)
+  }
+}
+
+def main [
+  --host: string = "192.168.18.6"  # MiniDLNA host; wololo is 192.168.18.6 in ~/.dots
+  --port: int = 8200                # MiniDLNA HTTP/UPnP port
+  --player: string = "mpv"          # Player command
+  --list                            # Print discovered media and exit
+  --no-play                         # After choosing, print URL instead of launching player
+] {
+  require-command nu nushell
+
+  if not $list { require-command tv television }
+  if not $no_play and not $list { require-command $player $player }
+
+  let endpoint = $"http://($host):($port)/ctl/ContentDir"
+  let items = (browse-recursive $endpoint "0")
+
+  if ($items | is-empty) {
+    print --stderr $"No playable MiniDLNA video resources found at ($endpoint)."
+    exit 1
+  }
+
+  if $list {
+    $items | each {|item| display-line $item } | str join "\n" | print
+    return
+  }
+
+  let tmp = ($"/tmp/wololo-tv-(random uuid).tsv")
+  let cable_dir = ($"/tmp/wololo-tv-cable-(random uuid)")
+  mkdir $cable_dir
+
+  let lines = ($items | each {|item| display-line $item } | str join "\n")
+  $lines | save --force $tmp
+
+  # Do not capture `tv` stdout here: Television draws its UI on stdout, so
+  # command substitution makes the UI invisible. Instead, create a temporary
+  # real Television channel whose Enter key runs the action directly.
+  let action_command = (if $no_play {
+    "printf '%s\n' '{split:\t:1}'"
+  } else {
+    $player + " '{split:\t:1}'"
+  })
+
+  let channel = ([
+    "[metadata]"
+    "name = 'wololo'"
+    "description = 'Browse wololo MiniDLNA and play with mpv'"
+    ""
+    "[source]"
+    ($"command = 'cat ($tmp)'")
+    "display = '{split:\t:0}'"
+    "output = '{split:\t:1}'"
+    ""
+    "[keybindings]"
+    "enter = 'actions:play'"
+    ""
+    "[actions.play]"
+    "description = 'Play selected media'"
+    ("command = \"" + $action_command + "\"")
+    "shell = 'bash'"
+    "mode = 'execute'"
+  ] | str join "\n")
+  $channel | save --force ($cable_dir | path join "wololo.toml")
+
+  ^tv --cable-dir $cable_dir --input-header $"wololo MiniDLNA (($host):($port))" --input-prompt "play> " --no-remote wololo
+
+  rm --force $tmp
+  rm --recursive --force $cable_dir
+}
