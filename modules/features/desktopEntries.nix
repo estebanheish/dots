@@ -3,13 +3,13 @@
     home-manager.users.${config.username} = {
       xdg.desktopEntries = {
         rpi-audiobookshelf = {
-          name = "audiobookshelf WebUI";
+          name = "rpi audiobookshelf WebUI";
           exec = "xdg-open http://192.168.18.6:1778";
           terminal = false;
           icon = "${pkgs.audiobookshelf}/opt/client/dist/icon.svg";
         };
         rpi-qbittorrent = {
-          name = "qbittorrent WebUI";
+          name = "rpi qbittorrent WebUI";
           exec = "xdg-open http://192.168.18.6:8080";
           terminal = false;
         };

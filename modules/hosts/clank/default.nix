@@ -38,7 +38,6 @@
       self.nixosModules.hardwareAccess
       self.nixosModules.nh
       self.nixosModules.nix-ld
-      # self.nixosModules.hermesAgent
     ];
 
     home-manager.users.${config.username} = {
