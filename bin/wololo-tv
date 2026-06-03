@@ -109,15 +109,12 @@ def require-command [cmd: string, package: string] {
   }
 }
 
-def display-line [item] {
-  # Pull fields into plain strings first. This avoids Nushell trying to treat a
-  # streamed/scalar value as a record while interpolating `$item.title` directly.
-  let is_record = (($item | describe) | str starts-with "record")
-  let title = (if $is_record { $item | get --optional title | default "" } else { $item | to nuon })
-  let url = (if $is_record { $item | get --optional url | default "" } else { "" })
-  let duration = (if $is_record { $item | get --optional duration | default "" } else { "" })
-  let resolution = (if $is_record { $item | get --optional resolution | default "" } else { "" })
-  let media_type = (if $is_record { $item | get --optional type | default "" } else { "" })
+def display-line [item: record] {
+  let title = ($item | get --optional title | default "")
+  let url = ($item | get --optional url | default "")
+  let duration = ($item | get --optional duration | default "")
+  let resolution = ($item | get --optional resolution | default "")
+  let media_type = ($item | get --optional type | default "")
   let meta = ([ $duration $resolution $media_type ] | where {|x| not ($x | is-empty) } | str join ' | ')
 
   if ($meta | is-empty) {
@@ -134,8 +131,6 @@ def main [
   --list                            # Print discovered media and exit
   --no-play                         # After choosing, print URL instead of launching player
 ] {
-  require-command nu nushell
-
   if not $list { require-command tv television }
   if not $no_play and not $list { require-command $player $player }
 

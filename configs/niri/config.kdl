@@ -123,8 +123,8 @@ binds {
 
     // vicinae
     Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
-    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
-    Mod+V repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://launch/files/search"; }
+    Mod+V repeat=false { spawn "vicinae" "vicinae://launch/clipboard/history"; }
 
     // rofi
     // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }

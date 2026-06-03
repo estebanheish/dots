@@ -15,10 +15,10 @@
       ./_disko-nvme.nix
 
       self.nixosModules.common
-      # self.nixosModules.shell
-      # self.nixosModules.corePkgs
-      # self.nixosModules.downloadsPkgs
-      # self.nixosModules.archivesPkgs
+      self.nixosModules.shell
+      self.nixosModules.corePkgs
+      self.nixosModules.downloadsPkgs
+      self.nixosModules.archivesPkgs
       self.nixosModules.nh
     ];
 
