@@ -25,6 +25,7 @@
       self.nixosModules.zed
       self.nixosModules.direnv
       self.nixosModules.nh
+      self.nixosModules.ssh
       self.nixosModules.nix-ld
       self.nixosModules.archEmulation
       self.nixosModules.corePkgs
