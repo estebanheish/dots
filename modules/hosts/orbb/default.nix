@@ -40,7 +40,7 @@
         telegram-desktop
 
         spotify
-        bitwarden-desktop
+        # bitwarden-desktop
         # bitwarden-cli
 
         # linuxKernel.packages.linux_zen.perf

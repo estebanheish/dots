@@ -132,7 +132,7 @@ binds {
     // Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
     // Mod+Shift+R { spawn "~/.dots/bin/abre"; }
     
-    Mod+b { spawn "librewolf"; }
+    Mod+b { spawn "firefox"; }
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
@@ -362,7 +362,7 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 
 include "noctalia.kdl"
 include "extra_rules.kdl"

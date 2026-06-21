@@ -16,6 +16,7 @@
       self.nixosModules.desktopApps
       self.nixosModules.binsInPath
       self.nixosModules.hunspell
+      self.nixosModules.adwaita-dark
     ];
 
     programs.niri.enable = true;

@@ -4,7 +4,7 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = {
+        settings = {
           "clank" = {
             hostname = "192.168.18.2";
             user = "haros";

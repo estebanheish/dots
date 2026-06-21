@@ -44,7 +44,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^spotify$"
+    match app-id="^[sS]potify$"
     open-on-workspace "8"
 }
 
