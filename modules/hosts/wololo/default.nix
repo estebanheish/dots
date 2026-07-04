@@ -62,19 +62,36 @@
     };
 
     system.stateVersion = "25.11";
-    home-manager.users.${config.username}.home.stateVersion = "25.11";
+    # home-manager.users.${config.username}.home.stateVersion = "25.11";
+    home-manager.users.${config.username}.home = {
+      stateVersion = "25.11";
+      packages = [pkgs.cowsay pkgs.lazygit];
+    };
 
     users.groups.data = {};
     users.users.${config.username}.extraGroups = ["data"];
 
     systemd.tmpfiles.rules = [
       "d /data             2775 ${config.username} data - -"
+      "d /data/hdd         2775 ${config.username} data - -"
       "d /data/downloads   2775 ${config.username} data - -"
       "d /data/movies      2775 ${config.username} data - -"
       "d /data/tvshows     2775 ${config.username} data - -"
       "d /data/audiobooks  2775 ${config.username} data - -"
-      "d /data/podcasts  2775 ${config.username} data - -"
+      "d /data/podcasts    2775 ${config.username} data - -"
     ];
+
+    fileSystems."/data/hdd" = {
+      device = "/dev/disk/by-uuid/81ba0469-d0ee-4a56-8f26-960916eef6fc";
+      fsType = "ext4";
+      options = [
+        "nofail"
+        "defaults"
+        "x-systemd.automount"
+        "x-systemd.idle-timeout=10min"
+        "noatime"
+      ];
+    };
 
     services.audiobookshelf = {
       enable = true;
@@ -100,6 +117,8 @@
         media_dir = [
           "V,/data/movies"
           "V,/data/tvshows"
+          "V,/data/hdd/tvshows"
+          "V,/data/hdd/movies"
         ];
       };
     };

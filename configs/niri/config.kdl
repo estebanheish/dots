@@ -108,8 +108,7 @@ layer-rule {
 
 layer-rule {
     match namespace="^notifications$"
-    match namespace="noctalia-toast*"
-    match namespace="noctalia-notifications*"
+    match namespace="noctalia-notification"
     block-out-from "screencast"
 }
 
@@ -136,11 +135,11 @@ binds {
     Super+A repeat=false { toggle-overview; }
     Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
-    Mod+g { spawn-sh "noctalia-shell ipc call bar toggle"; }
+    Mod+g { spawn-sh "noctalia msg bar-toggle"; }
 
     // mako
-    Mod+M { spawn-sh "noctalia-shell ipc call notifications toggleDND"; }
-    Mod+Shift+M { spawn-sh "noctalia-shell ipc call notifications dismissAll"; }
+    Mod+M { spawn-sh "noctalia msg notification-dnd-toggle"; }
+    Mod+Shift+M { spawn-sh "noctalia msg notification-clear-active"; }
     // Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
     // Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
 
@@ -161,8 +160,8 @@ binds {
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
     XF86AudioPrev { spawn "playerctl" "previous"; }
 
-    XF86MonBrightnessUp { spawn-sh "noctalia-shell ipc call brightness increase"; }
-    XF86MonBrightnessDown { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
     Mod+Escape { close-window; }
 
