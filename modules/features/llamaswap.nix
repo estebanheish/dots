@@ -9,6 +9,8 @@
     services.llama-swap = {
       enable = true;
       inherit port;
+      openFirewall = true;
+      listenAddress = "0.0.0.0";
       settings = let
         llama-cpp =
           (pkgs.llama-cpp.override {
@@ -41,6 +43,35 @@
             "HIP_VISIBLE_DEVICES=0"
           ];
         in {
+          "qwendmtp" = {
+            cmd = builtins.concatStringsSep " " [
+              "${llama-server}"
+              "--port \${PORT}"
+              "-hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q4_K_XL"
+              "-ngl 999"
+              "-c 16384"
+              # "-c 131072"
+              "-fa on"
+              "-np 1"
+              "--spec-type draft-mtp"
+              "--spec-draft-n-max 2"
+              "--temp 0.6"
+              "--top-p 0.95"
+              "--top-k 20"
+              "--min-p 0.0"
+              "--presence-penalty 0.0"
+              "--repeat-penalty 1.0"
+              "-b 2048"
+              "-ub 512"
+              "-t 16"
+              "-tb 16"
+              "--flash-attn on"
+              "--cache-type-k q4_0"
+              "--cache-type-v q4_0"
+              "--jinja"
+            ];
+            inherit env;
+          };
           "qwend" = {
             cmd = builtins.concatStringsSep " " [
               "${llama-server}"

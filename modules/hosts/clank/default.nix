@@ -45,7 +45,7 @@
       home.packages = with pkgs; [
         telegram-desktop
         spotify
-        bitwarden-desktop
+        # bitwarden-desktop
         nvtopPackages.amd
       ];
     };
@@ -72,7 +72,8 @@
     boot.supportedFilesystems = ["ntfs"];
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+    # boot.kernelPackages = pkgs.linuxPackages_zen;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     system.stateVersion = "24.05";
   };
 
