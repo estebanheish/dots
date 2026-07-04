@@ -19,7 +19,6 @@
       self.nixosModules.niri
       self.nixosModules.shell
       self.nixosModules.syncthing
-      self.nixosModules.desktopEntries
       # self.nixosModules.hostsfile
       self.nixosModules.docker
       self.nixosModules.zed

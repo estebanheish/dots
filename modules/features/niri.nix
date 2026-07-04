@@ -14,6 +14,7 @@
       self.nixosModules.foot
       self.nixosModules.vicinae
       self.nixosModules.desktopApps
+      self.nixosModules.desktopEntries
       self.nixosModules.binsInPath
       self.nixosModules.hunspell
       self.nixosModules.adwaita-dark
