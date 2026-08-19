@@ -1,11 +1,15 @@
-{config, ...}: {
-  flake.nixosModules.syncthing = {...}: {
+{config, ...}: let
+  username = config.username;
+in {
+  flake.nixosModules.syncthing = {config, lib, ...}: let
+    peers = lib.filter (device: device != config.networking.hostName) ["clank" "rivet" "orbb"];
+  in {
     services = {
       syncthing = {
         enable = true;
-        user = config.username;
+        user = username;
         group = "users";
-        dataDir = "/home/${config.username}";
+        dataDir = "/home/${username}";
         overrideDevices = true;
         overrideFolders = true;
         settings = {
@@ -21,23 +25,23 @@
           folders = {
             "Documents" = {
               label = "Documents";
-              path = "/home/${config.username}/Documents";
-              devices = ["clank" "rivet" "orbb"];
+              path = "/home/${username}/Documents";
+              devices = peers;
             };
             "Videos" = {
               label = "Videos";
-              path = "/home/${config.username}/Videos";
-              devices = ["clank" "rivet" "orbb"];
+              path = "/home/${username}/Videos";
+              devices = peers;
             };
             "Music" = {
               label = "Music";
-              path = "/home/${config.username}/Music";
-              devices = ["clank" "rivet" "orbb"];
+              path = "/home/${username}/Music";
+              devices = peers;
             };
             "Pictures" = {
               label = "Pictures";
-              path = "/home/${config.username}/Pictures";
-              devices = ["clank" "rivet" "orbb"];
+              path = "/home/${username}/Pictures";
+              devices = peers;
             };
           };
         };
