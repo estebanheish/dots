@@ -1,5 +1,6 @@
 {
   self,
+  inputs,
   config,
   moduleWithSystem,
   ...
@@ -10,6 +11,7 @@
     ...
   }: {
     imports = [
+      inputs.noctalia-greeter.nixosModules.default
       self.nixosModules.i2c
       self.nixosModules.foot
       self.nixosModules.vicinae
@@ -29,16 +31,25 @@
     environment.shells = with pkgs; [nushell];
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    services.greetd = {
+    # services.greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+    #       user = config.username;
+    #     };
+    #     initial_session = {
+    #       command = "niri-session";
+    #       user = config.username;
+    #     };
+    #   };
+    # };
+    programs.noctalia-greeter = {
       enable = true;
       settings = {
-        default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
-          user = config.username;
-        };
-        initial_session = {
-          command = "niri-session";
-          user = config.username;
+        keyboard = {
+          layout = "us";
+          variant = "colemak";
         };
       };
     };

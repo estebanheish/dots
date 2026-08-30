@@ -121,10 +121,15 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return { spawn "foot"; }
 
+    // menu
     // vicinae
-    Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
-    Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://launch/files/search"; }
-    Mod+V repeat=false { spawn "vicinae" "vicinae://launch/clipboard/history"; }
+    // Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
+    // Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://launch/files/search"; }
+    // Mod+V repeat=false { spawn "vicinae" "vicinae://launch/clipboard/history"; }
+    // noctalia
+    Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
+    // Mod+Shift+R repeat=false { spawn-sh ""; }
+    Mod+V repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
 
     // rofi
     // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
