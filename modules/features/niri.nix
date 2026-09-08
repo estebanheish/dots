@@ -14,7 +14,6 @@
       inputs.noctalia-greeter.nixosModules.default
       self.nixosModules.i2c
       self.nixosModules.foot
-      self.nixosModules.vicinae
       self.nixosModules.desktopApps
       self.nixosModules.desktopEntries
       self.nixosModules.binsInPath
@@ -86,7 +85,7 @@
       ];
 
       services = {
-        polkit-gnome.enable = true;
+        # polkit-gnome.enable = true;
         cliphist.enable = true;
       };
 

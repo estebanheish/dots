@@ -64,10 +64,10 @@ $env.BROWSER = "librewolf"
 
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/broot.nu
-source ~/.config/nushell/lf.nu
 source ~/.config/nushell/yazi.nu
 source ~/.config/nushell/zoxide.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/themes/github-dark-default.nu
 source ~/.config/nushell/atuin.nu
+source ~/.config/nushell/jujutsu-completions.nu
 # source ~/.config/nushell/plugins.nu

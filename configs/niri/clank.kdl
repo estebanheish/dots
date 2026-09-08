@@ -9,7 +9,7 @@ output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
 }
 
 output "LG Electronics LG HDR 4K 204NTGYHG007" {
-    // off
+    off
     mode "3840x2160@59.997"
     scale 1
     transform "normal"
