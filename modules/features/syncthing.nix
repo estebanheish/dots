@@ -1,7 +1,11 @@
 {config, ...}: let
   username = config.username;
 in {
-  flake.nixosModules.syncthing = {config, lib, ...}: let
+  flake.nixosModules.syncthing = {
+    config,
+    lib,
+    ...
+  }: let
     peers = lib.filter (device: device != config.networking.hostName) ["clank" "rivet" "orbb"];
   in {
     services = {

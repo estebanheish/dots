@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  flake.nixosModules.neovim = {pkgs, ...}: {
+  flake.nixosModules.neovim = {...}: {
     home-manager.users.${config.username} = {
       programs.neovim = {
         enable = true;

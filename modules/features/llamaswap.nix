@@ -11,6 +11,7 @@
       inherit port;
       openFirewall = true;
       listenAddress = "0.0.0.0";
+
       settings = let
         llama-cpp =
           (pkgs.llama-cpp.override {
@@ -26,128 +27,86 @@
                   "-DGGML_HIP=ON"
                   "-DGPU_TARGETS=gfx1100"
                   "-DCMAKE_BUILD_TYPE=Release"
-                  # "-DGGML_HIP_ROCWMMA_FATTN=ON"
                 ];
+
               preConfigure = ''
                 export NIX_ENFORCE_NO_NATIVE=0
                 ${oldAttrs.preConfigure or ""}
               '';
             }
           );
+
         llama-server = lib.getExe' llama-cpp "llama-server";
       in {
         healthCheckTimeout = 1000;
-        models = let
-          env = [
-            "XDG_CACHE_HOME=/var/cache/llama-swap"
-            "HIP_VISIBLE_DEVICES=0"
-          ];
-        in {
-          "qwendmtp" = {
+
+        models = {
+          "qwen38" = {
             cmd = builtins.concatStringsSep " " [
               "${llama-server}"
               "--port \${PORT}"
-              "-hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q4_K_XL"
+              "-hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL"
               "-ngl 999"
-              "-c 16384"
-              # "-c 131072"
+              "-c 32768"
+              "-fa on"
+              "--cache-type-k q4_0"
+              "--cache-type-v q4_0"
+              "-np 1"
+              "--spec-type draft-mtp"
+              "--spec-draft-n-max 3"
+              "--temp 0.7"
+              "--top-p 0.8"
+              "--top-k 20"
+              "--min-p 0.0"
+              "--presence-penalty 1.5"
+              "--repeat-penalty 1.0"
+              "-b 2048"
+              "-ub 512"
+              "-t 16"
+              "-tb 16"
+              "--jinja"
+            ];
+
+            env = [
+              "XDG_CACHE_HOME=/var/cache/llama-swap"
+              "HIP_VISIBLE_DEVICES=0"
+            ];
+          };
+          "qwen38-q5" = {
+            cmd = builtins.concatStringsSep " " [
+              "${llama-server}"
+              "--port \${PORT}"
+              "-hf unsloth/Qwen3.8-27B-GGUF:Q5_K_M"
+              "-ngl 999"
+              "-c 32768"
               "-fa on"
               "-np 1"
               "--spec-type draft-mtp"
-              "--spec-draft-n-max 2"
-              "--temp 0.6"
-              "--top-p 0.95"
+              "--spec-draft-n-max 3"
+              "--temp 0.7"
+              "--top-p 0.8"
               "--top-k 20"
               "--min-p 0.0"
-              "--presence-penalty 0.0"
+              "--presence-penalty 1.5"
               "--repeat-penalty 1.0"
               "-b 2048"
               "-ub 512"
               "-t 16"
               "-tb 16"
-              "--flash-attn on"
-              "--cache-type-k q4_0"
-              "--cache-type-v q4_0"
-              "--jinja"
-            ];
-            inherit env;
-          };
-          "qwend" = {
-            cmd = builtins.concatStringsSep " " [
-              "${llama-server}"
-              "--port \${PORT}"
-              "-hf unsloth/Qwen3.6-27B-GGUF:Q4_K_M"
-              "--temp 0.6"
-              "--top-p 0.95"
-              "--top-k 20"
-              "--min-p 0.0"
-              "--presence-penalty 0.0"
-              "--repeat-penalty 1.0"
-              "-ngl 999"
-              # "-c 32768"
-              "-b 2048"
-              "-ub 512"
-              "-t 16"
-              "-tb 16"
-              "--flash-attn on"
-              "--cache-type-k q4_0"
-              "--cache-type-v q4_0"
-              "--jinja"
-            ];
-            inherit env;
-          };
-          "qwenf" = {
-            cmd = builtins.concatStringsSep " " [
-              "${llama-server}"
-              "--port \${PORT}"
-              "-hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-IQ4_XS"
-              "--temp 0.6"
-              "--top-p 0.95"
-              "--top-k 20"
-              "--min-p 0.0"
-              "--presence-penalty 0.0"
-              "--repeat-penalty 1.0"
-              # "--ctx-size 262144"
-              "-ngl 999"
-              # "-c 65536"
-              "-b 2048"
-              "-ub 512"
-              "-t 16"
-              "-tb 16"
-              "--flash-attn on"
               "--cache-type-k q8_0"
               "--cache-type-v q8_0"
               "--jinja"
             ];
-            inherit env;
-          };
-          "qwens" = {
-            cmd = builtins.concatStringsSep " " [
-              "${llama-server}"
-              "--port \${PORT}"
-              "-hf unsloth/Qwen3.6-27B-GGUF:Q5_K_M"
-              "--temp 0.6"
-              "--top-p 0.95"
-              "--top-k 20"
-              "--min-p 0.0"
-              "--presence-penalty 0.0"
-              "--repeat-penalty 1.0"
-              "-ngl 999"
-              # "-c 32768"
-              "-b 2048"
-              "-ub 512"
-              "-t 16"
-              "-tb 16"
-              "--flash-attn on"
-              "--cache-type-k q4_0"
-              "--cache-type-v q4_0"
-              "--jinja"
+
+            env = [
+              "XDG_CACHE_HOME=/var/cache/llama-swap"
+              "HIP_VISIBLE_DEVICES=0"
             ];
-            inherit env;
           };
         };
       };
     };
+
     systemd.services.llama-swap.serviceConfig.CacheDirectory = "llama-swap";
 
     home-manager.users.${config.username} = {

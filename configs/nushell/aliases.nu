@@ -13,7 +13,6 @@ alias z. = zed .
 alias log = journalctl
 alias sctl = systemctl
 alias vault = zed ~/Documents/Vault
-alias brillo = ddcutil setvcp 10
 alias mixer = wiremix
 alias sysinhibit = systemd-inhibit --what=handle-lid-switch:sleep:idle:shutdown sleep infinity
 alias lock = loginctl lock-session
@@ -23,10 +22,8 @@ alias mpw = mpv (wl-paste)
 alias empty_trash = rm -rp ~/.local/share/Trash/*
 
 # NixOS
-alias rebuild = sudo nixos-rebuild switch --flake ~/.dots
-def garbage [] { nix-collect-garbage -d; sudo nix-collect-garbage -d }
+alias rebuild = nh os switch
 alias switch-to-config = sudo /run/current-system/bin/switch-to-configuration boot
-alias noswallow = print $"(ansi title)noswallow(ansi st)" -n
 def npl [] { nix profile list --json | (from json).elements | columns }
 def remove [...pkgs: string] {
   if ($pkgs | is-empty) {
@@ -84,7 +81,7 @@ alias lg = lazygit
 def wt [name: string] { wezterm cli set-tab-title $name }
 
 alias pa = playerctl --all-players pause
-alias bt = bluetuith
+alias bt = bluetui
 
 def cas [file: path] { 
   let stem = ($file | path parse | get stem); 

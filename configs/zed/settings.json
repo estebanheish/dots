@@ -94,7 +94,7 @@
   "scroll_beyond_last_line": "off",
   "languages": {
     "Nix": {
-      "language_servers": ["nixd", "nil"],
+      "language_servers": ["nixd"],
       "formatter": {
         "external": {
           "command": "alejandra",

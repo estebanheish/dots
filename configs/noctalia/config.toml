@@ -1,0 +1,70 @@
+[accessibility]
+ui_scale = 1.350000012665987
+
+[audio]
+enable_sounds = true
+
+[bar.default]
+end = [
+    "tray",
+    "bluetooth",
+    "input_volume",
+    "volume",
+    "brightness",
+    "battery",
+    "network",
+    "notifications",
+]
+margin_edge = 0
+margin_ends = 0
+padding = 18
+radius = 0
+start = ["workspaces", "privacy"]
+
+[brightness]
+enable_ddcutil = true
+sync_all_monitors = true
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+
+[nightlight]
+enabled = true
+
+[notification]
+position = "bottom_right"
+
+[osd]
+position = "bottom_center"
+position_vertical = "bottom_right"
+
+[shell]
+polkit_agent = true
+show_location = false
+time_format = "{:%H}"
+ui_scale = 1.25
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.launcher]
+categories = false
+compact = true
+
+[shell.launcher.providers.emoji]
+global = true
+
+[shell.panel]
+open_near_click_control_center = true
+
+[widget.input_volume]
+show_label = false
+
+[widget.network]
+show_label = false
+
+[widget.privacy]
+hide_inactive = true

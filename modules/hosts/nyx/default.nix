@@ -7,13 +7,13 @@
   flake.nixosModules.nyx = {...}: {
     imports = [
       ./_hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
       self.nixosModules.common
       self.nixosModules.dlna
       self.nixosModules.qbittorrentService
       self.nixosModules.helix
       self.nixosModules.neovim
-      self.nixosModules.downloadsPkgs
-      self.nixosModules.archivesPkgs
+      self.nixosModules.downloaders
     ];
 
     fileSystems."/media" = {
@@ -26,20 +26,20 @@
       "d /media 0777 ${config.username} users -"
     ];
 
-    boot.initrd = {
-      availableKernelModules = ["e1000e"];
-      network = {
-        enable = true;
-        ssh = {
-          enable = true;
-          authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA0fkLNNFP4Aj+CnpbpLq/uT96TZpiKKeGGtaH+9jK+ estebanheish@gmail.com"];
-          hostKeys = ["/etc/ssh/ssh_host_ed25519_key"];
-        };
-        postCommands = ''
-          echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
-        '';
-      };
-    };
+    # boot.initrd = {
+    #   availableKernelModules = ["e1000e"];
+    #   network = {
+    #     enable = true;
+    #     ssh = {
+    #       enable = true;
+    #       authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFA0fkLNNFP4Aj+CnpbpLq/uT96TZpiKKeGGtaH+9jK+ estebanheish@gmail.com"];
+    #       hostKeys = ["/etc/ssh/ssh_host_ed25519_key"];
+    #     };
+    #     postCommands = ''
+    #       echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
+    #     '';
+    #   };
+    # };
 
     networking.hostName = "nyx";
 

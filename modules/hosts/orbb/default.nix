@@ -27,11 +27,9 @@
       self.nixosModules.ssh
       self.nixosModules.nix-ld
       self.nixosModules.archEmulation
-      self.nixosModules.corePkgs
-      self.nixosModules.lspPkgs
-      self.nixosModules.downloadsPkgs
-      self.nixosModules.fancyPkgs
-      self.nixosModules.archivesPkgs
+      self.nixosModules.cli
+      self.nixosModules.development
+      self.nixosModules.downloaders
     ];
 
     home-manager.users.${config.username} = {
@@ -52,7 +50,7 @@
 
     networking.hostName = "orbb";
 
-    networking.wireless.iwd.enable = true;
+    # networking.wireless.iwd.enable = true;
 
     services.openssh = {
       enable = true;

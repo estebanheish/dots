@@ -30,11 +30,9 @@
       # self.nixosModules.nix-ld
       # self.nixosModules.hostfile
       self.nixosModules.archEmulation
-      self.nixosModules.corePkgs
-      self.nixosModules.lspPkgs
-      self.nixosModules.downloadsPkgs
-      self.nixosModules.fancyPkgs
-      self.nixosModules.archivesPkgs
+      self.nixosModules.cli
+      self.nixosModules.development
+      self.nixosModules.downloaders
       self.nixosModules.hardwareAccess
       self.nixosModules.nh
       self.nixosModules.nix-ld

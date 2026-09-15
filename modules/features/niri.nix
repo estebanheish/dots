@@ -12,6 +12,7 @@
   }: {
     imports = [
       inputs.noctalia-greeter.nixosModules.default
+      inputs.noctalia.nixosModules.default
       self.nixosModules.i2c
       self.nixosModules.foot
       self.nixosModules.desktopApps
@@ -22,36 +23,11 @@
     ];
 
     programs.niri.enable = true;
-    services.upower.enable = true;
-    services.power-profiles-daemon.enable = true;
     security.polkit.enable = true;
     services.gnome.gnome-keyring.enable = true;
 
     environment.shells = with pkgs; [nushell];
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    # services.greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
-    #       user = config.username;
-    #     };
-    #     initial_session = {
-    #       command = "niri-session";
-    #       user = config.username;
-    #     };
-    #   };
-    # };
-    programs.noctalia-greeter = {
-      enable = true;
-      settings = {
-        keyboard = {
-          layout = "us";
-          variant = "colemak";
-        };
-      };
-    };
 
     services.logind.settings.Login = {
       IdleActionSec = "60m";
@@ -64,29 +40,25 @@
     };
 
     home-manager.users.${config.username} = {config, ...}: {
+      imports = [
+        inputs.noctalia.homeModules.default
+      ];
+
       home.packages = with pkgs; [
-        brightnessctl
-        playerctl
         wl-clipboard
-        # rofi
         monaspace
         wev
         imv
-        satty
         pwvucontrol
-        xwayland-satellite
         nautilus
-        # blueman
-        # impala
         bluetui
         wiremix
-        fyi
-        inputs'.noctalia.packages.default
       ];
 
-      services = {
-        # polkit-gnome.enable = true;
-        cliphist.enable = true;
+      programs.noctalia = {
+        enable = true;
+        settings = ../../configs/noctalia/config.toml;
+        checkConfig = true;
       };
 
       xdg.configFile = {
@@ -94,6 +66,22 @@
         "niri/profile.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/${nixosConfig.config.networking.hostName}.kdl";
         "niri/extra_rules.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/extra_rules.kdl";
       };
+    };
+
+    services.displayManager.noctalia-greeter = {
+      enable = true;
+      settings = {
+        keyboard = {
+          layout = "us";
+          variant = "colemak";
+        };
+      };
+    };
+
+    programs.noctalia = {
+      enable = true;
+      systemd.enable = true;
+      recommendedServices.enable = true;
     };
   });
 }

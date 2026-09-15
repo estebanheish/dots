@@ -16,9 +16,8 @@
 
       self.nixosModules.common
       self.nixosModules.shell
-      self.nixosModules.corePkgs
-      self.nixosModules.downloadsPkgs
-      self.nixosModules.archivesPkgs
+      self.nixosModules.cli
+      self.nixosModules.downloaders
       self.nixosModules.nh
     ];
 

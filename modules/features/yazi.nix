@@ -3,8 +3,29 @@
     home-manager.users.${config.username} = {
       programs.yazi = {
         enable = true;
+        enableNushellIntegration = true;
         shellWrapperName = "y";
+        plugins = {
+          drag = pkgs.yaziPlugins.drag;
+        };
         keymap = {
+          mgr.prepend_keymap = [
+            {
+              on = ["<C-d>"];
+              run = "plugin drag";
+              desc = "Drag selected files";
+            }
+            {
+              on = ["g" "n"];
+              run = "cd /home/${config.username}/.dots";
+              desc = "Go to dotfiles";
+            }
+            {
+              on = ["g" "c"];
+              run = "cd /home/${config.username}/code";
+              desc = "Go to code";
+            }
+          ];
           input.prepend_keymap = [
             {
               on = ["<Esc>"];
@@ -47,7 +68,7 @@
         settings = {
           preview = {
             max_width = 2160;
-            max_heigh = 2160;
+            max_height = 2160;
           };
         };
         initLua = ''
@@ -56,7 +77,7 @@
           }
         '';
       };
-      home.packages = [pkgs.nerd-fonts.inconsolata]; # for icons
+      home.packages = with pkgs; [nerd-fonts.inconsolata ripdrag];
     };
   };
 }

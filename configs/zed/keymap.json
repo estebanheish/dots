@@ -29,10 +29,7 @@
     "context": "vim_mode == normal && !menu",
     "bindings": {
       "space f": "file_finder::Toggle",
-      "space s": "outline::Toggle",
-      "space S": "project_symbols::Toggle",
       "space d": "diagnostics::Deploy",
-      "space a": "editor::ToggleCodeActions",
       "space /": "pane::DeploySearch",
       "space c": "vim::ToggleComments",
       "space p": "editor::Paste",

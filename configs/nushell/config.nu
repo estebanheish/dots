@@ -27,7 +27,7 @@ $env.config.keybindings ++= [
         modifier: control
         keycode: char_y
         mode: [emacs, vi_normal, vi_insert]
-        event: { send: executeHostCommand cmd: yy }
+        event: { send: executeHostCommand cmd: y }
     }
     {
         name: cut_line_from_start
@@ -47,27 +47,15 @@ $env.PROMPT_COMMAND_RIGHT = {||
     ([$last_exit_code, (char space), (ansi purple), $env.USER, "@", (sys host | get hostname)] | str join)
 }
 
-# direnv
-$env.config.hooks.pre_prompt = [{ ||
-    if (which direnv | is-empty) {
-        return
-    }
-    direnv export json | from json | default {} | load-env
-}]
-
 $env.EDITOR = "nvim"
 $env.TERMINAL = "foot"
 $env.FILE = "yazi"
-$env.BROWSER = "librewolf"
+$env.BROWSER = "firefox"
 # $env.READER = "zathura"
 # $env.OPENER = "xdg-open"
 
 source ~/.config/nushell/aliases.nu
-source ~/.config/nushell/broot.nu
-source ~/.config/nushell/yazi.nu
-source ~/.config/nushell/zoxide.nu
 source ~/.config/nushell/completions.nu
 source ~/.config/nushell/themes/github-dark-default.nu
-source ~/.config/nushell/atuin.nu
 source ~/.config/nushell/jujutsu-completions.nu
 # source ~/.config/nushell/plugins.nu

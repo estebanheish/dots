@@ -79,7 +79,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations { off; }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -122,48 +122,29 @@ binds {
     Mod+Return { spawn "foot"; }
 
     // menu
-    // vicinae
-    // Mod+R repeat=false { spawn "vicinae" "vicinae://toggle"; }
-    // Mod+Shift+R repeat=false { spawn "vicinae" "vicinae://launch/files/search"; }
-    // Mod+V repeat=false { spawn "vicinae" "vicinae://launch/clipboard/history"; }
-    // noctalia
     Mod+R repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
-    // Mod+Shift+R repeat=false { spawn-sh ""; }
     Mod+V repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
 
-    // rofi
-    // Mod+R { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/dmenu_theme.rasi"; }
-    // Mod+V { spawn "sh" "-c" "cliphist list | rofi -dmenu -theme ~/.config/rofi/list_theme.rasi | cliphist decode | wl-copy"; }
-    // Mod+Shift+R { spawn "~/.dots/bin/abre"; }
-    
     Mod+b { spawn "firefox"; }
     Super+A repeat=false { toggle-overview; }
-    Super+0 { spawn "nu" "-c" "fyi (wl-paste | hunspell -d es_ES,en_US)"; }
 
     Mod+g { spawn-sh "noctalia msg bar-toggle"; }
 
-    // mako
+    // notis
     Mod+M { spawn-sh "noctalia msg notification-dnd-toggle"; }
     Mod+Shift+M { spawn-sh "noctalia msg notification-clear-active"; }
-    // Mod+M { spawn "nu" "-c" "wm-overlay $\"dnd((makoctl mode -t do-not-disturb) =~ \"do-not-disturb\")\""; }
-    // Mod+Shift+M { spawn "makoctl" "dismiss" "-a"; }
 
     // audio
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+; wm-overlay audio"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn "nu" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-; wm-overlay audio"; }
-    // XF86AudioMute        allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wm-overlay audio"; }
-    // XF86AudioMicMute     allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
-    // Shift+XF86AudioMute  allow-when-locked=true { spawn "nu" "-c" "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wm-overlay mic"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+    Shift+XF86AudioMute  allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
 
-    XF86AudioNext { spawn "playerctl" "next"; }
-    XF86AudioPause { spawn "playerctl" "play-pause"; }
-    XF86AudioPlay { spawn "playerctl" "play-pause"; }
-    XF86AudioPrev { spawn "playerctl" "previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
 
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
@@ -352,12 +333,15 @@ binds {
     Ctrl+Alt+Shift+Return { power-off-monitors; }
 }
 
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+}
+
 debug {
   honor-xdg-activation-with-invalid-serial
 }
 
-spawn-at-startup "noctalia"
-
-include "noctalia.kdl"
+include optional=true "noctalia.kdl"
 include "extra_rules.kdl"
 include "profile.kdl"

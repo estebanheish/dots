@@ -32,6 +32,13 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
 
+vim.opt.spelllang = "en_us,es"
+
+vim.keymap.set("n", "<leader>s", "<cmd>setlocal spell!<CR>", {
+    desc = "Toggle spell check",
+})
+vim.keymap.set("n", "gs", "z=", { desc = "Spelling suggestions" })
+
 vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
 vim.keymap.set("v", "<", "<gv", { desc = "Outdent and keep selection" })
 
@@ -51,24 +58,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.pack.add({
-    "https://github.com/vague-theme/vague.nvim",
-    "https://github.com/nvim-mini/mini.pick",
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/projekt0n/github-nvim-theme",
-    "https://github.com/sainnhe/sonokai",
     "https://github.com/rose-pine/neovim",
-    "https://github.com/loctvl842/monokai-pro.nvim",
-    "https://github.com/rebelot/kanagawa.nvim",
-    "https://github.com/scottmckendry/cyberdream.nvim",
-    "https://github.com/bluz71/vim-moonfly-colors",
-    "https://github.com/nyoom-engineering/oxocarbon.nvim",
-    "https://github.com/marko-cerovac/material.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/stevearc/oil.nvim",
-    "https://github.com/EdenEast/nightfox.nvim",
+    "https://github.com/nvim-mini/mini.pick",
     "https://github.com/nvim-mini/mini.pairs",
     "https://github.com/nvim-mini/mini.completion",
-    "https://github.com/nvim-mini/mini.snippets",
-    "https://github.com/rafamadriz/friendly-snippets"
+    "https://github.com/vague-theme/vague.nvim",
+    "https://github.com/rebelot/kanagawa.nvim",
+    "https://github.com/scottmckendry/cyberdream.nvim",
+    "https://github.com/bluz71/vim-moonfly-colors"
 })
 
 vim.cmd("colorscheme vague")
@@ -84,35 +83,12 @@ require("oil").setup()
 vim.keymap.set({ 'n' }, "<leader>e", ':Oil<CR>')
 
 require("mini.completion").setup()
-require("mini.snippets").setup()
 
-vim.lsp.enable({ 'lua_ls', 'nil_ls', 'hls', 'rust_analyzer', 'basedpyright', 'ruff', 'taplo', 'vtsls', "svelte", "eslint" })
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---     callback = function(args)
---         local client = vim.lsp.get_client_by_id(args.data.client_id)
---         if client and client:supports_method('textDocument/completion') then
---             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
---         end
---         vim.keymap.set({ "n" }, "<leader>r", vim.lsp.buf.format, { desc = "lsp format buffer" })
---         vim.keymap.set({ "n" }, "<leader>a", vim.lsp.buf.code_action, { desc = "lsp code action" })
---         vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "LSP Rename" })
---     end,
--- })
+vim.lsp.enable({ 'lua_ls', 'nixd', 'rust_analyzer', 'basedpyright', 'ruff', 'taplo', 'vtsls', "svelte", "eslint" })
 
 vim.keymap.set({ "n" }, "<leader>l", vim.diagnostic.open_float, { desc = "open diagnostics pop up" })
 
--- vim.api.nvim_create_autocmd("LspAttach", {
---     group = vim.api.nvim_create_augroup("lsp", { clear = true }),
---     callback = function(args)
---         vim.api.nvim_create_autocmd("BufWritePre", {
---             buffer = args.buf,
---             callback = function()
---                 vim.lsp.buf.format { async = false, id = args.data.client_id }
---             end,
---         })
---     end
--- })
+local format_group = vim.api.nvim_create_augroup("FormatOnSave", { clear = false })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
@@ -124,16 +100,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
 
         if client and client:supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = format_group, buffer = args.buf })
             vim.api.nvim_create_autocmd("BufWritePre", {
+                group = format_group,
                 buffer = args.buf,
                 callback = function()
                     vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
                 end,
             })
         end
-
-        vim.keymap.set("n", "<leader>r", vim.lsp.buf.format, { buffer = args.buf, desc = "lsp format buffer" })
-        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { buffer = args.buf, desc = "lsp code action" })
-        vim.keymap.set("n", "cd", vim.lsp.buf.rename, { buffer = args.buf, desc = "LSP Rename" })
     end,
 })

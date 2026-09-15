@@ -19,10 +19,8 @@
       self.nixosModules.shell
       # self.nixosModules.hostsfile
 
-      self.nixosModules.corePkgs
-      self.nixosModules.downloadsPkgs
-      self.nixosModules.fancyPkgs
-      self.nixosModules.archivesPkgs
+      self.nixosModules.cli
+      self.nixosModules.downloaders
       self.nixosModules.udiskie
     ];
 
