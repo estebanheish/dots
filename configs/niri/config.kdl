@@ -323,8 +323,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Print { spawn-sh "noctalia msg screenshot-region"; }
+    Ctrl+Print { spawn-sh "noctalia msg screenshot-fullscreen pick"; }
     Alt+Print { screenshot-window; }
 
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

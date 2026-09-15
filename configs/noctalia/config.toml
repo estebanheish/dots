@@ -60,6 +60,11 @@ global = true
 [shell.panel]
 open_near_click_control_center = true
 
+[shell.screenshot]
+annotate = true
+confirm_region = true
+skip_annotate_on_copy_save = true
+
 [widget.input_volume]
 show_label = false
 
