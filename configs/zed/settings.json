@@ -1,4 +1,7 @@
 {
+  "terminal": {
+    "font_family": "Monaspace Krypton"
+  },
   "icon_theme": {
     "mode": "light",
     "light": "Zed (Default)",
@@ -22,7 +25,7 @@
       "default_mode": "full-access"
     }
   },
-  "buffer_font_family": "Monaspace Krypton",
+  "buffer_font_family": "Monaspace Argon",
   "agent_buffer_font_size": 18.0,
   "buffer_font_weight": 400.0,
   "show_edit_predictions": false,
@@ -50,7 +53,7 @@
       "model": "gpt-5.4-pro"
     },
     "use_modifier_to_send": true,
-    "play_sound_when_agent_done": true
+    "play_sound_when_agent_done": "always"
     // "default_model": {
     //   "provider": "ollama",
     //   "model": "devstral:24b"

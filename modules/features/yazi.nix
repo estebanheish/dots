@@ -11,7 +11,7 @@
         keymap = {
           mgr.prepend_keymap = [
             {
-              on = ["<C-d>"];
+              on = ["<C-n>"];
               run = "plugin drag";
               desc = "Drag selected files";
             }
@@ -35,6 +35,10 @@
           ];
         };
         theme = {
+          flavor = {
+            dark = "noctalia";
+            light = "noctalia";
+          };
           mgr = {
             border_symbol = " ";
           };

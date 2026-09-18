@@ -73,3 +73,10 @@ show_label = false
 
 [widget.privacy]
 hide_inactive = true
+
+[theme]
+mode = "dark"
+
+[theme.templates]
+builtin_ids = ["foot", "niri"]
+community_ids = ["telegram", "fzf", "yazi"]
