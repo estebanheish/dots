@@ -35,7 +35,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Ayu Mirage"
   },
   "language_models": {
     "ollama": {}
@@ -104,6 +104,9 @@
           "arguments": ["--quiet", "--"]
         }
       }
+    },
+    "HTML": {
+      "format_on_save": "on",
     }
   },
   "auto_install_extensions": {

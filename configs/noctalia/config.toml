@@ -80,3 +80,7 @@ mode = "dark"
 [theme.templates]
 builtin_ids = ["foot", "niri"]
 community_ids = ["telegram", "fzf", "yazi"]
+
+[theme.templates.user.niri-custom]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/niri"
+output_path = "$XDG_CONFIG_HOME/niri/noctalia.kdl"

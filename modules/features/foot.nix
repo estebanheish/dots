@@ -7,7 +7,7 @@
       ];
       xdg.configFile = {
         "foot/foot.ini".source = ../../configs/foot/foot.ini;
-        # "foot/theme.ini".source = ../../configs/foot/themes/github_dark.ini;
+        "foot/theme.ini".source = ../../configs/foot/themes/github_dark.ini;
       };
     };
   };

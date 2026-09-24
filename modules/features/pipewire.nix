@@ -13,8 +13,6 @@
         enable = true;
         extraConfig."10-bluetooth-audio" = {
           "wireplumber.settings" = {
-            # Keep earbuds in high-quality A2DP mode. Select the headset
-            # profile manually in Wiremix when their microphone is needed.
             "bluetooth.autoswitch-to-headset-profile" = false;
           };
         };

@@ -23,7 +23,6 @@
         rsync
         sshfs
         wget
-        tmate
 
         # Archives
         ouch

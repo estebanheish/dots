@@ -65,6 +65,7 @@
         "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/config.kdl";
         "niri/profile.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/${nixosConfig.config.networking.hostName}.kdl";
         "niri/extra_rules.kdl".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/niri/extra_rules.kdl";
+        "noctalia/templates".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dots/configs/noctalia/templates";
       };
     };
 

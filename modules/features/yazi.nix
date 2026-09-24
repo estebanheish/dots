@@ -35,10 +35,10 @@
           ];
         };
         theme = {
-          flavor = {
-            dark = "noctalia";
-            light = "noctalia";
-          };
+          # flavor = {
+          #   dark = "noctalia";
+          #   light = "noctalia";
+          # };
           mgr = {
             border_symbol = " ";
           };
