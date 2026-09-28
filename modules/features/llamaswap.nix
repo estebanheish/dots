@@ -72,18 +72,39 @@
               "HIP_VISIBLE_DEVICES=0"
             ];
           };
-          "qwen38-q5" = {
+          "qwen35-9b" = {
             cmd = builtins.concatStringsSep " " [
               "${llama-server}"
               "--port \${PORT}"
-              "-hf unsloth/Qwen3.8-27B-GGUF:Q5_K_M"
+              "-hf unsloth/Qwen3.5-9B-GGUF:Q5_K_M"
+              "-ngl 999"
+              "-c 32768"
+              "--temp 0.7"
+              "--top-p 0.8"
+              "--top-k 20"
+              "--min-p 0.0"
+              "--presence-penalty 1.5"
+              "--repeat-penalty 1.0"
+              "--reasoning off"
+              "--reasoning-budget 0"
+            ];
+            env = [
+              "XDG_CACHE_HOME=/var/cache/llama-swap"
+              "HIP_VISIBLE_DEVICES=0"
+            ];
+          };
+          "qwen35-4b" = {
+            cmd = builtins.concatStringsSep " " [
+              "${llama-server}"
+              "--port \${PORT}"
+              "-hf unsloth/Qwen3.5-4B-GGUF:Q5_K_M"
               "-ngl 999"
               "-c 32768"
               "-fa on"
               "-np 1"
-              "--spec-type draft-mtp"
-              "--spec-draft-n-max 3"
-              "--temp 0.7"
+              "--reasoning off"
+              "--reasoning-budget 0"
+              "--temp 0.3"
               "--top-p 0.8"
               "--top-k 20"
               "--min-p 0.0"
@@ -91,13 +112,10 @@
               "--repeat-penalty 1.0"
               "-b 2048"
               "-ub 512"
-              "-t 16"
-              "-tb 16"
               "--cache-type-k q8_0"
               "--cache-type-v q8_0"
               "--jinja"
             ];
-
             env = [
               "XDG_CACHE_HOME=/var/cache/llama-swap"
               "HIP_VISIBLE_DEVICES=0"
