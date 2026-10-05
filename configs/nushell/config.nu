@@ -56,6 +56,6 @@ $env.BROWSER = "firefox"
 
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/completions.nu
-source ~/.config/nushell/themes/github-dark-default.nu
+# source ~/.config/nushell/themes/github-dark-default.nu
 source ~/.config/nushell/jujutsu-completions.nu
 # source ~/.config/nushell/plugins.nu

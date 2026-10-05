@@ -4,6 +4,9 @@ ui_scale = 1.350000012665987
 [audio]
 enable_sounds = true
 
+[backdrop]
+enabled = true
+
 [bar.default]
 end = [
     "tray",
@@ -76,10 +79,15 @@ hide_inactive = true
 
 [theme]
 mode = "dark"
+pure_black_dark = true
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
-builtin_ids = ["foot", "niri"]
-community_ids = ["telegram", "fzf", "yazi"]
+builtin_ids = ["foot"]
+community_ids = []
+enable_builtin_templates = true
+enable_community_templates = false
 
 [theme.templates.user.niri-custom]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/niri"

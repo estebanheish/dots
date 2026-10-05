@@ -73,9 +73,8 @@ def transmission-remove [] { transmission-remote -l | detect columns | where Don
 
 def sp [...txt: string] { $txt | str join " " | hunspell -d es_ES,en_US }
 
-alias zj = zellij
-alias zz = zellij --session
 alias lg = lazygit
+alias ju = jjui
 
 # wezterm
 def wt [name: string] { wezterm cli set-tab-title $name }

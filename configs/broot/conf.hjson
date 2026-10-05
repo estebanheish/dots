@@ -84,6 +84,8 @@
     # 
     quit_on_last_cancel: true
 
+    enable_kitty_keyboard: false
+
     ###############################################################
     # Search modes
     #

@@ -48,7 +48,7 @@
         wl-clipboard
         monaspace
         wev
-        imv
+        swayimg
         pwvucontrol
         nautilus
         bluetui
