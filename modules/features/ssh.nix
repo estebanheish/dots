@@ -29,6 +29,10 @@
             hostname = "192.168.18.7";
             user = "heis";
           };
+          "conqi" = {
+            hostname = "192.168.18.8";
+            user = "haros";
+          };
           "*" = {
             forwardAgent = false;
             addKeysToAgent = "no";

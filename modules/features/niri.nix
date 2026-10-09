@@ -15,6 +15,7 @@
       inputs.noctalia.nixosModules.default
       self.nixosModules.i2c
       self.nixosModules.foot
+      self.nixosModules.swayimg
       self.nixosModules.desktopApps
       self.nixosModules.desktopEntries
       self.nixosModules.binsInPath
@@ -48,7 +49,6 @@
         wl-clipboard
         monaspace
         wev
-        swayimg
         pwvucontrol
         nautilus
         bluetui
