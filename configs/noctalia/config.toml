@@ -84,9 +84,9 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
 [theme.templates]
-builtin_ids = ["foot"]
+builtin_ids = []
 community_ids = []
-enable_builtin_templates = true
+enable_builtin_templates = false
 enable_community_templates = false
 
 [theme.templates.user.niri-custom]
