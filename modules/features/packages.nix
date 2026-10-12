@@ -1,7 +1,17 @@
-{config, ...}: {
-  flake.nixosModules = {
-    cli = {pkgs, ...}: {
-      home-manager.users.${config.username}.home.packages = with pkgs; [
+{
+  self,
+  config,
+  ...
+}: {
+  flake.homeModules.cli = {
+    pkgs,
+    lib,
+    ...
+  }: let
+    linuxOnly = lib.optionals pkgs.stdenv.hostPlatform.isLinux;
+  in {
+    home.packages = with pkgs;
+      [
         # Files and navigation
         file
         fd
@@ -13,15 +23,21 @@
         duf
         dust
         bottom
+      ]
+      ++ linuxOnly [
         nethogs
         parted
         pciutils
         usbutils
         efibootmgr
-
+      ]
+      ++ [
         # Transfer and remote access
         rsync
-        sshfs
+      ]
+      # Needs macFUSE on macOS.
+      ++ linuxOnly [sshfs]
+      ++ [
         wget
 
         # Archives
@@ -40,9 +56,15 @@
         lazygit
         libqalculate
         # (libqalculate.override {gnuplot = gnuplot_qt;})
-        gnuplot_qt
-        caligula
-      ];
+      ]
+      # Brings all of Qt: too big for conqi's disk.
+      ++ linuxOnly [gnuplot_qt]
+      ++ [caligula];
+  };
+
+  flake.nixosModules = {
+    cli = {
+      home-manager.users.${config.username}.imports = [self.homeModules.cli];
     };
 
     downloaders = {pkgs, ...}: {

@@ -1,24 +1,30 @@
-{config, ...}: {
-  flake.nixosModules.broot = {pkgs, ...}: {
-    home-manager.users.${config.username} = {
-      home.packages = [pkgs.broot];
+{
+  self,
+  config,
+  ...
+}: {
+  flake.homeModules.broot = {pkgs, ...}: {
+    home.packages = [pkgs.broot];
 
-      programs.nushell.extraConfig = ''
-        source ${
-          pkgs.runCommand "broot-nushell-integration.nu"
-          {nativeBuildInputs = [pkgs.broot];}
-          ''
-            broot --print-shell-function nushell \
-              | sed 's/export def --env main/export def --env br/' \
-              > "$out"
-          ''
-        }
-      '';
+    programs.nushell.extraConfig = ''
+      source ${
+        pkgs.runCommand "broot-nushell-integration.nu"
+        {nativeBuildInputs = [pkgs.broot];}
+        ''
+          broot --print-shell-function nushell \
+            | sed 's/export def --env main/export def --env br/' \
+            > "$out"
+        ''
+      }
+    '';
 
-      xdg.configFile."broot" = {
-        source = ../../configs/broot;
-        recursive = true;
-      };
+    xdg.configFile."broot" = {
+      source = ../../configs/broot;
+      recursive = true;
     };
+  };
+
+  flake.nixosModules.broot = {
+    home-manager.users.${config.username}.imports = [self.homeModules.broot];
   };
 }
