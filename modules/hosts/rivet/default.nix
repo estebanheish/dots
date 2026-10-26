@@ -19,6 +19,7 @@
       self.nixosModules.shell
       # self.nixosModules.hostsfile
 
+      self.nixosModules.nh
       self.nixosModules.cli
       self.nixosModules.downloaders
       self.nixosModules.udiskie
