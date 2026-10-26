@@ -48,7 +48,6 @@ position_vertical = "bottom_right"
 polkit_agent = true
 show_location = false
 time_format = "{:%H}"
-ui_scale = 1.25
 
 [shell.greeter_sync]
 auto_sync = true
