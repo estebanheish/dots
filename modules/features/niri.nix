@@ -47,6 +47,7 @@
 
       home.packages = with pkgs; [
         wl-clipboard
+        xwayland-satellite
         monaspace
         wev
         pwvucontrol

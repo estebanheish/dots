@@ -61,6 +61,8 @@ in {
           enable = true;
           flake = "${config.home.homeDirectory}/.dots";
         };
+        # home-manager sets it for POSIX shells only.
+        programs.nushell.environmentVariables.NH_FLAKE = config.programs.nh.flake;
         home.stateVersion = "25.11";
       };
     };
@@ -86,7 +88,8 @@ in {
     power = {
       sleep.computer = "never";
       sleep.harddisk = "never";
-      restartAfterPowerFailure = true;
+      # Off after a power cut: FileVault needs the password at the Mac anyway.
+      restartAfterPowerFailure = false;
     };
 
     nix = {

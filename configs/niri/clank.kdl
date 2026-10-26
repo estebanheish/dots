@@ -1,6 +1,6 @@
 output "LG Electronics LG ULTRAGEAR+ 409NTSU7N942" {
-    mode "3840x2160@240.084"
-    // mode "3840x2160@120"
+    // mode "3840x2160@240.084"
+    mode "3840x2160@120"
     // mode "1920x1080@480.170"
     scale 1
     transform "normal"

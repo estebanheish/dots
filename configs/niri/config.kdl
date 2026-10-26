@@ -97,7 +97,8 @@ window-rule {
     match app-id="discord"
     match app-id="Bitwarden"
 
-    block-out-from "screen-capture"
+    // block-out-from "screen-capture"
+    block-out-from "screencast"
 }
 
 layer-rule {
